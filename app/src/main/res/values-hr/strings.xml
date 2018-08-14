@@ -1,0 +1,234 @@
+<resources>
+    <string name="app_name">Split Bus</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_nedavno">Nedavno korišteni</string>
+    <string name="title_gradski">Gradski i prigradski prijevoz</string>
+    <string name="title_prigradski">Šire prigradsko područje</string>
+    <string name="title_novosti">Novosti i obavijesti</string>
+    <string name="title_gmaps">Interaktivna karta</string>
+    <string name="title_informacije">Informacije</string>
+    <string name="title_settings">Postavke</string>
+    <string name="title_display_bus">Vozni Red</string>
+    <string name="action_kartagrad">Karta grada</string>
+    <string name="action_kartaprigrad">Prigradska karta</string>
+    <string name="action_tariffzones">Tarifne zone</string>
+
+    <!--  VozniRedovi -->
+    <string name="main_fragment_empty">U izborniku lijevo izaberite vozni red</string>
+    <string name="emptyfragment">Nisu pronađeni vozni redovi u bazi podataka, pokušajte u postavkama obrisati sve vozne redove</string>
+    <string name="db_setup">Postavljanje voznih redova, molimo sačekajte!</string>
+    <string name="db_setup_done">Uspješno postavljeni!</string>
+    <string name="db_setup_failed">Pogreška prilikom postavljanja, molimo javite se mailom!</string>
+    <string name="preuzeto">Vozni red preuzet:</string>
+    <string name="nijepreuzeto">Nije preuzet vozni red</string>
+    <string name="preuzimanje">Preuzimanje &#8230;</string>
+    <string name="nijepreuzet">Neuspjelo preuzimanje, provjerite internet</string>
+    <string name="action_preuzmi">Preuzmi novi</string>
+    <string name="action_ruta">Prikaži rutu</string>
+
+    <!-- DisplayBus -->
+    <string name="share">Podijeli s prijateljima</string>
+    <string name="title_activity_gmaps1">Prikaži rutu na karti</string>
+    <string name="snackbar_storage_denied">Bez dopuštenja za pohranu aplikacija ne može spremati i prikazivati vozne redove</string>
+    <string name="snackbar_ok">OK</string>
+    <string name="snackbar_storage_allowed">Dopušteno, preuzmite ponovno vozni red</string>
+    <string name="errorloadingimage"><i>Greška kod prikaza fotografije! Provjerite jeste li dopustili aplikaciji pohranu na internu memoriju.</i></string>
+
+    <!-- Novosti -->
+    <string name="errorloading"><i>Greška kod učitavanja novosti! Provjerite radi li vam internet</i></string>
+
+    <!-- InteraktivnaKarta -->
+    <string name="nijejos">Nije još napravljeno, očekujte u sljedećim nadogradnjama :)</string>
+    <string name="menu_prijava">Prijavi pogrešku</string>
+    <string name="warningpopup">Radi preglednosti karte izvan grada prikazane su samo krajnje autobusne stanice. Isto tako prigradske linije nemaju naviku stajati na većini gradskih stanica stoga su i te stanice izostavljene na kartama. \n\nStanice i rute sam ja crtao pa je moguće da postoje pogreške, posebice za prigradske linije. Ukoliko je nešto krivo možete prijavite pogrešku pa ću to ispraviti u sljedećim nadogradnjama. \n\nHvala vam na razumijevanju</string>
+    <string name="permission_altert_title">Potrebno je dopuštenje</string>
+    <string name="permission_altert_message">Kako bi Vas aplikacija locirala na interaktivnoj karti potrebno je odobriti lokaciju</string>
+
+    <!-- Informacije -->
+    <string name="informacije_prometsplit_naslov">Promet Split Web</string>
+    <string name="informacije_prometsplit_opis">Ako ne radi aplikacija potražite vozne redove na službenoj Prometovoj Stranici</string>
+    <string name="informacije_gmaps_naslov">Interaktivna karta</string>
+    <string name="informacije_gmaps_opis">Koristi Google Maps karte za prikaz svih stanica i označava rute koje prolaze njima. Dolazi u nadolazećim nadogradnjama.</string>
+    <string name="informacije_karta_grad_naslov">Karta gradskih linije</string>
+    <string name="informacije_karta_grad_opis">Svi dijelovi grada Splita povezani su gustom mrežom autobusnih linija</string>
+    <string name="informacije_karta_prigrad_naslov">Karta prigradskih linija</string>
+    <string name="informacije_karta_prigrad_opis">Na usluzi putnika osim gradskih autobusnih linija na raspolaganju stoji i više od 30 linija prigradskog i šireg gradskog prometa</string>
+    <string name="informacije_tarifne_zone_naslov">Tarifne zone</string>
+    <string name="informacije_tarifne_zone_opis">Autobusni promet na području grada Splita i okolice je podijeljen na četiri Tarifne zone</string>
+    <string name="informacije_parking_naslov">Parking</string>
+    <string name="informacije_parking_opis">Prikaz javnih Parking površina</string>
+    <string name="informacije_garaze_naslov">Garaže</string>
+    <string name="informacije_garaze_opis">Prikaz lokacija na kojima se nalaze javne garaže</string>
+
+    <!-- Postavke -->
+    <string name="pref_general">Općenito</string>
+    <string name="pref_alwaysdownload">Uvijek preuzimaj</string>
+    <string name="pref_alwaysdownload_summary">Ako je uključeno aplikacija će uvijek preuzimati novi vozni red. U slučaju da nema interneta prikazivat će se posljednje preuzeti vozni red</string>
+    <string name="pref_obrisi">Izbriši vozne redove</string>
+    <string name="pref_obrisi_summary">Brisanje svih dosad skinutih voznih redova, te poništavanje postavki aplikacije</string>
+    <string name="pref_obrisi_alert_title">Jeste li sigurni?</string>
+    <string name="pref_obrisi_alert_msg">Izbrisati ćete sve dosad preuzete vozne redove i poništiti postavke aplikacije</string>
+    <string name="pref_obrisi_alert_yes">Izbriši</string>
+    <string name="pref_obrisi_alert_cancel">Odustani</string>
+    <string name="obrisano">Uspješno izbrisano</string>
+    <string name="pref_open_url">Otvori linkove unutar aplikacije</string>
+    <string name="pref_open_url_summary">Umjesto u pregledniku vanjski linkovi otvaraju se unutar aplikacije</string>
+    <string name="pref_traffic">Promet</string>
+    <string name="pref_traffic_summary">Prikaži stanje u prometu i prohodnosti cesta</string>
+    <string name="pref_gmaps">Izgled karte</string>
+    <string name="pref_gmaps_summary">Odaberite izgled interaktivne karte</string>
+    <string name="pref_gmapstanice_title">Uključi stanice</string>
+    <string name="pref_gmapstanice_summary">Prikaži stanice izabrane autobusne rute</string>
+    <string name="pref_information">Informacije</string>
+    <string name="pref_about">O aplikaciji</string>
+    <string name="pref_about_summary">Opis, promjene, prijave bugova i ostale informacije</string>
+
+    <!-- About -->
+    <string name="appversion">Verzija:</string>
+    <string name="builddate">04.09.2017</string>
+    <string name="aboutapp">Split Bus prikazuje vozne redove svih gradskih i prigradskih linija Promet Splita. Sve slike voznih redova te karti grada vlasništvo je prijevoznika <b>Promet Split d.o.o.</b></string>
+    <string name="facebook">Facebook</string>
+    <string name="changelog">Promjene</string>
+    <string name="changelogcontent">Verzija 2.1.3 &#8211; 04.09.2017 \n*Android O 8.0 podrška \n*Ispravljen dio voznih redova \nNAPOMENA: Promet Split je počeo sasvim nenajavljeno mijenjati linkove voznih redova pa kako se budu mijenjali moram ih i ja ručno u aplikaciji. Zbog tog je lako moguće da će određeni ostati neažurirani u prijelaznom periodu. Unaprijed se ispričavam ako dođe do takvih slučajeva i obavezno ih prijavite putem maila.  \n\n Verzija 2.1.2 &#8211; 18.08.2017 \n*Ispravljen dio voznih redova \nNAPOMENA: Promet Split je počeo sasvim nenajavljeno mijenjati linkove voznih redova pa kako se budu mijenjali moram ih i ja ručno u aplikaciji. Zbog tog je lako moguće da će određeni ostati neažurirani u prijelaznom periodu. Unaprijed se ispričavam ako dođe do takvih slučajeva i obavezno ih prijavite putem maila.  \n\n Verzija 2.1.1 &#8211; 06.07.2017 \n*Novi logo aplikacije \n*Ispravci pogrešaka \n\n Verzija 2.1.0 &#8211; 23.05.2017 \n*Dodana mogućnost preuzimanja svih voznih redovak \n*Dodana mogućnost preuzimanja cjenika \n*Novi linkovi za garaže i parking \n*Redizajnirane informacije \n*Ispravljena linija br. 27 \n*Ostali manji ispravci \n\n Verzija 2.0.0 &#8211; 31.08.2016 \n*Redizajnirana aplikacija, implementiran navigacijski izbornik \n*Dodani \'Nedavno korišteni\' vozni redovi \n*Dodana mogućnost dijeljenja voznog reda \n*Dodana javna parking mjesta u informacijama \n*Dodano stanje prometa na interaktivnoj karti \n*Dodane linije 73, 76, 77, 80, 81, 86 na interaktivnoj karti \n*Novi izgled za tablete \n*Podrška za Android M (dopuštenja)\n*Podrška za Android N (multi-window) \n*Ostale sitnije promjene i ispravci pogreški \n\n Verzija 1.5.0 &#8211; 09.06.2015 \n*Dodana opcija u postavkama \'Uvijek preuzimaj\' \n*Dodana sekcija \'Informacije\' \n*Dodane linije 30, 36, 37, 60, 67, 68, 69, 71, 72  na interaktivnoj karti \n*Dodane odredišne stanice prigradskih linija na interaktivnoj karti \n*Dodana opcija za prijavu pogrešnih podataka na interaktivnoj karti \n*Poboljšan izgled za tablete \n*Unaprijeđen izgled aplikacije \n*Prepisan veći dio koda stoga ima manjih promjena svugdje \n*Ispravljena (nadam se) rušenja aplikacije na nekim uređajima (HTC Desire 200 i 610, Alcatel One Touch itd.)\n\n Verzija 1.4.3 &#8211; 17.02.2015 \n*Dodana opcija u postavkama za preuzimanje svih voznih redova \n*Manje promjene \n\n Verzija 1.4.2 &#8211; 06.01.2015 \n*Uređen dizajn (neke nove ikone) \n*Dodane linije 31, 32, 33, 39, 40, 37 na interaktivnoj karti \n*Nadogradnje na interaktivnoj karti \n*Ispravci prikazivanja voznih redova za neke uređaje \n\n Verzija 1.4.1 &#8211; 04.10.2014 \n*Material Design iz nove verzije Androida (5.0 Lollipop) \n*Nova linija Širina - Bubići (ako je ne vidite otiđite u Postavke -> Izbriši sve vozne redove) \n*Razni popravci \n\n Verzija 1.4.0 &#8211; 24.09.2014 \n*Novi način preuzimanja voznih redova \n*Zasad izgašen žuti status bar (Android 4.4) \n*Split Bus sad zahtjeva minimalno Android 4.0 \n*Razni popravci \n\n Verzija 1.3.9 \n*Pripreme za verziju 1.4.0 \n*Novi vozni redovi \n\n Verzija 1.3.8 \n*Novi vozni redovi \n\n Verzija 1.3.7 \n*Novi vozni redovi \n*Popravljena rušenja \n\n Verzija 1.3.6 \n*Popravci za uređaje na Androidu 2.2 i 2.3 (Action Bar vraćen) \n*Novi vozni red linije br. 18 \n*Poboljšane slike unutar aplikacije \n\n Verzija 1.3.5 \n*Ispravljena pogreška za uređaje na Androidu 2.2 i 2.3 \n\n Verzija 1.3.4 \n*Dodane linije 25, 26, 27, 28, 29 na interaktivnoj karti \n*Dodana nova linija Bubići - Širina \n*Novi vozni redovi \n*Pročišćen kod i ispravljene pogreške \n\n Verzija 1.3.2 \n*Novi vozni redovi(kraj školske godine) \n\n Verzija 1.3.1 \n*Dodane linije 21, 22, 23 i 24 na interaktivnoj karti \n*Novi vozni red linije br. 5 \n\n Verzija 1.3.0 \n*Dodane novosti i obavijesti \n*Novi vozni redovi \n*Novi izgled za tablete \n*Ostale sitne promjene \n\n Verzija 1.2.6 \n*Uključen Action Bar za uređaje s Androidom 2.2 i 2.3 \n*Novi vozni redovi \n\n Verzija 1.2.4 \n*Novi vozni redovi \n\n Verzija 1.2.3 \n*Novi vozni redovi zbog Uskršnjih praznika \n*Dodane linije 14, 15, 16, 17 i 18 na interaktivnoj karti \n*Bugfixes \n\n Verzija 1.2.2 \n*Dodane linije 1, 10, 11 i 12 na interaktivnoj karti \n*Puno ispravljenih pogreški \n*Novi vozni red 9-ke \n*U postavkama dodan link za Split Bus Facebook stranicu \n\n Verzija 1.2.0 \n*Nova interaktivna karta s rutama pojedinih linija i pripadnim stanicama (Android 3.0+) \n*Nove opcije u postavkama (vezane uz interaktivnu kartu) \n*Online mod je po defaultu sad uključen \n*Novi vozni redovi \n\n Verzija 1.1.6 \n*Novi vozni redovi \n*Sad aplikacija prikazuje loading bar kod učitavanja voznih redova s interneta \n*Ostale sitne promjene \n\n Verzija 1.1.5 \n*Mali redizajn, sad je navigation bar žuti! :) (Android 4.0+) \n*Žuti status bar (Android 4.4+) \n*Dok je uključen online mod vozni redovi se sad otvaraju unutar aplikacije (zbog ovog aplikacija sad zahtjeva internet pristup) \n*Novi vozni redovi \n*Karte su sad više rezolucije za starije uređaje \n*Ostale sitne promjene \n\nVerzija 1.1.0 \n*Novi vozni redovi \n*Dodan online mod \n*Dodane tarifne zone \n*Android 4.4 (KitKat) podrška \n*Ostale sitne promjene \n\nVerzija 1.0.6 \n*Novi vozni redovi zbog blagdanskih redukcija \n*Sitni popravci \n\nVerzija 1.0.5 \n*Promjene kod linija 5A i 38 \n\nVerzija 1.0.4 \n*Bolji izgled za tablete \n*Manje izmjene \n\nVerzija 1.0.3 \n*Dodana nova linija 5A \n\nVerzija 1.0.2 \n*Dodani Otok Šolta i Trogirski busevi \n*Osvježeni svi vozni redovi \n*Manje ispravke </string>
+    <string name="licenses">Licence</string>
+    <string name="licensescontent">Korišteni libraryi:\n<a href="https://github.com/chrisbanes/PhotoView">PhotoView</a>(<a href="https://raw.githubusercontent.com/chrisbanes/PhotoView/master/LICENSE">Licenca</a>)</string>
+    <string name="close">Zatvori</string>
+    <string name="devname">Antonio Marin</string>
+    <string name="aboutdev">Aplikaciju napisao i održava <b>Antonio Marin</b>.\nZa sve komentare, prijedloge i prijave bugova koristite kontakt.</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">GitHub</string>
+    <string name="contact">Kontakt</string>
+
+    <!-- Accessibility -->
+    <string name="opisloga">Split Bus logo</string>
+    <string name="opisoblaka">Nema internet veze</string>
+    <string name="opisvoznogreda">Vozni red odabranog busa</string>
+    <string name="opismenutipke">Menu tipka</string>
+    <string name="navdrawopen">Otvori</string>
+    <string name="navdrawclose">Zatvori</string>
+
+    <!--  Gradski busevi -->
+    <string name="bus1">1 Starine - HNK - Starine</string>
+    <string name="bus2">2 K.Sućurac - Tr.luka - K.Suć.</string>
+    <string name="bus31">3 Lovrinac - Brda</string>
+    <string name="bus32">3 Brda - Lovrinac</string>
+    <string name="bus5">5 Dračevac - HNK - Dračevac</string>
+    <string name="bus51">5A Dračevac - Solin - Visoka - HNK - Dračevac</string>
+    <string name="bus6">6 Kila - Vukovarska - HNK - Kila</string>
+    <string name="bus7">7 Žnjan - Zvončac - Žnjan</string>
+    <string name="bus8">8 Žnjan - Trž. - Zvončac - Žnjan</string>
+    <string name="bus9">9 Ravne Njive - Tr. luka - Ravne Njive</string>
+    <string name="bus10">10 Japirko - Tr. luka - Japirko</string>
+    <string name="bus11">11 Ravne Njive - HNK - Ravne Njive</string>
+    <string name="bus121">12 Sv.Frane - Bene</string>
+    <string name="bus122">12 Bene - Meje - Sv.Frane</string>
+    <string name="bus14">14 Ravne Njive - Dubrov. - HNK - Ravne Njive</string>
+    <string name="bus15">15 Duilovo - Žnjan - Tr.luka - Duilovo</string>
+    <string name="bus16">16 Ninčevići - HNK - Ninčevići</string>
+    <string name="bus17">17 Spinut - Lora - Trstenik - Lora - Spinut</string>
+    <string name="bus18">18 Brnik - HNK - Brnik</string>
+    <string name="bus20">20 Ravne Njive - Zvončac</string>
+    <string name="bus21">21 Sv.Frane - Meje - Sv.Frane</string>
+    <string name="bus22">22 Klis Megdan - HNK - Klis Megdan</string>
+    <string name="bus23">23 (N) HNK - Solin - HNK</string>
+    <string name="bus241">24 Split - TTTS</string>
+    <string name="bus242">24 TTTS - Split</string>
+    <string name="bus251">25 Split - Stobreč</string>
+    <string name="bus252">25 Stobreč - Split</string>
+    <string name="bus261">26 Split - Kamen</string>
+    <string name="bus262">26 Kamen - Split</string>
+    <string name="bus271">27 Split - Korešnica - Žrnovnica</string>
+    <string name="bus272">27 Žrnovnica - Korešnica - Split</string>
+    <string name="bus281">28 Split - Sitno Gornje - Dubrava</string>
+    <string name="bus282">28 Dubrava - Sitno Gornje - Split</string>
+    <string name="bus291">29 Split - Tugare - Naklice</string>
+    <string name="bus292">29 Naklice - Tugare - Split</string>
+    <string name="bus301">30 Split - Mutogras - Split</string>
+    <string name="bus302">30 Mutogras - Split</string>
+    <string name="bus311">31 Split - Vranjic</string>
+    <string name="bus312">31 Vranjic - Split</string>
+    <string name="bus321">32 Split - Kučine</string>
+    <string name="bus322">32 Kučine - Split</string>
+    <string name="bus331">33 Split - Kosa</string>
+    <string name="bus332">33 Kosa - Split</string>
+    <string name="bus341">34 Split - Klis</string>
+    <string name="bus342">34 Klis - Split</string>
+    <string name="bus39">39 (N) Lora - Poljička - TTTS - Lora</string>
+    <string name="bus40">40 (N) Tr.luka - Kila - Tr.luka</string>
+
+    <!--  Prigradski busevi -->
+    <string name="bus351">35 Split - Dugopolje</string>
+    <string name="bus352">35 Dugopolje - Split</string>
+    <string name="bus361">36 Split - Koprivno</string>
+    <string name="bus362">36 Koprivno - Split</string>
+    <string name="bus371">37 Split - Aerodrom - Trogir</string>
+    <string name="bus372">37 Trogir - Aerodrom - Split</string>
+    <string name="trostdirekt1">Split - Trogir *direkt</string>
+    <string name="trostdirekt2">Trogir - Split *direkt</string>
+    <string name="bus381">38 Split - Kaštel Stari - Resnik </string>
+    <string name="bus382">38 Resnik - Kaštel Stari - Split </string>
+    <string name="bus601">60 Split - Omiš - Ravnički most</string>
+    <string name="bus602">60 Ravnički most - Omiš - Split</string>
+    <string name="bus671">67 Split - Kotlenice - Dolac g.</string>
+    <string name="bus672">67 Dolac g. - Kotlenice - Split</string>
+    <string name="bus681">68 Split - Tugare - Šestanovac</string>
+    <string name="bus682">68 Šestanovac - Tugare - Split</string>
+    <string name="bus691">69 Split - Bisko - Šestanovac</string>
+    <string name="bus692">69 Šestanovac - Bisko - Split</string>
+    <string name="bus711">71 Split - Neorić - Sutina</string>
+    <string name="bus712">71 Sutina - Neorić - Split </string>
+    <string name="bus721">72 Split - Neorić - Zelovo</string>
+    <string name="bus722">72 Zelovo - Neorić - Split</string>
+    <string name="bus731">73 Split - Muć - Ogorje</string>
+    <string name="bus732">73 Ogorje - Muć - Split</string>
+    <string name="bus761">76 Split - Crivac - Kljaci</string>
+    <string name="bus762">76 Kljaci - Crivac - Split</string>
+    <string name="bus771">77 Split - Muć - Crivac</string>
+    <string name="bus772">77 Crivac - Muć - Split</string>
+    <string name="bus801">80 Split - Kljaci - Drniš</string>
+    <string name="bus802">80 Drniš - Kljaci - Split</string>
+    <string name="bus811">81 Split - Brštanovo - Nisko</string>
+    <string name="bus812">81 Nisko - Brštanovo - Split</string>
+    <string name="bus861">86 Split - Lećevica - Kladnjice</string>
+    <string name="bus862">86 Kladnjice - Lećevica - Split</string>
+    <string name="bus900">90 Sitno - Bogdanovići - Radošić - K. Stari</string>
+    <string name="bus911">91 K. Stari - Plano - Prim. Dolac - Divojevići</string>
+    <string name="bus912">91 Divojevići - Prim. Dolac - Plano - K. Stari</string>
+    <string name="bus931">93 K. Stari - Tešije - Šerići</string>
+    <string name="bus932">93 Šerići - Tešije - K. Stari</string>
+    <string name="kstarizelj">K. Stari - Željeznička stanica</string>
+    <string name="zeljkstari">Željeznička stanica - K. Stari</string>
+    <string name="rudinekstari">Rudine - Kaštel stari</string>
+    <string name="kstarirudine">Kaštel stari - Rudine</string>
+
+
+    <!-- Placeholders -->
+    <string name="preuzimanje_opis">Preuzima se, molimo pričekajte!</string>
+    <string name="menu_placeholder">Uskoro dolazi</string>
+    <string name="nav_placeholder">O aplikaciji</string>
+    <string name="radni_dan">Radni dan</string>
+    <string name="subota">Subota</string>
+    <string name="nedjelja">Nedjelja</string>
+    <string name="notice_title">Obavijest!</string>
+    <string name="notice_content"><b>Prije svega ispričavam se zbog prekida u radu Split Busa koji su se događalli u posljednje vrijeme. Ukratko, pošto vidim da ovo dosad nije baš imalo smisla odsad će aplikacija raditi malo drukčije, malo ružnije, ali ne bi trebalo biti više prekida.</b>
+\n\nZa ove žele znati malo više, pokušat ću pojasniti u par rečenica što se događalo. Split Bus dosad je uvijek preuzimao podatke s Prometove internet stranice, tako da sam znao da se vozni red pojedinog busa nalazi na točnoj toj adresi i onda bi aplikacija preuzimala otud. Zbog nekog razloga na novoj Prometovoj stranici to više nije moguće jer se linkovi konstantno mijenjaju. Ja namjestim na jedne, za tjedan dana na njihovoj stranici se to promjeni i aplikacija prestane raditi.
+\n\nČuo sam se s njima vezano uz to, dobio sam odgovor da se malo strpim, da i dalje rade na stranici, te da sam ionako neovlašteno preuzimao podatke. Ja ionako nemam nikakve materijalne koristi od ovog, aplikacija je besplatna, nema reklama, bila je na putu da postane open source, pa mi je prošlo kroz glavu da dignem ruke od svega, ali opet mislim da to nitko ne bi želio. Dok oni ne srede stranicu, ili dok ja ne smislim bolji način za ovo sve, a imam par ideja zasad će aplikacija raditi ovako.
+\n\n<b>Zahvaljujem na razumijevanju, Antonio Marin</b></string>
+    <string name="nav_favoriti">Favoriti</string>
+    <string name="nav_grad_split">Gradske linije</string>
+    <string name="nav_urbano_podrucje">Urbano područje</string>
+    <string name="nav_prigradske">Prigradske linije</string>
+    <string name="nav_trogir_solta">Trogir i Šolta</string>
+    <string name="snackbar_favorites_add">Vozni red je dodan u favorite!</string>
+    <string name="snackbar_favorites_remove">Vozni red je uklonjen iz favorita!</string>
+    <string name="changelog_title">Promjene</string>
+    <string name="changelog_content">Verzija 2.3.0 &#8211; 22.07.2018 \n* Dodane novosti i obavijesti u izborniku \n\n Verzija 2.2.2 &#8211; 29.05.2018 \n* Ispravke pogrešaka, nadam se da sam uspio popraviti i rušenja koja se događaju na nekim uređajima. Javite se mailom ako imate i dalje problema. \n* Pošto sam mijenjao strukturu voznih redova resetat će vam se i favoriti.
+        \n\nVerzija 2.2.1 &#8211; 22.05.2018 \n* Vraćeni Favoriti (Nedavno korišteni) \n* Dodane linije za Trogir i Šoltu\n* Popravljena rušenja na starijim uređajima (Android 4.4)
+        \n\n Verzija 2.2.0 &#8211; 17.05.2018 \n* Aplikacija prilagođena novoj Prometovoj internet stranici\n* Detaljnije je opisano unutar aplikacije\n</string>
+
+</resources>

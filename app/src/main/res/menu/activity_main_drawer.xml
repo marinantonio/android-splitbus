@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_recent"
+            android:icon="@drawable/ic_draw_nedavno"
+            android:title="@string/nav_favoriti" />
+        <item
+            android:id="@+id/nav_urban"
+            android:icon="@drawable/ic_draw_gradski"
+            android:title="@string/nav_grad_split" />
+        <item
+            android:id="@+id/nav_urban_area"
+            android:icon="@drawable/ic_draw_gradski"
+            android:title="@string/nav_urbano_podrucje" />
+        <item
+            android:id="@+id/nav_suburban"
+            android:icon="@drawable/ic_draw_prigradski"
+            android:title="@string/nav_prigradske" />
+        <item
+            android:id="@+id/nav_trogir_solta"
+            android:icon="@drawable/ic_draw_prigradski"
+            android:title="@string/nav_trogir_solta" />
+    </group>
+    <group android:id="@+id/novosti"
+        android:checkableBehavior="single">
+        <item android:id="@+id/nav_novosti"
+            android:icon="@drawable/ic_draw_novosti"
+            android:title="@string/title_novosti" />
+
+        <item android:id="@+id/nav_informacije"
+            android:icon="@drawable/ic_draw_informacije"
+            android:title="@string/title_informacije" />
+    </group>
+
+
+
+
+<!--    <group android:id="@+id/ostalo">
+        <item android:id="@+id/nav_item_one"
+            android:icon="@drawable/ic_draw_prigradski"
+            android:title="Novosti" />
+        <item android:id="@+id/nav_item_two"
+            android:icon="@drawable/ic_draw_prigradski"
+            android:title="Informacije" />
+        <item android:id="@+id/nav_item_three"
+            android:icon="@drawable/ic_draw_prigradski"
+            android:title="Interaktivna Karta" />
+    </group>-->
+
+    <group android:id="@+id/postavke"
+        android:checkableBehavior="single">
+        <item android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_draw_postavke"
+            android:title="@string/notice_title" />
+    </group>
+
+</menu>

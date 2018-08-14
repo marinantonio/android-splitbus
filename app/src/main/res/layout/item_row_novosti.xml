@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tv_naslov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/linija"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:paddingStart="@dimen/content_padding"
+        android:paddingLeft="@dimen/content_padding"
+        android:paddingEnd="40dp"
+        android:paddingRight="40dp"
+        android:textColor="@color/nazivlinijelist" />
+
+    <TextView
+        android:id="@+id/tv_datum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_naslov"
+        android:textSize="@dimen/preuzeto"
+        android:paddingStart="@dimen/content_padding"
+        android:paddingLeft="@dimen/content_padding"
+        android:paddingEnd="1sp"
+        android:paddingRight="1sp"
+        android:layout_marginBottom="2dp"
+        android:textColor="@color/nazivlinijelist" />
+
+    <TextView
+        android:id="@+id/tv_sazetak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_datum"
+        android:textSize="@dimen/preuzeto"
+        android:paddingStart="@dimen/content_padding"
+        android:paddingLeft="@dimen/content_padding"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/sivapreuzeto" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_below="@id/item_name" />
+
+</RelativeLayout>

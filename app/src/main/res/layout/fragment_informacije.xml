@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.am.stbus.fragments.InformacijeFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_informacije"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</android.support.design.widget.CoordinatorLayout>

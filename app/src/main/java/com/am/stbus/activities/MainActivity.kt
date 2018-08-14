@@ -1,0 +1,143 @@
+package com.am.stbus.activities
+
+import android.os.Bundle
+import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
+import android.view.View
+import com.am.stbus.R
+import com.am.stbus.fragments.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
+
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    var currentSelectedPosition: Int = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        displayView(R.id.nav_recent)
+        updatePosition(0)
+
+        val toggle = object : ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                super.onDrawerSlide(drawerView, 0f) // disabled arrow animation
+                updatePosition(currentSelectedPosition)
+            }
+        }
+
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+        nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    fun updatePosition(position: Int) {
+        val menu = nav_view.menu
+        menu.getItem(position).isChecked = true
+    }
+
+    private fun displayView(viewId: Int) {
+        var fragment: Fragment? = null
+        val args = Bundle()
+
+        when (viewId) {
+
+            R.id.nav_recent -> {
+                currentSelectedPosition = 0
+                fragment = MainFragment()
+                title = getString(R.string.nav_favoriti)
+            }
+
+            R.id.nav_urban -> {
+                currentSelectedPosition = 1
+                fragment = RecyclerViewFragment()
+                title = getString(R.string.nav_grad_split)
+                args.putInt("ARGUMENT_PODRUCJE", 1)
+                fragment.setArguments(args)
+            }
+
+            R.id.nav_urban_area -> {
+                currentSelectedPosition = 2
+                fragment = RecyclerViewFragment()
+                title = getString(R.string.nav_urbano_podrucje)
+                args.putInt("ARGUMENT_PODRUCJE", 2)
+                fragment.setArguments(args)
+            }
+
+            R.id.nav_suburban -> {
+                currentSelectedPosition = 3
+                fragment = RecyclerViewFragment()
+                title = getString(R.string.nav_prigradske)
+                args.putInt("ARGUMENT_PODRUCJE", 3)
+                fragment.setArguments(args)
+            }
+
+            R.id.nav_trogir_solta -> {
+                currentSelectedPosition = 4
+                fragment = RecyclerViewFragment()
+                title = getString(R.string.nav_trogir_solta)
+                args.putInt("ARGUMENT_PODRUCJE", 4)
+                fragment.setArguments(args)
+            }
+
+            R.id.nav_novosti -> {
+                currentSelectedPosition = 5
+                fragment = NovostiListFragment()
+                title = getString(R.string.title_novosti)
+            }
+
+            R.id.nav_informacije -> {
+                currentSelectedPosition = 6
+                fragment = InformacijeFragment()
+                title = getString(R.string.title_informacije)
+            }
+
+            R.id.nav_settings -> {
+                currentSelectedPosition = 7
+                fragment = ObavijestFragment()
+                title = getString(R.string.notice_title)
+            }
+        }
+
+        if (fragment != null) {
+            val ft = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.content_frame, fragment)
+            //ft.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK)
+            ft.commit()
+        }
+
+        // set the toolbar title
+        if (supportActionBar != null) {
+            supportActionBar!!.title = title
+        }
+
+        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        drawer.closeDrawer(GravityCompat.START)
+
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        displayView(item.itemId)
+        return true
+    }
+
+    override fun onStop() {
+        super.onStop()
+        drawer_layout.closeDrawer(GravityCompat.START)
+    }
+
+}

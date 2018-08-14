@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffee58</color>
+    <color name="colorPrimaryDark">#e5d330</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="nazivlinijelist">#181818</color>
+    <color name="sivapreuzeto">#787878</color>
+    <color name="alertdialogtext">#1f1f1f</color>
+    <color name="colorText">#181818</color>
+    <color name="bijela">#ffffff</color>
+    <color name="primary_text">#212121</color>
+    <color name="divider">#e0e0e0</color>
+    <color name="crna">#000000</color>
+</resources>

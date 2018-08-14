@@ -1,0 +1,268 @@
+<resources>
+    <string name="app_name">Split Bus</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_nedavno">Recently used</string>
+    <string name="title_gradski">Urban area</string>
+    <string name="title_prigradski">Suburban area</string>
+    <string name="title_novosti">Latest news</string>
+    <string name="title_informacije">Informations</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_display_bus">Timetable</string>
+    <string name="action_kartagrad">City map</string>
+    <string name="action_kartaprigrad">Suburban map</string>
+    <string name="action_tariffzones">Tariff zones</string>
+
+    <!--  VozniRedovi -->
+    <string name="main_fragment_empty">Choose timetable from navigation drawer on left</string>
+    <string name="emptyfragment">Unable to find any timetables. Try to delete all in settings</string>
+    <string name="db_setup">Timetables setting up, please wait!</string>
+    <string name="db_setup_done">Successful!</string>
+    <string name="db_setup_failed">Error occurred, please report on mail!</string>
+    <string name="preuzeto">Downloaded:</string>
+    <string name="nijepreuzeto">Press to download</string>
+    <string name="preuzimanje">Downloading &#8230;</string>
+    <string name="nijepreuzet">Failed to download, check internet connection</string>
+    <string name="action_preuzmi">Download new</string>
+    <string name="action_ruta">Show route</string>
+
+    <!-- DisplayBus -->
+    <string name="share">Share with friends</string>
+    <string name="title_activity_gmaps1">Display route on map</string>
+    <string name="snackbar_storage_denied">Without permissionss app is unable to store timetables</string>
+    <string name="snackbar_ok">OK</string>
+    <string name="snackbar_storage_allowed">Allowed, download timetable again</string>
+    <string name="errorloadingimage"><i>Unable to display timetable! Check app permissions.</i></string>
+
+    <!-- Novosti -->
+    <string name="errorloading">Unable to load news! Check your internet connection</string>
+
+    <!-- InteraktivnaKarta -->
+    <string name="nijejos">Not finished yet! :(</string>
+    <string name="menu_prijava">Report wrong data</string>
+    <string name="warningpopup">For ease of viewing outside of city interactive map only shows end bus stations. Also most of suburban bus lines don\'t stop at the urban city bus stations so they\'re not shown on map as well. \n\nSince I cannot find anywhere exact bus routes and station locations there can be some wrong map data. If you notice any please report using \'Report wrong data\' option below. \nThank you for your understanding</string>
+    <string name="permission_altert_title">Location Permission Needed</string>
+    <string name="permission_altert_message">This app needs the Location permission, please accept to use location functionality</string>
+
+    <!-- Informacije -->
+    <string name="informacije_prometsplit_naslov">Promet Split Website</string>
+    <string name="informacije_prometsplit_opis">If Split Bus doesn\'t work please check timetables on the official Promet Split website</string>
+    <string name="informacije_gmaps_naslov">Interactive map</string>
+    <string name="informacije_gmaps_opis">Displays all bus routes and stops on the interactive Google Maps map inside the app. This part is still in works and it will be available in future releases</string>
+    <string name="informacije_karta_grad_naslov">Urban area</string>
+    <string name="informacije_karta_grad_opis">All parts of the city are connected by a dense network of bus lines</string>
+    <string name="informacije_karta_prigrad_naslov">Suburban area</string>
+    <string name="informacije_karta_prigrad_opis">Except urban city bus lines at the service of passengers there\'s more than a 30 suburban bus lines</string>
+    <string name="informacije_tarifne_zone_naslov">Tariff zones</string>
+    <string name="informacije_tarifne_zone_opis">Bus traffic in the city of Split and the surrounding area has been divided into four tariff zones</string>
+    <string name="informacije_parking_naslov">Parking</string>
+    <string name="informacije_parking_opis">Map displaying all public car parking sites</string>
+    <string name="informacije_garaze_naslov">Garage</string>
+    <string name="informacije_garaze_opis">Map displaying locations of all public car garages</string>
+
+    <!-- Postavke -->
+    <string name="pref_general">General</string>
+    <string name="pref_alwaysdownload">Always download</string>
+    <string name="pref_alwaysdownload_summary">If enabled app will always download a new timetable from the internet. In case there\'s no internet access app will show last downloaded one</string>
+    <string name="pref_obrisi">Delete timetables</string>
+    <string name="pref_obrisi_summary">Delete all stored timetables and reset app settings</string>
+    <string name="pref_obrisi_alert_title">Are you sure?</string>
+    <string name="pref_obrisi_alert_msg">You\'re about to delete all stored timetables and reset app settings</string>
+    <string name="pref_obrisi_alert_yes">Delete</string>
+    <string name="pref_obrisi_alert_cancel">Cancel</string>
+    <string name="obrisano">Successfully deleted</string>
+    <string name="pref_open_url">Open URLs inside app</string>
+    <string name="pref_open_url_summary">URLs open inside app in custom chrome tabs</string>
+    <string name="pref_traffic">Traffic</string>
+    <string name="pref_traffic_summary">Display traffic info on interactive map</string>
+    <string name="pref_gmaps">Map style</string>
+    <string name="pref_gmaps_summary">Choose your map style</string>
+    <string name="pref_gmapstanice_title">Bus stops</string>
+    <string name="pref_gmapstanice_summary">Show bus stops for selected route</string>
+    <string name="pref_information">Information</string>
+    <string name="pref_about">About</string>
+    <string name="pref_about_summary">Description, changes, bug reports and other app related information</string>
+
+    <!-- About -->
+    <string name="appversion">Version:</string>
+    <string name="builddate">04.09.2017</string>
+    <string name="aboutapp">Split Bus app displays all Promet Split bus timetables. All timetable pictures and city maps are property of <b>Promet Split d.o.o.</b></string>
+    <string name="facebook">Facebook</string>
+    <string name="changelog">Changelog</string>
+    <string name="changelogcontent">Version 2.1.3 &#8211; 04.09.2017 \n*Android O 8.0 support\n*Fixed some timetables\nNOTICE: Promet Split suddenly started to change timetable urls. In order to keep app updated I have to manually update them in app, so it might happen that app is unable to display latest timetable. I\'m sorry for inconveniences that this might cause. If you notice anything feel free to report on mail. \n\nVersion 2.1.2 &#8211; 18.08.2017 \n*Fixed some timetables\nNOTICE: Promet Split suddenly started to change timetable urls. In order to keep app updated I have to manually update them in app, so it might happen that app is unable to display latest timetable. I\'m sorry for inconveniences that this might cause. If you notice anything feel free to report on mail.\n\n Version 2.1.1 &#8211; 06.07.2017 \n*New app logo \n*Bugfixes \n\n Version 2.1.0 &#8211; 23.05.2017 \n*Added ability to download all timetables \n*Added ability to download ticket pricelist \n*Added new links for parkings and garages \n*Redesigned informations \n*Fixed line number 27 \n*Ostali minor fixes \n\n Version 2.0.0 &#8211; 31.08.2016 \n*App redesigned, implemented navigation drawer \n*Added \'Recently used\' timetables \n*Added ability to share timetable \n*Added public parking spots to Informations \n* Added traffic info to Interactive map \n*Added lines 73, 76, 77, 80, 81, 86 to Interactive map \n*New tablet layout \n*Support for Android M (permissions)\n*Support for Android N (multi-window) \n*Other minor changes and bugfixes \n\n Version 1.5.0 &#8211; 09.06.2015 \n*Added new option in settings \'Always download\' \n*Added section \'Informations\' \n*Added lines 30, 36, 37, 60, 67, 68, 69, 71, 72 to interactive map \n*Added end stations on interactive map \n*Added new option for reporting wrong interactive map data \n*Improved tablet layout \n*Improved app design \n*Rewritten most of code so you can expect more minor changes\n*Hopefully fixed crashes occurring on some devices (HTC Desire 200 and 610, Alcatel One Touch etc.)\n\n Version 1.4.3 &#8211; 17.02.2015 \n*Added option to download all timetables in settings menu \n*Minor tweaks \n\n Version 1.4.2 &#8211; 06.01.2015 \n*Tweaked design (new icons) \n*Added lines 31, 32, 33, 39, 40, 37 to interactive map \n*Updates to interactive map \n*Bugfixes for some devices \n\n Version 1.4.1 &#8211; 04.10.2014 \n*New Material Design from Android 5.0 Lollipop \n*New bus line Širina - Bubići (if line dosent appear go to Settings -> Delete timetables) \n*Minor tweaks \n\n Version 1.4.0 &#8211; 24.09.2014 \n*New timetable app layout \n*Disabled tinted status bar for now (Android 4.4) \n*Split Bus now requires Android 4.0 \n*Bugfixes \n\n Version 1.3.9 \n*Preparations for 1.4.0 launch \n*New timetables \n\n Version 1.3.8 \n*New timetables \n\n Version 1.3.7 \n*New timetables \n*Fixed crashes \n\n Version 1.3.6 \n*Improved Android 2.2 and 2.3 support (Action Bar is back) \n*New timetable for line number 18 \n*Higher quality app images \n\n Version 1.3.5 \n*Bugfixes for Android devices running 2.2 i 2.3 \n\n Version 1.3.4 \n*Added routes for lines 25, 26, 27, 28, 29 to interactive map \n*Added new bus line Bubići - Širina \n*New timetables \n*Code cleanup and bugfixes \n\n Version 1.3.2 \n*New timetables \n\n Version 1.3.1 \n*Added routes for lines 21, 22, 23 and 24 to interactive map \n*New timetable for line number 5 \n\n Version 1.3.0 \n*Added latest news \n*New timetables \n*New tablet layout \n*Other minor changes \n\n Version 1.2.6 \n*Action Bar now available for devices running Android 2.2 and 2.3 \n*New timetables \n\n Version 1.2.4 \n*New timetables \n\n Version 1.2.3 \n*New timetables for Eastern holidays \n* Added lines 14, 15, 16, 17 and 18 to interactive map \n*Bugfixes \n\n Version 1.2.2 \n*Added lines 1, 10, 11 and 12 to interactive map \n*Many bug fixes \n*New timetable for line 9 \n*Added url in settings for Split Bus Facebook page \n\n Version 1.2.0 \n*New interactive map with bus routes and their stops (Android 3.0+) \n*New options in settins (for interactive map) \n*Online mod is enabled by default \n*New timetables \n\n Version 1.1.6 \n*New timetables \n*Added Loading bar in Online mode \n*Other minor tweaks \n\n Version 1.1.5 \n*Redesign, navigation bar is yellow now! :) (Android 4.0+) \n*Yellow status bar (Android 4.4+) \n*While Online mode is enabled, timetables will now open within app \n*New timetables \n*Higher resolution maps for older devices \n*Other minor changes \n\nVersion 1.1.0 \n*New timetables \n*Added online mod \n*Added tariff zones \n*Android 4.4 (KitKat) support \n*Other minor changes \n\nVersion 1.0.6 \n*New and updated timetables \n*Minor fixes \n\nVersion 1.0.5 \n*New and updated timetables for 5A and 38 buses \n\nVersion 1.0.4 \n*Better tablet layout \n*Minor tweaks \n\nVersion 1.0.3 \n*Added new bus line 5A \n\nVersion 1.0.2 \n*Added Šolta island and Trogir buses \n*Updated all timetables \n*Small tweaks and fixes</string>
+    <string name="licenses">Licences</string>
+    <string name="licensescontent">Used libraries:\n<a href="https://github.com/chrisbanes/PhotoView">PhotoView</a>(<a href="https://raw.githubusercontent.com/chrisbanes/PhotoView/master/LICENSE">Licence</a>)</string>
+    <string name="close">Close</string>
+    <string name="devname">Antonio Marin</string>
+    <string name="aboutdev">App written and maintained by Antonio Marin.\nFor feedback and bugreports please use contact.</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">GitHub</string>
+    <string name="contact">Contact</string>
+
+    <!-- Accessibility -->
+    <string name="opisloga">Split Bus logo</string>
+    <string name="opisoblaka">No internet connection</string>
+    <string name="opisvoznogreda">Selected bus timetable</string>
+    <string name="opismenutipke">Menu button</string>
+    <string name="navdrawopen">Open</string>
+    <string name="navdrawclose">Close</string>
+
+    <!-- Gradski busevi -->
+    <string name="bus1">1 Starine - HNK - Starine</string>
+    <string name="bus2">2 K.Sućurac - Ferry Port - K.Suć.</string>
+    <string name="bus31">3 Lovrinac - Brda</string>
+    <string name="bus32">3 Brda - Lovrinac</string>
+    <string name="bus5">5 Dračevac - HNK - Dračevac</string>
+    <string name="bus51">5A Dračevac - Solin - Visoka - HNK - Dračevac</string>
+    <string name="bus6">6 Kila - Vukovarska - HNK - Kila</string>
+    <string name="bus7">7 Žnjan - Zvončac - Žnjan</string>
+    <string name="bus8">8 Žnjan - City - Zvončac - Žnjan</string>
+    <string name="bus9">9 Ravne Njive - Ferry Port - Ravne Njive</string>
+    <string name="bus10">10 Japirko - Ferry Port - Japirko</string>
+    <string name="bus11">11 Ravne Njive - HNK - Ravne Njive</string>
+    <string name="bus121">12 Sv.Frane - Bene</string>
+    <string name="bus122">12 Bene - Meje - Sv.Frane</string>
+    <string name="bus14">14 Ravne Njive - Dubrov. - HNK - Ravne Njive</string>
+    <string name="bus15">15 Duilovo - Žnjan - Ferry Port - Duilovo</string>
+    <string name="bus16">16 Ninčevići - HNK - Ninčevići</string>
+    <string name="bus17">17 Spinut - Lora - Trstenik - Lora - Spinut</string>
+    <string name="bus18">18 Brnik - HNK - Brnik</string>
+    <string name="bus20">20 Ravne Njive - Zvončac</string>
+    <string name="bus21">21 Sv.Frane - Meje - Sv.Frane</string>
+    <string name="bus22">22 Klis Megdan - HNK - Klis Megdan</string>
+    <string name="bus23">23 (N) HNK - Solin - HNK</string>
+    <string name="bus241">24 Split - TTTS</string>
+    <string name="bus242">24 TTTS - Split</string>
+    <string name="bus251">25 Split - Stobreč</string>
+    <string name="bus252">25 Stobreč - Split</string>
+    <string name="bus261">26 Split - Kamen</string>
+    <string name="bus262">26 Kamen - Split</string>
+    <string name="bus271">27 Split - Korešnica - Žrnovnica</string>
+    <string name="bus272">27 Žrnovnica - Korešnica - Split</string>
+    <string name="bus281">28 Split - Sitno Gornje - Dubrava</string>
+    <string name="bus282">28 Dubrava - Sitno Gornje - Split</string>
+    <string name="bus291">29 Split - Tugare - Naklice</string>
+    <string name="bus292">29 Naklice - Tugare - Split</string>
+    <string name="bus301">30 Split - Mutogras - Split</string>
+    <string name="bus302">30 Mutogras - Split</string>
+    <string name="bus311">31 Split - Vranjic</string>
+    <string name="bus312">31 Vranjic - Split</string>
+    <string name="bus321">32 Split - Kučine</string>
+    <string name="bus322">32 Kučine - Split</string>
+    <string name="bus331">33 Split - Kosa</string>
+    <string name="bus332">33 Kosa - Split</string>
+    <string name="bus341">34 Split - Klis</string>
+    <string name="bus342">34 Klis - Split</string>
+    <string name="bus39">39 (N) Lora - Poljička - TTTS - Lora</string>
+    <string name="bus40">40 (N) Ferry Port - Kila - Ferry Port</string>
+
+    <!-- Prigradski busevi -->
+    <string name="bus351">35 Split - Dugopolje</string>
+    <string name="bus352">35 Dugopolje - Split</string>
+    <string name="bus361">36 Split - Koprivno</string>
+    <string name="bus362">36 Koprivno - Split</string>
+    <string name="bus371">37 Split - Airport - Trogir</string>
+    <string name="bus372">37 Trogir - Airport - Split</string>
+    <string name="trostdirekt1">Split - Trogir *direct</string>
+    <string name="trostdirekt2">Trogir - Split *direct</string>
+    <string name="bus381">38 Split - Kaštel Stari - Resnik </string>
+    <string name="bus382">38 Resnik - Kaštel Stari - Split </string>
+    <string name="bus601">60 Split - Omiš - Ravnički most</string>
+    <string name="bus602">60 Ravnički most - Omiš - Split</string>
+    <string name="bus671">67 Split - Kotlenice - Dolac g.</string>
+    <string name="bus672">67 Dolac g. - Kotlenice - Split</string>
+    <string name="bus681">68 Split - Tugare - Šestanovac</string>
+    <string name="bus682">68 Šestanovac - Tugare - Split</string>
+    <string name="bus691">69 Split - Bisko - Šestanovac</string>
+    <string name="bus692">69 Šestanovac - Bisko - Split</string>
+    <string name="bus711">71 Split - Neorić - Sutina</string>
+    <string name="bus712">71 Sutina - Neorić - Split </string>
+    <string name="bus721">72 Split - Neorić - Zelovo</string>
+    <string name="bus722">72 Zelovo - Neorić - Split</string>
+    <string name="bus731">73 Split - Muć - Ogorje</string>
+    <string name="bus732">73 Ogorje - Muć - Split</string>
+    <string name="bus761">76 Split - Crivac - Kljaci</string>
+    <string name="bus762">76 Kljaci - Crivac - Split</string>
+    <string name="bus771">77 Split - Muć - Crivac</string>
+    <string name="bus772">77 Crivac - Muć - Split</string>
+    <string name="bus801">80 Split - Kljaci - Drniš</string>
+    <string name="bus802">80 Drniš - Kljaci - Split</string>
+    <string name="bus811">81 Split - Brštanovo - Nisko</string>
+    <string name="bus812">81 Nisko - Brštanovo - Split</string>
+    <string name="bus861">86 Split - Lećevica - Kladnjice</string>
+    <string name="bus862">86 Kladnjice - Lećevica - Split</string>
+    <string name="bus900">90 Sitno - Bogdanovići - Radošić - K. Stari</string>
+    <string name="bus911">91 K. Stari - Plano - Prim. Dolac - Divojevići</string>
+    <string name="bus912">91 Divojevići - Prim. Dolac - Plano - K. Stari</string>
+    <string name="bus931">93 K. Stari - Tešije - Šerići</string>
+    <string name="bus932">93 Šerići - Tešije - K. Stari</string>
+    <string name="kstarizelj">K. Stari - Train station</string>
+    <string name="zeljkstari">Train station - K. Stari</string>
+    <string name="rudinekstari">Rudine - Kaštel stari</string>
+    <string name="kstarirudine">Kaštel stari - Rudine</string>
+
+
+    <!-- Trogir -->
+    <string name="bus411">41 Trogir - Plano - Maljkovići</string>
+    <string name="bus412">41A Maljkovići - Plano - Trogir</string>
+    <string name="bus421">42 Trogir - Slatine</string>
+    <string name="bus422">42A Slatine - Trogir</string>
+    <string name="bus441">44 Trogir - Okrug Donji</string>
+    <string name="bus442">44A Okrug Donji - Trogir</string>
+    <string name="bus451">45 Trogir - Hotel Medena - Vranjica</string>
+    <string name="bus452">45 Vranjica - Hotel Medena - Trogir</string>
+    <string name="bus47">47 Trogir - Hotel Medena - Vrsine - Marina - Trogir</string>
+    <string name="bus48">48 Trogir - Hotel Medena - Marina - Dograde - Vrsine - Trogir</string>
+    <string name="bus491">49 Trogir - Hotel Medena - Vinišće</string>
+    <string name="bus492">49A Vinišće - Hotel Medena - Trogir</string>
+    <string name="bus501">50 Trogir - Hotel Medena - Sevid</string>
+    <string name="bus502">50A Trogir - Hotel Medena - Trogir</string>
+    <string name="bus511">51 Trogir - Ljubitovica</string>
+    <string name="bus512">51A Ljubitovica - Trogir</string>
+    <string name="bus521">52 Trogir - Vinovac</string>
+    <string name="bus522">52A Vinovac - Trogir</string>
+
+    <!-- Trogir -->
+    <string name="buss1">(Š) Maslinica - Donje Selo - Srednje Selo - Grohote - Rogač Trogir - Plano - Maljkovići</string>
+    <string name="buss2">(Š) Rogač - Grohote - Srednje Selo - Donje Selo - Maslinica</string>
+    <string name="buss3">(Š) Stomorska - Gornje Selo - Nečujam - Grohote - Rogač</string>
+    <string name="buss4">(Š) Rogač - Grohote - Nečujam - Gornje Selo - Stomorska</string>
+    <string name="buss5">(Š) Trogir - Plano - Maljkovići</string>
+
+    <!-- Placeholders -->
+    <string name="preuzimanje_opis">Fetching latest data, please hold on!</string>
+
+    <string name="menu_placeholder">Coming soon</string>
+    <string name="nav_placeholder">About app</string>
+    <string name="radni_dan">Work day</string>
+    <string name="subota">Saturday</string>
+    <string name="nedjelja">Sunday</string>
+    <string name="notice_title">Notice!</string>
+    <string name="notice_content">Recently Split Bus have stopped working because Promet Split released a new website. They\'ve done it without any announcement
+    and this caught me in surprise. In this short period I\'ve developed a new app with a brand new timetable format based on their redesigned website.
+    \n\nYou\'ll notice some features are missing (interactive maps, information section, settings) but they should appear soon in following updates.
+    \n\nIf you encounter any major bugs please report them using button below \n<b>Antonio</b></string>
+
+    <string name="nav_favoriti">Favourites</string>
+    <string name="nav_grad_split">City buses</string>
+    <string name="nav_urbano_podrucje">Urban area</string>
+    <string name="nav_prigradske">Suburban area</string>
+    <string name="nav_trogir_solta">Trogir and Šolta</string>
+    <string name="snackbar_favorites_add">Timetable added to the favourites!</string>
+    <string name="snackbar_favorites_remove">Timetable removed from the favourites!</string>
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_content">Version 2.3.0 &#8211; 22.07.2018 \n* Implemented news section (Croatian only) \n\n Version 2.2.2 &#8211; 29.05.2018 \n* Bugfixes, hopefully fixed force closes on some devices, if they still occur please report them at email \n* Favourites will reset since I\'ve changed db structure
+        \n\nVersion 2.2.1 &#8211; 22.05.2018 \n* Favourites are back!\n* Introduced Trogir and Šolta timetables\n* Fixed crashes on older Android 4.4 devices
+        \n\n Version 2.2.0 &#8211; 17.05.2018 \n* App now supports new Promet Split website\n* Detailed description inside the app\n</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_novost">Novosti</string>
+    <string name="title_activity_slike">SlikeActivity</string>
+
+</resources>
+

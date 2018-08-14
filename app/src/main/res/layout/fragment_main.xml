@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.am.stbus.fragments.MainFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="0dp"
+        android:paddingStart="@dimen/content_padding"
+        android:paddingLeft="@dimen/content_padding"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp" >
+
+        <TextView
+            android:id="@+id/svi_vozni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notice_title"
+            android:textSize="@dimen/linija"
+            android:textStyle="bold"
+            android:textColor="@color/nazivlinijelist" />
+
+        <TextView
+            android:id="@+id/svi_vozni_opis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/svi_vozni"
+            android:text="@string/notice_content"
+            android:textSize="@dimen/preuzeto"
+            android:textColor="@color/sivapreuzeto" />
+
+        <Button
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/svi_vozni_opis"
+            android:text="@string/contact" />
+
+        <TextView
+            android:id="@+id/changelog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/changelog_title"
+            android:textSize="@dimen/linija"
+            android:layout_below="@+id/contact"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/nazivlinijelist" />
+
+        <TextView
+            android:id="@+id/changelog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/changelog_title"
+            android:text="@string/changelog_content"
+            android:textSize="@dimen/preuzeto"
+            android:textColor="@color/sivapreuzeto" />
+
+    </RelativeLayout>
+</ScrollView>

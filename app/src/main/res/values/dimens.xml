@@ -1,0 +1,78 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!-- Glavna margina za sve activitye - sirina sivih rubova -->
+
+    <!-- MainActivity -->
+
+    <!-- NovostiActivity -->
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="content_paddingTop">12dp</dimen>
+    <dimen name="content_paddingBottom">12dp</dimen>
+    <dimen name="tekstsize">15sp</dimen>
+    <dimen name="imgtopmargin">100sp</dimen>
+
+    <!-- Gradski i Prigradski RecyclerView -->
+    <dimen name="linija">20sp</dimen>
+    <dimen name="preuzeto">15sp</dimen>
+    <integer name="list_columns">1</integer>
+
+    <!-- Informacije -->
+
+
+    <!-- TABLET LAYOUTS -->
+
+    <!-- zajednicke vrijednosti za 600dp i 720dp -->
+    <!-- Informacije -->
+    <dimen name="inf_contentSeparator">60sp</dimen>
+
+
+    <!-- w600dp 7"+ tableti-->
+    <!-- Glavna margina za sve activitye - sirina sivih rubova -->
+
+    <!-- MainActivity -->
+
+    <!-- NovostiActivity -->
+    <dimen name="tekstsize600">16sp</dimen>
+    <dimen name="imgtopmargin600">300sp</dimen>
+
+    <!-- Informacije -->
+
+
+    <!-- w600dp LAND-->
+    <!-- Glavna margina za sve activitye - sirina sivih rubova -->
+
+    <!-- MainActivity -->
+
+    <!-- NovostiActivity -->
+    <dimen name="content_padding600land">12dp</dimen>
+    <dimen name="imgtopmargin600land">140sp</dimen>
+
+    <!-- Informacije -->
+
+
+    <!-- w720dp 10" tableti-->
+    <!-- Glavna margina za sve activitye - sirina sivih rubova -->
+
+    <!-- MainActivity -->
+
+    <!-- NovostiActivity -->
+    <dimen name="tekstsize720">16sp</dimen>
+    <dimen name="imgtopmargin720">400sp</dimen>
+
+
+    <!-- v720dp-land vrijednosti -->
+    <!-- Glavna margina za sve activitye - sirina sivih rubova -->
+
+    <!-- MainActivity -->
+
+    <!-- NovostiActivity -->
+    <dimen name="imgtopmargin720land">200sp</dimen>
+
+</resources>
