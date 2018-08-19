@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_urban -> {
                 currentSelectedPosition = 1
-                fragment = RecyclerViewFragment()
+                fragment = VozniRedoviListFragment()
                 title = getString(R.string.nav_grad_split)
                 args.putInt("ARGUMENT_PODRUCJE", 1)
                 fragment.setArguments(args)
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_urban_area -> {
                 currentSelectedPosition = 2
-                fragment = RecyclerViewFragment()
+                fragment = VozniRedoviListFragment()
                 title = getString(R.string.nav_urbano_podrucje)
                 args.putInt("ARGUMENT_PODRUCJE", 2)
                 fragment.setArguments(args)
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_suburban -> {
                 currentSelectedPosition = 3
-                fragment = RecyclerViewFragment()
+                fragment = VozniRedoviListFragment()
                 title = getString(R.string.nav_prigradske)
                 args.putInt("ARGUMENT_PODRUCJE", 3)
                 fragment.setArguments(args)
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_trogir_solta -> {
                 currentSelectedPosition = 4
-                fragment = RecyclerViewFragment()
+                fragment = VozniRedoviListFragment()
                 title = getString(R.string.nav_trogir_solta)
                 args.putInt("ARGUMENT_PODRUCJE", 4)
                 fragment.setArguments(args)

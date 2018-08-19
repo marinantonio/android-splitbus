@@ -17,7 +17,7 @@ https://www.techotopia.com/index.php/A_Kotlin_Android_SQLite_Database_Tutorial
 class DatabaseHandler(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private val DATABASE_VERSION = 8 // 1 je bilo u prosloj live verziji
+        private val DATABASE_VERSION = 9 // 1 je bilo u prosloj live verziji
         private val DATABASE_NAME = "splitbusDB.db"
         private val TABLE_VOZNI = "vozniredovi"
 

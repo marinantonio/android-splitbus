@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.am.stbus.R
-import com.am.stbus.activities.DisplayBusActivity
-import com.am.stbus.fragments.RecyclerViewFragment
+import com.am.stbus.activities.VozniRedActivity
+import com.am.stbus.fragments.VozniRedoviListFragment
 import com.am.stbus.helpers.DatabaseHandler
 import com.am.stbus.helpers.Utils
 import com.am.stbus.models.VozniRed
@@ -24,10 +24,10 @@ class VozniRedAdapter constructor (context: Context?, private var items: ArrayLi
     private val context: Context? = context
     private lateinit var vozniRed: List<VozniRed>
     private lateinit var db: DatabaseHandler
-    private var activity: RecyclerViewFragment? = null
-    //var show = RecyclerViewFragment() LEGACY KAD SAM ONO NEŠT TAMO POKUŠAVA
+    private var activity: VozniRedoviListFragment? = null
+    //var show = VozniRedoviListFragment() LEGACY KAD SAM ONO NEŠT TAMO POKUŠAVA
     //private var progressBar: ProgressBar = progress_bar
-    var send = RecyclerViewFragment()
+    var send = VozniRedoviListFragment()
 
 
 /*    override fun onClick(v: View?) {
@@ -84,7 +84,7 @@ class VozniRedAdapter constructor (context: Context?, private var items: ArrayLi
                 val nedavno = items[pos].nedavno
                 Log.e("podrucje", podrucje.toString())
 
-                val intent = Intent(context, DisplayBusActivity::class.java)
+                val intent = Intent(context, VozniRedActivity::class.java)
                 intent.putExtra("naziv", naziv)
                 intent.putExtra("web", web)
                 intent.putExtra("gmaps", gmaps)

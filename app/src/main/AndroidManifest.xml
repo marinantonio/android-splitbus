@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.DisplayBusActivity"
+            android:name=".activities.VozniRedActivity"
             android:label="@string/title_display_bus"
             android:theme="@style/AppTheme.NoActionBarActivites" />
         <activity

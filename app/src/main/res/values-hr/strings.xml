@@ -112,30 +112,30 @@
     <string name="navdrawopen">Otvori</string>
     <string name="navdrawclose">Zatvori</string>
 
-    <!--  Gradski busevi -->
+    <!-- Gradski busevi -->
     <string name="bus1">1 Starine - HNK - Starine</string>
-    <string name="bus2">2 K.Sućurac - Tr.luka - K.Suć.</string>
+    <string name="bus2">2 K.Sućurac (Strinje) - HNK - K.Sućurac</string>
     <string name="bus31">3 Lovrinac - Brda</string>
     <string name="bus32">3 Brda - Lovrinac</string>
     <string name="bus5">5 Dračevac - HNK - Dračevac</string>
     <string name="bus51">5A Dračevac - Solin - Visoka - HNK - Dračevac</string>
     <string name="bus6">6 Kila - Vukovarska - HNK - Kila</string>
     <string name="bus7">7 Žnjan - Zvončac - Žnjan</string>
-    <string name="bus8">8 Žnjan - Trž. - Zvončac - Žnjan</string>
-    <string name="bus9">9 Ravne Njive - Tr. luka - Ravne Njive</string>
-    <string name="bus10">10 Japirko - Tr. luka - Japirko</string>
-    <string name="bus11">11 Ravne Njive - HNK - Ravne Njive</string>
-    <string name="bus121">12 Sv.Frane - Bene</string>
-    <string name="bus122">12 Bene - Meje - Sv.Frane</string>
-    <string name="bus14">14 Ravne Njive - Dubrov. - HNK - Ravne Njive</string>
-    <string name="bus15">15 Duilovo - Žnjan - Tr.luka - Duilovo</string>
+    <string name="bus8">8 Žnjan - Tržnica - Zvončac - Tržnica - Žnjan</string>
+    <string name="bus9">9 Ravne Njive - Tr.Luka - Ravne Njive</string>
+    <string name="bus10">10 Japirko - HNK - Japirko</string>
+    <string name="bus11">11 Ravne Njive-Pujanke-HNK-Ravne Njive</string>
+    <string name="bus121">12 Sv. Frane - Bene</string>
+    <string name="bus122">12 Bene - (Meje) - Sv.Frane</string>
+    <string name="bus14">14 Ravne Njive-Dubrovačka-HNK</string>
+    <string name="bus15">15 Duilovo - Žnjan - Tr. Luka - Duilovo</string>
     <string name="bus16">16 Ninčevići - HNK - Ninčevići</string>
-    <string name="bus17">17 Spinut - Lora - Trstenik - Lora - Spinut</string>
+    <string name="bus17">17 Spinut - Lora - Trstenik - Lora -Spinut</string>
     <string name="bus18">18 Brnik - HNK - Brnik</string>
     <string name="bus20">20 Ravne Njive - Zvončac</string>
     <string name="bus21">21 Sv.Frane - Meje - Sv.Frane</string>
-    <string name="bus22">22 Klis Megdan - HNK - Klis Megdan</string>
-    <string name="bus23">23 (N) HNK - Solin - HNK</string>
+    <string name="bus22">22 Klis Megdan-G.Rupotina-HNK-Klis Megdan</string>
+    <string name="bus23">23 HNK  -  Solin  -  HNK</string>
     <string name="bus241">24 Split - TTTS</string>
     <string name="bus242">24 TTTS - Split</string>
     <string name="bus251">25 Split - Stobreč</string>
@@ -144,49 +144,49 @@
     <string name="bus262">26 Kamen - Split</string>
     <string name="bus271">27 Split - Korešnica - Žrnovnica</string>
     <string name="bus272">27 Žrnovnica - Korešnica - Split</string>
-    <string name="bus281">28 Split - Sitno Gornje - Dubrava</string>
-    <string name="bus282">28 Dubrava - Sitno Gornje - Split</string>
+    <string name="bus281">28 Split - Sitno G. - Dubrava</string>
+    <string name="bus282">28 Dubrava - Sitno G. - Split</string>
     <string name="bus291">29 Split - Tugare - Naklice</string>
     <string name="bus292">29 Naklice - Tugare - Split</string>
-    <string name="bus301">30 Split - Mutogras - Split</string>
-    <string name="bus302">30 Mutogras - Split</string>
+    <string name="bus301">30 Split - Podstrana (Mutogras) - Split</string>
+    <string name="bus302">30 Podstrana (Mutogras ) - Split</string>
     <string name="bus311">31 Split - Vranjic</string>
     <string name="bus312">31 Vranjic - Split</string>
     <string name="bus321">32 Split - Kučine</string>
     <string name="bus322">32 Kučine - Split</string>
     <string name="bus331">33 Split - Kosa</string>
     <string name="bus332">33 Kosa - Split</string>
-    <string name="bus341">34 Split - Klis</string>
-    <string name="bus342">34 Klis - Split</string>
-    <string name="bus39">39 (N) Lora - Poljička - TTTS - Lora</string>
-    <string name="bus40">40 (N) Tr.luka - Kila - Tr.luka</string>
+    <string name="bus341">34 Split - Klis (Megdan)</string>
+    <string name="bus342">34 Klis (Megdan) - Split</string>
+    <string name="bus39">39 Lora - Poljička - TTTS - Lora</string>
+    <string name="bus40">40 Traj. Luka - Kila - Traj. Luka</string>
 
-    <!--  Prigradski busevi -->
+    <!-- Prigradski busevi -->
     <string name="bus351">35 Split - Dugopolje</string>
     <string name="bus352">35 Dugopolje - Split</string>
     <string name="bus361">36 Split - Koprivno</string>
     <string name="bus362">36 Koprivno - Split</string>
-    <string name="bus371">37 Split - Aerodrom - Trogir</string>
-    <string name="bus372">37 Trogir - Aerodrom - Split</string>
-    <string name="trostdirekt1">Split - Trogir *direkt</string>
-    <string name="trostdirekt2">Trogir - Split *direkt</string>
-    <string name="bus381">38 Split - Kaštel Stari - Resnik </string>
-    <string name="bus382">38 Resnik - Kaštel Stari - Split </string>
+    <string name="bus371">37 Split - Airport - Trogir</string>
+    <string name="bus372">37 Trogir - Airport - Split</string>
+    <string name="trostdirekt1">Split - Trogir *direct</string>
+    <string name="trostdirekt2">Trogir - Split (direktna)</string>
+    <string name="bus381">38 Split - K. Stari - Resnik </string>
+    <string name="bus382">38 Resnik - K. Stari - Split </string>
     <string name="bus601">60 Split - Omiš - Ravnički most</string>
     <string name="bus602">60 Ravnički most - Omiš - Split</string>
-    <string name="bus671">67 Split - Kotlenice - Dolac g.</string>
-    <string name="bus672">67 Dolac g. - Kotlenice - Split</string>
-    <string name="bus681">68 Split - Tugare - Šestanovac</string>
-    <string name="bus682">68 Šestanovac - Tugare - Split</string>
-    <string name="bus691">69 Split - Bisko - Šestanovac</string>
-    <string name="bus692">69 Šestanovac - Bisko - Split</string>
+    <string name="bus671">67 Split - Kotlenice - Dolac d. - Dolac g.</string>
+    <string name="bus672">67 Dolac g. - Dolac d. - Kotlenice - Split</string>
+    <string name="bus681">68 Split-Tugare-Blato-Šestanovac</string>
+    <string name="bus682">68 Šestanovac-Blato-Tugare-Split</string>
+    <string name="bus691">69 Split-Bisko-Trnbusi-Blato-Šestanovac</string>
+    <string name="bus692">69 Šestanovac-Blato-Trnbusi-Bisko-Split</string>
     <string name="bus711">71 Split - Neorić - Sutina</string>
     <string name="bus712">71 Sutina - Neorić - Split </string>
     <string name="bus721">72 Split - Neorić - Zelovo</string>
     <string name="bus722">72 Zelovo - Neorić - Split</string>
-    <string name="bus731">73 Split - Muć - Ogorje</string>
-    <string name="bus732">73 Ogorje - Muć - Split</string>
-    <string name="bus761">76 Split - Crivac - Kljaci</string>
+    <string name="bus731">73 Split-Muć / Muć-Ogorje</string>
+    <string name="bus732">73 Ogorje - Muć / Muć - Split</string>
+    <string name="bus761">76 Split - Crivac- Kljaci</string>
     <string name="bus762">76 Kljaci - Crivac - Split</string>
     <string name="bus771">77 Split - Muć - Crivac</string>
     <string name="bus772">77 Crivac - Muć - Split</string>
@@ -194,17 +194,45 @@
     <string name="bus802">80 Drniš - Kljaci - Split</string>
     <string name="bus811">81 Split - Brštanovo - Nisko</string>
     <string name="bus812">81 Nisko - Brštanovo - Split</string>
-    <string name="bus861">86 Split - Lećevica - Kladnjice</string>
-    <string name="bus862">86 Kladnjice - Lećevica - Split</string>
-    <string name="bus900">90 Sitno - Bogdanovići - Radošić - K. Stari</string>
-    <string name="bus911">91 K. Stari - Plano - Prim. Dolac - Divojevići</string>
-    <string name="bus912">91 Divojevići - Prim. Dolac - Plano - K. Stari</string>
-    <string name="bus931">93 K. Stari - Tešije - Šerići</string>
-    <string name="bus932">93 Šerići - Tešije - K. Stari</string>
-    <string name="kstarizelj">K. Stari - Željeznička stanica</string>
-    <string name="zeljkstari">Željeznička stanica - K. Stari</string>
+    <string name="bus861">86 Split - Konjsko - Lećevica - Kladnjice</string>
+    <string name="bus862">86 Kladnjice - Lećevica - Konjsko - Split</string>
+    <string name="bus900">90 Sitno - Bogdanovići - Radošić - Malačka - K. Stari</string>
+    <string name="bus911">91 K. Stari - Plano - Primorski Dolac - Sitno - Bogdanovići - Divojevići</string>
+    <string name="bus912">91 Divojevići - Bogdanovići - Sitno - Primorski Dolac - Plano - K. Stari</string>
+    <string name="bus931">93 K. Stari - Malačka - Tešije - Đirlići - Šerići</string>
+    <string name="bus932">93 Šerići - Đirlići - Tešije - Malačka - K. Stari</string>
+    <string name="kstarizelj">Kaštel Stari - Željeznička stanica</string>
+    <string name="zeljkstari">Željeznička stanica - Kaštel Stari</string>
     <string name="rudinekstari">Rudine - Kaštel stari</string>
     <string name="kstarirudine">Kaštel stari - Rudine</string>
+
+
+    <!-- Trogir -->
+    <string name="bus411">41 Trogir - Plano - Maljkovići</string>
+    <string name="bus412">41 Maljkovići - Plano - Trogir</string>
+    <string name="bus421">42 Trogir - Slatine</string>
+    <string name="bus422">42 Slatine - Trogir</string>
+    <string name="bus441">44 Trogir - Okrug Donji</string>
+    <string name="bus442">44 Okrug Donji - Trogir</string>
+    <string name="bus451">45 Trogir - Hotel Medena - Vranjica</string>
+    <string name="bus452">45 Vranjica - Hotel Medena - Trogir</string>
+    <string name="bus47">47 Trogir - Hotel Medena - Vrsine - Marina - Trogir</string>
+    <string name="bus48">48 Trogir - Hotel Medena - Marina - Dograde - Vrsine - Trogir</string>
+    <string name="bus491">49 Trogir - Hotel Medena - Vinišće</string>
+    <string name="bus492">49 Vinišće - Hotel Medena - Trogir</string>
+    <string name="bus501">50 Trogir - Hotel Medena - Sevid</string>
+    <string name="bus502">50 Sevid - Hotel Medena - Trogir</string>
+    <string name="bus511">51 Trogir - Ljubitovica</string>
+    <string name="bus512">51 Ljubitovica - Trogir</string>
+    <string name="bus521">52 Trogir - Vinovac</string>
+    <string name="bus522">52 Vinovac - Trogir</string>
+
+    <!-- Trogir -->
+    <string name="buss1">Maslinica - Donje Selo - Srednje Selo - Grohote - Rogač</string>
+    <string name="buss2">Rogač - Grohote - Srednje Selo - Donje Selo - Maslinica</string>
+    <string name="buss3">Stomorska - Gornje Selo - Nečujam - Grohote - Rogač</string>
+    <string name="buss4">Rogač - Grohote - Nečujam - Gornje Selo - Stomorska</string>
+    <string name="buss5">Trogir - Plano - Maljkovići</string>
 
 
     <!-- Placeholders -->
@@ -227,8 +255,18 @@
     <string name="snackbar_favorites_add">Vozni red je dodan u favorite!</string>
     <string name="snackbar_favorites_remove">Vozni red je uklonjen iz favorita!</string>
     <string name="changelog_title">Promjene</string>
-    <string name="changelog_content">Verzija 2.3.0 &#8211; 22.07.2018 \n* Dodane novosti i obavijesti u izborniku \n\n Verzija 2.2.2 &#8211; 29.05.2018 \n* Ispravke pogrešaka, nadam se da sam uspio popraviti i rušenja koja se događaju na nekim uređajima. Javite se mailom ako imate i dalje problema. \n* Pošto sam mijenjao strukturu voznih redova resetat će vam se i favoriti.
+    <string name="changelog_content">Verzija 2.4.0 &#8211; 19.08.2018 \n* Vraćen prikaz voznih redova unutar aplikacije. Smislio sam malo drugačiji način preuzimanja pa bi odsad aplikacija trebala raditi neovisno o promjenama koje napravi Promet Split
+        \n* Dodane Informacije \n* Članci u novostima odsad će prikazivati i slike (ako su dodane na webu) \n* Gomila manjih promjena \n\n
+        \n\nVerzija 2.3.0 &#8211; 22.07.2018 \n* Dodane novosti i obavijesti u izborniku \n\n Verzija 2.2.2 &#8211; 29.05.2018 \n* Ispravke pogrešaka, nadam se da sam uspio popraviti i rušenja koja se događaju na nekim uređajima. Javite se mailom ako imate i dalje problema. \n* Pošto sam mijenjao strukturu voznih redova resetat će vam se i favoriti.
         \n\nVerzija 2.2.1 &#8211; 22.05.2018 \n* Vraćeni Favoriti (Nedavno korišteni) \n* Dodane linije za Trogir i Šoltu\n* Popravljena rušenja na starijim uređajima (Android 4.4)
         \n\n Verzija 2.2.0 &#8211; 17.05.2018 \n* Aplikacija prilagođena novoj Prometovoj internet stranici\n* Detaljnije je opisano unutar aplikacije\n</string>
+
+    <string name="vozni_red_nema_polazaka">\n\n\n\n NEMA POLAZAKA \n\n\n\n</string>
+    <string name="vozni_red_tuzni_smiley">;(</string>
+    <string name="vozni_red_error_naslov">Nije uspio dohvat s servera!</string>
+    <string name="vozni_red_error_opis">Ovo se može dogoditi ako Promet Split napravi neočekivane promjene na svojoj internet stranici.</string>
+    <string name="vozni_red_report_error">Prijava greške</string>
+
+
 
 </resources>

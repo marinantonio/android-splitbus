@@ -12,7 +12,7 @@ import com.am.stbus.R
 import com.am.stbus.adapters.VozniRedAdapter
 import com.am.stbus.helpers.DatabaseHandler
 import com.am.stbus.models.VozniRed
-import kotlinx.android.synthetic.main.fragment_recyclerview.*
+import kotlinx.android.synthetic.main.fragment_vozni_redovi_list.*
 
 class MainFragment : Fragment() {
 
@@ -46,7 +46,7 @@ class MainFragment : Fragment() {
         //return rootView
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recyclerview,
+        return inflater.inflate(R.layout.fragment_vozni_redovi_list,
                 container, false)
     }
 
@@ -159,7 +159,7 @@ class MainFragment : Fragment() {
             db!!.addVozniRed(VozniRed(getString(R.string.bus602),2414, 60, 2, 0))
             db!!.addVozniRed(VozniRed(getString(R.string.zeljkstari),2442, 113, 2, 0))
             db!!.addVozniRed(VozniRed(getString(R.string.kstarizelj),2443, 113, 2, 0))
-            db!!.addVozniRed(VozniRed(getString(R.string.trostdirekt1),2444, 111, 2, 0))
+            db!!.addVozniRed(VozniRed(getString(R.string.trostdirekt2),2444, 111, 2, 0))
             //db!!.addPrigrad(VozniRed(getString(R.string.trostdirekt2),1432, 111))
 
             //3 Linije prigradskog podrucja

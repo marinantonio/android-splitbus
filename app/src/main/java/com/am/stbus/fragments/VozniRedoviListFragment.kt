@@ -11,13 +11,13 @@ import com.am.stbus.R
 import com.am.stbus.adapters.VozniRedAdapter
 import com.am.stbus.helpers.DatabaseHandler
 import com.am.stbus.models.VozniRed
-import kotlinx.android.synthetic.main.fragment_recyclerview.view.*
+import kotlinx.android.synthetic.main.fragment_vozni_redovi_list.view.*
 
 /**
  * Created by marin on 10.3.2018..
  */
 
-class RecyclerViewFragment : Fragment() {
+class VozniRedoviListFragment : Fragment() {
 
     private lateinit var db: DatabaseHandler
     private lateinit var rootView: View
@@ -25,11 +25,14 @@ class RecyclerViewFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false)
+        rootView = inflater.inflate(R.layout.fragment_vozni_redovi_list, container, false)
         val args = arguments
         index = args!!.getInt("ARGUMENT_PODRUCJE", 0)
 
         rootView.recycler_view.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        rootView.recycler_view.setHasFixedSize(true)
+
+
         val users = ArrayList<VozniRed>()
         /*  users.add(VozniRed("1",2,3))
         users.add(VozniRed("naziv dva",3,5))*/
@@ -65,7 +68,7 @@ class RecyclerViewFragment : Fragment() {
         }
 
         return rootView
-        //return inflater.inflate(R.layout.fragment_recyclerview, container, false)
+        //return inflater.inflate(R.layout.fragment_vozni_redovi_list, container, false)
 
     }
 
