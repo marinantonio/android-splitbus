@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<!--
+    Ovo koristim za spacing
+    app:iconSpaceReserved="false"
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_general"
+        android:layout="@layout/preferences_category">
+        <SwitchPreference
+            android:key="open_urls"
+            android:defaultValue="true"
+            android:title="@string/pref_open_url"
+            android:summary="@string/pref_open_url_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_gmaps"
+        android:layout="@layout/preferences_category">
+        <SwitchPreference
+            android:key="traffic"
+            android:defaultValue="false"
+            android:title="@string/pref_traffic"
+            android:summary="@string/pref_traffic_summary" />
+        <ListPreference
+            android:key="maptype"
+            android:defaultValue="2"
+            android:entries="@array/pref_karta_naslovi"
+            android:entryValues="@array/pref_karta_vrijednosti"
+            android:title="@string/pref_gmaps"
+            android:summary="@string/pref_gmaps_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_information"
+        android:layout="@layout/preferences_category">
+        <Preference
+            android:key="about"
+            android:summary="@string/pref_about_summary"
+            android:title="@string/pref_about">
+            <intent
+                android:action="com.am.stbus.SETTING_START_ACTIVITY"
+                android:targetClass="com.am.stbus.activities.AboutActivity"
+                android:targetPackage="com.am.stbus"/>
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

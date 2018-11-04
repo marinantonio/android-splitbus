@@ -1,0 +1,44 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="m12,2c-4.42,0 -8,0.5 -8,4l0,10c0,0.88 0.39,1.67 1,2.22l0,1.78c0,0.55 0.45,1 1,1l1,0c0.55,0 1,-0.45 1,-1l0,-1l8,0l0,1c0,0.55 0.45,1 1,1l1,0c0.55,0 1,-0.45 1,-1l0,-1.78c0.61,-0.55 1,-1.34 1,-2.22l0,-10c0,-3.5 -3.58,-4 -8,-4zM17.66,4.99l-11.32,0c0.55,-0.53 1.97,-0.99 5.66,-0.99s5.11,0.46 5.66,0.99zM18,6.99l0,3.01l-12,0l0,-3.01l12,0zM17.66,16.73l-0.29,0.27l-10.74,0l-0.29,-0.27c-0.13,-0.11 -0.34,-0.36 -0.34,-0.73l0,-4l12,0l0,4c0,0.37 -0.21,0.62 -0.34,0.73z"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M8.5,14.5m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M15.5,14.5m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"/>
+  <path
+      android:pathData="M11.769,6.0594L11.835,10.4819"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="#000" />
+</vector>

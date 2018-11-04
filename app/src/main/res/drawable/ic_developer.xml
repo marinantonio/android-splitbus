@@ -1,0 +1,33 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<vector android:height="80dp" android:viewportHeight="511.801"
+    android:viewportWidth="511.801" android:width="80dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000" android:pathData="M357.447,56.974c-5.851,-5.851 -13.26,-12.154 -22.323,-17.993l12.936,-27.233c1.707,-4.267 0,-9.387 -4.267,-11.093s-9.387,0 -11.093,4.267l-12.275,25.843c-16.838,-8.078 -37.902,-13.896 -63.671,-13.896c-26.066,0 -48.041,5.296 -66.25,13.856L178.247,4.921c-1.707,-4.267 -6.827,-5.973 -11.093,-4.267c-4.267,1.707 -5.973,6.827 -4.267,11.093l12.872,27.099c-36.675,23.424 -54.21,60.82 -56.392,88.101l-0.853,9.387h274.773l-0.853,-9.387C390.727,109.027 380.487,80.867 357.447,56.974zM138.14,119.267c7.68,-36.693 43.52,-85.333 119.467,-85.333c24.124,0 44.099,5.59 60.343,14.245c0.751,0.838 1.687,1.522 2.803,1.969c0.514,0.514 1.338,0.716 2.099,0.797c30.564,18.284 46.734,47.518 51.661,68.323L138.14,119.268z"/>
+    <path android:fillColor="#FF000000" android:pathData="M59.634,153.401c-23.893,0 -42.667,18.773 -42.667,42.667v119.467c0,23.893 18.773,42.667 42.667,42.667c23.893,0 42.667,-18.773 42.667,-42.667L102.301,196.067C102.3,172.174 83.527,153.401 59.634,153.401zM85.234,315.534c0,14.507 -11.093,25.6 -25.6,25.6c-14.507,0 -25.6,-11.093 -25.6,-25.6L34.034,196.067c0,-14.507 11.093,-25.6 25.6,-25.6c14.507,0 25.6,11.093 25.6,25.6L85.234,315.534z"/>
+    <path android:fillColor="#FF000000" android:pathData="M452.167,153.401c-23.893,0 -42.667,18.773 -42.667,42.667v119.467c0,23.893 18.773,42.667 42.667,42.667s42.667,-18.773 42.667,-42.667L494.834,196.067C494.834,172.174 476.06,153.401 452.167,153.401zM477.767,315.534c0,14.507 -11.093,25.6 -25.6,25.6c-14.507,0 -25.6,-11.093 -25.6,-25.6L426.567,196.067c0,-14.507 11.093,-25.6 25.6,-25.6c14.507,0 25.6,11.093 25.6,25.6L477.767,315.534z"/>
+    <path android:fillColor="#FF000000" android:pathData="M119.367,400.867L153.5,400.867v76.8c0,18.773 15.36,34.133 34.133,34.133c18.773,0 34.133,-15.36 34.133,-34.133v-76.8h68.267v76.8c0,18.773 15.36,34.133 34.133,34.133s34.133,-15.36 34.133,-34.133v-76.8h34.133L392.432,153.401L119.367,153.401L119.367,400.867zM136.434,170.467h238.933v213.333h-34.133v93.867c0,9.387 -7.68,17.067 -17.067,17.067s-17.067,-7.68 -17.067,-17.067v-93.867L204.7,383.8v93.867c0,9.387 -7.68,17.067 -17.067,17.067s-17.067,-7.68 -17.067,-17.067v-93.867h-34.133L136.433,170.467z"/>
+    <path android:fillColor="#FF000000" android:pathData="M213.234,68.067c-9.387,0 -17.067,7.68 -17.067,17.067c0,9.387 7.68,17.067 17.067,17.067s17.067,-7.68 17.067,-17.067C230.3,75.747 222.62,68.067 213.234,68.067z"/>
+    <path android:fillColor="#FF000000" android:pathData="M298.567,68.067c-9.387,0 -17.067,7.68 -17.067,17.067c0,9.387 7.68,17.067 17.067,17.067c9.387,0 17.067,-7.68 17.067,-17.067C315.634,75.747 307.954,68.067 298.567,68.067z"/>
+</vector>
