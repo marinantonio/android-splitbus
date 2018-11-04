@@ -3,7 +3,7 @@ Ovo je placeholder za Split Bus koji napokon postaje open-source. Dobar dio koda
 da prepišem čitavu aplikaciju iz Jave u Kotlin.
 
 ## Verzija 2.5.0
-Todo...
+Već je malo prekasno za updateati i read me..
 
 ## Kotlin
 Na Google IO-u 2017 predstavljen je Android Studio 3.0 s nativnom podrškom za moderni programski jezik Kotlin. Razvio ga je JetBrains, a zamišljen je

@@ -408,7 +408,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             "3" -> map.mapType = GoogleMap.MAP_TYPE_TERRAIN
         }
 
-        if (myPreference.getBoolean("traffic", true)) {
+        if (myPreference.getBoolean("traffic", false)) {
             map.isTrafficEnabled = true
         }
 
