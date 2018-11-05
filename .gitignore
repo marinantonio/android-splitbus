@@ -54,6 +54,10 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+# Android
+release/
+release/res/values/
+
 # Podatci za Google Maps
 gmaps/
 

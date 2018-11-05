@@ -120,7 +120,7 @@
     \n\nApp obtains data directly from Promet d.o.o. website. I cannot be held responsible for their content or availability. </string>
     <string name="about_changelog_title">Changelog</string>
     <string name="about_changelog_content">Version 2.5.0 &#8211; 04.11.2018 \n* Updated design through the app \n* Split Bus became open&#8211;source, check source code on the Github \n* Interactive maps are back \n* Added support for Android 9 \n* Various small bugfixes
-        Version 2.4.0 &#8211; 19.08.2018 \n* Timetables are shown once again inside the app. Issues app had before should be gone now for good \n* Added Information section \n* Implemented article pictures inside the news section \n* Number of smaller bugfixes and improvements
+        \n\n Version 2.4.0 &#8211; 19.08.2018 \n* Timetables are shown once again inside the app. Issues app had before should be gone now for good \n* Added Information section \n* Implemented article pictures inside the news section \n* Number of smaller bugfixes and improvements
         \n\n Version 2.3.0 &#8211; 22.07.2018 \n* Implemented news section (Croatian only)
         \n\n Version 2.2.2 &#8211; 29.05.2018 \n* Bugfixes, hopefully fixed force closes on some devices, if they still occur please report them at email \n* Favourites will reset since I\'ve changed db structure
         \n\n Version 2.2.1 &#8211; 22.05.2018 \n* Favourites are back!\n* Introduced Trogir and Šolta timetables\n* Fixed crashes on older Android 4.4 devices

@@ -34,13 +34,12 @@ android {
         applicationId "com.am.stbus"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 49
+        versionCode 50
         versionName "2.5.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
 
-    // TODO: Daj ovo moram vidit, mislim da mi puca buildanje releasea zbog previse errora :D
     lintOptions {
         checkReleaseBuilds false // Add this
         abortOnError false
