@@ -46,6 +46,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.TabBar" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/crna</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/crna</item>
     </style>

@@ -226,7 +226,6 @@ class VozniRedActivity : AppCompatActivity() {
         }
     }
 
-
     private fun updateUI(vrijedi: String, napomena: String, radniDani: String, subota: String, nedjelja: String) {
         // Ako je polje "vrijedi" prazno to znaci da aplikacija ne hvata podatke
         // I onda je treba prikazat korisniku prihvatljiv ekran s upozorenjem

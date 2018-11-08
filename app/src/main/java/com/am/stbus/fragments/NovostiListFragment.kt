@@ -36,9 +36,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
 import com.am.stbus.adapters.NovostiAdapter
-import com.am.stbus.helpers.PROMET_NOVOSTI_URL
 import com.am.stbus.helpers.Utils
 import com.am.stbus.models.Novost
+import com.am.stbus.helpers.*
 import kotlinx.android.synthetic.main.fragment_novosti_list.view.*
 import kotlinx.android.synthetic.main.snippet_error.view.*
 import org.jsoup.HttpStatusException
@@ -46,7 +46,6 @@ import org.jsoup.Jsoup
 import java.io.IOException
 
 private val TAG = NovostiListFragment::class.java.simpleName
-private const val PROMET_URL = "http://www.promet-split.hr/"
 
 class NovostiListFragment : Fragment() {
 
