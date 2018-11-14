@@ -129,7 +129,7 @@ open class Utils {
             27 -> webLineName = "2 K.SUĆURAC(STRINJE) - TR. LUKA - K.SUĆURAC(STRINJE)"
             28 -> webLineName = "5 DRAČEVAC - HNK - DRAČEVAC"
             29 -> webLineName = "5A DRAČEVAC - SOLIN - VISOKA - HNK - DRAČEVAC"
-            30 -> webLineName = "10 JAPIRKO - HNK - JAPIRKO"
+            30 -> webLineName = "10 JAPIRKO - TRAJ. LUKA - JAPIRKO"
             31 -> webLineName = "16 NINČEVIĆI - HNK - NINČEVIĆI"
             32 -> webLineName = "22 KLIS MEGDAN-G.RUPOTINA-HNK-KLIS MEGDAN"
             33 -> webLineName = "23 HNK - SOLIN - HNK"
