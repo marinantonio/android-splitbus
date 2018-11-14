@@ -34,8 +34,8 @@ android {
         applicationId "com.am.stbus"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 50
-        versionName "2.5.0"
+        versionCode 51
+        versionName "2.5.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
@@ -50,14 +50,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue 'string', "api_key", gmaps_debug_key
-            versionNameSuffix "-debug-" + buildTime()
+            versionNameSuffix "." + buildTime() + "-d"
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue 'string', "api_key", gmaps_release_key
-            versionNameSuffix "-release-" + buildTime()
+            versionNameSuffix "." + buildTime() + "-r"
         }
 
     }
@@ -68,7 +68,7 @@ dependencies {
     //  implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.10'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -94,5 +94,5 @@ repositories {
 }
 
 def static buildTime() {
-    return new Date().format('dd.MM.yyyy')
+    return new Date().format('ddMMyy')
 }
