@@ -2,10 +2,10 @@
 Split Bus je besplatna Android aplikacija koja olakšava građanima i posjetiteljima Splita svakodnevno snalaženje u javnom prijevozu.
 
 ## Screenshotovi
-![Sc1](/.github/assets/1.png?raw=true "Sc1")
-![Sc2](/.github/assets/2.png?raw=true "Sc2")
-![Sc3](/.github/assets/3.png?raw=true "Sc3")
-![Sc4](/.github/assets/4.png?raw=true "Sc4")
+![Sc1](/.github/assets/1.png=250x)
+![Sc2](/.github/assets/2.png=200x)
+![Sc3](/.github/assets/3.png=150x)
+![Sc4](/.github/assets/4.png=100x)
 
 ## Releases
 Sve verzije koje završe na Play Trgovini možete pronaći u Releases sekciji.
