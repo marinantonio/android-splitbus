@@ -48,12 +48,18 @@
         android:usesCleartextTraffic="true"
         android:fullBackupContent="true"
         tools:targetApi="m">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/api_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <!-- Fixes crash for Android 9+ users -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name=".activities.MainActivity"
