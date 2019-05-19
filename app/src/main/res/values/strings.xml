@@ -158,7 +158,8 @@
 
     <!-- Gradski busevi -->
     <string name="bus1">Starine - HNK - Starine</string>
-    <string name="bus2">K.Sućurac - HNK - K.Sućurac</string>
+    <string name="bus021">Airport- Kaštel Sućurac (Strinje) - Poljička - Split</string>
+    <string name="bus022">Split - Poljička - Kaštel Sućurac (Strinje) - Airport</string>
     <string name="bus31">Lovrinac - Brda</string>
     <string name="bus32">Brda - Lovrinac</string>
     <string name="bus5">Dračevac - HNK - Dračevac</string>

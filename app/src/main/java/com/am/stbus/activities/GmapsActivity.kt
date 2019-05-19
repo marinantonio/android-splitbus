@@ -588,6 +588,12 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marStarine.isVisible = true
             }
             "2" -> {
+
+                showToast()
+/*
+
+                TODO: Iskljuceno dok ne skuzim kako ide
+
                 lin2 = map.addPolyline(Storage.vr02)
 
                 marTrluka.isVisible = true
@@ -610,6 +616,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marHerc1s.isVisible = true
                 marHerc2j.isVisible = true
                 marKsucurac.isVisible = true
+*/
             }
             "3" -> {
                 lin3 = map.addPolyline(Storage.vr03)
@@ -1607,6 +1614,8 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             }
 
             "2" -> {
+                showToast()
+/*
                 lin2.remove()
 
                 marTrluka.isVisible = false
@@ -1629,6 +1638,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marHerc1s.isVisible = false
                 marHerc2j.isVisible = false
                 marKsucurac.isVisible = false
+*/
             }
 
             "3" -> {
