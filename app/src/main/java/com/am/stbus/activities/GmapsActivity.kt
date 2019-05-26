@@ -342,6 +342,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
     private lateinit var marNisko: Marker
     private lateinit var marKladnjice: Marker
     private lateinit var marLecevica: Marker
+    private lateinit var marMercatorIstok: Marker
+    private lateinit var marDracevac1: Marker
+    private lateinit var marDracevac2: Marker
+    private lateinit var marDracevac3: Marker
 
     private lateinit var map: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -883,6 +887,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marZbngs.isVisible = true
                 marZbngj.isVisible = true
                 marJapirko.isVisible = true
+                marMercatorIstok.isVisible = true
+                marDracevac1.isVisible = true
+                marDracevac2.isVisible = true
+                marDracevac3.isVisible = true
             }
 
             "11" -> {
@@ -1906,7 +1914,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marZbngs.isVisible = false
                 marZbngj.isVisible = false
                 marJapirko.isVisible = false
-
+                marMercatorIstok.isVisible = false
+                marDracevac1.isVisible = false
+                marDracevac2.isVisible = false
+                marDracevac3.isVisible = false
             }
 
             "11" -> {
@@ -2807,6 +2818,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             marNisko -> createMarkerAlert(Stanice.arNisko)
             marKladnjice -> createMarkerAlert(Stanice.arKladnjice)
             marLecevica -> createMarkerAlert(Stanice.arLecevica)
+            marMercatorIstok -> createMarkerAlert(Stanice.arMercatorIstok)
+            marDracevac1 -> createMarkerAlert(Stanice.arDracevac1)
+            marDracevac2 -> createMarkerAlert(Stanice.arDracevac2)
+            marDracevac3 -> createMarkerAlert(Stanice.arDracevac3)
         }
     }
     
@@ -3038,6 +3053,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
         marNisko = addMarker(Stanice.nisko, "Nisko", Stanice.arNisko)
         marKladnjice = addMarker(Stanice.kladnjice, "Kladnjice", Stanice.arKladnjice)
         marLecevica = addMarker(Stanice.lecevica, "Lećevica", Stanice.arLecevica)
+        marMercatorIstok = addMarker(Stanice.mercatoristok, "", Stanice.arMercatorIstok)
+        marDracevac1 = addMarker(Stanice.dracevac1, "", Stanice.arDracevac1)
+        marDracevac2 = addMarker(Stanice.dracevac2, "", Stanice.arDracevac2)
+        marDracevac3 = addMarker(Stanice.dracevac3, "", Stanice.arDracevac3)
     }
 
 
@@ -3301,6 +3320,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
         marKladnjice.isVisible = true
         marLecevica.isVisible = true
         marLecevica.isVisible = true
+        marMercatorIstok.isVisible = true
+        marDracevac1.isVisible = true
+        marDracevac2.isVisible = true
+        marDracevac3.isVisible = true
     }
 
 
@@ -3511,6 +3534,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
         marNisko.isVisible = false
         marKladnjice.isVisible = false
         marLecevica.isVisible = false
+        marMercatorIstok.isVisible = false
+        marDracevac1.isVisible = false
+        marDracevac2.isVisible = false
+        marDracevac3.isVisible = false
     }
 
     private fun showToast() {

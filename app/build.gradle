@@ -56,7 +56,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue 'string', "api_key", gmaps_release_key
-            versionNameSuffix "." + buildTime() + "-r"
         }
 
     }

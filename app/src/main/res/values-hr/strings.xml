@@ -119,7 +119,9 @@
     <string name="about_app_desc">Split Bus olakšava građanima i posjetiteljima Splita svakodnevno snalaženje u javnom prijevozu. Aplikacija je u besplatna, otvorenog koda koji je dostupan na GitHub-u pod MIT licencom.
     \n\nSvi podatci u aplikaciji preuzimaju se s internet stranice prijevoznika Promet d.o.o., Split pa u nikakvom slučaju ne mogu biti odgovoran za njihovu dostupnost i točnost.</string>
     <string name="about_changelog_title">Promjene</string>
-    <string name="about_changelog_content">Verzija 2.5.0 &#8211; 04.11.2018 \n* Osvježen dizajn kroz čitavu aplikaciju \n* Split Bus je sad open source, čitav kod možete vidjeti na Githubu \n* Interaktivne karte ponovno su u funkciji \n * Dodana podrška za Android 9\n* Razne manje ispravke
+    <string name="about_changelog_content">
+        Verzija 2.5.2 &#8211; 26.05.2019 \n* Ispravljena linja br. 2 \n* Ispravljena linija br. 10 na Interaktivnoj Karti \n* Ostale manje promjene i ispravci
+        \n\n Verzija 2.5.0 &#8211; 04.11.2018 \n* Osvježen dizajn kroz čitavu aplikaciju \n* Split Bus je sad open source, čitav kod možete vidjeti na Githubu \n* Interaktivne karte ponovno su u funkciji \n * Dodana podrška za Android 9\n* Razne manje ispravke
         \n\n Verzija 2.4.0 &#8211; 19.08.2018 \n* Vraćen prikaz voznih redova unutar aplikacije. Smislio sam malo drugačiji način preuzimanja pa bi odsad aplikacija trebala raditi neovisno o promjenama koje napravi Promet Split\n* Dodane Informacije \n* Članci u novostima odsad će prikazivati i slike (ako su dodane na webu) \n* Gomila manjih promjena
         \n\n Verzija 2.3.0 &#8211; 22.07.2018 \n* Dodane novosti i obavijesti u izborniku
         \n\n Verzija 2.2.2 &#8211; 29.05.2018 \n* Ispravke pogrešaka, nadam se da sam uspio popraviti i rušenja koja se događaju na nekim uređajima. Javite se mailom ako imate i dalje problema. \n* Pošto sam mijenjao strukturu voznih redova resetat će vam se i favoriti.
