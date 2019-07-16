@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SplitBusKotlin.iml" filepath="$PROJECT_DIR$/.idea/SplitBusKotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SplitBusKotlin.iml" filepath="$PROJECT_DIR$/SplitBusKotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
