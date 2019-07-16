@@ -45,15 +45,6 @@ open class Utils {
         return activeNetwork?.isConnectedOrConnecting == true
     }
 
-    open fun cleanVozniRed(context: Context, vozniRed: String): String {
-        var cleanString = vozniRed.replace(",", "").replace(" ", "\t\t")
-        cleanString = cleanString.substring(1, cleanString.length - 1)
-        val whitoutSpaces = cleanString.replace("\\s+".toRegex(), " ")
-        if (whitoutSpaces.length == 1)
-            cleanString = context.getString(R.string.vozni_red_nema_polazaka)
-        return cleanString
-    }
-
     open fun reportIssue(context: Context, naziv: String) {
         val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "antoniomarinnn@gmail.com", null))
         var debugInfo = "\n\n\n Informacije o uredaju \n --------------------------------"
@@ -63,6 +54,15 @@ open class Utils {
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Split Bus")
         context.startActivity(Intent.createChooser(emailIntent, "Email"))
     }
+    open fun cleanVozniRed(context: Context, vozniRed: String): String {
+        var cleanString = vozniRed.replace(",", "").replace(" ", "\t\t")
+        cleanString = cleanString.substring(1, cleanString.length - 1)
+        val whitoutSpaces = cleanString.replace("\\s+".toRegex(), " ")
+        if (whitoutSpaces.length == 1)
+            cleanString = context.getString(R.string.vozni_red_nema_polazaka)
+        return cleanString
+    }
+
 
     open fun openUrl(context: Context, url: String) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -108,7 +108,7 @@ open class Utils {
             7 -> webLineName = "11 RAVNE NJIVE-PUJANKE-HNK-RAVNE NJIVE"
             8 -> webLineName = "12 SV. FRANE - BENE"
             9 -> webLineName = "12 BENE - (MEJE) - SV.FRANE"
-            10 -> webLineName = "14 RAVNE NJIVE-DUBROVAČKA-HNK"
+            10 -> webLineName = "14 BRDA - KOPILICA - DUBROVAČKA - BOLNICE - ŽNJAN - DUILOVO"
             11 -> webLineName = "15 DUILOVO - ŽNJAN - TR. LUKA - DUILOVO"
             12 -> webLineName = "17 SPINUT - LORA - TRSTENIK - LORA -SPINUT"
             13 -> webLineName = "18 BRNIK - HNK - BRNIK"

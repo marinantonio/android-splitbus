@@ -952,6 +952,11 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             }
 
             "14" -> {
+                showToast()
+/*
+
+                TODO: Iskljuceno dok ne skuzim kako ide
+
                 lin14 = map.addPolyline(Storage1.vr140)
                 linFix = map.addPolyline(Storage.fix)
                 linPoj.isVisible = true
@@ -980,6 +985,8 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marPazarz.isVisible = true
                 marPazari.isVisible = true
                 marHnk.isVisible = true
+
+                */
             }
 
             "15" -> {
@@ -1979,7 +1986,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             }
 
             "14" -> {
-                lin14.remove()
+
+                // TODO: Iskljuceno dok ne skuzim kako ide
+
+               /* lin14.remove()
                 linFix.remove()
                 linPoj.isVisible = false
 
@@ -2007,6 +2017,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marPazarz.isVisible = false
                 marPazari.isVisible = false
                 marHnk.isVisible = false
+*/
             }
 
             "15" -> {
@@ -2824,7 +2835,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             marDracevac3 -> createMarkerAlert(Stanice.arDracevac3)
         }
     }
-    
+
     private fun initAllMarkers() {
         marHnk = addMarker(Stanice.hnk, "HNK", Stanice.arHnk)
         marOpcinaz = addMarker(Stanice.opcinaz, getString(R.string.gmaps_stanica_opcina), Stanice.arOpcinaz)

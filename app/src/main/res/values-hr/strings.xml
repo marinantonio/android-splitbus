@@ -120,8 +120,9 @@
     \n\nSvi podatci u aplikaciji preuzimaju se s internet stranice prijevoznika Promet d.o.o., Split pa u nikakvom slučaju ne mogu biti odgovoran za njihovu dostupnost i točnost.</string>
     <string name="about_changelog_title">Promjene</string>
     <string name="about_changelog_content">
-        Verzija 2.5.3 &#8211; 26.05.2019 \n* Ispravljena linja br. 2 \n* Ispravljena linija br. 10 na Interaktivnoj Karti \n* Ostale manje promjene i ispravci
-        \n\n Version 2.5.2 &#8211; 06.03.2019 \n* Ispravak rušenja Interaktivne Karte na Android 9 uređajima
+        Verzija 2.5.4 &#8211; 16.07.2019 \n* Ispravljena linja br. 14
+        \n\n Verzija 2.5.3 &#8211; 26.05.2019 \n* Ispravljena linja br. 2 \n* Ispravljena linija br. 10 na Interaktivnoj Karti \n* Ostale manje promjene i ispravci
+        \n\n Verzija 2.5.2 &#8211; 06.03.2019 \n* Ispravak rušenja Interaktivne Karte na Android 9 uređajima
         \n\n Verzija 2.5.0 &#8211; 04.11.2018 \n* Osvježen dizajn kroz čitavu aplikaciju \n* Split Bus je sad open source, čitav kod možete vidjeti na Githubu \n* Interaktivne karte ponovno su u funkciji \n * Dodana podrška za Android 9\n* Razne manje ispravke
         \n\n Verzija 2.4.0 &#8211; 19.08.2018 \n* Vraćen prikaz voznih redova unutar aplikacije. Smislio sam malo drugačiji način preuzimanja pa bi odsad aplikacija trebala raditi neovisno o promjenama koje napravi Promet Split\n* Dodane Informacije \n* Članci u novostima odsad će prikazivati i slike (ako su dodane na webu) \n* Gomila manjih promjena
         \n\n Verzija 2.3.0 &#8211; 22.07.2018 \n* Dodane novosti i obavijesti u izborniku
@@ -175,7 +176,7 @@
     <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
     <string name="bus121">Sv. Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
-    <string name="bus14">Ravne Njive - Dubrovačka - HNK</string>
+    <string name="bus14">Brda - Kopilica - Dubrovačka - Bolnice - Žnjan - Duilovo</string>
     <string name="bus15">Duilovo - Žnjan - Tr. Luka - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
     <string name="bus17">Spinut - Lora - Trstenik - Lora - Spinut</string>
