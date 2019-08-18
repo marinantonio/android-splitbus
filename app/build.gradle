@@ -33,7 +33,7 @@ android {
         applicationId "com.am.stbus"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 55
+        versionCode 56
         versionName "2.5.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
