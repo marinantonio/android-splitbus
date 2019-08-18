@@ -1201,6 +1201,13 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             }
 
             "24" -> {
+                showToast()
+
+                /*
+
+                TODO: Iskljuceno dok ne skuzim kako ide
+
+
                 lin24 = map.addPolyline(Storage1.vr240)
                 linPoj.isVisible = true
 
@@ -1226,6 +1233,8 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marUlzbng6.isVisible = true
                 marUlzbng5.isVisible = true
                 marTtts.isVisible = true
+
+                */
             }
 
             "25" -> {
@@ -2231,6 +2240,10 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
             }
 
             "24" -> {
+
+                // TODO: Iskljuceno dok ne skuzim kuda ide
+
+                /*
                 lin24.remove()
                 linPoj.isVisible = false
 
@@ -2256,6 +2269,7 @@ class GmapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoW
                 marUlzbng6.isVisible = false
                 marUlzbng5.isVisible = false
                 marTtts.isVisible = false
+                */
             }
 
             "25" -> {

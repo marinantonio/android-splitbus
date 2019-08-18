@@ -1,7 +1,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -120,7 +120,9 @@
     \n\nSvi podatci u aplikaciji preuzimaju se s internet stranice prijevoznika Promet d.o.o., Split pa u nikakvom slučaju ne mogu biti odgovoran za njihovu dostupnost i točnost.</string>
     <string name="about_changelog_title">Promjene</string>
     <string name="about_changelog_content">
-        Verzija 2.5.4 &#8211; 16.07.2019 \n* Ispravljena linja br. 14
+        Vezija 2.5.6 &#8211; 18.08.2019 \n* Manje ispravke i promjene
+        \n\n Version 2.5.5 &#8211; 17.07.2019 \n *Ispravljena linja br. 10
+        \n\n Verzija 2.5.4 &#8211; 16.07.2019 \n* Ispravljena linja br. 14
         \n\n Verzija 2.5.3 &#8211; 26.05.2019 \n* Ispravljena linja br. 2 \n* Ispravljena linija br. 10 na Interaktivnoj Karti \n* Ostale manje promjene i ispravci
         \n\n Verzija 2.5.2 &#8211; 06.03.2019 \n* Ispravak rušenja Interaktivne Karte na Android 9 uređajima
         \n\n Verzija 2.5.0 &#8211; 04.11.2018 \n* Osvježen dizajn kroz čitavu aplikaciju \n* Split Bus je sad open source, čitav kod možete vidjeti na Githubu \n* Interaktivne karte ponovno su u funkciji \n * Dodana podrška za Android 9\n* Razne manje ispravke
@@ -185,8 +187,8 @@
     <string name="bus21">Sv.Frane - Meje - Sv.Frane</string>
     <string name="bus22">Klis Megdan - G.Rupotina - HNK - Klis Megdan</string>
     <string name="bus23">(N) HNK - Solin - HNK</string>
-    <string name="bus241">Split - TTTS</string>
-    <string name="bus242">TTTS - Split</string>
+    <string name="bus241">Split - Kopilica - Dom. Rata - Stobreč - TTTS</string>
+    <string name="bus242">TTTS - Stobreč - Dom. Rata - Kopilica - Split</string>
     <string name="bus251">Split - Stobreč</string>
     <string name="bus252">Stobreč - Split</string>
     <string name="bus261">Split - Kamen</string>
@@ -197,8 +199,8 @@
     <string name="bus282">Dubrava - Sitno G. - Split</string>
     <string name="bus291">Split - Tugare - Naklice</string>
     <string name="bus292">Naklice - Tugare - Split</string>
-    <string name="bus301">Split - Podstrana (Mutogras) - Split</string>
-    <string name="bus302">Podstrana - (Mutogras) - Split</string>
+    <string name="bus301">Split - Podstrana (Mutogras)</string>
+    <string name="bus302">Podstrana (Mutogras) - Split</string>
     <string name="bus311">Split - Vranjic</string>
     <string name="bus312">Vranjic - Split</string>
     <string name="bus321">Split - Kučine</string>
