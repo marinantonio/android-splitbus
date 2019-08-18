@@ -64,3 +64,6 @@ gmaps/
 # Gmaps config
 gradle.properties
 
+# Changelog generator
+changelog.sh
+
