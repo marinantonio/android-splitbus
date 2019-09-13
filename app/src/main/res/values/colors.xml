@@ -24,9 +24,37 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#ffee58</color>
-    <color name="colorPrimaryDark">#c9bc1f</color>
-    <color name="colorAccent">#2a5176</color>
+    <color name="colorPrimary">@color/zutaGlavna</color>
+    <color name="colorPrimaryDark">@color/zutaTamnija</color>
+    <color name="colorAccent">@color/plavaCijan</color>
+
+    <color name="colorBackground">@color/bijela</color>
+
+    <color name="colorBottomNavItemBackground">@color/bijela</color>
+    <color name="colorBottomNavItemSelected">@color/plavaCijan</color>
+    <color name="colorBottomNavItemUnSelected">@color/crna</color>
+
+    <color name="colorListItemTitle">@color/crnaNaslovi</color>
+    <color name="colorListItemDesc">@color/crnaOpisi</color>
+    <color name="colorListItemDivider">@color/sivaDivider</color>
+
+
+    <!-- Paleta boja -->
+    <color name="zutaGlavna">#ffee58</color>
+    <color name="zutaTamnija">#c9bc1f</color>
+    <color name="plavaCijan">#2a5176</color>
+    <color name="plavaCijanTamnija">#0C1116</color>
+    <color name="bijela">#ffffff</color>
+    <color name="crna">#000000</color>
+    <color name="crnaNaslovi">#181818</color>
+    <color name="crnaOpisi">#212121</color>
+    <color name="sivaNaslovi">#BDBDBD</color>
+    <color name="sivaOpisi">#969696</color>
+    <color name="sivaDivider">#e0e0e0</color>
+    <color name="sivaDivider30">#51E0E0E0</color>
+
+
+
 
     <!--
         <color name="colorAccent">#607D8B</color>
@@ -35,9 +63,9 @@
     <color name="sivapreuzeto">#787878</color>
     <color name="alertdialogtext">#1f1f1f</color>
     <color name="colorText">#181818</color>
-    <color name="bijela">#ffffff</color>
     <color name="primary_text">#212121</color>
     <color name="divider">#e0e0e0</color>
-    <color name="crna">#000000</color>
     <color name="colorAccentTran">#D92a5176</color>
+
+
 </resources>

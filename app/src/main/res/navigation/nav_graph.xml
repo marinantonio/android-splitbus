@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/favouriteFragment">
+
+    <!-- FavouritesList Fragment -->
+    <fragment
+            android:id="@+id/favouriteFragment"
+            android:name="com.am.stbus.screens.favourites.FavouriteFragment"
+            android:label="fragment_favourite"
+            tools:layout="@layout/fragment_list_container">
+        <action
+            android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
+            app:destination="@id/timetableDetailFragment"/>
+    </fragment>
+
+
+    <!-- TimetableList Fragment -->
+    <fragment
+            android:id="@+id/timetableListFragment"
+            android:name="com.am.stbus.screens.timetable.timetableListFragment.TimetableListFragment"
+            android:label="fragment_timetable_list"
+            tools:layout="@layout/fragment_dashboard">
+        <action
+                android:id="@+id/action_timetableListFragment_to_timetableDetailFragment"
+                app:destination="@id/timetableDetailFragment"/>
+    </fragment>
+
+    <!-- TimetableDetail Fragment -->
+    <fragment
+            android:id="@+id/timetableDetailFragment"
+            android:name="com.am.stbus.screens.timetable.timetableDetailFragment.TimetableDetailFragment"
+            android:label="fragment_timetable_detail"
+            tools:layout="@layout/fragment_dashboard_detail"/>
+
+
+    <!-- InformationList Fragment -->
+    <fragment
+            android:id="@+id/informationListFragment"
+            android:name="com.am.stbus.screens.information.InformationListFragment"
+            android:label="fragment_information_list"
+            tools:layout="@layout/fragment_information_list">
+        <action
+            android:id="@+id/action_informationFragment_to_informationDetailFragment"
+            app:destination="@id/informationDetailFragment"/>
+        <action
+            android:id="@+id/action_informationListFragment_to_informationNewsListFragment"
+            app:destination="@id/informationNewsListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/informationNewsListFragment"
+        android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsListFragment"
+        android:label="information_news_list_fragment"
+        tools:layout="@layout/information_news_list_fragment" >
+        <action
+            android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
+            app:destination="@id/informationNewsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationNewsDetailFragment"
+        android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsDetailFragment.InformationNewsDetailFragment"
+        android:label="information_news_detail_fragment"
+        tools:layout="@layout/information_news_detail_fragment" />
+
+    <fragment
+            android:id="@+id/informationDetailFragment"
+            android:name="com.am.stbus.screens.information.informationDetailFragment.InformationDetailFragment"
+            android:label="fragment_information_detail"
+            tools:layout="@layout/fragment_notification_detail">
+        <argument
+                android:name="notificationTitle"
+                android:defaultValue="Test Title"
+                app:argType="string"/>
+        <argument
+                android:name="notificationMessage"
+                android:defaultValue="Test Title"
+                app:argType="string"/>
+    </fragment>
+
+
+    <!-- Settings Fragment -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.am.stbus.screens.settings.SettingsFragment"
+        android:label="fragment_settings" />
+
+
+
+</navigation>

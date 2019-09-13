@@ -28,7 +28,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.am.stbus.fragments.InformacijeFragment">
+    tools:context=".staro.fragments.InformacijeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_informacije"

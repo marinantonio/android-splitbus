@@ -25,8 +25,25 @@
 <resources>
     <string name="app_name">Split Bus</string>
 
-    <!-- Opcenito -->
+    <!-- MainActivity -->
+    <string name="nav_favourites">Favourites</string>
+    <string name="nav_timetables">Timetables</string>
+    <string name="nav_information">Information</string>
+    <string name="nav_setttings">Settings</string>
+
+    <!-- Information -->
+    <string name="information_news_title">Latest news</string>
+    <string name="information_news_desc">Fetch latest traffic news from Promet Split website. Please note these are usually written only in Croatian</string>
+
+
+    <!-- Settings -->
+    <string name="settings_dark_mode_title">Dark mode</string>
+    <string name="settings_dark_mode_desc">Manually control app\'s theme by enabling or disabling dark mode</string>
+
+
+
     <string name="nav_favoriti">Favourites</string>
+
     <string name="nav_grad_split">City buses</string>
     <string name="nav_urbano_podrucje">Urban area</string>
     <string name="nav_prigradske">Suburban area</string>

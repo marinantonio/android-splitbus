@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,20 @@
     Ovo koristim za spacing
     app:iconSpaceReserved="false"
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         android:title="@string/pref_general"
-        android:layout="@layout/preferences_category">
+        android:layout="@layout/preferences_category"
+        app:iconSpaceReserved="false">
+        <ListPreference
+            android:key="darkMode"
+            android:defaultValue="1"
+            android:entries="@array/pref_dark_mode_titles"
+            android:entryValues="@array/pref_dark_mode_values"
+            android:title="@string/settings_dark_mode_title"
+            android:summary="@string/settings_dark_mode_desc" />
         <SwitchPreference
             android:key="open_urls"
             android:defaultValue="true"
@@ -49,8 +59,8 @@
         <ListPreference
             android:key="maptype"
             android:defaultValue="2"
-            android:entries="@array/pref_karta_naslovi"
-            android:entryValues="@array/pref_karta_vrijednosti"
+            android:entries="@array/pref_gmaps_titles"
+            android:entryValues="@array/pref_gmaps_values"
             android:title="@string/pref_gmaps"
             android:summary="@string/pref_gmaps_summary" />
     </PreferenceCategory>
@@ -64,7 +74,7 @@
             android:title="@string/pref_about">
             <intent
                 android:action="com.am.stbus.SETTING_START_ACTIVITY"
-                android:targetClass="com.am.stbus.activities.AboutActivity"
+                android:targetClass="com.am.stbus.staro.activities.MainActivityOld"
                 android:targetPackage="com.am.stbus"/>
         </Preference>
     </PreferenceCategory>

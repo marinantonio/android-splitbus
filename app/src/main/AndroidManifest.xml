@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name=".SplitBusApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -62,9 +63,7 @@
             android:required="false" />
 
         <activity
-            android:name=".activities.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name="com.am.stbus.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,25 +71,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.VozniRedActivity"
-            android:label="@string/title_display_bus"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.VozniRedActivity"
+            android:label="@string/title_display_bus"/>
         <activity
-            android:name=".activities.NovostActivity"
-            android:label="@string/title_novosti"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.NovostActivity"
+            android:label="@string/title_novosti" />
         <activity
-            android:name=".activities.SlikaActivity"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.SlikaActivity" />
         <activity
-            android:name=".activities.GmapsActivity"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.GmapsActivity" />
         <activity
-            android:name=".activities.SettingsActivity"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.SettingsActivity" />
         <activity
-            android:name=".activities.AboutActivity"
-            android:theme="@style/AppTheme.NoActionBarActivites" />
+            android:name="com.am.stbus.staro.activities.AboutActivity" />
+        <activity
+            android:name="com.am.stbus.staro.activities.MainActivityOld" />
+
     </application>
 
 </manifest>

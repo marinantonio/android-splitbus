@@ -36,9 +36,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ToolbarTheme"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:background="?attr/colorPrimary" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -46,7 +44,6 @@
             android:layout_height="wrap_content"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            app:tabTextAppearance="@style/AppTheme.TabBar"
             android:visibility="gone" />
     </com.google.android.material.appbar.AppBarLayout>
 
