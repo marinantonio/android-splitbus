@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.networking.models.Information
+import com.am.stbus.repositories.models.Information
 import kotlinx.android.synthetic.main.item_row_information.view.*
 
 class InformationListAdapter(val context: Context?,

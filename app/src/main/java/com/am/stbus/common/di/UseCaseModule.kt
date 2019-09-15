@@ -8,4 +8,5 @@ val useCaseModule = module {
     factory {
         GetNewsListUseCase()
     }
+
 }

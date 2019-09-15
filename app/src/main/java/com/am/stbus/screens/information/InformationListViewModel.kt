@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.R
-import com.am.stbus.networking.models.Information
+import com.am.stbus.repositories.models.Information
 
 class InformationListViewModel(private val context: Context) : ViewModel() {
 

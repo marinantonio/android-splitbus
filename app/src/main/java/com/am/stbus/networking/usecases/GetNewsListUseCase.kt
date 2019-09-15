@@ -1,7 +1,7 @@
 package com.am.stbus.networking.usecases
 
-import com.am.stbus.networking.models.News
-import com.am.stbus.networking.repositories.NewsRepository
+import com.am.stbus.repositories.models.News
+import com.am.stbus.repositories.remote.NewsRepository
 import com.am.stbus.staro.helpers.PROMET_NOVOSTI_URL
 import io.reactivex.Observable
 import org.jsoup.Jsoup
@@ -12,7 +12,7 @@ class GetNewsListUseCase : NewsRepository {
         return Observable.create { observableEmitter ->
             val newsList = mutableListOf<News>()
             try {
-                val doc = Jsoup.connect(PROMET_NOVOSTI_URL).get()
+                val doc = Jsoup.connect(PROMET_NOVOSTI_URL).timeout(2000).get()
                 var count = 0
                 val elements = doc.select("h3.c-article-card__title > a")
 
@@ -33,7 +33,7 @@ class GetNewsListUseCase : NewsRepository {
 
                     }
 
-                    newsList.add(News(title, summary, datum, url))
+                    newsList.add(News(count, title, summary, datum, url))
                     count += 1
                 }
                 observableEmitter.onNext(newsList)

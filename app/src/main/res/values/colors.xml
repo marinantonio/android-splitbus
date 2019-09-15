@@ -27,16 +27,21 @@
     <color name="colorPrimary">@color/zutaGlavna</color>
     <color name="colorPrimaryDark">@color/zutaTamnija</color>
     <color name="colorAccent">@color/plavaCijan</color>
-
     <color name="colorBackground">@color/bijela</color>
 
+    <!-- BottomNavBar -->
     <color name="colorBottomNavItemBackground">@color/bijela</color>
     <color name="colorBottomNavItemSelected">@color/plavaCijan</color>
     <color name="colorBottomNavItemUnSelected">@color/crna</color>
 
+    <!-- RecyclerView liste -->
     <color name="colorListItemTitle">@color/crnaNaslovi</color>
     <color name="colorListItemDesc">@color/crnaOpisi</color>
     <color name="colorListItemDivider">@color/sivaDivider</color>
+
+    <!-- Loading/Error ekrani -->
+    <color name="colorLoadingTitle">@color/crnaNaslovi</color>
+    <color name="colorLoadingDesc">@color/crnaNaslovi</color>
 
 
     <!-- Paleta boja -->

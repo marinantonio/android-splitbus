@@ -1,10 +1,9 @@
-package com.am.stbus.networking.repositories
+package com.am.stbus.repositories.remote
 
-import com.am.stbus.networking.models.News
+import com.am.stbus.repositories.models.News
 import io.reactivex.Observable
 
 interface NewsRepository {
 
     fun getArticles(): Observable<List<News>>
-
 }

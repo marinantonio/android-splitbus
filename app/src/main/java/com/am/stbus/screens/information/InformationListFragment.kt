@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
-import com.am.stbus.networking.models.Information
+import com.am.stbus.repositories.models.Information
 import com.am.stbus.screens.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_information_list.*

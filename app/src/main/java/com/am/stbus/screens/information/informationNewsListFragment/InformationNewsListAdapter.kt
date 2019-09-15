@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.networking.models.News
+import com.am.stbus.repositories.models.News
 import kotlinx.android.synthetic.main.item_row_news.view.*
 
 class InformationNewsListAdapter(val context: Context?,

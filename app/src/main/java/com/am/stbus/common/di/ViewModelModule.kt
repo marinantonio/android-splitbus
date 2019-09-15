@@ -16,7 +16,8 @@ val viewModelModule = module{
 
     viewModel {
         InformationNewsListViewModel(
-                getNewsListUseCase = get()
+                getNewsListUseCase = get(),
+                newsDao = get()
         )
     }
 }
