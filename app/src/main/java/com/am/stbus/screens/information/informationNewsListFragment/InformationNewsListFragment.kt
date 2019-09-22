@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
-import com.am.stbus.repositories.models.News
+import com.am.stbus.repositories.models.NewsListItem
 import com.am.stbus.screens.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.information_news_list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
-
 
 class InformationNewsListFragment : Fragment() {
 
@@ -30,9 +30,10 @@ class InformationNewsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mainActivity = activity as MainActivity
-        mainActivity.toolbar.title = getString(R.string.nav_information)
+        mainActivity.toolbar.title = getString(R.string.information_news_title)
 
-        viewModel.newsList.observe(this, Observer<List<News>> {
+
+        viewModel.newsList.observe(this, Observer<List<NewsListItem>> {
             onNewsListAdded(it)
         })
 
@@ -47,14 +48,19 @@ class InformationNewsListFragment : Fragment() {
         }
     }
 
-    private fun onNewsListAdded(it: List<News>) {
+    private fun onNewsListAdded(it: List<NewsListItem>) {
         Timber.i("onLoadingFinished")
         informationNewsListAdapter.clear()
         informationNewsListAdapter.addEntireData(it)
     }
 
-    private fun onNewsItemClicked(it: News) {
-        Timber.i(it.url)
+    private fun onNewsItemClicked(it: NewsListItem) {
+        view?.findNavController()?.navigate(InformationNewsListFragmentDirections
+                .actionInformationNewsListFragmentToInformationNewsDetailFragment(
+                        it.title,
+                        it.date,
+                        it.url
+        ))
     }
 
 }

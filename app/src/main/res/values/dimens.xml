@@ -43,8 +43,8 @@
     <dimen name="imgtopmargin">100sp</dimen>
 
     <!-- Gradski i Prigradski RecyclerView -->
-    <dimen name="linija">20sp</dimen>
-    <dimen name="preuzeto">15sp</dimen>
+    <dimen name="linija">18sp</dimen>
+    <dimen name="preuzeto">14sp</dimen>
     <integer name="list_columns">1</integer>
 
     <!-- Informacije -->

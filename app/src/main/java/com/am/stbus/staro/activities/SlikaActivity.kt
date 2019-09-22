@@ -46,7 +46,7 @@ class SlikaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slika)
 
-        val naslov = intent.getStringExtra("naslov")
+        val naslov = intent.getStringExtra("title")
         val url = intent.getStringExtra("url")
 
         setSupportActionBar(toolbar)

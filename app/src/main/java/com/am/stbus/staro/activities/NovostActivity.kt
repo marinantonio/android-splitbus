@@ -62,7 +62,7 @@ class NovostActivity : AppCompatActivity() {
             toolbar.setNavigationOnClickListener { finish() }
         }
 
-        val naslov = intent.getStringExtra("naslov")
+        val naslov = intent.getStringExtra("title")
         val datum = intent.getStringExtra("datum")
         url = intent.getStringExtra("url")
 

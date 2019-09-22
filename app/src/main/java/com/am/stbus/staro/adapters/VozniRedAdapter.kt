@@ -34,7 +34,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.staro.activities.GmapsActivity
+import com.am.stbus.screens.gmaps.GmapsActivity
 import com.am.stbus.staro.activities.VozniRedActivity
 import com.am.stbus.staro.helpers.DatabaseHandler
 import com.am.stbus.staro.helpers.Utils

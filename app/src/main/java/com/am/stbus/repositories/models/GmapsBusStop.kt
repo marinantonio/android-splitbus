@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.staro.models
+package com.am.stbus.repositories.models
 
 /**
  * Created by Antonio Marin on 26.8.2018.
  */
-class GmapsStanica(var naslov: String, var linijeArray: ArrayList<String>)
+data class GmapsBusStop(var title: String, var busLinesArray: ArrayList<String>)

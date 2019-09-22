@@ -36,12 +36,12 @@
             tools:layout="@layout/fragment_dashboard_detail"/>
 
 
-    <!-- InformationList Fragment -->
+    <!-- Informacije -->
     <fragment
-            android:id="@+id/informationListFragment"
-            android:name="com.am.stbus.screens.information.InformationListFragment"
-            android:label="fragment_information_list"
-            tools:layout="@layout/fragment_information_list">
+        android:id="@+id/informationListFragment"
+        android:name="com.am.stbus.screens.information.InformationListFragment"
+        android:label="fragment_information_list"
+        tools:layout="@layout/fragment_information_list">
         <action
             android:id="@+id/action_informationFragment_to_informationDetailFragment"
             app:destination="@id/informationDetailFragment"/>
@@ -50,6 +50,8 @@
             app:destination="@id/informationNewsListFragment" />
     </fragment>
 
+
+    <!-- Novosti Lista -->
     <fragment
         android:id="@+id/informationNewsListFragment"
         android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsListFragment"
@@ -59,12 +61,28 @@
             android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
             app:destination="@id/informationNewsDetailFragment" />
     </fragment>
+
+    <!-- Novost Detail -->
     <fragment
         android:id="@+id/informationNewsDetailFragment"
-        android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsDetailFragment.InformationNewsDetailFragment"
+        android:name="com.am.stbus.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
         android:label="information_news_detail_fragment"
-        tools:layout="@layout/information_news_detail_fragment" />
+        tools:layout="@layout/information_news_detail_fragment" >
+        <argument
+            android:name="newsTitle"
+            android:defaultValue="Title"
+            app:argType="string"/>
+        <argument
+            android:name="newsDate"
+            android:defaultValue="Date"
+            app:argType="string"/>
+        <argument
+            android:name="newsUrl"
+            android:defaultValue="Url"
+            app:argType="string"/>
+    </fragment>
 
+    
     <fragment
             android:id="@+id/informationDetailFragment"
             android:name="com.am.stbus.screens.information.informationDetailFragment.InformationDetailFragment"

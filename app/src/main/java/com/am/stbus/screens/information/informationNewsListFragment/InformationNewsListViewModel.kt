@@ -1,13 +1,11 @@
 package com.am.stbus.screens.information.informationNewsListFragment
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.am.stbus.networking.usecases.GetNewsListUseCase
+import com.am.stbus.networking.usecases.GetNewsUseCase
 import com.am.stbus.repositories.local.NewsDao
-import com.am.stbus.repositories.models.News
+import com.am.stbus.repositories.models.NewsListItem
 import io.reactivex.CompletableObserver
-import io.reactivex.Observer
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -15,30 +13,22 @@ import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
 class InformationNewsListViewModel(
-        val getNewsListUseCase: GetNewsListUseCase,
-        val newsDao: NewsDao
+        private val getNewsUseCase: GetNewsUseCase,
+        private val newsDao: NewsDao
 ) : ViewModel() {
 
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _newsList = MutableLiveData<List<News>>()
-    val newsList: LiveData<List<News>>
-        get() = _newsList
-
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean>
-        get() = _loading
-
-    //private val _error
-
+    val newsList = MutableLiveData<List<NewsListItem>>()
+    val loading = MutableLiveData<Boolean>()
 
     init {
         newsDao.getAll()
                 .subscribeOn(schedulers)
                 .observeOn(thread)
-                .subscribe(object: SingleObserver<List<News>>{
-                    override fun onSuccess(t: List<News>) {
+                .subscribe(object: SingleObserver<List<NewsListItem>>{
+                    override fun onSuccess(t: List<NewsListItem>) {
                         handleDbResponse(t)
                     }
 
@@ -46,7 +36,7 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.i("onError")
+                        Timber.i("onError news dao")
                     }
 
                 })
@@ -54,32 +44,27 @@ class InformationNewsListViewModel(
 
 
     private fun getNewsFromAPI(){
-        getNewsListUseCase.getArticles()
+        getNewsUseCase.getNewsList()
                 .subscribeOn(schedulers)
                 .observeOn(thread)
-                .subscribe(object: Observer<List<News>>{
-                    override fun onComplete() {
-                        Timber.i("OnComplete")
+                .subscribe(object: SingleObserver<List<NewsListItem>>{
+                    override fun onSuccess(t: List<NewsListItem>) {
+                        handleApiResponse(t)
                     }
 
                     override fun onSubscribe(d: Disposable) {
                         Timber.i("onSubscribe")
                     }
 
-                    override fun onNext(news: List<News>) {
-                        Timber.i("onNext")
-                        handleApiResponse(news)
-                    }
-
                     override fun onError(e: Throwable) {
+                        Timber.e(e.localizedMessage)
                         handleError(e.localizedMessage)
-                        Timber.i("onError")
                     }
 
                 })
     }
 
-    private fun insertNewsInDb(news: List<News>){
+    private fun insertNewsInDb(news: List<NewsListItem>){
         newsDao.insertAll(news)
                 .subscribeOn(schedulers)
                 .observeOn(thread)
@@ -98,13 +83,14 @@ class InformationNewsListViewModel(
                 })
     }
 
-    private fun handleDbResponse(news: List<News>) {
-        // Ako ima podataka pokazat cemo ih odmah, a ako nema onda loading
+
+    private fun handleDbResponse(news: List<NewsListItem>) {
+        // Ako ima podataka prikazat cemo ih odmah, a ako nema onda loading
         if(news.isNotEmpty()) {
-            _newsList.postValue(news)
-            _loading.postValue(false)
+            newsList.postValue(news)
+            loading.postValue(false)
         } else {
-            _loading.postValue(true)
+            loading.postValue(true)
         }
 
         // I uvijek osvjezavamo podatke s novima
@@ -112,15 +98,15 @@ class InformationNewsListViewModel(
         getNewsFromAPI()
     }
 
-    private fun handleApiResponse(news: List<News>) {
-        _newsList.postValue(news)
+    private fun handleApiResponse(news: List<NewsListItem>) {
+        newsList.postValue(news)
         insertNewsInDb(news)
-        if(_loading.value!!)_loading.postValue(false)
+        if(loading.value!!)loading.postValue(false)
     }
 
     private fun handleError(localizedMessage: String?) {
-        if(_newsList.value.isNullOrEmpty()) {
-            _loading.postValue(false)
+        if(newsList.value.isNullOrEmpty()) {
+            loading.postValue(false)
             // todo show error
         }
 

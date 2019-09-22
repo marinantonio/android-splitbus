@@ -23,51 +23,51 @@
   ~ SOFTWARE.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="140dp"
-    android:layout_height="match_parent"
-    android:background="@color/colorGmapsPopupBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/tv_naslov"
-        android:layout_width="140dp"
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center_horizontal"
-        android:textAllCaps="true"
-        android:textColor="@color/colorGmapsPopupTitle"
-        android:textSize="22sp"
-        app:fontFamily="@font/font_semi_bold"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/colorListItemTitle"
+        android:textSize="@dimen/linija"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="tv_naslov" />
+        tools:text="tv_title"/>
 
     <TextView
-        android:id="@+id/tv_linije"
-        android:layout_width="140dp"
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:textColor="@color/colorGmapsPopupBuses"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/font_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_naslov"
-        tools:text="tv_linije" />
+        android:layout_marginTop="2dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorListItemDesc"
+        android:textSize="@dimen/preuzeto"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="tv_desc" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/colorListItemDivider"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

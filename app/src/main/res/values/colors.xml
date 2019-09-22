@@ -28,6 +28,7 @@
     <color name="colorPrimaryDark">@color/zutaTamnija</color>
     <color name="colorAccent">@color/plavaCijan</color>
     <color name="colorBackground">@color/bijela</color>
+    <color name="colorText">@color/crnaOpisi</color>
 
     <!-- BottomNavBar -->
     <color name="colorBottomNavItemBackground">@color/bijela</color>
@@ -42,6 +43,11 @@
     <!-- Loading/Error ekrani -->
     <color name="colorLoadingTitle">@color/crnaNaslovi</color>
     <color name="colorLoadingDesc">@color/crnaNaslovi</color>
+
+    <!-- Gmaps popup -->
+    <color name="colorGmapsPopupBackground">@color/bijela</color>
+    <color name="colorGmapsPopupTitle">@color/crnaNaslovi</color>
+    <color name="colorGmapsPopupBuses">@color/plavaCijan</color>
 
 
     <!-- Paleta boja -->
@@ -67,7 +73,6 @@
     <color name="nazivlinijelist">#181818</color>
     <color name="sivapreuzeto">#787878</color>
     <color name="alertdialogtext">#1f1f1f</color>
-    <color name="colorText">#181818</color>
     <color name="primary_text">#212121</color>
     <color name="divider">#e0e0e0</color>
     <color name="colorAccentTran">#D92a5176</color>

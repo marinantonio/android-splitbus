@@ -46,7 +46,7 @@ class NovostiAdapter constructor (context: Context?, private var item: ArrayList
 
         return ViewHolder(v).listen { pos, type ->
             val intent = Intent(parent.context, NovostActivity::class.java)
-            intent.putExtra("naslov", item[pos].naslov)
+            intent.putExtra("title", item[pos].naslov)
             intent.putExtra("datum", item[pos].datum)
             intent.putExtra("url", item[pos].url)
             parent.context.startActivity(intent)

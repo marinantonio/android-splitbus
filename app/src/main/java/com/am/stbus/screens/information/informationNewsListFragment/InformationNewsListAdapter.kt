@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.repositories.models.News
+import com.am.stbus.repositories.models.NewsListItem
 import kotlinx.android.synthetic.main.item_row_news.view.*
 
 class InformationNewsListAdapter(val context: Context?,
-                                 var onClickListener: (News) -> Unit
+                                 var onClickListener: (NewsListItem) -> Unit
 ) : RecyclerView.Adapter<InformationNewsListAdapter.NotificationsViewHolder>() {
 
-    private var informationNewsList = mutableListOf<News>()
+    private var informationNewsList = mutableListOf<NewsListItem>()
 
-    fun addEntireData(newsData: List<News>) {
+    fun addEntireData(newsData: List<NewsListItem>) {
         informationNewsList.addAll(newsData)
         notifyDataSetChanged()
     }
 
-    fun addItem(news: News) {
+    fun addItem(news: NewsListItem) {
         informationNewsList.add(news)
     }
 

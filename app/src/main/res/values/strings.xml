@@ -32,13 +32,59 @@
     <string name="nav_setttings">Settings</string>
 
     <!-- Information -->
+    <string name="information_news_general_category">News and general info</string>
     <string name="information_news_title">Latest news</string>
     <string name="information_news_desc">Fetch latest traffic news from Promet Split website. Please note these are usually written only in Croatian</string>
+    <string name="information_tourist_title">Tourist corner</string>
+    <string name="information_tourist_desc">First time in Split, having issues finding your way? No worries, check this section for quick city guide</string>
+    <string name="information_news_maps_category">Various maps</string>
+    <string name="information_gmaps_title">Interactive map</string>
+    <string name="information_gmaps_desc">Displays all bus routes and stops on the interactive Google Maps map inside the app</string>
+    <string name="information_urban_map_title">Urban area</string>
+    <string name="information_urban_map_desc">All parts of the city are connected by a dense network of bus lines</string>
+    <string name="information_suburban_map_title">Suburban area</string>
+    <string name="information_suburban_map_desc">Except urban city bus lines at the service of passengers there\'s more than a 30 suburban bus lines</string>
+    <string name="information_tariff_zones_title">Tariff zones</string>
+    <string name="information_tariff_zones_desc">Bus traffic in the city of Split and the surrounding area has been divided into four tariff zones</string>
+    <string name="information_websites_category">Other handy websites</string>
+    <string name="information_cycles_title">Nextbike</string>
+    <string name="information_cycles_desc">Check locations and availability of public bicycles found across Split</string>
+    <string name="information_parking_title">Parking</string>
+    <string name="information_parking_desc">Map displaying all public car parking sites</string>
+    <string name="information_garage_title">Garage</string>
+    <string name="information_garage_desc">Map displaying locations of all public car garages</string>
+    <string name="information_promet_web">Promet Split Website</string>
+    <string name="information_promet_desc">If Split Bus doesn\'t work please check timetables on the official Promet Split website</string>
 
 
     <!-- Settings -->
     <string name="settings_dark_mode_title">Dark mode</string>
     <string name="settings_dark_mode_desc">Manually control app\'s theme by enabling or disabling dark mode</string>
+
+    <!-- Error msg -->
+    <string name="error_still_not_finished">Not finished yet, coming in the next updates!</string>
+
+
+
+
+
+
+    <!-- Informacije -->
+    <string name="informacije_prometsplit_naslov">Promet Split Web</string>
+    <string name="informacije_prometsplit_opis">Ako ne radi aplikacija potražite vozne redove na službenoj Prometovoj Stranici</string>
+    <string name="informacije_gmaps_naslov">Interactive map</string>
+    <string name="informacije_gmaps_opis">Displays all bus routes and stops on the interactive Google Maps map inside the app</string>
+    <string name="informacije_karta_grad_naslov">Urban area</string>
+    <string name="informacije_karta_grad_opis">All parts of the city are connected by a dense network of bus lines</string>
+    <string name="informacije_karta_prigrad_naslov">Suburban area</string>
+    <string name="informacije_karta_prigrad_opis">Except urban city bus lines at the service of passengers there\'s more than a 30 suburban bus lines</string>
+    <string name="informacije_tarifne_zone_naslov">Tariff zones</string>
+    <string name="informacije_tarifne_zone_opis">Bus traffic in the city of Split and the surrounding area has been divided into four tariff zones</string>
+    <string name="informacije_parking_naslov">Parking</string>
+    <string name="informacije_parking_opis">Map displaying all public car parking sites</string>
+    <string name="informacije_garaze_naslov">Garage</string>
+    <string name="informacije_garaze_opis">Map displaying locations of all public car garages</string>
+
 
 
 
@@ -86,21 +132,6 @@
     <string name="vozni_red_error_promet_web">Promet Web</string>
 
 
-    <!-- Informacije -->
-    <string name="informacije_prometsplit_naslov">Promet Split Website</string>
-    <string name="informacije_prometsplit_opis">If Split Bus doesn\'t work please check timetables on the official Promet Split website</string>
-    <string name="informacije_gmaps_naslov">Interactive map</string>
-    <string name="informacije_gmaps_opis">Displays all bus routes and stops on the interactive Google Maps map inside the app</string>
-    <string name="informacije_karta_grad_naslov">Urban area</string>
-    <string name="informacije_karta_grad_opis">All parts of the city are connected by a dense network of bus lines</string>
-    <string name="informacije_karta_prigrad_naslov">Suburban area</string>
-    <string name="informacije_karta_prigrad_opis">Except urban city bus lines at the service of passengers there\'s more than a 30 suburban bus lines</string>
-    <string name="informacije_tarifne_zone_naslov">Tariff zones</string>
-    <string name="informacije_tarifne_zone_opis">Bus traffic in the city of Split and the surrounding area has been divided into four tariff zones</string>
-    <string name="informacije_parking_naslov">Parking</string>
-    <string name="informacije_parking_opis">Map displaying all public car parking sites</string>
-    <string name="informacije_garaze_naslov">Garage</string>
-    <string name="informacije_garaze_opis">Map displaying locations of all public car garages</string>
 
 
     <!-- Interaktivna karta -->

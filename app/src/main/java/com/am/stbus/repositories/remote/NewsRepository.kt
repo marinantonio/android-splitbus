@@ -1,9 +1,11 @@
 package com.am.stbus.repositories.remote
 
-import com.am.stbus.repositories.models.News
-import io.reactivex.Observable
+import com.am.stbus.repositories.models.NewsItem
+import com.am.stbus.repositories.models.NewsListItem
+import io.reactivex.Single
 
 interface NewsRepository {
 
-    fun getArticles(): Observable<List<News>>
+    fun getNewsList(): Single<List<NewsListItem>>
+    fun getNewsDetail(url: String): Single<NewsItem>
 }

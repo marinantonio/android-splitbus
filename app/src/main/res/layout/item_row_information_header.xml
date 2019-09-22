@@ -33,41 +33,24 @@
     android:background="?attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/tv_category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@color/colorListItemTitle"
-        android:textSize="@dimen/linija"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:fontFamily="@font/font_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="titleTextView"/>
-
-    <TextView
-        android:id="@+id/descTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/colorListItemDesc"
-        android:textSize="@dimen/preuzeto"
-        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
-        app:layout_constraintStart_toStartOf="@+id/titleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        tools:text="descTextView" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorListItemDivider"
-        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
-        app:layout_constraintStart_toStartOf="@+id/titleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/descTextView" />
+        tools:text="tv_category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
