@@ -46,6 +46,8 @@ class InformationImageViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //
+
 
 
         (activity as MainActivity).apply {
