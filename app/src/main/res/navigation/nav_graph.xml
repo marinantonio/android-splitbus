@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -48,26 +72,32 @@
         <action
             android:id="@+id/action_informationListFragment_to_informationNewsListFragment"
             app:destination="@id/informationNewsListFragment" />
+        <action
+            android:id="@+id/action_informationListFragment_to_informationImageViewFragment"
+            app:destination="@id/informationImageViewFragment" />
+        <action
+            android:id="@+id/action_informationListFragment_to_informationDetailFragment"
+            app:destination="@id/informationDetailFragment" />
     </fragment>
 
 
-    <!-- Novosti Lista -->
+    <!-- Informacije Novosti Lista -->
     <fragment
         android:id="@+id/informationNewsListFragment"
         android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsListFragment"
         android:label="information_news_list_fragment"
-        tools:layout="@layout/information_news_list_fragment" >
+        tools:layout="@layout/fragment_information_news_list" >
         <action
             android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
             app:destination="@id/informationNewsDetailFragment" />
     </fragment>
 
-    <!-- Novost Detail -->
+    <!-- Informacije Novost Detail -->
     <fragment
         android:id="@+id/informationNewsDetailFragment"
         android:name="com.am.stbus.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
         android:label="information_news_detail_fragment"
-        tools:layout="@layout/information_news_detail_fragment" >
+        tools:layout="@layout/fragment_information_news_detail" >
         <argument
             android:name="newsTitle"
             android:defaultValue="Title"
@@ -82,7 +112,24 @@
             app:argType="string"/>
     </fragment>
 
-    
+    <!-- Informacije Image View Detail -->
+    <fragment
+        android:id="@+id/informationImageViewFragment"
+        android:name="com.am.stbus.screens.information.informationImageViewFragment.InformationImageViewFragment"
+        android:label="information_image_view_fragment"
+        tools:layout="@layout/fragment_information_image_view_fragment" >
+        <argument
+            android:name="imageTitle"
+            android:defaultValue="Image"
+            app:argType="string"/>
+        <argument
+            android:name="imageUrl"
+            android:defaultValue="url"
+            app:argType="string" />
+    </fragment>
+
+
+    <!-- Placeholder koji triba maknit ca -->
     <fragment
             android:id="@+id/informationDetailFragment"
             android:name="com.am.stbus.screens.information.informationDetailFragment.InformationDetailFragment"
@@ -104,7 +151,5 @@
         android:id="@+id/settingsFragment"
         android:name="com.am.stbus.screens.settings.SettingsFragment"
         android:label="fragment_settings" />
-
-
 
 </navigation>
