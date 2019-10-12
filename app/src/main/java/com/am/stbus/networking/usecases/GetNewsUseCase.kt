@@ -1,9 +1,9 @@
 package com.am.stbus.networking.usecases
 
+import com.am.stbus.common.Constants
 import com.am.stbus.repositories.models.NewsItem
 import com.am.stbus.repositories.models.NewsListItem
 import com.am.stbus.repositories.remote.NewsRepository
-import com.am.stbus.staro.helpers.PROMET_NOVOSTI_URL
 import io.reactivex.Single
 import org.jsoup.Jsoup
 
@@ -12,7 +12,7 @@ class GetNewsUseCase : NewsRepository {
     override fun getNewsList(): Single<List<NewsListItem>> {
         return Single.fromCallable {
 
-            val doc = Jsoup.connect(PROMET_NOVOSTI_URL).timeout(20000).get()
+            val doc = Jsoup.connect(Constants.PROMET_NOVOSTI_URL).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
             val newsList = mutableListOf<NewsListItem>()
             var count = 0
             val elements = doc.select("h3.c-article-card__title > a")
@@ -46,7 +46,7 @@ class GetNewsUseCase : NewsRepository {
     override fun getNewsDetail(url: String): Single<NewsItem> {
         return Single.fromCallable {
 
-            val doc = Jsoup.connect(url).timeout(15000).get()
+            val doc = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
             var newsContent: String
             var newsImgUrl: String
 

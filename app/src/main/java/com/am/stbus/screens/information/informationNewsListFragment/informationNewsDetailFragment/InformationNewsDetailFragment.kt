@@ -17,14 +17,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.information_news_detail_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class InformationNewsDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = InformationNewsDetailFragment()
-    }
-
-    val args: InformationNewsDetailFragmentArgs by navArgs()
+    private val args: InformationNewsDetailFragmentArgs by navArgs()
 
     private val viewModel: InformationNewsDetailViewModel by viewModel()
 
@@ -48,6 +43,10 @@ class InformationNewsDetailFragment : Fragment() {
             onNewsLoaded(it)
         })
 
+        viewModel.error.observe(this, Observer<String> {
+            handleErrorScreen(it)
+        })
+
         viewModel.loading.observe(this, Observer<Boolean> {
             pb_loading.isVisible = it
             web_view.isVisible = !it
@@ -58,7 +57,6 @@ class InformationNewsDetailFragment : Fragment() {
         web_view.apply {
             setBackgroundColor(Color.TRANSPARENT)
             isHorizontalScrollBarEnabled = false
-            //loadData(formatWebViewText(it.newsItemContent), "text/html", null)
             loadDataWithBaseURL("file:///android_res/", formatNewsTextForWebView(it.newsItemContent), "text/html", "utf-8", null)
         }
     }
@@ -70,11 +68,19 @@ class InformationNewsDetailFragment : Fragment() {
                 "</head>\n" +
                 "<body>" +
                 "<style type=\"text/css\">\n" +
-                "body {font-family: \"Roboto\"; font-size: 15px; color:" + textColor + "; line-height: 15pt;}" +
+                "body {margin: 0px 0px 100px 0px; font-family: \"Roboto\"; font-size: 15px; color:" + textColor + "; line-height: 15pt;}" +
                 "</style>\n" +
                 textFixedImageTags + "</body>\n" +
                 "</html>"
 
     }
 
+    private fun handleErrorScreen(errorMessage: String?) {
+        web_view.loadDataWithBaseURL(
+                "file:///android_res/",
+                errorMessage,
+                "text/html",
+                "utf-8",
+                null)
+    }
 }

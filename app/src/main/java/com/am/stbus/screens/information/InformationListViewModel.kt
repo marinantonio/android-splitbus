@@ -15,7 +15,6 @@ import com.am.stbus.common.InformationConstants.ID_PARKING
 import com.am.stbus.common.InformationConstants.ID_PROMET_WEB
 import com.am.stbus.common.InformationConstants.ID_SUBURBAN_MAP
 import com.am.stbus.common.InformationConstants.ID_TARIFF_ZONES_MAP
-import com.am.stbus.common.InformationConstants.ID_TOURIST_INFO
 import com.am.stbus.common.InformationConstants.ID_URBAN_MAP
 import com.am.stbus.common.InformationConstants.ID_WEBSITES_CATEGORY
 import com.am.stbus.common.InformationConstants.TYPE_HEADER
@@ -37,7 +36,7 @@ class InformationListViewModel(private val context: Context) : ViewModel() {
         return listOf(
                 Information(ID_GENERAL_CATEGORY, TYPE_HEADER, context.getString(R.string.information_news_general_category), ""),
                 Information(ID_LATEST_NEWS, TYPE_ITEM, context.getString(R.string.information_news_title), context.getString(R.string.information_news_desc)),
-                Information(ID_TOURIST_INFO, TYPE_ITEM, context.getString(R.string.information_tourist_title), context.getString(R.string.information_tourist_desc)),
+                //Information(ID_TOURIST_INFO, TYPE_ITEM, context.getString(R.string.information_tourist_title), context.getString(R.string.information_tourist_desc)),
                 // Karte
                 Information(ID_MAPS_CATEGORY, TYPE_HEADER, context.getString(R.string.information_news_maps_category), ""),
                 Information(ID_GMAPS, TYPE_ITEM, context.getString(R.string.information_gmaps_title), context.getString(R.string.information_gmaps_desc)),

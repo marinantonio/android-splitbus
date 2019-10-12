@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -41,11 +40,6 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        showLoadingView(false)
-    }
-
     private val onDestinationChangedListener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
         if (rootFragments.contains(destination.id)) {
             nav_view.visibility = View.VISIBLE
@@ -66,21 +60,4 @@ class MainActivity : AppCompatActivity() {
             "3" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
-
-    fun showLoadingView(show: Boolean) {
-        snippet_loading.isVisible = show
-    }
-
-    fun showErrorView(show: Boolean, message: String, error: String) {
-
-    }
-
-
-
-
-
-
-
-
-
 }

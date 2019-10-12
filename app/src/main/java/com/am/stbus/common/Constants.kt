@@ -1,5 +1,25 @@
 package com.am.stbus.common
 
+object Constants {
+    const val PROMET_URL = "http://www.promet-split.hr/"
+    const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
+
+    // Informacije
+    const val KARTA_GRAD_URL = "https://www.dropbox.com/s/wdh2p8tbfzbtk5b/kartagrad.png?dl=1"
+    const val KARTA_PRIGRAD_URL = "https://www.dropbox.com/s/0k6c96k4e261kwf/kartaprigrad.png?dl=1"
+    const val TARIFNE_URL = "https://www.dropbox.com/s/ujsw5xjicx7i0az/tarifnezone.png?dl=1"
+    const val PARKING_URL = "http://www.splitparking.hr/parkiralista"
+    const val GARAZE_URL = "http://www.splitparking.hr/garaze"
+
+    // O Aplikaciji
+    const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"
+    const val FACEBOOK_URL = "https://www.facebook.com/splitbuss/"
+    const val LINKEDIN_URL = "https://www.linkedin.com/in/antoniomarin91/"
+    const val WEBSITE_URL = "https://marinantonio.github.io/"
+
+    const val NETWORK_REQUEST_TIMEOUT = 30000
+}
+
 object InformationConstants {
 
     const val TYPE_HEADER = 0

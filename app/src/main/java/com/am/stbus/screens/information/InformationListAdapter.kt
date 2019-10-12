@@ -19,7 +19,7 @@ class InformationListAdapter(val context: Context?,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var informationList = mutableListOf<Information>()
-    private val positionsThatShouldHideDivider: List<Int> = listOf(2, 7, 12)
+    private val positionsThatShouldHideDivider: List<Int> = listOf(1, 7, 12)
 
     fun addEntireData(notificationsData: List<Information>) {
         informationList.addAll(notificationsData)

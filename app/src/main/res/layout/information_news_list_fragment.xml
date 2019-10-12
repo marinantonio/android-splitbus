@@ -6,10 +6,19 @@
     tools:context=".screens.information.informationNewsListFragment.InformationNewsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newsListRecyclerView"
+        android:id="@+id/rv_news_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="6"
         tools:listitem="@layout/item_row_news" />
+
+    <include
+        android:id="@+id/snippet_loading"
+        layout="@layout/snippet_loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/snippet_error"
+        android:visibility="gone" />
 
 </FrameLayout>

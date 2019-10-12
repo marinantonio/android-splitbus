@@ -25,14 +25,13 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/snippet_error"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tv_error_simbol"
+        android:id="@+id/tv_error_symbol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -40,12 +39,12 @@
         android:text="@string/vozni_red_tuzni_smiley"
         android:textColor="@color/colorText"
         android:textSize="56sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_error_naslov"
+        app:layout_constraintBottom_toTopOf="@+id/tv_error_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tv_error_naslov"
+        android:id="@+id/tv_error_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -59,12 +58,12 @@
         android:textColor="@color/colorText"
         android:textSize="24sp"
         app:fontFamily="@font/font_semi_bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_error_opis"
+        app:layout_constraintBottom_toTopOf="@+id/tv_error_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tv_error_opis"
+        android:id="@+id/tv_error_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -103,6 +102,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_error_opis" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,17 +24,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        android:id="@+id/snippet_loading"
-        layout="@layout/snippet_loading"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:visibility="gone" />
-
-    <include
-        layout="@layout/snippet_error"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:visibility="gone" />
-
     <fragment
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"

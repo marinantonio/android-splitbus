@@ -1,5 +1,6 @@
 package com.am.stbus.screens.information.informationNewsListFragment
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.networking.usecases.GetNewsUseCase
@@ -20,13 +21,23 @@ class InformationNewsListViewModel(
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    val newsList = MutableLiveData<List<NewsListItem>>()
-    val loading = MutableLiveData<Boolean>()
+    private val _newsList = MutableLiveData<List<NewsListItem>>()
+    val newsList: LiveData<List<NewsListItem>>
+        get() = _newsList
+
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean>
+        get() = _loading
+
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String>
+        get() = _error
 
     init {
         newsDao.getAll()
                 .subscribeOn(schedulers)
                 .observeOn(thread)
+                .doAfterSuccess { getNewsFromAPI() }
                 .subscribe(object: SingleObserver<List<NewsListItem>>{
                     override fun onSuccess(t: List<NewsListItem>) {
                         handleDbResponse(t)
@@ -36,12 +47,11 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.i("onError news dao")
+                        _error.postValue(e.localizedMessage)
                     }
 
                 })
     }
-
 
     private fun getNewsFromAPI(){
         getNewsUseCase.getNewsList()
@@ -57,7 +67,6 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.e(e.localizedMessage)
                         handleError(e.localizedMessage)
                     }
 
@@ -87,29 +96,24 @@ class InformationNewsListViewModel(
     private fun handleDbResponse(news: List<NewsListItem>) {
         // Ako ima podataka prikazat cemo ih odmah, a ako nema onda loading
         if(news.isNotEmpty()) {
-            newsList.postValue(news)
-            loading.postValue(false)
+            _newsList.postValue(news)
+            _loading.postValue(false)
         } else {
-            loading.postValue(true)
+            _loading.postValue(true)
         }
-
-        // I uvijek osvjezavamo podatke s novima
-        // TODO: Error handling
-        getNewsFromAPI()
     }
 
     private fun handleApiResponse(news: List<NewsListItem>) {
-        newsList.postValue(news)
+        _newsList.postValue(news)
         insertNewsInDb(news)
-        if(loading.value!!)loading.postValue(false)
+        if(_loading.value!!)_loading.postValue(false)
     }
 
     private fun handleError(localizedMessage: String?) {
         if(newsList.value.isNullOrEmpty()) {
-            loading.postValue(false)
-            // todo show error
+            _loading.postValue(false)
+            _error.postValue(localizedMessage)
         }
-
     }
 
 }
