@@ -40,11 +40,13 @@ class InformationImageViewFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_information_news_list, container, false)
+        return inflater.inflate(R.layout.fragment_information_image_view_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         (activity as MainActivity).apply {
             toolbar.title = getString(R.string.nav_information)
