@@ -76,6 +76,9 @@
             android:id="@+id/action_informationListFragment_to_informationImageViewFragment"
             app:destination="@id/informationImageViewFragment" />
         <action
+            android:id="@+id/action_informationListFragment_to_informationWebViewFragment"
+            app:destination="@id/informationWebViewFragment" />
+        <action
             android:id="@+id/action_informationListFragment_to_informationDetailFragment"
             app:destination="@id/informationDetailFragment" />
     </fragment>
@@ -112,12 +115,12 @@
             app:argType="string"/>
     </fragment>
 
-    <!-- Informacije Image View Detail -->
+    <!-- Informacije ImageView Detail -->
     <fragment
         android:id="@+id/informationImageViewFragment"
         android:name="com.am.stbus.screens.information.informationImageViewFragment.InformationImageViewFragment"
         android:label="information_image_view_fragment"
-        tools:layout="@layout/fragment_information_image_view_fragment" >
+        tools:layout="@layout/fragment_information_image_view" >
         <argument
             android:name="imageTitle"
             android:defaultValue="Image"
@@ -127,6 +130,24 @@
             android:defaultValue="url"
             app:argType="string" />
     </fragment>
+
+    <!-- Informacije WebView Detail -->
+    <fragment
+        android:id="@+id/informationWebViewFragment"
+        android:name="com.am.stbus.screens.information.informationWebViewFragment.InformationWebViewFragment"
+        android:label="information_web_view_fragment"
+        tools:layout="@layout/fragment_information_web_view" >
+        <argument
+            android:name="webViewTitle"
+            android:defaultValue="Image"
+            app:argType="string"/>
+        <argument
+            android:name="webViewContent"
+            android:defaultValue="url"
+            app:argType="string" />
+    </fragment>
+
+
 
 
     <!-- Placeholder koji triba maknit ca -->

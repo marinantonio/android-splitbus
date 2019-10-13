@@ -23,16 +23,15 @@
   ~ SOFTWARE.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.information.informationNewsListFragment.InformationNewsListFragment">
+    tools:context=".screens.information.informationWebViewFragment.InformationWebViewFragment">
 
-    <uk.co.senab.photoview.PhotoView
-        android:id="@+id/iv_slika"
+    <WebView
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@drawable/ic_draw_favoriti" />
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

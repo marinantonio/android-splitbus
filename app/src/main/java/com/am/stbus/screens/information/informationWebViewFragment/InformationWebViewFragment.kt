@@ -22,54 +22,44 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.screens.information.informationImageViewFragment
+package com.am.stbus.screens.information.informationWebViewFragment
 
-import android.graphics.drawable.Drawable
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
 import com.am.stbus.screens.MainActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_information_image_view.*
+import kotlinx.android.synthetic.main.fragment_information_web_view.*
 
-class InformationImageViewFragment : Fragment() {
+class InformationWebViewFragment : Fragment() {
 
-    private val args: InformationImageViewFragmentArgs by navArgs()
+    private val args: InformationWebViewFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_information_image_view, container, false)
+        return inflater.inflate(R.layout.fragment_information_web_view, container, false)
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).toolbar.title = args.imageTitle
+        (activity as MainActivity).toolbar.title = args.webViewTitle
 
-        Glide.with(context!!)
-                .load(args.imageUrl)
-                .listener(object : RequestListener<Drawable>{
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
+        web_view.apply {
+            val webViewSettings = web_view.settings
+            webViewSettings.javaScriptEnabled = true
+            setBackgroundColor(Color.TRANSPARENT)
+            loadDataWithBaseURL("file:///android_res/", args.webViewContent, "text/html", "utf-8", null)
+        }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        pb_loading.isVisible = false
-                        return false
-                    }
 
-                })
-                .into(iv_slika)
     }
 
 }

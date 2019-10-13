@@ -28,12 +28,6 @@ object Constants {
     const val PROMET_URL = "http://www.promet-split.hr/"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
 
-    // Informacije
-    const val KARTA_GRAD_URL = "https://www.dropbox.com/s/wdh2p8tbfzbtk5b/kartagrad.png?dl=1"
-    const val KARTA_PRIGRAD_URL = "https://www.dropbox.com/s/0k6c96k4e261kwf/kartaprigrad.png?dl=1"
-    const val TARIFNE_URL = "https://www.dropbox.com/s/ujsw5xjicx7i0az/tarifnezone.png?dl=1"
-    const val PARKING_URL = "http://www.splitparking.hr/parkiralista"
-    const val GARAZE_URL = "http://www.splitparking.hr/garaze"
 
     // O Aplikaciji
     const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"
@@ -62,9 +56,18 @@ object InformationConstants {
     const val ID_PARKING = 10
     const val ID_GARAGES = 11
     const val ID_PROMET_WEB = 12
+
+    // Informacije
+    const val KARTA_GRAD_URL = "https://www.dropbox.com/s/wdh2p8tbfzbtk5b/kartagrad.png?dl=1"
+    const val KARTA_PRIGRAD_URL = "https://www.dropbox.com/s/0k6c96k4e261kwf/kartaprigrad.png?dl=1"
+    const val TARIFNE_URL = "https://www.dropbox.com/s/ujsw5xjicx7i0az/tarifnezone.png?dl=1"
+    const val PARKING_URL = "http://www.splitparking.hr/parkiralista"
+    const val GARAZE_URL = "http://www.splitparking.hr/garaze"
+
+    const val NEXT_BIKE_IFRAME = "<iframe class=\"nextbike_content_iframe\" id=\"nextbikemap\" name=\"nextbikemap\" " +
+            "src=\"https://iframe.nextbike.net/reservation/?lat=43.5162&amp;lng=16.4637&amp;zoom=12&amp;height=400" +
+            "&amp;maponly=1&amp;language=hr&amp;redirect_signup=https://secure.nextbike.net/gt/hr/split/registrirajse/\" " +
+            "width=\"100%\" height=\"400\" frameborder=\"0\"></iframe>"
+
 }
 
-val smt = "<iframe class=\"nextbike_content_iframe\" id=\"nextbikemap\" name=\"nextbikemap\" " +
-        "src=\"https://iframe.nextbike.net/reservation/?lat=43.5162&amp;lng=16.4637&amp;zoom=12&amp;height=400" +
-        "&amp;maponly=1&amp;language=hr&amp;redirect_signup=https://secure.nextbike.net/gt/hr/split/registrirajse/\" " +
-        "width=\"100%\" height=\"400\" frameborder=\"0\"></iframe>"
