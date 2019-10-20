@@ -37,7 +37,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.am.stbus.R
-import com.am.stbus.screens.gmaps.GmapsActivity
+import com.am.stbus.presentation.screens.gmaps.GmapsActivity
 import com.am.stbus.staro.fragments.VozniRedFragment
 import com.am.stbus.staro.helpers.DatabaseHandler
 import com.am.stbus.staro.helpers.PROMET_URL

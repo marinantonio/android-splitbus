@@ -24,13 +24,22 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.networking.usecases.GetNewsUseCase
+import com.am.stbus.domain.usecases.GetNewsDetailUseCase
+import com.am.stbus.domain.usecases.GetNewsListUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
 
-    single {
-        GetNewsUseCase()
+    factory {
+        GetNewsListUseCase(
+             newsRepository = get()
+        )
+    }
+
+    factory {
+        GetNewsDetailUseCase(
+            newsRepository = get()
+        )
     }
 
 }

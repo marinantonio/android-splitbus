@@ -27,7 +27,7 @@ package com.am.stbus.staro.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.am.stbus.R
-import com.am.stbus.screens.settings.SettingsFragment
+import com.am.stbus.presentation.screens.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_settings.*
 
 /**

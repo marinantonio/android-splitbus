@@ -63,7 +63,7 @@
             android:required="false" />
 
         <activity
-            android:name="com.am.stbus.screens.MainActivity">
+            android:name="com.am.stbus.presentation.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,7 +79,7 @@
         <activity
             android:name="com.am.stbus.staro.activities.SlikaActivity" />
         <activity
-            android:name="com.am.stbus.screens.gmaps.GmapsActivity" />
+            android:name="com.am.stbus.presentation.screens.gmaps.GmapsActivity" />
         <activity
             android:name="com.am.stbus.staro.activities.SettingsActivity" />
         <activity

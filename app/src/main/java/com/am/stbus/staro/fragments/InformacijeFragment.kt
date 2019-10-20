@@ -33,7 +33,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.screens.gmaps.GmapsActivity
+import com.am.stbus.presentation.screens.gmaps.GmapsActivity
 import com.am.stbus.staro.activities.SlikaActivity
 import com.am.stbus.staro.adapters.InformacijeAdapter
 import com.am.stbus.staro.helpers.*

@@ -47,7 +47,7 @@
 
   <fragment
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".screens.gmaps.GmapsActivity"
+      tools:context=".presentation.screens.gmaps.GmapsActivity"
       android:id="@+id/map"
       android:name="com.google.android.gms.maps.SupportMapFragment"
       android:layout_width="match_parent"

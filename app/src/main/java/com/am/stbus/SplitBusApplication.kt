@@ -25,9 +25,7 @@
 package com.am.stbus
 
 import android.app.Application
-import com.am.stbus.common.di.applicationModule
-import com.am.stbus.common.di.useCaseModule
-import com.am.stbus.common.di.viewModelModule
+import com.am.stbus.common.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -36,6 +34,9 @@ class SplitBusApplication : Application() {
 
     private var listOfModules = listOf(
             applicationModule,
+            localModules,
+            networkModules,
+            repositoriesModule,
             useCaseModule,
             viewModelModule
     )

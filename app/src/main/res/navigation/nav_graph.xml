@@ -32,7 +32,7 @@
     <!-- FavouritesList Fragment -->
     <fragment
             android:id="@+id/favouriteFragment"
-            android:name="com.am.stbus.screens.favourites.FavouriteFragment"
+            android:name="com.am.stbus.presentation.screens.favourites.FavouriteFragment"
             android:label="fragment_favourite"
             tools:layout="@layout/fragment_list_container">
         <action
@@ -44,7 +44,7 @@
     <!-- TimetableList Fragment -->
     <fragment
             android:id="@+id/timetableListFragment"
-            android:name="com.am.stbus.screens.timetable.timetableListFragment.TimetableListFragment"
+            android:name="com.am.stbus.presentation.screens.timetable.timetableListFragment.TimetableListFragment"
             android:label="fragment_timetable_list"
             tools:layout="@layout/fragment_dashboard">
         <action
@@ -55,7 +55,7 @@
     <!-- TimetableDetail Fragment -->
     <fragment
             android:id="@+id/timetableDetailFragment"
-            android:name="com.am.stbus.screens.timetable.timetableDetailFragment.TimetableDetailFragment"
+            android:name="com.am.stbus.presentation.screens.timetable.timetableDetailFragment.TimetableDetailFragment"
             android:label="fragment_timetable_detail"
             tools:layout="@layout/fragment_dashboard_detail"/>
 
@@ -63,7 +63,7 @@
     <!-- Informacije -->
     <fragment
         android:id="@+id/informationListFragment"
-        android:name="com.am.stbus.screens.information.InformationListFragment"
+        android:name="com.am.stbus.presentation.screens.information.InformationListFragment"
         android:label="fragment_information_list"
         tools:layout="@layout/fragment_information_list">
         <action
@@ -87,7 +87,7 @@
     <!-- Informacije Novosti Lista -->
     <fragment
         android:id="@+id/informationNewsListFragment"
-        android:name="com.am.stbus.screens.information.informationNewsListFragment.InformationNewsListFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.InformationNewsListFragment"
         android:label="information_news_list_fragment"
         tools:layout="@layout/fragment_information_news_list" >
         <action
@@ -98,7 +98,7 @@
     <!-- Informacije Novost Detail -->
     <fragment
         android:id="@+id/informationNewsDetailFragment"
-        android:name="com.am.stbus.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
         android:label="information_news_detail_fragment"
         tools:layout="@layout/fragment_information_news_detail" >
         <argument
@@ -118,7 +118,7 @@
     <!-- Informacije ImageView Detail -->
     <fragment
         android:id="@+id/informationImageViewFragment"
-        android:name="com.am.stbus.screens.information.informationImageViewFragment.InformationImageViewFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationImageViewFragment.InformationImageViewFragment"
         android:label="information_image_view_fragment"
         tools:layout="@layout/fragment_information_image_view" >
         <argument
@@ -134,7 +134,7 @@
     <!-- Informacije WebView Detail -->
     <fragment
         android:id="@+id/informationWebViewFragment"
-        android:name="com.am.stbus.screens.information.informationWebViewFragment.InformationWebViewFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationWebViewFragment.InformationWebViewFragment"
         android:label="information_web_view_fragment"
         tools:layout="@layout/fragment_information_web_view" >
         <argument
@@ -153,7 +153,7 @@
     <!-- Placeholder koji triba maknit ca -->
     <fragment
             android:id="@+id/informationDetailFragment"
-            android:name="com.am.stbus.screens.information.informationDetailFragment.InformationDetailFragment"
+            android:name="com.am.stbus.presentation.screens.information.informationDetailFragment.InformationDetailFragment"
             android:label="fragment_information_detail"
             tools:layout="@layout/fragment_notification_detail">
         <argument
@@ -170,7 +170,7 @@
     <!-- Settings Fragment -->
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.am.stbus.screens.settings.SettingsFragment"
+        android:name="com.am.stbus.presentation.screens.settings.SettingsFragment"
         android:label="fragment_settings" />
 
 </navigation>
