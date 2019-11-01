@@ -36,6 +36,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
+
 class InformationNewsListViewModel(
         private val getNewsListUseCase: GetNewsListUseCase
 ) : ViewModel() {
@@ -63,8 +64,6 @@ class InformationNewsListViewModel(
         getNewsListUseCase.build(false)
                 .subscribeOn(schedulers)
                 .observeOn(thread)
-                // .doAfterSuccess { getNewsListUseCase.build(true) }
-                //.flatMap { getNewsListUseCase.build(true) }
                 .subscribe(object : SingleObserver<List<NewsListItem>> {
                     override fun onSuccess(news: List<NewsListItem>) {
                         getRemoteNewsList()
@@ -82,12 +81,12 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.e("onError")
+                        Timber.e("onError ${e.localizedMessage}")
+                        _error.postValue(e.localizedMessage)
                     }
 
                 })
     }
-
 
     private fun getRemoteNewsList() {
         getNewsListUseCase.build(true)
@@ -105,7 +104,6 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.e("${e.localizedMessage}")
                         _error.postValue(e.localizedMessage)
                     }
 

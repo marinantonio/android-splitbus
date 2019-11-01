@@ -68,7 +68,8 @@ class InformationNewsListFragment : Fragment() {
         })
 
         viewModel.error.observe(this, Observer<String> {
-            handleErrorScreen(it)
+            if (informationNewsListAdapter.itemCount < 1)
+                handleErrorScreen(it)
         })
 
         rv_news_list.apply {
