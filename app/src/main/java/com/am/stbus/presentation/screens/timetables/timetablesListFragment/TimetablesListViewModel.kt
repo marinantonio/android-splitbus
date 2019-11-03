@@ -22,57 +22,56 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment
+package com.am.stbus.presentation.screens.timetables.timetablesListFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.am.stbus.domain.models.NewsItem
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import io.reactivex.SingleObserver
+import com.am.stbus.domain.models.Timetable
+import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
+import io.reactivex.CompletableObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
-class InformationNewsDetailViewModel(
-        private val getNewsDetailUseCase: NewsDetailUseCase
-) : ViewModel() {
+class TimetablesListViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _newsItem = MutableLiveData<NewsItem>()
-    val newsItem: LiveData<NewsItem>
-        get() = _newsItem
+    private val _updatedFavourite = MutableLiveData<TimetablesListFragment.UpdatedFavourite>()
+    val updatedFavourite: LiveData<TimetablesListFragment.UpdatedFavourite>
+        get() = _updatedFavourite
 
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean>
-        get() = _loading
+    init {
+        //getTimetables()
+    }
 
-    private val _error = MutableLiveData<String>()
-    val error: LiveData<String>
-        get() = _error
+    fun updateFavouritesStatus(position: Int, timetable: Timetable) {
 
-    fun fetchAndPopulateNewsItem(url: String) {
-        getNewsDetailUseCase.get(true, url)
+        val favouritesToUpdate = if (timetable.favourite == 0) { 1 } else { 0 }
+
+        timetableListUseCase.updateFavourites(timetable.lineId, favouritesToUpdate)
                 .subscribeOn(schedulers)
                 .observeOn(thread)
-                .subscribe(object: SingleObserver<NewsItem> {
-                    override fun onSuccess(t: NewsItem) {
-                        _newsItem.postValue(t)
-                        _loading.postValue(false)
+                .subscribe(object: CompletableObserver {
+                    override fun onComplete() {
+                        Timber.e("onComplete updateFavourite")
+                        _updatedFavourite.postValue(
+                                TimetablesListFragment.UpdatedFavourite(
+                                        position,
+                                        favouritesToUpdate
+                                )
+                        )
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        _loading.postValue(true)
                     }
 
                     override fun onError(e: Throwable) {
-                        _loading.postValue(false)
-                        _error.postValue(e.localizedMessage)
                     }
                 })
-
     }
 
 }

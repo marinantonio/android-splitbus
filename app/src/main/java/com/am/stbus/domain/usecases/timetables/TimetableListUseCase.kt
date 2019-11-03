@@ -22,32 +22,24 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetable.timetableListFragment
+package com.am.stbus.domain.usecases.timetables
 
-import androidx.lifecycle.*
-import timber.log.Timber
+import com.am.stbus.domain.models.Timetable
+import com.am.stbus.domain.repositories.TimetableRepository
+import io.reactivex.Completable
+import io.reactivex.Single
 
-class TimetableViewModel(private var count: Int = 0) : ViewModel(), LifecycleObserver {
+class TimetableListUseCase(private val timetableRepository: TimetableRepository) {
 
-    val changeNotifier = MutableLiveData<Int>()
-    fun increment() {
-        changeNotifier.value = ++count
+    fun saveTimetables(list: List<Timetable>): Completable {
+        return timetableRepository.saveTimetables(list)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate() {
-        Timber.e("yay onCreate!!")
+    fun getTimetables(): Single<List<Timetable>> {
+        return timetableRepository.getTimetables()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        Timber.e("onResume in")
-        changeNotifier.value = count
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() {
-        Timber.e("onDestroyKicking in")
-        changeNotifier.value = count
+    fun updateFavourites(lineId: Int, favourite: Int): Completable {
+        return timetableRepository.updateFavourites(lineId, favourite)
     }
 }

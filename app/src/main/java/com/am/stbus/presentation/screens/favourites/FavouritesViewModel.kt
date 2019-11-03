@@ -22,57 +22,71 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment
+package com.am.stbus.presentation.screens.favourites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.am.stbus.domain.models.NewsItem
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
+import com.am.stbus.common.TimetablesData
+import com.am.stbus.domain.models.Timetable
+import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
+import io.reactivex.CompletableObserver
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class InformationNewsDetailViewModel(
-        private val getNewsDetailUseCase: NewsDetailUseCase
-) : ViewModel() {
+class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _newsItem = MutableLiveData<NewsItem>()
-    val newsItem: LiveData<NewsItem>
-        get() = _newsItem
+    private val _timetableList = MutableLiveData<List<Timetable>>()
+    val timetableList: LiveData<List<Timetable>>
+        get() = _timetableList
 
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean>
-        get() = _loading
+    init {
+        getTimetables()
+    }
 
-    private val _error = MutableLiveData<String>()
-    val error: LiveData<String>
-        get() = _error
-
-    fun fetchAndPopulateNewsItem(url: String) {
-        getNewsDetailUseCase.get(true, url)
+    private fun getTimetables() {
+        timetableListUseCase.getTimetables()
                 .subscribeOn(schedulers)
                 .observeOn(thread)
-                .subscribe(object: SingleObserver<NewsItem> {
-                    override fun onSuccess(t: NewsItem) {
-                        _newsItem.postValue(t)
-                        _loading.postValue(false)
+                .subscribe(object : SingleObserver<List<Timetable>> {
+                    override fun onSuccess(timetables: List<Timetable>) {
+                        if (timetables.isEmpty()) {
+                            saveTimetables()
+                        } else {
+                            _timetableList.postValue(timetables)
+                        }
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        _loading.postValue(true)
+                        // TODO
                     }
 
                     override fun onError(e: Throwable) {
-                        _loading.postValue(false)
-                        _error.postValue(e.localizedMessage)
+                        // TODO
                     }
-                })
 
+                })
     }
 
+    private fun saveTimetables() {
+        timetableListUseCase.saveTimetables(TimetablesData.list)
+                .subscribeOn(schedulers)
+                .observeOn(thread)
+                .subscribe(object: CompletableObserver {
+                    override fun onComplete() {
+                        _timetableList.postValue(TimetablesData.list)
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+                    }
+
+                    override fun onError(e: Throwable) {
+                    }
+                })
+    }
 }

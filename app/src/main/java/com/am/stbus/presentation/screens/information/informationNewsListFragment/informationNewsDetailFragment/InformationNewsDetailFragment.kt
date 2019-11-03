@@ -36,8 +36,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
 import com.am.stbus.domain.models.NewsItem
-import com.am.stbus.presentation.screens.MainActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_information_news_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -55,8 +53,7 @@ class InformationNewsDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mainActivity = activity as MainActivity
-        mainActivity.toolbar.title = getString(R.string.information_news_title)
+        toolbar.title = getString(R.string.information_news_title)
 
         tv_title.text = args.newsTitle
         tv_date.text = args.newsDate

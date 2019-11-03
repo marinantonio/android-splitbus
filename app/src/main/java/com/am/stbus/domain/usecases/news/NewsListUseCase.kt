@@ -22,31 +22,21 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain.usecases.news
 
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import com.am.stbus.domain.usecases.news.NewsListUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
-import org.koin.dsl.module
+import com.am.stbus.domain.models.NewsListItem
+import com.am.stbus.domain.repositories.NewsRepository
+import io.reactivex.Completable
+import io.reactivex.Single
 
-val useCaseModule = module {
+class NewsListUseCase(private val newsRepository: NewsRepository) {
 
-    factory {
-        NewsListUseCase(
-                newsRepository = get()
-        )
+    fun build(remote: Boolean): Single<List<NewsListItem>> {
+        return newsRepository.getNewsList(remote)
     }
 
-    factory {
-        NewsDetailUseCase(
-                newsRepository = get()
-        )
-    }
-
-    factory {
-        TimetableListUseCase(
-                timetableRepository = get()
-        )
+    fun save(list: List<NewsListItem>): Completable {
+        return newsRepository.saveNewsList(list)
     }
 
 }

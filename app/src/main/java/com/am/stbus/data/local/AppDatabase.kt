@@ -28,8 +28,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.am.stbus.common.Constants
 import com.am.stbus.domain.models.NewsListItem
+import com.am.stbus.domain.models.Timetable
 
-@Database(entities = arrayOf(NewsListItem::class), version = Constants.DB_VERSION)
+@Database(entities = [NewsListItem::class, Timetable::class], version = Constants.DB_VERSION)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun newsDao(): NewsDao
+    abstract fun timetableDao(): TimetableDao
 }

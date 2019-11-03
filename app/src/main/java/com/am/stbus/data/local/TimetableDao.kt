@@ -22,31 +22,35 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.local
 
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import com.am.stbus.domain.usecases.news.NewsListUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
-import org.koin.dsl.module
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.am.stbus.domain.models.Timetable
+import io.reactivex.Completable
+import io.reactivex.Single
 
-val useCaseModule = module {
+@Dao
+interface TimetableDao {
 
-    factory {
-        NewsListUseCase(
-                newsRepository = get()
-        )
-    }
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(news: List<Timetable>): Completable
 
-    factory {
-        NewsDetailUseCase(
-                newsRepository = get()
-        )
-    }
+    @Query("SELECT * FROM timetable")
+    fun getAll(): Single<List<Timetable>>
 
-    factory {
-        TimetableListUseCase(
-                timetableRepository = get()
-        )
-    }
+    @Query("SELECT * FROM timetable WHERE lineId LIKE :lineId LIMIT 1")
+    fun loadItemByLineId(lineId: Int): List<Timetable>
+
+    @Query("SELECT * FROM timetable WHERE area_id LIKE :areaId LIMIT 1")
+    fun loadItemsByAreaId(areaId: Int): List<Timetable>
+
+    @Query("SELECT * FROM timetable WHERE favourite IS 1")
+    fun loadFavourites(): List<Timetable>
+
+    @Query("UPDATE timetable SET favourite = :favourite WHERE lineId LIKE :lineId ")
+    fun setFavouriteToLineId(lineId: Int, favourite: Int): Completable
 
 }

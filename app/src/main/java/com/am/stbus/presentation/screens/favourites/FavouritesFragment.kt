@@ -22,42 +22,51 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.information.informationDetailFragment
-
+package com.am.stbus.presentation.screens.favourites
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
-import com.am.stbus.presentation.screens.MainActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_notification_detail.view.*
+import com.am.stbus.domain.models.Timetable
+import kotlinx.android.synthetic.main.fragment_favourites.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class InformationDetailFragment : Fragment() {
+class FavouritesFragment : Fragment() {
 
-    private val args: InformationDetailFragmentArgs by navArgs()
+    private val viewModel: FavouritesViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification_detail, container, false)
+    private val favouriteAdapter = FavouritesAdapter(context) { onTimetableClicked(it) }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).apply {
-            toolbar.title = getString(R.string.nav_information)
+        toolbar.title = getString(R.string.nav_favourites)
+
+        rv_timetables.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(false)
+            adapter = favouriteAdapter
         }
 
-        view.tv_notification_detail_title.text = args.notificationTitle
-        view.tv_notification_detail_msg.text = args.notificationMessage
-        //val title = args.title
-
+        viewModel.timetableList.observe(this, Observer<List<Timetable>> { timetables ->
+            favouriteAdapter.addEntireData(timetables.filter { it.favourite == 1 })
+        })
     }
+
+    private fun onTimetableClicked(timetable: Timetable) {
+        // TODO Launch timetable detail screen
+    }
+
+
+
 }

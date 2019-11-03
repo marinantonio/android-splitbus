@@ -36,6 +36,7 @@
     <color name="colorBottomNavItemUnSelected">@color/crna</color>
 
     <!-- RecyclerView liste -->
+    <color name="colorListItemLineId">@color/plavaCijan</color>
     <color name="colorListItemTitle">@color/crnaNaslovi</color>
     <color name="colorListItemDesc">@color/crnaOpisi</color>
     <color name="colorListItemDivider">@color/sivaDivider</color>

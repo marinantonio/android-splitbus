@@ -23,26 +23,50 @@
   ~ SOFTWARE.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.screens.information.informationNewsListFragment.InformationNewsListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.screens.information.informationWebViewFragment.InformationWebViewFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_news_list"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:itemCount="6"
-        tools:listitem="@layout/item_row_news" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <include
-        android:id="@+id/snippet_loading"
-        layout="@layout/snippet_loading"
-        android:visibility="gone" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_news_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_row_news" />
 
-    <include
-        layout="@layout/snippet_error"
-        android:visibility="gone" />
+        <include
+            android:id="@+id/snippet_loading"
+            layout="@layout/snippet_loading"
+            android:visibility="gone" />
 
-</FrameLayout>
+        <include
+            layout="@layout/snippet_error"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

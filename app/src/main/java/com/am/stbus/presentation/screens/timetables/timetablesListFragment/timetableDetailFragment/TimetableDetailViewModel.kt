@@ -22,21 +22,10 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.domain.usecases
+package com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment
 
-import com.am.stbus.domain.models.NewsListItem
-import com.am.stbus.domain.repositories.NewsRepository
-import io.reactivex.Completable
-import io.reactivex.Single
+import androidx.lifecycle.ViewModel
 
-class GetNewsListUseCase(private val newsRepository: NewsRepository) {
-
-    fun build(remote: Boolean): Single<List<NewsListItem>> {
-        return newsRepository.getNewsList(remote)
-    }
-
-    fun save(list: List<NewsListItem>): Completable {
-        return newsRepository.saveNewsList(list)
-    }
-
+class TimetableDetailViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
 }

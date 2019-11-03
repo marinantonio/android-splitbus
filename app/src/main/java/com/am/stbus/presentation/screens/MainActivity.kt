@@ -28,6 +28,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -38,13 +39,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val rootFragments: IntArray =
-            intArrayOf(R.id.favouriteFragment, R.id.timetableListFragment, R.id.informationListFragment, R.id.settingsFragment)
+            intArrayOf(R.id.favouriteFragment, R.id.timetablesFragment, R.id.informationListFragment, R.id.settingsFragment)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        setSupportActionBar(toolbar)
 
         setupAppTheme()
 
@@ -74,7 +73,10 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
         }
+
+        app_bar.isVisible = destination.id == R.id.settingsFragment
     }
+
 
     fun setupAppTheme() {
         val preference = PreferenceManager.getDefaultSharedPreferences(this)

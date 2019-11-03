@@ -30,7 +30,6 @@ import io.reactivex.Completable
 import io.reactivex.Single
 
 interface NewsRepository {
-
     fun getNewsList(remote: Boolean): Single<List<NewsListItem>>
     fun getNewsDetail(remote: Boolean, url: String): Single<NewsItem>
     fun saveNewsList(list: List<NewsListItem>): Completable

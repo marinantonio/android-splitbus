@@ -36,7 +36,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
 import com.am.stbus.domain.models.NewsListItem
 import com.am.stbus.presentation.screens.MainActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_information_news_list.*
 import kotlinx.android.synthetic.main.snippet_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -45,6 +44,7 @@ import timber.log.Timber
 class InformationNewsListFragment : Fragment() {
 
     private val viewModel: InformationNewsListViewModel by viewModel()
+
     private val informationNewsListAdapter = InformationNewsListAdapter(context) { onNewsItemClicked(it)}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

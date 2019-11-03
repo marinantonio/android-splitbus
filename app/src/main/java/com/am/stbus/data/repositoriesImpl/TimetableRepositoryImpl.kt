@@ -22,31 +22,29 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.repositoriesImpl
 
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import com.am.stbus.domain.usecases.news.NewsListUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
-import org.koin.dsl.module
+import com.am.stbus.data.local.TimetableDao
+import com.am.stbus.data.network.RemoteTimetableDataSource
+import com.am.stbus.domain.models.Timetable
+import com.am.stbus.domain.repositories.TimetableRepository
+import io.reactivex.Completable
+import io.reactivex.Single
 
-val useCaseModule = module {
+class TimetableRepositoryImpl(
+        private val remoteTimetableDataSource: RemoteTimetableDataSource,
+        private val localTimetableDataSource: TimetableDao
+): TimetableRepository {
 
-    factory {
-        NewsListUseCase(
-                newsRepository = get()
-        )
+    override fun saveTimetables(list: List<Timetable>): Completable {
+        return localTimetableDataSource.insertAll(list)
     }
 
-    factory {
-        NewsDetailUseCase(
-                newsRepository = get()
-        )
+    override fun getTimetables(): Single<List<Timetable>> {
+        return localTimetableDataSource.getAll()
     }
 
-    factory {
-        TimetableListUseCase(
-                timetableRepository = get()
-        )
+    override fun updateFavourites(lineId: Int, favourite: Int): Completable {
+        return localTimetableDataSource.setFavouriteToLineId(lineId, favourite)
     }
-
 }

@@ -23,13 +23,17 @@
   ~ SOFTWARE.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-     <item
-         android:id="@+id/nav_favourites"
-         android:title="Dpdaj u favorite" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_timetables"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_row_timetable" />
 
-     <item
-            android:id="@+id/nav_recent"
-            android:title="@string/action_ruta" />
-</menu>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

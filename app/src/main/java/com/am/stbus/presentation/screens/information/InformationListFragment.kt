@@ -57,9 +57,7 @@ import com.am.stbus.common.InformationConstants.NEXT_BIKE_IFRAME
 import com.am.stbus.common.InformationConstants.PARKING_URL
 import com.am.stbus.common.InformationConstants.TARIFNE_URL
 import com.am.stbus.domain.models.Information
-import com.am.stbus.presentation.screens.MainActivity
 import com.am.stbus.presentation.screens.gmaps.GmapsActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_information_list.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -82,7 +80,7 @@ class InformationListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).toolbar.title = getString(R.string.nav_information)
+        toolbar.title = getString(R.string.nav_information)
 
         viewModel.informationList.observe(this, informationListObserver)
 

@@ -25,12 +25,17 @@
 package com.am.stbus.common.di
 
 import com.am.stbus.data.network.RemoteNewsDataSource
+import com.am.stbus.data.network.RemoteTimetableDataSource
 import org.koin.dsl.module
 
 val networkModules = module {
 
     single {
         RemoteNewsDataSource()
+    }
+
+    single {
+        RemoteTimetableDataSource()
     }
 
 }

@@ -31,7 +31,7 @@
         android:title="@string/nav_favourites"/>
 
     <item
-        android:id="@+id/timetableListFragment"
+        android:id="@+id/timetablesFragment"
         android:icon="@drawable/ic_draw_gradski"
         android:title="@string/nav_timetables"/>
 

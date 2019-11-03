@@ -43,5 +43,10 @@ val localModules = module {
         get<AppDatabase>().newsDao()
     }
 
+    single {
+        get<AppDatabase>().timetableDao()
+    }
+
+
 }
 

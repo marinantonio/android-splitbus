@@ -25,7 +25,9 @@
 package com.am.stbus.common.di
 
 import com.am.stbus.data.repositoriesImpl.NewsRepositoryImpl
+import com.am.stbus.data.repositoriesImpl.TimetableRepositoryImpl
 import com.am.stbus.domain.repositories.NewsRepository
+import com.am.stbus.domain.repositories.TimetableRepository
 import org.koin.dsl.module
 
 val repositoriesModule = module {
@@ -34,6 +36,13 @@ val repositoriesModule = module {
         NewsRepositoryImpl(
                 remoteNewsDataSource = get(),
                 localNewsDataSource = get()
+        )
+    }
+
+    single<TimetableRepository> {
+        TimetableRepositoryImpl(
+                remoteTimetableDataSource = get(),
+                localTimetableDataSource = get()
         )
     }
 

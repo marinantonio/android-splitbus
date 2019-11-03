@@ -22,16 +22,14 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.domain.usecases
+package com.am.stbus.domain.repositories
 
-import com.am.stbus.domain.models.NewsItem
-import com.am.stbus.domain.repositories.NewsRepository
+import com.am.stbus.domain.models.Timetable
+import io.reactivex.Completable
 import io.reactivex.Single
 
-class GetNewsDetailUseCase(private val newsRepository: NewsRepository) {
-
-    fun get(remote: Boolean, url: String): Single<NewsItem> {
-        return newsRepository.getNewsDetail(remote, url)
-    }
-
+interface TimetableRepository {
+    fun saveTimetables(list: List<Timetable>): Completable
+    fun getTimetables(): Single<List<Timetable>>
+    fun updateFavourites(lineId: Int, favourite: Int): Completable
 }

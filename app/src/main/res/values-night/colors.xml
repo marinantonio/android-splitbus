@@ -36,6 +36,7 @@
     <color name="colorBottomNavItemUnSelected">@color/bijela</color>
 
     <!-- RecyclerView liste -->
+    <color name="colorListItemLineId">@color/zutaTamnija</color>
     <color name="colorListItemTitle">@color/bijela</color>
     <color name="colorListItemDesc">@color/sivaOpisi</color>
     <color name="colorListItemDivider">@color/sivaDivider30</color>

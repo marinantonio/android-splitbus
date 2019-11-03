@@ -33,13 +33,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
-import com.am.stbus.presentation.screens.MainActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_information_image_view.*
 
 class InformationImageViewFragment : Fragment() {
@@ -54,7 +52,7 @@ class InformationImageViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).toolbar.title = args.imageTitle
+        toolbar.title = args.imageTitle
 
         Glide.with(context!!)
                 .load(args.imageUrl)

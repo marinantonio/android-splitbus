@@ -22,29 +22,38 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.information.informationNewsListFragment
+package com.am.stbus.presentation.screens.timetables.timetablesListFragment
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.domain.models.NewsListItem
-import kotlinx.android.synthetic.main.item_row_news.view.*
+import com.am.stbus.common.TimetablesData
+import com.am.stbus.domain.models.Timetable
+import kotlinx.android.synthetic.main.item_row_timetable.view.*
 
-class InformationNewsListAdapter(val context: Context?,
-                                 var onClickListener: (NewsListItem) -> Unit
-) : RecyclerView.Adapter<InformationNewsListAdapter.NotificationsViewHolder>() {
+class TimetablesListAdapter(val context: Context?,
+                            var onClickListener: (Timetable) -> Unit,
+                            var onClickFavourites: (Int, Timetable) -> Unit,
+                            var onClickMenuGmaps: (Timetable) -> Unit
+) : RecyclerView.Adapter<TimetablesListAdapter.NotificationsViewHolder>() {
 
-    private var items = mutableListOf<NewsListItem>()
+    var items = mutableListOf<Timetable>()
 
-    fun addEntireData(news: List<NewsListItem>) {
-        items.addAll(news)
+    fun addEntireData(timetables: List<Timetable>) {
+        items.addAll(timetables)
         notifyDataSetChanged()
     }
 
-    fun addItem(news: NewsListItem) {
+    fun updateFavourite(position: Int, favourite: Int) {
+        items[position].favourite = favourite
+        notifyItemChanged(position)
+    }
+
+    fun addItem(news: Timetable) {
         items.add(news)
     }
 
@@ -54,7 +63,7 @@ class InformationNewsListAdapter(val context: Context?,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_row_news, parent, false)
+            .inflate(R.layout.item_row_timetable, parent, false)
         return NotificationsViewHolder(itemView)
     }
 
@@ -73,11 +82,34 @@ class InformationNewsListAdapter(val context: Context?,
             val item = items[position]
 
             itemView.apply {
-                titleTextView.text = item.title
-                dateTextView.text = item.date
-                summaryTextView.text = item.desc
+                tv_line_id.text = item.lineNumber
+                tv_line_name.text = context.getString(TimetablesData().getTimetableTitle(item.lineId))
                 setOnClickListener {
                     onClickListener(item)
+                }
+
+                iv_menu.setOnClickListener {
+                    PopupMenu(it.context, it).apply {
+                        inflate(R.menu.fragment_recycler_view)
+
+                        // Favourites labels
+                        menu.findItem(R.id.nav_favourites).let { menuItem ->
+                            if (item.favourite == 0) {
+                                menuItem.title = "Add to favourites"
+                            } else {
+                                menuItem.title = "Remove from favourites"
+                            }
+                        }
+
+                        // onClickListeners
+                        setOnMenuItemClickListener {menuItem ->
+                            when(menuItem.itemId) {
+                                R.id.nav_favourites -> onClickFavourites(position, item)
+                                R.id.nav_recent -> onClickMenuGmaps(item)
+                            }
+                            true
+                        }
+                    }.show()
                 }
             }
         }

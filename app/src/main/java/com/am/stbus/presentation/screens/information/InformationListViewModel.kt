@@ -48,9 +48,8 @@ import com.am.stbus.domain.models.Information
 class InformationListViewModel(private val context: Context) : ViewModel() {
 
     private val _informationList = MutableLiveData<List<Information>>()
-
     val informationList: LiveData<List<Information>>
-        get() = _informationList
+            get() = _informationList
 
     init {
         _informationList.postValue(generateInformationList())

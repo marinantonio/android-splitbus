@@ -29,33 +29,48 @@
             android:id="@+id/nav_graph"
             app:startDestination="@id/favouriteFragment">
 
-    <!-- FavouritesList Fragment -->
+    <!-- Favoriti -->
     <fragment
             android:id="@+id/favouriteFragment"
-            android:name="com.am.stbus.presentation.screens.favourites.FavouriteFragment"
+            android:name="com.am.stbus.presentation.screens.favourites.FavouritesFragment"
             android:label="fragment_favourite"
-            tools:layout="@layout/fragment_list_container">
+            tools:layout="@layout/fragment_timetables_list">
         <action
             android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
             app:destination="@id/timetableDetailFragment"/>
     </fragment>
 
 
-    <!-- TimetableList Fragment -->
+    <!-- Vozni redovi -->
     <fragment
-            android:id="@+id/timetableListFragment"
-            android:name="com.am.stbus.presentation.screens.timetable.timetableListFragment.TimetableListFragment"
-            android:label="fragment_timetable_list"
-            tools:layout="@layout/fragment_dashboard">
+        android:id="@+id/timetablesFragment"
+        android:name="com.am.stbus.presentation.screens.timetables.TimetablesFragment"
+        android:label="fragment_timetables"
+        tools:layout="@layout/fragment_timetables">
         <action
-                android:id="@+id/action_timetableListFragment_to_timetableDetailFragment"
-                app:destination="@id/timetableDetailFragment"/>
+            android:id="@+id/action_timetablesFragment_to_timetablesListFragment"
+            app:destination="@id/timetableListFragment">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/timetableListFragment"
+        android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment"
+        android:label="fragment_timetable_list"
+        tools:layout="@layout/fragment_dashboard">
+        <argument
+            android:name="areaId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_timetableListFragment_to_timetableDetailFragment"
+            app:destination="@id/timetableDetailFragment"/>
     </fragment>
 
     <!-- TimetableDetail Fragment -->
     <fragment
             android:id="@+id/timetableDetailFragment"
-            android:name="com.am.stbus.presentation.screens.timetable.timetableDetailFragment.TimetableDetailFragment"
+            android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
             android:label="fragment_timetable_detail"
             tools:layout="@layout/fragment_dashboard_detail"/>
 
@@ -155,7 +170,7 @@
             android:id="@+id/informationDetailFragment"
             android:name="com.am.stbus.presentation.screens.information.informationDetailFragment.InformationDetailFragment"
             android:label="fragment_information_detail"
-            tools:layout="@layout/fragment_notification_detail">
+            tools:layout="@layout/fragment_information_news_detail">
         <argument
                 android:name="notificationTitle"
                 android:defaultValue="Test Title"

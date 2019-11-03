@@ -28,7 +28,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.domain.models.NewsListItem
-import com.am.stbus.domain.usecases.GetNewsListUseCase
+import com.am.stbus.domain.usecases.news.NewsListUseCase
 import io.reactivex.CompletableObserver
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -38,7 +38,7 @@ import timber.log.Timber
 
 
 class InformationNewsListViewModel(
-        private val getNewsListUseCase: GetNewsListUseCase
+        private val getNewsListUseCase: NewsListUseCase
 ) : ViewModel() {
 
     private val schedulers = Schedulers.io()

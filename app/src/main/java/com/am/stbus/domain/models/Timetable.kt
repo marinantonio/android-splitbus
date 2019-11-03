@@ -22,10 +22,18 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetable.timetableDetailFragment
+package com.am.stbus.domain.models
 
-import androidx.lifecycle.ViewModel
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class TimetableDetailViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
+@Entity
+data class Timetable(
+        @PrimaryKey val lineId: Int,
+        @ColumnInfo(name = "line_number") val lineNumber: String,
+        @ColumnInfo(name = "gmaps_id") val gmapsId: Int,
+        @ColumnInfo(name = "area_id") val areaId: Int,
+        @ColumnInfo(name = "favourite") var favourite: Int,
+        @ColumnInfo(name = "content") val content: String,
+        @ColumnInfo(name = "content_date") val contentDate: String)

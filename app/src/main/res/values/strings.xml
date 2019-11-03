@@ -31,6 +31,13 @@
     <string name="nav_information">Information</string>
     <string name="nav_setttings">Settings</string>
 
+    <!-- Timetables -->
+    <string name="timetables_area_city">City</string>
+    <string name="timetables_area_urban">Urban</string>
+    <string name="timetables_area_suburban">Suburban</string>
+    <string name="timetables_area_trogir_solta">Trogir Šolta</string>
+
+
     <!-- Information -->
     <string name="information_news_general_category">News and general info</string>
     <string name="information_news_title">Latest news</string>
@@ -214,6 +221,7 @@
     <string name="bus1">Starine - HNK - Starine</string>
     <string name="bus021">Airport- Kaštel Sućurac (Strinje) - Poljička - Split</string>
     <string name="bus022">Split - Poljička - Kaštel Sućurac (Strinje) - Airport</string>
+    <string name="bus023"> Kaštel Sućurac (Strinje) - Trajketna Luka -  Kaštel Sućurac (Strinje)</string>
     <string name="bus31">Lovrinac - Brda</string>
     <string name="bus32">Brda - Lovrinac</string>
     <string name="bus5">Dračevac - HNK - Dračevac</string>

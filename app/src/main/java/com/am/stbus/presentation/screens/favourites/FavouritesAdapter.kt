@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.information.informationNewsListFragment
+package com.am.stbus.presentation.screens.favourites
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -30,21 +30,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
-import com.am.stbus.domain.models.NewsListItem
+import com.am.stbus.domain.models.Timetable
 import kotlinx.android.synthetic.main.item_row_news.view.*
 
-class InformationNewsListAdapter(val context: Context?,
-                                 var onClickListener: (NewsListItem) -> Unit
-) : RecyclerView.Adapter<InformationNewsListAdapter.NotificationsViewHolder>() {
+class FavouritesAdapter(val context: Context?,
+                        var onClickListener: (Timetable) -> Unit
+) : RecyclerView.Adapter<FavouritesAdapter.NotificationsViewHolder>() {
 
-    private var items = mutableListOf<NewsListItem>()
+    private var items = mutableListOf<Timetable>()
 
-    fun addEntireData(news: List<NewsListItem>) {
-        items.addAll(news)
+    fun addEntireData(timetables: List<Timetable>) {
+        items.addAll(timetables)
         notifyDataSetChanged()
     }
 
-    fun addItem(news: NewsListItem) {
+    fun addItem(news: Timetable) {
         items.add(news)
     }
 
@@ -73,9 +73,9 @@ class InformationNewsListAdapter(val context: Context?,
             val item = items[position]
 
             itemView.apply {
-                titleTextView.text = item.title
-                dateTextView.text = item.date
-                summaryTextView.text = item.desc
+                titleTextView.text = item.lineNumber
+                //dateTextView.text = news.date
+                //summaryTextView.text = news.desc
                 setOnClickListener {
                     onClickListener(item)
                 }
