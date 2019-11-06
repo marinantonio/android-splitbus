@@ -90,22 +90,22 @@ class TimetablesListAdapter(val context: Context?,
 
                 iv_menu.setOnClickListener {
                     PopupMenu(it.context, it).apply {
-                        inflate(R.menu.fragment_recycler_view)
+                        inflate(R.menu.menu_timetable_list)
 
                         // Favourites labels
-                        menu.findItem(R.id.nav_favourites).let { menuItem ->
+                        menu.findItem(R.id.action_favourites).let { menuItem ->
                             if (item.favourite == 0) {
-                                menuItem.title = "Add to favourites"
+                                menuItem.setTitle(R.string.timetables_menu_add_to_favourites)
                             } else {
-                                menuItem.title = "Remove from favourites"
+                                menuItem.setTitle(R.string.timetables_menu_remove_from_favourites)
                             }
                         }
 
                         // onClickListeners
                         setOnMenuItemClickListener {menuItem ->
                             when(menuItem.itemId) {
-                                R.id.nav_favourites -> onClickFavourites(position, item)
-                                R.id.nav_recent -> onClickMenuGmaps(item)
+                                R.id.action_favourites -> onClickFavourites(position, item)
+                                R.id.action_gmaps -> onClickMenuGmaps(item)
                             }
                             true
                         }

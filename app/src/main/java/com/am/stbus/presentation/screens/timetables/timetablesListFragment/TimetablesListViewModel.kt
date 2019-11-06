@@ -61,6 +61,7 @@ class TimetablesListViewModel(private val timetableListUseCase: TimetableListUse
                         _updatedFavourite.postValue(
                                 TimetablesListFragment.UpdatedFavourite(
                                         position,
+                                        timetable.lineId,
                                         favouritesToUpdate
                                 )
                         )

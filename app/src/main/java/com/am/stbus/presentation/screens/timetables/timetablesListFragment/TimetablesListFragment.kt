@@ -28,20 +28,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
+import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import kotlinx.android.synthetic.main.fragment_timetables_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class TimetablesListFragment : Fragment() {
 
     private lateinit var timetablesSharedViewModel: TimetablesSharedViewModel
+
+    private lateinit var timetablesList: List<Timetable>
 
     private val viewModel: TimetablesListViewModel by viewModel()
 
@@ -75,17 +78,21 @@ class TimetablesListFragment : Fragment() {
 
         val areaId = arguments?.get("areaId")
 
+
         timetablesSharedViewModel.timetables.observe(this, Observer<List<Timetable>>{
             if (timetableListAdapter.itemCount == 0) {
+                timetablesList = it
                 timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
             }
         })
 
         viewModel.updatedFavourite.observe(this, Observer<UpdatedFavourite>{
             timetableListAdapter.updateFavourite(it.position, it.favourite)
+
             // Iako je pohranjeno u bazi nakon sto iduci put loadamo TimetablesFragment
             // SharedViewFragement ne stigne se bas osvjezit pa ovako to napravimo umjesto njega
-            timetablesSharedViewModel.saveTimetables(timetableListAdapter.items)
+            timetablesList.find { timetable ->  timetable.lineId == it.lineId}?.favourite = it.favourite
+            timetablesSharedViewModel.saveTimetables(timetablesList)
         })
     }
 
@@ -101,7 +108,7 @@ class TimetablesListFragment : Fragment() {
     }
 
     private fun onTimetableClicked(timetable: Timetable) {
-        Timber.e("Clicked on timetable ${timetable.lineNumber}")
+        Toast.makeText(context, TimetablesData().getTimetableTitleAsOnPrometWebsite(timetable.lineId), Toast.LENGTH_SHORT).show()
     }
 
     private fun onTimetableFavouritesClicked(position: Int, timetable: Timetable) {
@@ -112,6 +119,5 @@ class TimetablesListFragment : Fragment() {
 
     }
 
-    data class UpdatedFavourite(val position: Int, val favourite: Int)
-
+    data class UpdatedFavourite(val position: Int, val lineId: Int, val favourite: Int)
 }

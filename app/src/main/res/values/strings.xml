@@ -37,6 +37,11 @@
     <string name="timetables_area_suburban">Suburban</string>
     <string name="timetables_area_trogir_solta">Trogir Šolta</string>
 
+    <string name="timetables_menu_add_to_favourites">Add to favourites</string>
+    <string name="timetables_menu_remove_from_favourites">Remove from favourites</string>
+    <string name="timetables_menu_gmaps">Interactive map</string>
+
+
 
     <!-- Information -->
     <string name="information_news_general_category">News and general info</string>

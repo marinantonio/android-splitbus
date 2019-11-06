@@ -25,12 +25,11 @@
 package com.am.stbus.common
 
 object Constants {
-    const val DB_VERSION = 1
 
+    const val DB_VERSION = 1
 
     const val PROMET_URL = "http://www.promet-split.hr/"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
-
 
     // O Aplikaciji
     const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"
