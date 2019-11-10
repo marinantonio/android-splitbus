@@ -35,6 +35,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class InformationNewsDetailViewModel(
+        private val url: String,
         private val getNewsDetailUseCase: NewsDetailUseCase
 ) : ViewModel() {
 
@@ -53,7 +54,11 @@ class InformationNewsDetailViewModel(
     val error: LiveData<String>
         get() = _error
 
-    fun fetchAndPopulateNewsItem(url: String) {
+    init {
+        fetchAndPopulateNewsItem(url)
+    }
+
+    private fun fetchAndPopulateNewsItem(url: String) {
         getNewsDetailUseCase.get(true, url)
                 .subscribeOn(schedulers)
                 .observeOn(thread)

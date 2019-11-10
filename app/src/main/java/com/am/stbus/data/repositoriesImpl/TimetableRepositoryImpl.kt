@@ -47,4 +47,8 @@ class TimetableRepositoryImpl(
     override fun updateFavourites(lineId: Int, favourite: Int): Completable {
         return localTimetableDataSource.setFavouriteToLineId(lineId, favourite)
     }
+
+    override fun getTimetableDetail(url: String, lineId: Int): Single<String>{
+        return remoteTimetableDataSource.getTimetableDetail(url, lineId)
+    }
 }

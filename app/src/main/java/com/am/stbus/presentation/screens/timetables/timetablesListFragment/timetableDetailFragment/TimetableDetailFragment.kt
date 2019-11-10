@@ -25,39 +25,175 @@
 package com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
-import com.am.stbus.presentation.screens.MainActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.am.stbus.common.Constants
+import com.am.stbus.common.TimetablesData
+import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
+import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.fragment_timetables.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
+
 
 class TimetableDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TimetableDetailFragment()
-    }
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
 
-    private lateinit var viewModel: TimetableDetailViewModel
+    private val viewModel: TimetableDetailViewModel by viewModel()
+
+    private val args: TimetableDetailFragmentArgs by navArgs()
+
+    private lateinit var addFavorites: MenuItem
+
+    private lateinit var removeFavorites: MenuItem
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dashboard_detail, container, false)
+        return inflater.inflate(R.layout.fragment_timetable, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity).toolbar.title = getString(R.string.nav_timetables)
+
+        toolbar.apply {
+            title = "${args.lineNumber} ${getText(TimetablesData().getTimetableTitle(args.lineId))}"
+            setNavigationIcon(R.drawable.ic_action_overflow)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+            inflateMenu(R.menu.menu_displaybus)
+            onCreateOptionsMenu(menu, MenuInflater(context))
+            onPrepareOptionsMenu(menu)
+            setOnMenuItemClickListener {
+                onOptionsItemSelected(it)
+            }
+        }
+
+        viewModel.fullScreenLoading.observe(viewLifecycleOwner, Observer {
+            snippet_loading.isVisible = it
+            tab_layout.isVisible = !it
+        })
+
+        viewModel.timetableContent.observe(viewLifecycleOwner, Observer {
+            setupViewPager(it)
+        })
+
+        viewModel.updatedFavourite.observe(viewLifecycleOwner, Observer {
+            timetablesSharedViewModel.updateFavourite(args.lineId, it)
+            when (it) {
+                FAVOURITE_ADDED -> {
+                    addFavorites.isVisible = false
+                    removeFavorites.isVisible = true
+                }
+                FAVOURITE_REMOVED -> {
+                    addFavorites.isVisible = true
+                    removeFavorites.isVisible = false
+                }
+            }
+        })
+
+        viewModel.populateTimetable(args.lineId, args.areaId, args.content)
+
+
+
+        // AKO NEMA TREBA VATAT IZ VJUMODELA, AL SVAKAKO VJUMODEL TREBA UVATIT STOGOD
+
+        // POKAZAT LOADING BAR GORI DA PREUZIMA NESTO
+
+        // POKAZAT GOVNO OD SNACKBARA S DATUMOM KOJI GOVORI DA TREBA PRIKAZAT JOS STOGOD
+
+        // AJMO PRVO NEKAKO
+
+        // ODI TRIBA METNIT OVAJ ON OPTIONS SELECTED ZBOG FAVORITA, GMAPSA
+
+        // ERROR HANDLING
+
+        tab_layout.setupWithViewPager(view_pager)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TimetableDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun setupViewPager(timetableContent: String) {
+
+        val timetable = timetableContent.split(Constants.EMA_DELIMITER)
+
+        val fragmentsList: List<Fragment> = listOf(
+                TimetableDetailDayFragment.newInstance(WORK_DAY, ArrayList(timetable)),
+                TimetableDetailDayFragment.newInstance(SATURDAY, ArrayList(timetable)),
+                TimetableDetailDayFragment.newInstance(SUNDAY, ArrayList(timetable))
+        )
+
+        val titles: List<Int> = listOf(
+                R.string.timetable_detail_work_day,
+                R.string.timetable_detail_saturday,
+                R.string.timetable_detail_sunday
+        )
+
+        val adapter = TimetableSliderAdapter(childFragmentManager, fragmentsList, titles)
+
+        view_pager.adapter = adapter
+
     }
 
-}
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        addFavorites = menu.findItem(R.id.action_add_favorites)
+        removeFavorites = menu.findItem(R.id.action_remove_favorites)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+
+        addFavorites.isVisible = args.favourite == FAVOURITE_REMOVED
+        removeFavorites.isVisible = args.favourite == FAVOURITE_ADDED
+
+        super.onPrepareOptionsMenu(menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_add_favorites -> {
+                viewModel.updateFavouritesStatus(args.lineId, FAVOURITE_ADDED)
+            }
+            R.id.action_remove_favorites -> {
+                viewModel.updateFavouritesStatus(args.lineId, FAVOURITE_REMOVED)
+            }
+            R.id.action_gmaps -> {
+                Timber.i("Ka cvice bez vode")
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    companion object {
+        const val WORK_DAY = 0
+        const val SATURDAY = 1
+        const val SUNDAY = 2
+    }
+
+    private inner class TimetableSliderAdapter(
+            fragmentManager: FragmentManager,
+            val fragments: List<Fragment>,
+            val fragmentTitles: List<Int>
+    ) : FragmentStatePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
+        override fun getItem(position: Int): Fragment = fragments[position]
+
+        override fun getCount(): Int = fragments.size
+
+        override fun getPageTitle(position: Int): CharSequence? = getString(fragmentTitles[position])
+    }}

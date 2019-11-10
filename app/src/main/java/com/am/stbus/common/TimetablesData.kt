@@ -291,7 +291,8 @@ class TimetablesData {
         const val AREA_CITY = 0
         const val AREA_URBAN = 1
         const val AREA_SUBURBAN = 2
-        const val AREA_TROGIR_SOLTA = 3
+        const val AREA_TROGIR = 4
+        const val AREA_SOLTA = 5
 
         val list: List<Timetable> = listOf(
                 // Gradski
@@ -389,43 +390,30 @@ class TimetablesData {
                 Timetable(226, "", 31, AREA_SUBURBAN, 0, "", ""),
 
                 // Trogir i Solta
-                Timetable(301, "41", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(302, "41", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(303, "42", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(304, "42", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(305, "44", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(306, "44", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(307, "45", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(308, "45", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(309, "47", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(310, "48", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(311, "49", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(312, "49", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(313, "50", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(314, "50", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(315, "51", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(316, "51", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(317, "52", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(318, "52", 31, AREA_TROGIR_SOLTA, 0, "", ""),
+                Timetable(301, "41", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(302, "41", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(303, "42", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(304, "42", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(305, "44", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(306, "44", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(307, "45", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(308, "45", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(309, "47", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(310, "48", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(311, "49", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(312, "49", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(313, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(314, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(315, "51", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(316, "51", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(317, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(318, "52", 31, AREA_TROGIR, 0, "", ""),
 
-                Timetable(401, "", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(402, "", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(403, "", 31, AREA_TROGIR_SOLTA, 0, "", ""),
-                Timetable(403, "", 31, AREA_TROGIR_SOLTA, 0, "", "")
+                Timetable(401, "", 31, AREA_SOLTA, 0, "", ""),
+                Timetable(402, "", 31, AREA_SOLTA, 0, "", ""),
+                Timetable(403, "", 31, AREA_SOLTA, 0, "", ""),
+                Timetable(403, "", 31, AREA_SOLTA, 0, "", "")
         )
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -242,7 +242,7 @@ class VozniRedActivity : AppCompatActivity() {
     }
 
     private fun showLoading(viewState: Int) {
-        // 0 je prikaz voznog reda, 1 je loading, 2 je error
+        // 0 je prikaz voznog reda, 1 je fullScreenLoading, 2 je error
         when (viewState) {
             0 -> {
                 tabs.visibility = View.VISIBLE

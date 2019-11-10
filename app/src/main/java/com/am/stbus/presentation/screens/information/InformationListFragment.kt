@@ -82,7 +82,7 @@ class InformationListFragment : Fragment() {
 
         toolbar.title = getString(R.string.nav_information)
 
-        viewModel.informationList.observe(this, informationListObserver)
+        viewModel.informationList.observe(viewLifecycleOwner, informationListObserver)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())

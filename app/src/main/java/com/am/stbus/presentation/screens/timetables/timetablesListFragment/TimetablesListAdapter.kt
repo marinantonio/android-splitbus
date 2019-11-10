@@ -63,7 +63,7 @@ class TimetablesListAdapter(val context: Context?,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_row_timetable, parent, false)
+                .inflate(R.layout.item_row_timetable, parent, false)
         return NotificationsViewHolder(itemView)
     }
 
@@ -94,16 +94,16 @@ class TimetablesListAdapter(val context: Context?,
 
                         // Favourites labels
                         menu.findItem(R.id.action_favourites).let { menuItem ->
-                            if (item.favourite == 0) {
-                                menuItem.setTitle(R.string.timetables_menu_add_to_favourites)
-                            } else {
-                                menuItem.setTitle(R.string.timetables_menu_remove_from_favourites)
+                            when (item.favourite) {
+                                TimetablesListFragment.FAVOURITE_REMOVED -> menuItem.setTitle(R.string.timetables_menu_add_to_favourites)
+                                TimetablesListFragment.FAVOURITE_ADDED -> menuItem.setTitle(R.string.timetables_menu_remove_from_favourites)
+                                else -> throw IllegalArgumentException("Illegal favourite status ${item.favourite}")
                             }
                         }
 
                         // onClickListeners
-                        setOnMenuItemClickListener {menuItem ->
-                            when(menuItem.itemId) {
+                        setOnMenuItemClickListener { menuItem ->
+                            when (menuItem.itemId) {
                                 R.id.action_favourites -> onClickFavourites(position, item)
                                 R.id.action_gmaps -> onClickMenuGmaps(item)
                             }

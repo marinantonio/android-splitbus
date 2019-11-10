@@ -22,38 +22,15 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain.usecases.timetables
 
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import com.am.stbus.domain.usecases.news.NewsListUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableDetailUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
-import org.koin.dsl.module
+import com.am.stbus.domain.repositories.TimetableRepository
+import io.reactivex.Single
 
-val useCaseModule = module {
+class TimetableDetailUseCase(private val timetableRepository: TimetableRepository) {
 
-    factory {
-        NewsListUseCase(
-                newsRepository = get()
-        )
-    }
-
-    factory {
-        NewsDetailUseCase(
-                newsRepository = get()
-        )
-    }
-
-    factory {
-        TimetableListUseCase(
-                timetableRepository = get()
-        )
-    }
-
-    factory {
-        TimetableDetailUseCase(
-                timetableRepository = get()
-        )
+    fun getTimetableDetail(url: String, lineId: Int): Single<String> {
+        return timetableRepository.getTimetableDetail(url, lineId)
     }
 
 }

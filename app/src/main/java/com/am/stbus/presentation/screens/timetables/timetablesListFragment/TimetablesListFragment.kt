@@ -28,23 +28,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
-import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
+import com.am.stbus.presentation.screens.timetables.TimetablesFragmentDirections
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import kotlinx.android.synthetic.main.fragment_timetables_list.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TimetablesListFragment : Fragment() {
 
-    private lateinit var timetablesSharedViewModel: TimetablesSharedViewModel
-
-    private lateinit var timetablesList: List<Timetable>
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
 
     private val viewModel: TimetablesListViewModel by viewModel()
 
@@ -54,13 +52,6 @@ class TimetablesListFragment : Fragment() {
             { position, timetable -> onTimetableFavouritesClicked(position, timetable)},
             { onTimetableGmapsClicked(it) }
     )
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        timetablesSharedViewModel = activity?.run {
-            ViewModelProviders.of(this)[TimetablesSharedViewModel::class.java]
-        } ?: throw Exception("Invalid Activity")
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -78,22 +69,35 @@ class TimetablesListFragment : Fragment() {
 
         val areaId = arguments?.get("areaId")
 
-
-        timetablesSharedViewModel.timetables.observe(this, Observer<List<Timetable>>{
-            if (timetableListAdapter.itemCount == 0) {
-                timetablesList = it
-                timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
-            }
+        timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>>{
+            timetableListAdapter.clear()
+            timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
         })
 
-        viewModel.updatedFavourite.observe(this, Observer<UpdatedFavourite>{
-            timetableListAdapter.updateFavourite(it.position, it.favourite)
-
-            // Iako je pohranjeno u bazi nakon sto iduci put loadamo TimetablesFragment
-            // SharedViewFragement ne stigne se bas osvjezit pa ovako to napravimo umjesto njega
-            timetablesList.find { timetable ->  timetable.lineId == it.lineId}?.favourite = it.favourite
-            timetablesSharedViewModel.saveTimetables(timetablesList)
+        viewModel.updatedFavourite.observe(viewLifecycleOwner, Observer<UpdatedFavourite>{
+            timetablesSharedViewModel.updateFavourite(it.lineId, it.favourite)
         })
+    }
+
+    private fun onTimetableClicked(timetable: Timetable) {
+        parentFragment?.findNavController()?.navigate(TimetablesFragmentDirections
+                .actionTimetablesFragmentToTimetablesDetailFragment(
+                        timetable.lineId,
+                        timetable.lineNumber,
+                        timetable.gmapsId,
+                        timetable.areaId,
+                        timetable.favourite,
+                        timetable.content,
+                        timetable.contentDate
+                ))
+    }
+
+    private fun onTimetableFavouritesClicked(position: Int, timetable: Timetable) {
+        viewModel.updateFavouritesStatus(position, timetable)
+    }
+
+    private fun onTimetableGmapsClicked(timetable: Timetable) {
+
     }
 
     companion object {
@@ -105,18 +109,9 @@ class TimetablesListFragment : Fragment() {
             return fragment
 
         }
-    }
 
-    private fun onTimetableClicked(timetable: Timetable) {
-        Toast.makeText(context, TimetablesData().getTimetableTitleAsOnPrometWebsite(timetable.lineId), Toast.LENGTH_SHORT).show()
-    }
-
-    private fun onTimetableFavouritesClicked(position: Int, timetable: Timetable) {
-        viewModel.updateFavouritesStatus(position, timetable)
-    }
-
-    private fun onTimetableGmapsClicked(timetable: Timetable) {
-
+        const val FAVOURITE_ADDED = 1
+        const val FAVOURITE_REMOVED = 0
     }
 
     data class UpdatedFavourite(val position: Int, val lineId: Int, val favourite: Int)

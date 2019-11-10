@@ -25,66 +25,65 @@
 package com.am.stbus.data.network
 
 import com.am.stbus.common.Constants
-import com.am.stbus.domain.models.NewsItem
-import com.am.stbus.domain.models.NewsListItem
+import com.am.stbus.common.TimetablesData
 import io.reactivex.Single
 import org.jsoup.Jsoup
+import timber.log.Timber
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RemoteTimetableDataSource {
 
-    fun getNewsList(): Single<List<NewsListItem>> {
+    fun getTimetableDetail(url: String, lineId: Int): Single<String> {
         return Single.fromCallable {
 
-            val doc = Jsoup.connect(Constants.PROMET_NOVOSTI_URL).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-            val newsList = mutableListOf<NewsListItem>()
-            var count = 0
-            val elements = doc.select("h3.c-article-card__title > a")
+            Timber.e("$url $lineId")
 
-            for (e in elements) {
+            val timetableId = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
+                    .select(".c-vozni-red__search-select option:contains("
+                            + TimetablesData().getTimetableTitleAsOnPrometWebsite(lineId).toUpperCase(Locale.ROOT)
+                            + ")")
+                    .attr("value")
 
-                val title = e.text()
-                val url = e.attr("href")
 
-                var summary = ""
-                var datum: String
-
-                doc.apply {
-                    datum = select("div.c-article-card__date")[count].text()
-                    val summaryElement = select("div.c-article-card__content")[count]
-                    val summaryElementSize = summaryElement.select("div.c-article-card__summary").size
-                    if (summaryElementSize > 0)
-                        summary = summaryElement.child(2).text()
-
-                }
-
-                newsList.add(NewsListItem(count, title, summary, datum, url))
-                count += 1
-            }
-
-            return@fromCallable newsList
-        }
-    }
-
-    fun getNewsDetail(url: String): Single<NewsItem> {
-        return Single.fromCallable {
-
-            val doc = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-            var newsContent: String
-            var newsImgUrl: String
+            val doc = Jsoup.connect(Constants.PROMET_URL + timetableId).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
+            val workDayList  = ArrayList<String>()
+            val saturdayList = ArrayList<String>()
+            val sundayList = ArrayList<String>()
 
             doc.apply {
-                newsContent = if (select("[class=c-article-detail__body c-text-body]").size > 0) {
-                    select("[class=c-article-detail__body c-text-body]").html()
-                } else {
-                    select("[class=EDN_article_content]").html()
+                select("table.c-vozni-red__table td:eq(0)").let {
+                    for (e in it) {
+                        workDayList.add("\n ${e.text()}")
+                    }
                 }
 
-                newsImgUrl = "http://www.promet-split.hr${select("[class=c-gallery-fotorama__item c-gallery-fotorama__item--image js-gallery-unwrap]")
-                        .attr("data-img")}"
+                select("table.c-vozni-red__table td:eq(1)").let {
+                    for (e in it) {
+                        saturdayList.add("\n ${e.text()}")
+                    }
+                }
+
+                select("table.c-vozni-red__table td:eq(2)").let {
+                    for (e in it) {
+                        sundayList.add("\n ${e.text()}")
+                    }
+                }
             }
 
-            return@fromCallable NewsItem(newsContent, newsImgUrl)
+
+            val timetableItems = listOf(
+                    doc.select("h3.c-vozni-red__line").text(),
+                    doc.select("p.c-vozni-red__valid").text(),
+                    workDayList,
+                    saturdayList,
+                    sundayList,
+                    doc.select("div.c-vozni-red-note__items").text()
+            )
+
+            Timber.e("items: $timetableItems")
+
+            return@fromCallable timetableItems.joinToString(Constants.EMA_DELIMITER)
         }
     }
-
 }

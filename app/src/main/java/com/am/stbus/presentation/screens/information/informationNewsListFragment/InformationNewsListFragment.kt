@@ -58,16 +58,16 @@ class InformationNewsListFragment : Fragment() {
         val mainActivity = activity as MainActivity
         mainActivity.toolbar.title = getString(R.string.information_news_title)
 
-        viewModel.newsList.observe(this, Observer<List<NewsListItem>> {
+        viewModel.newsList.observe(viewLifecycleOwner, Observer<List<NewsListItem>> {
             onNewsListAdded(it)
         })
 
-        viewModel.loading.observe(this, Observer<Boolean>{
+        viewModel.loading.observe(viewLifecycleOwner, Observer<Boolean>{
             snippet_loading.isVisible = it
             rv_news_list.isVisible = !it
         })
 
-        viewModel.error.observe(this, Observer<String> {
+        viewModel.error.observe(viewLifecycleOwner, Observer<String> {
             if (informationNewsListAdapter.itemCount < 1)
                 handleErrorScreen(it)
         })

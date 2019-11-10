@@ -29,6 +29,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
 import io.reactivex.CompletableObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -44,13 +46,9 @@ class TimetablesListViewModel(private val timetableListUseCase: TimetableListUse
     val updatedFavourite: LiveData<TimetablesListFragment.UpdatedFavourite>
         get() = _updatedFavourite
 
-    init {
-        //getTimetables()
-    }
-
     fun updateFavouritesStatus(position: Int, timetable: Timetable) {
 
-        val favouritesToUpdate = if (timetable.favourite == 0) { 1 } else { 0 }
+        val favouritesToUpdate = if (timetable.favourite == FAVOURITE_REMOVED) { FAVOURITE_ADDED } else { FAVOURITE_REMOVED }
 
         timetableListUseCase.updateFavourites(timetable.lineId, favouritesToUpdate)
                 .subscribeOn(schedulers)

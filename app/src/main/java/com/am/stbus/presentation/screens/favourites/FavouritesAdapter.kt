@@ -28,13 +28,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
+import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
-import kotlinx.android.synthetic.main.item_row_news.view.*
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
+import kotlinx.android.synthetic.main.item_row_timetable.view.*
 
 class FavouritesAdapter(val context: Context?,
-                        var onClickListener: (Timetable) -> Unit
+                        var onClickListener: (Timetable) -> Unit,
+                        var onClickFavourites: (Int, Timetable) -> Unit,
+                        var onClickMenuGmaps: (Timetable) -> Unit
 ) : RecyclerView.Adapter<FavouritesAdapter.NotificationsViewHolder>() {
 
     private var items = mutableListOf<Timetable>()
@@ -42,6 +48,12 @@ class FavouritesAdapter(val context: Context?,
     fun addEntireData(timetables: List<Timetable>) {
         items.addAll(timetables)
         notifyDataSetChanged()
+    }
+
+    fun removeFavourite(position: Int) {
+        items.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, items.size)
     }
 
     fun addItem(news: Timetable) {
@@ -54,7 +66,7 @@ class FavouritesAdapter(val context: Context?,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_row_news, parent, false)
+                .inflate(R.layout.item_row_timetable, parent, false)
         return NotificationsViewHolder(itemView)
     }
 
@@ -73,11 +85,34 @@ class FavouritesAdapter(val context: Context?,
             val item = items[position]
 
             itemView.apply {
-                titleTextView.text = item.lineNumber
-                //dateTextView.text = news.date
-                //summaryTextView.text = news.desc
+                tv_line_id.text = item.lineNumber
+                tv_line_name.text = context.getString(TimetablesData().getTimetableTitle(item.lineId))
                 setOnClickListener {
                     onClickListener(item)
+                }
+
+                iv_menu.setOnClickListener {
+                    PopupMenu(it.context, it).apply {
+                        inflate(R.menu.menu_timetable_list)
+
+                        // Favourites labels
+                        menu.findItem(R.id.action_favourites).let { menuItem ->
+                            when (item.favourite) {
+                                FAVOURITE_REMOVED -> menuItem.setTitle(R.string.timetables_menu_add_to_favourites)
+                                FAVOURITE_ADDED -> menuItem.setTitle(R.string.timetables_menu_remove_from_favourites)
+                                else -> throw IllegalArgumentException("Illegal favourite status ${item.favourite}")
+                            }
+                        }
+
+                        // onClickListeners
+                        setOnMenuItemClickListener { menuItem ->
+                            when (menuItem.itemId) {
+                                R.id.action_favourites -> onClickFavourites(position, item)
+                                R.id.action_gmaps -> onClickMenuGmaps(item)
+                            }
+                            true
+                        }
+                    }.show()
                 }
             }
         }

@@ -24,15 +24,25 @@
 
 package com.am.stbus.presentation.screens.timetables
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.domain.models.Timetable
 
 class TimetablesSharedViewModel : ViewModel() {
 
-    val timetables = MutableLiveData<List<Timetable>>()
+    private val _timetables = MutableLiveData<List<Timetable>>()
+    val timetables: LiveData<List<Timetable>>
+        get() = _timetables
 
     fun saveTimetables(timetables: List<Timetable>) {
-        this.timetables.value = timetables
+        _timetables.value = timetables
     }
+
+    fun updateFavourite(lineId: Int, favourite: Int) {
+        val newTimetables = _timetables.value
+        newTimetables?.find { timetable -> timetable.lineId == lineId}?.favourite = favourite
+        _timetables.postValue(newTimetables)
+    }
+
 }

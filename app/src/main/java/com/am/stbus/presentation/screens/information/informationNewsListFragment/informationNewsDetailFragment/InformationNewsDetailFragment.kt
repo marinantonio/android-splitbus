@@ -38,12 +38,13 @@ import com.am.stbus.R
 import com.am.stbus.domain.models.NewsItem
 import kotlinx.android.synthetic.main.fragment_information_news_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class InformationNewsDetailFragment : Fragment() {
 
     private val args: InformationNewsDetailFragmentArgs by navArgs()
 
-    private val viewModel: InformationNewsDetailViewModel by viewModel()
+    private val viewModel: InformationNewsDetailViewModel by viewModel { parametersOf(args.newsUrl) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -58,17 +59,15 @@ class InformationNewsDetailFragment : Fragment() {
         tv_title.text = args.newsTitle
         tv_date.text = args.newsDate
 
-        viewModel.fetchAndPopulateNewsItem(args.newsUrl)
-
-        viewModel.newsItem.observe(this, Observer<NewsItem> {
+        viewModel.newsItem.observe(viewLifecycleOwner, Observer<NewsItem> {
             onNewsLoaded(it)
         })
 
-        viewModel.error.observe(this, Observer<String> {
+        viewModel.error.observe(viewLifecycleOwner, Observer<String> {
             handleErrorScreen(it)
         })
 
-        viewModel.loading.observe(this, Observer<Boolean> {
+        viewModel.loading.observe(viewLifecycleOwner, Observer<Boolean> {
             pb_loading.isVisible = it
             web_view.isVisible = !it
         })

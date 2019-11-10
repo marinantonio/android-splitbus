@@ -134,7 +134,7 @@ class NovostiListFragment : Fragment() {
             val novostiAdapter = NovostiAdapter(context, data)
             rootView.rv_novosti_list.adapter = novostiAdapter
 
-            // Sakrij loading
+            // Sakrij fullScreenLoading
             if (novostiAdapter.itemCount > 0) {
                 showLoading(0)
             } else {
@@ -145,7 +145,7 @@ class NovostiListFragment : Fragment() {
 
 
     private fun showLoading(viewState: Int) {
-        // 0 je prikaz rv-a s novostima, 1 je loading, 2 je error
+        // 0 je prikaz rv-a s novostima, 1 je fullScreenLoading, 2 je error
         when (viewState) {
             0 -> {
                 rootView.rv_novosti_list.visibility = View.VISIBLE

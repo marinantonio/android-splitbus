@@ -35,11 +35,17 @@
     <string name="timetables_area_city">City</string>
     <string name="timetables_area_urban">Urban</string>
     <string name="timetables_area_suburban">Suburban</string>
-    <string name="timetables_area_trogir_solta">Trogir Šolta</string>
+    <string name="timetables_area_trogir">Trogir</string>
+    <string name="timetables_area_solta">Šolta</string>
 
     <string name="timetables_menu_add_to_favourites">Add to favourites</string>
     <string name="timetables_menu_remove_from_favourites">Remove from favourites</string>
     <string name="timetables_menu_gmaps">Interactive map</string>
+
+    <string name="timetable_detail_work_day">Work day</string>
+    <string name="timetable_detail_saturday">Saturday</string>
+    <string name="timetable_detail_sunday">Sunday</string>
+
 
 
 

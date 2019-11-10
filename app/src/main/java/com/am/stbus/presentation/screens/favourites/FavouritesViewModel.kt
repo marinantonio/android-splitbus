@@ -30,11 +30,14 @@ import androidx.lifecycle.ViewModel
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
 import io.reactivex.CompletableObserver
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
 class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
@@ -45,7 +48,12 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
     val timetableList: LiveData<List<Timetable>>
         get() = _timetableList
 
+    private val _removedFavourite = MutableLiveData<TimetablesListFragment.UpdatedFavourite>()
+    val removedFavourite: LiveData<TimetablesListFragment.UpdatedFavourite>
+        get() = _removedFavourite
+
     init {
+        Timber.e("Initing viewModel")
         getTimetables()
     }
 
@@ -89,4 +97,29 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
                     }
                 })
     }
+
+    fun removeFavouritesStatus(position: Int, timetable: Timetable) {
+
+        timetableListUseCase.updateFavourites(timetable.lineId, FAVOURITE_REMOVED)
+                .subscribeOn(schedulers)
+                .observeOn(thread)
+                .subscribe(object: CompletableObserver {
+                    override fun onComplete() {
+                        _removedFavourite.postValue(
+                                TimetablesListFragment.UpdatedFavourite(
+                                        position,
+                                        timetable.lineId,
+                                        FAVOURITE_REMOVED
+                                )
+                        )
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+                    }
+
+                    override fun onError(e: Throwable) {
+                    }
+                })
+    }
+
 }

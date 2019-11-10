@@ -32,26 +32,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.am.stbus.R
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_timetables.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TimetablesFragment : Fragment() {
 
-    private lateinit var timetablesSharedViewModel: TimetablesSharedViewModel
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
 
     private val viewModel: TimetablesViewModel by viewModel()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        timetablesSharedViewModel = activity?.run {
-            ViewModelProviders.of(this)[TimetablesSharedViewModel::class.java]
-        } ?: throw Exception("Invalid Activity")
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -63,7 +56,7 @@ class TimetablesFragment : Fragment() {
 
         toolbar.title = getString(R.string.nav_timetables)
 
-        viewModel.timetableList.observe(this, Observer<List<Timetable>>{
+        viewModel.timetableList.observe(viewLifecycleOwner, Observer<List<Timetable>>{
             timetablesSharedViewModel.saveTimetables(it)
         })
 
@@ -77,14 +70,16 @@ class TimetablesFragment : Fragment() {
                 TimetablesListFragment.newInstance(TimetablesData.AREA_CITY),
                 TimetablesListFragment.newInstance(TimetablesData.AREA_URBAN),
                 TimetablesListFragment.newInstance(TimetablesData.AREA_SUBURBAN),
-                TimetablesListFragment.newInstance(TimetablesData.AREA_TROGIR_SOLTA)
+                TimetablesListFragment.newInstance(TimetablesData.AREA_TROGIR),
+                TimetablesListFragment.newInstance(TimetablesData.AREA_SOLTA)
         )
 
         val titles: List<Int> = listOf(
                 R.string.timetables_area_city,
                 R.string.timetables_area_urban,
                 R.string.timetables_area_suburban,
-                R.string.timetables_area_trogir_solta
+                R.string.timetables_area_trogir,
+                R.string.timetables_area_solta
         )
 
         val adapter = TimetableSliderAdapter(childFragmentManager, fragmentsList, titles)
@@ -105,10 +100,5 @@ class TimetablesFragment : Fragment() {
 
         override fun getPageTitle(position: Int): CharSequence? = getString(fragmentTitles[position])
     }
-
-    private fun onTimetableClicked(timetable: Timetable) {
-        // TODO Launch timetable detail screen
-    }
-
 
 }

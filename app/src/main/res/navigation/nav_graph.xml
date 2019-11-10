@@ -34,10 +34,10 @@
             android:id="@+id/favouriteFragment"
             android:name="com.am.stbus.presentation.screens.favourites.FavouritesFragment"
             android:label="fragment_favourite"
-            tools:layout="@layout/fragment_timetables_list">
+            tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
-            app:destination="@id/timetableDetailFragment"/>
+            app:destination="@id/timetableDetailFragment" />
     </fragment>
 
 
@@ -48,8 +48,8 @@
         android:label="fragment_timetables"
         tools:layout="@layout/fragment_timetables">
         <action
-            android:id="@+id/action_timetablesFragment_to_timetablesListFragment"
-            app:destination="@id/timetableListFragment">
+            android:id="@+id/action_timetablesFragment_to_timetablesDetailFragment"
+            app:destination="@id/timetableDetailFragment">
         </action>
     </fragment>
 
@@ -57,22 +57,43 @@
         android:id="@+id/timetableListFragment"
         android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment"
         android:label="fragment_timetable_list"
-        tools:layout="@layout/fragment_dashboard">
-        <argument
-            android:name="areaId"
-            android:defaultValue="0"
-            app:argType="integer"/>
-        <action
-            android:id="@+id/action_timetableListFragment_to_timetableDetailFragment"
-            app:destination="@id/timetableDetailFragment"/>
-    </fragment>
+        tools:layout="@layout/fragment_timetables_list"/>
 
-    <!-- TimetableDetail Fragment -->
+    <!-- Vozni redovi detail -->
     <fragment
             android:id="@+id/timetableDetailFragment"
             android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
             android:label="fragment_timetable_detail"
-            tools:layout="@layout/fragment_dashboard_detail"/>
+            tools:layout="@layout/fragment_dashboard_detail">
+        <argument
+            android:name="lineId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="lineNumber"
+            android:defaultValue=" "
+            app:argType="string"/>
+        <argument
+            android:name="gmapsId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="areaId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="favourite"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="content"
+            android:defaultValue=" "
+            app:argType="string"/>
+        <argument
+            android:name="contentDate"
+            android:defaultValue=" "
+            app:argType="string"/>
+    </fragment>
 
 
     <!-- Informacije -->

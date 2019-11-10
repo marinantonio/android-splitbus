@@ -28,8 +28,18 @@ object Constants {
 
     const val DB_VERSION = 1
 
-    const val PROMET_URL = "http://www.promet-split.hr/"
+    const val PROMET_URL = "http://www.promet-split.hr"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
+
+    // Timetable Base URLs
+    const val AREA_CITY_URL = "$PROMET_URL/vozni-red/split/"
+    const val AREA_URBAN_URL = "$PROMET_URL/vozni-red/urbano-podrucje"
+    const val AREA_SUBURBAN_URL = "$PROMET_URL/vozni-red/prigradsko-podrucje"
+    const val AREA_TROGIR_URL = "$PROMET_URL/vozni-red/trogir/"
+    const val AREA_SOLTA_URL = "$PROMET_URL/vozni-red/otok-solta/"
+
+    // Timetable string delimited
+    const val EMA_DELIMITER = "emayz"
 
     // O Aplikaciji
     const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"

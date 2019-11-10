@@ -38,6 +38,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    //private val sharedViewModel by viewModel<TimetablesSharedViewModel>()
+
     private val rootFragments: IntArray =
             intArrayOf(R.id.favouriteFragment, R.id.timetablesFragment, R.id.informationListFragment, R.id.settingsFragment)
 
