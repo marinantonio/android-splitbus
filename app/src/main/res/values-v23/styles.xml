@@ -23,32 +23,13 @@
   ~ SOFTWARE.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_add_favorites"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        android:icon="@drawable/ic_favorite_add"
-        app:showAsAction="ifRoom"/>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
 
-    <item
-        android:id="@+id/action_remove_favorites"
-        android:orderInCategory="200"
-        android:title="@string/action_settings"
-        android:icon="@drawable/ic_favorites_remove"
-        app:showAsAction="ifRoom"/>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
 
-    <item
-        android:id="@+id/action_gmaps"
-        android:orderInCategory="300"
-        android:title="@string/action_ruta"
-        app:showAsAction="never" />
+        <!-- Optional, but recommended for full edge-to-edge rendering -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
 
-<!--    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="300"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />-->
-
-</menu>
+    </style>
+</resources>

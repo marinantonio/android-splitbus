@@ -32,5 +32,6 @@ interface TimetableRepository {
     fun saveTimetables(list: List<Timetable>): Completable
     fun getTimetables(): Single<List<Timetable>>
     fun updateFavourites(lineId: Int, favourite: Int): Completable
-    fun getTimetableDetail(url: String, lineId: Int): Single<String>
+    fun getTimetableDetail(lineId: Int, url: String): Single<String>
+    fun saveTimetableDetail(lineId: Int, content: String, contentDate: String): Completable
 }

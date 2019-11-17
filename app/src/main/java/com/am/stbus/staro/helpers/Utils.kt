@@ -241,7 +241,7 @@ open class Utils {
             "10" -> completeLineName = context.getString(R.string.bus10)
             "11" -> completeLineName = context.getString(R.string.bus11)
             "12" -> completeLineName = context.getString(R.string.bus121)
-            "14" -> completeLineName = context.getString(R.string.bus14)
+            "14" -> completeLineName = context.getString(R.string.bus141)
             "15" -> completeLineName = context.getString(R.string.bus15)
             "16" -> completeLineName = context.getString(R.string.bus16)
             "17" -> completeLineName = context.getString(R.string.bus17)

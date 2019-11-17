@@ -32,10 +32,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
 import com.am.stbus.domain.models.NewsListItem
-import com.am.stbus.presentation.screens.MainActivity
 import kotlinx.android.synthetic.main.fragment_information_news_list.*
 import kotlinx.android.synthetic.main.snippet_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -55,8 +55,12 @@ class InformationNewsListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mainActivity = activity as MainActivity
-        mainActivity.toolbar.title = getString(R.string.information_news_title)
+        toolbar.apply {
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
 
         viewModel.newsList.observe(viewLifecycleOwner, Observer<List<NewsListItem>> {
             onNewsListAdded(it)
@@ -68,7 +72,7 @@ class InformationNewsListFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer<String> {
-            if (informationNewsListAdapter.itemCount < 1)
+            if (informationNewsListAdapter.itemCount == 0)
                 handleErrorScreen(it)
         })
 

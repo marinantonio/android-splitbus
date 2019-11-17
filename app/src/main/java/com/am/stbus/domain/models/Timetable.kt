@@ -35,5 +35,5 @@ data class Timetable(
         @ColumnInfo(name = "gmaps_id") val gmapsId: Int,
         @ColumnInfo(name = "area_id") val areaId: Int,
         @ColumnInfo(name = "favourite") var favourite: Int,
-        @ColumnInfo(name = "content") val content: String,
-        @ColumnInfo(name = "content_date") val contentDate: String)
+        @ColumnInfo(name = "content") var content: String,
+        @ColumnInfo(name = "content_date") var contentDate: String)

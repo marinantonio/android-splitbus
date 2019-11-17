@@ -33,8 +33,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
+import com.am.stbus.common.extensions.toPx
 import com.am.stbus.domain.models.NewsItem
 import kotlinx.android.synthetic.main.fragment_information_news_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -42,9 +44,9 @@ import org.koin.core.parameter.parametersOf
 
 class InformationNewsDetailFragment : Fragment() {
 
-    private val args: InformationNewsDetailFragmentArgs by navArgs()
-
     private val viewModel: InformationNewsDetailViewModel by viewModel { parametersOf(args.newsUrl) }
+
+    private val args: InformationNewsDetailFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -54,7 +56,12 @@ class InformationNewsDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toolbar.title = getString(R.string.information_news_title)
+        toolbar.apply {
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
 
         tv_title.text = args.newsTitle
         tv_date.text = args.newsDate
@@ -88,7 +95,7 @@ class InformationNewsDetailFragment : Fragment() {
                 "</head>\n" +
                 "<body>" +
                 "<style type=\"text/css\">\n" +
-                "body {margin: 0px 0px 100px 0px; font-family: \"Roboto\"; font-size: 15px; color:" + textColor + "; line-height: 15pt;}" +
+                "body {margin: 0px ${6.toPx()}px 200px ${6.toPx()}px; font-family: \"Roboto\"; font-size: 15px; color:" + textColor + "; line-height: 15pt;}" +
                 "</style>\n" +
                 textFixedImageTags + "</body>\n" +
                 "</html>"

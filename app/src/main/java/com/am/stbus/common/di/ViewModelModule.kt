@@ -31,6 +31,7 @@ import com.am.stbus.presentation.screens.information.informationNewsListFragment
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.TimetablesViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListViewModel
+import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragmentArgs
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -40,7 +41,6 @@ val viewModelModule = module{
 
     viewModel {
         InformationListViewModel(
-                androidContext()
         )
     }
 
@@ -62,8 +62,9 @@ val viewModelModule = module{
         )
     }
 
-    viewModel {
+    viewModel {(args: TimetableDetailFragmentArgs) ->
         TimetableDetailViewModel(
+                args = args,
                 timetableListUseCase = get(),
                 timetableDetailUseCase = get()
         )

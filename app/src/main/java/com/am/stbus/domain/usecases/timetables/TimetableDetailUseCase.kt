@@ -25,12 +25,16 @@
 package com.am.stbus.domain.usecases.timetables
 
 import com.am.stbus.domain.repositories.TimetableRepository
+import io.reactivex.Completable
 import io.reactivex.Single
 
 class TimetableDetailUseCase(private val timetableRepository: TimetableRepository) {
 
-    fun getTimetableDetail(url: String, lineId: Int): Single<String> {
-        return timetableRepository.getTimetableDetail(url, lineId)
+    fun getTimetableDetail(lineId: Int, url: String): Single<String> {
+        return timetableRepository.getTimetableDetail(lineId, url)
     }
 
+    fun saveTimetableDetail(lineId: Int, content: String, contentDate: String): Completable {
+        return timetableRepository.saveTimetableDetail(lineId, content, contentDate)
+    }
 }

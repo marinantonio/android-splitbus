@@ -53,4 +53,7 @@ interface TimetableDao {
     @Query("UPDATE timetable SET favourite = :favourite WHERE lineId LIKE :lineId ")
     fun setFavouriteToLineId(lineId: Int, favourite: Int): Completable
 
+    @Query("UPDATE timetable SET content = :content, content_date = :contentDate WHERE lineId LIKE :lineId ")
+    fun setTimetableContentToLineId(lineId: Int, content: String, contentDate: String): Completable
+
 }

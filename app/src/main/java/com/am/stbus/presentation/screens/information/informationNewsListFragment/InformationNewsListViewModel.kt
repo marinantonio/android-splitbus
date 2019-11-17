@@ -67,7 +67,6 @@ class InformationNewsListViewModel(
                 .subscribe(object : SingleObserver<List<NewsListItem>> {
                     override fun onSuccess(news: List<NewsListItem>) {
                         getRemoteNewsList()
-                        Timber.i("onSuccess")
                         if (news.isNotEmpty()) {
                             _newsList.postValue(news)
                             _loading.postValue(false)
@@ -76,12 +75,10 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        Timber.i("onSubscribe")
                         _loading.postValue(true)
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.e("onError ${e.localizedMessage}")
                         _error.postValue(e.localizedMessage)
                     }
 
@@ -100,7 +97,6 @@ class InformationNewsListViewModel(
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        Timber.e("On sakskrajb")
                     }
 
                     override fun onError(e: Throwable) {
@@ -116,15 +112,12 @@ class InformationNewsListViewModel(
                 .observeOn(thread)
                 .subscribe(object: CompletableObserver {
                     override fun onComplete() {
-                        Timber.i("OnComplete")
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        Timber.i("onSubscribe")
                     }
 
                     override fun onError(e: Throwable) {
-                        Timber.i("onError")
                     }
                 })
     }

@@ -48,7 +48,11 @@ class TimetableRepositoryImpl(
         return localTimetableDataSource.setFavouriteToLineId(lineId, favourite)
     }
 
-    override fun getTimetableDetail(url: String, lineId: Int): Single<String>{
-        return remoteTimetableDataSource.getTimetableDetail(url, lineId)
+    override fun getTimetableDetail(lineId: Int, url: String): Single<String>{
+        return remoteTimetableDataSource.getTimetableDetail(lineId, url)
+    }
+
+    override fun saveTimetableDetail(lineId: Int, content: String, contentDate: String): Completable {
+        return localTimetableDataSource.setTimetableContentToLineId(lineId, content, contentDate)
     }
 }

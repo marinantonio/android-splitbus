@@ -35,7 +35,6 @@ import io.reactivex.CompletableObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class TimetablesListViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
@@ -55,7 +54,6 @@ class TimetablesListViewModel(private val timetableListUseCase: TimetableListUse
                 .observeOn(thread)
                 .subscribe(object: CompletableObserver {
                     override fun onComplete() {
-                        Timber.e("onComplete updateFavourite")
                         _updatedFavourite.postValue(
                                 TimetablesListFragment.UpdatedFavourite(
                                         position,

@@ -34,13 +34,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
+import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_favourites.*
+import kotlinx.android.synthetic.main.fragment_favourites.toolbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class FavouritesFragment : Fragment() {
 
@@ -57,13 +59,11 @@ class FavouritesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        Timber.e("onCreateView")
         return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.e("onViewCreated")
 
         toolbar.title = getString(R.string.nav_favourites)
 
@@ -74,7 +74,6 @@ class FavouritesFragment : Fragment() {
         }
 
         timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>> { timetables ->
-            Timber.e("timetables.observe")
             val favouriteTimetables = timetables.filter { it.favourite == 1 }
             if (favouriteTimetables.isNotEmpty()) {
                 favouriteAdapter.clear()

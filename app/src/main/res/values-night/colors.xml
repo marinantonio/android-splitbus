@@ -30,10 +30,18 @@
     <color name="colorBackground">@color/plavaCijanTamnija</color>
     <color name="colorText">@color/sivaOpisi</color>
 
+    <!-- Toolbar -->
+    <color name="assetColorIcons">@color/bijela</color>
+    <color name="colorToolbarPopupBackground">@color/crna</color>
+    <color name="colorToolbarPopupText">@color/bijela</color>
+
     <!-- BottomNavBar -->
     <color name="colorBottomNavItemBackground">@color/crna</color>
     <color name="colorBottomNavItemSelected">@color/zutaTamnija</color>
     <color name="colorBottomNavItemUnSelected">@color/bijela</color>
+
+    <!-- System Navigation Background Color -->
+    <color name="colorSystemNavigationBackground">@color/crna</color>
 
     <!-- RecyclerView liste -->
     <color name="colorListItemLineId">@color/zutaTamnija</color>

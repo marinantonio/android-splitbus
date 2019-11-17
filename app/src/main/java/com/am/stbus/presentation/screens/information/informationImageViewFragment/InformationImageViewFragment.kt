@@ -31,6 +31,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
 import com.bumptech.glide.Glide
@@ -52,17 +53,28 @@ class InformationImageViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toolbar.title = args.imageTitle
+        toolbar.apply {
+            title = args.imageTitle
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
 
-        Glide.with(context!!)
+        Glide.with(requireContext())
                 .load(args.imageUrl)
                 .listener(object : RequestListener<Drawable>{
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        if (isVisible) {
+                            pb_loading.isVisible = false
+                        }
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        pb_loading.isVisible = false
+                        if (isVisible) {
+                            pb_loading.isVisible = false
+                        }
                         return false
                     }
 

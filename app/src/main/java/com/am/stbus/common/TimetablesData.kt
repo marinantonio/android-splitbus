@@ -33,30 +33,31 @@ class TimetablesData {
             when(lineId) {
                 // Gradski
                 1 -> R.string.bus32
-                2 -> R.string.bus32
+                2 -> R.string.bus31
                 3 -> R.string.bus6
                 4 -> R.string.bus7
                 5 -> R.string.bus8
                 6 -> R.string.bus9
                 7 -> R.string.bus11
                 8 -> R.string.bus121
-                9 -> R.string.bus121
-                10 -> R.string.bus14
-                11 -> R.string.bus15
-                12 -> R.string.bus17
-                13 -> R.string.bus18
-                14 -> R.string.bus20
-                15 -> R.string.bus21
-                16 -> R.string.bus241
-                17 -> R.string.bus242
-                18 -> R.string.bus251
-                19 -> R.string.bus252
-                20 -> R.string.bus261
-                21 -> R.string.bus262
-                22 -> R.string.bus271
-                23 -> R.string.bus272
-                24 -> R.string.bus39
-                25 -> R.string.bus40
+                9 -> R.string.bus122
+                10 -> R.string.bus141
+                11 -> R.string.bus142
+                12 -> R.string.bus15
+                13 -> R.string.bus17
+                14 -> R.string.bus18
+                15 -> R.string.bus20
+                16 -> R.string.bus21
+                17 -> R.string.bus241
+                18 -> R.string.bus242
+                19 -> R.string.bus251
+                20 -> R.string.bus252
+                21 -> R.string.bus261
+                22 -> R.string.bus262
+                23 -> R.string.bus271
+                24 -> R.string.bus272
+                25 -> R.string.bus39
+                26 -> R.string.bus40
 
 
                 // Urbano
@@ -171,21 +172,22 @@ class TimetablesData {
                 8 -> "12 SV. FRANE - BENE"
                 9 -> "12 BENE - (MEJE) - SV.FRANE"
                 10 -> "14 BRDA - KOPILICA - DUBROVAČKA - BOLNICE - ŽNJAN - DUILOVO"
-                11 -> "15 DUILOVO - ŽNJAN - TR. LUKA - DUILOVO"
-                12 -> "17 SPINUT - LORA - TRSTENIK - LORA -SPINUT"
-                13 -> "18 BRNIK - HNK - BRNIK"
-                14 -> "20 RAVNE NJIVE - ZVONČAC"
-                15 -> "21 SV.FRANE - MEJE - SV.FRANE"
-                16 -> "24 SPLIT - KOPILICA - DOM. RATA - STOBREČ - TTTS"
-                17 -> "24 TTTS - STOBREČ - DOM. RATA - KOPILICA - SPLIT"
-                18 -> "25 SPLIT - STOBREČ"
-                19 -> "25 STOBREČ - SPLIT"
-                20 -> "26 SPLIT - KAMEN"
-                21 -> "26 KAMEN - SPLIT"
-                22 -> "27 SPLIT - KOREŠNICA - ŽRNOVNICA"
-                23 -> "27 ŽRNOVNICA - KOREŠNICA - SPLIT"
-                24 -> "39 LORA - POLJIČKA - TTTS - LORA"
-                25 -> "40 TRAJ. LUKA - KILA - TRAJ. LUKA"
+                11 -> "14 DUILOVO - ŽNJAN - BOLNICE - DUBROVAČKA - KOPILICA - BRDA"
+                12 -> "15 DUILOVO - ŽNJAN - TR. LUKA - DUILOVO"
+                13 -> "17 SPINUT - LORA - TRSTENIK - LORA -SPINUT"
+                14 -> "18 BRNIK - HNK - BRNIK"
+                15 -> "20 RAVNE NJIVE - ZVONČAC"
+                16 -> "21 SV.FRANE - MEJE - SV.FRANE"
+                17 -> "24 SPLIT - KOPILICA - DOM. RATA - STOBREČ - TTTS"
+                18 -> "24 TTTS - STOBREČ - DOM. RATA - KOPILICA - SPLIT"
+                19 -> "25 SPLIT - STOBREČ"
+                20 -> "25 STOBREČ - SPLIT"
+                21 -> "26 SPLIT - KAMEN"
+                22 -> "26 KAMEN - SPLIT"
+                23 -> "27 SPLIT - KOREŠNICA - ŽRNOVNICA"
+                24 -> "27 ŽRNOVNICA - KOREŠNICA - SPLIT"
+                25 -> "39 LORA - POLJIČKA - TTTS - LORA"
+                26 -> "40 TRAJ. LUKA - KILA - TRAJ. LUKA"
                 
                 // Urbano
                 101 -> "1 STARINE - HNK - STARINE"
@@ -305,22 +307,23 @@ class TimetablesData {
                 Timetable(7, "11", 110, AREA_CITY, 0, "", ""),
                 Timetable(8, "12", 121, AREA_CITY, 0, "", ""),
                 Timetable(9, "12", 122, AREA_CITY, 0, "", ""),
-                Timetable(10, "14", 140, AREA_CITY, 0, "", ""),
-                Timetable(11, "15", 150, AREA_CITY, 0, "", ""),
-                Timetable(12, "17", 170, AREA_CITY, 0, "", ""),
-                Timetable(13, "18", 180, AREA_CITY, 0, "", ""),
-                Timetable(14, "20", 200, AREA_CITY, 0, "", ""),
-                Timetable(15, "21", 210, AREA_CITY, 0, "", ""),
-                Timetable(16, "24", 241, AREA_CITY, 0, "", ""),
-                Timetable(17, "24", 242, AREA_CITY, 0, "", ""),
-                Timetable(18, "25", 251, AREA_CITY, 0, "", ""),
-                Timetable(19, "25", 252, AREA_CITY, 0, "", ""),
-                Timetable(20, "26", 261, AREA_CITY, 0, "", ""),
-                Timetable(21, "26", 262, AREA_CITY, 0, "", ""),
-                Timetable(22, "27", 271, AREA_CITY, 0, "", ""),
-                Timetable(23, "27", 272, AREA_CITY, 0, "", ""),
-                Timetable(24, "39", 390, AREA_CITY, 0, "", ""),
-                Timetable(25, "40", 400, AREA_CITY, 0, "", ""),
+                Timetable(10, "14", 141, AREA_CITY, 0, "", ""),
+                Timetable(11, "14", 142, AREA_CITY, 0, "", ""),
+                Timetable(12, "15", 150, AREA_CITY, 0, "", ""),
+                Timetable(13, "17", 170, AREA_CITY, 0, "", ""),
+                Timetable(14, "18", 180, AREA_CITY, 0, "", ""),
+                Timetable(15, "20", 200, AREA_CITY, 0, "", ""),
+                Timetable(16, "21", 210, AREA_CITY, 0, "", ""),
+                Timetable(17, "24", 241, AREA_CITY, 0, "", ""),
+                Timetable(18, "24", 242, AREA_CITY, 0, "", ""),
+                Timetable(19, "25", 251, AREA_CITY, 0, "", ""),
+                Timetable(20, "25", 252, AREA_CITY, 0, "", ""),
+                Timetable(21, "26", 261, AREA_CITY, 0, "", ""),
+                Timetable(22, "26", 262, AREA_CITY, 0, "", ""),
+                Timetable(23, "27", 271, AREA_CITY, 0, "", ""),
+                Timetable(24, "27", 272, AREA_CITY, 0, "", ""),
+                Timetable(25, "39", 390, AREA_CITY, 0, "", ""),
+                Timetable(26, "40", 400, AREA_CITY, 0, "", ""),
 
                 // Urbano
                 Timetable(101, "1", 10, AREA_URBAN, 0, "", ""),

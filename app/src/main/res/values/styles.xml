@@ -30,7 +30,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:background">@color/colorBackground</item>
     </style>
+
+    <style name="Transparent" parent="AppTheme">
+    </style>
+
+    <!-- Toolbar -->
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorSecondary">@color/assetColorIcons</item>
+    </style>
+
+    <style name="ListPopup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorToolbarPopupBackground</item>
+        <item name="android:textColor">@color/colorToolbarPopupText</item>
+    </style>
+
 
 </resources>

@@ -31,6 +31,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
 import kotlinx.android.synthetic.main.fragment_information_web_view.*
@@ -48,7 +49,13 @@ class InformationWebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toolbar.title = args.webViewTitle
+        toolbar.apply {
+            toolbar.title = args.webViewTitle
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
 
         web_view.apply {
             val webViewSettings = web_view.settings

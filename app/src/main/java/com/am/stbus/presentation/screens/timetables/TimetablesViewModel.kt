@@ -35,7 +35,6 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class TimetablesViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
@@ -80,7 +79,6 @@ class TimetablesViewModel(private val timetableListUseCase: TimetableListUseCase
                 .observeOn(thread)
                 .subscribe(object: CompletableObserver {
                     override fun onComplete() {
-                        Timber.e("On complete saveTImetejbl")
                         _timetableList.postValue(TimetablesData.list)
                     }
 

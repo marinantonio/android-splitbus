@@ -28,16 +28,13 @@ import com.am.stbus.common.Constants
 import com.am.stbus.common.TimetablesData
 import io.reactivex.Single
 import org.jsoup.Jsoup
-import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
 
 class RemoteTimetableDataSource {
 
-    fun getTimetableDetail(url: String, lineId: Int): Single<String> {
+    fun getTimetableDetail(lineId: Int, url: String): Single<String> {
         return Single.fromCallable {
-
-            Timber.e("$url $lineId")
 
             val timetableId = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
                     .select(".c-vozni-red__search-select option:contains("
@@ -80,8 +77,6 @@ class RemoteTimetableDataSource {
                     sundayList,
                     doc.select("div.c-vozni-red-note__items").text()
             )
-
-            Timber.e("items: $timetableItems")
 
             return@fromCallable timetableItems.joinToString(Constants.EMA_DELIMITER)
         }

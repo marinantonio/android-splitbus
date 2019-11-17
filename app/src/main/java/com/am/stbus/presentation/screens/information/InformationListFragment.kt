@@ -43,19 +43,24 @@ import com.am.stbus.common.Constants.PROMET_URL
 import com.am.stbus.common.InformationConstants.GARAZE_URL
 import com.am.stbus.common.InformationConstants.ID_CYCLES
 import com.am.stbus.common.InformationConstants.ID_GARAGES
+import com.am.stbus.common.InformationConstants.ID_GENERAL_CATEGORY
 import com.am.stbus.common.InformationConstants.ID_GMAPS
 import com.am.stbus.common.InformationConstants.ID_LATEST_NEWS
+import com.am.stbus.common.InformationConstants.ID_MAPS_CATEGORY
 import com.am.stbus.common.InformationConstants.ID_PARKING
 import com.am.stbus.common.InformationConstants.ID_PROMET_WEB
 import com.am.stbus.common.InformationConstants.ID_SUBURBAN_MAP
 import com.am.stbus.common.InformationConstants.ID_TARIFF_ZONES_MAP
 import com.am.stbus.common.InformationConstants.ID_TOURIST_INFO
 import com.am.stbus.common.InformationConstants.ID_URBAN_MAP
+import com.am.stbus.common.InformationConstants.ID_WEBSITES_CATEGORY
 import com.am.stbus.common.InformationConstants.KARTA_GRAD_URL
 import com.am.stbus.common.InformationConstants.KARTA_PRIGRAD_URL
 import com.am.stbus.common.InformationConstants.NEXT_BIKE_IFRAME
 import com.am.stbus.common.InformationConstants.PARKING_URL
 import com.am.stbus.common.InformationConstants.TARIFNE_URL
+import com.am.stbus.common.InformationConstants.TYPE_HEADER
+import com.am.stbus.common.InformationConstants.TYPE_ITEM
 import com.am.stbus.domain.models.Information
 import com.am.stbus.presentation.screens.gmaps.GmapsActivity
 import kotlinx.android.synthetic.main.fragment_information_list.*
@@ -70,8 +75,6 @@ class InformationListFragment : Fragment() {
 
     private val informationListAdapter = InformationListAdapter(context) { onInformationClicked(it) }
 
-    private val informationListObserver = Observer<List<Information>> { informationListAdapter.addEntireData(it) }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_information_list, container, false)
@@ -82,12 +85,14 @@ class InformationListFragment : Fragment() {
 
         toolbar.title = getString(R.string.nav_information)
 
-        viewModel.informationList.observe(viewLifecycleOwner, informationListObserver)
-
         recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
             adapter = informationListAdapter
+        }
+
+        if (informationListAdapter.isEmpty()) {
+            informationListAdapter.addEntireData(generateInformationList())
         }
     }
 
@@ -143,6 +148,26 @@ class InformationListFragment : Fragment() {
         // Set the color of Toolbar
         intentBuilder.setToolbarColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
         return intentBuilder.build()
+    }
+
+    private fun generateInformationList(): List<Information> {
+        return listOf(
+                Information(ID_GENERAL_CATEGORY, TYPE_HEADER, getString(R.string.information_news_general_category), ""),
+                Information(ID_LATEST_NEWS, TYPE_ITEM, getString(R.string.information_news_title), getString(R.string.information_news_desc)),
+                //Information(ID_TOURIST_INFO, TYPE_ITEM, getString(R.string.information_tourist_title), getString(R.string.information_tourist_desc)),
+                // Karte
+                Information(ID_MAPS_CATEGORY, TYPE_HEADER, getString(R.string.information_news_maps_category), ""),
+                Information(ID_GMAPS, TYPE_ITEM, getString(R.string.information_gmaps_title), getString(R.string.information_gmaps_desc)),
+                Information(ID_URBAN_MAP, TYPE_ITEM, getString(R.string.information_urban_map_title), getString(R.string.information_urban_map_desc)),
+                Information(ID_SUBURBAN_MAP, TYPE_ITEM, getString(R.string.information_suburban_map_title), getString(R.string.information_suburban_map_desc)),
+                Information(ID_TARIFF_ZONES_MAP, TYPE_ITEM, getString(R.string.information_tariff_zones_title), getString(R.string.information_tariff_zones_desc)),
+                // Ostali web
+                Information(ID_WEBSITES_CATEGORY, TYPE_HEADER, getString(R.string.information_websites_category), ""),
+                Information(ID_CYCLES, TYPE_ITEM, getString(R.string.information_cycles_title), getString(R.string.information_cycles_desc)),
+                Information(ID_PARKING, TYPE_ITEM, getString(R.string.information_parking_title), getString(R.string.information_parking_desc)),
+                Information(ID_GARAGES, TYPE_ITEM, getString(R.string.information_garage_title), getString(R.string.information_garage_desc)),
+                Information(ID_PROMET_WEB, TYPE_ITEM, getString(R.string.information_promet_web), getString(R.string.information_promet_desc))
+        )
     }
 
 }

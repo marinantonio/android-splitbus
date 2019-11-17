@@ -33,6 +33,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.viewpager.widget.ViewPager
 import com.am.stbus.R
 import com.am.stbus.common.Constants
 import com.am.stbus.common.TimetablesData
@@ -43,16 +44,17 @@ import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.fragment_timetables.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
-
+import org.koin.core.parameter.parametersOf
 
 class TimetableDetailFragment : Fragment() {
 
     private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
 
-    private val viewModel: TimetableDetailViewModel by viewModel()
+    private val viewModel: TimetableDetailViewModel by viewModel{ parametersOf(args) }
 
     private val args: TimetableDetailFragmentArgs by navArgs()
+
+    private var activeViewPagerPage = 0
 
     private lateinit var addFavorites: MenuItem
 
@@ -70,7 +72,7 @@ class TimetableDetailFragment : Fragment() {
 
         toolbar.apply {
             title = "${args.lineNumber} ${getText(TimetablesData().getTimetableTitle(args.lineId))}"
-            setNavigationIcon(R.drawable.ic_action_overflow)
+            setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener {
                 findNavController().popBackStack()
             }
@@ -82,12 +84,26 @@ class TimetableDetailFragment : Fragment() {
             }
         }
 
+        view_pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                activeViewPagerPage = position
+            }
+
+            override fun onPageSelected(position: Int) {
+            }
+
+        })
+
         viewModel.fullScreenLoading.observe(viewLifecycleOwner, Observer {
             snippet_loading.isVisible = it
             tab_layout.isVisible = !it
         })
 
         viewModel.timetableContent.observe(viewLifecycleOwner, Observer {
+            timetablesSharedViewModel.updateTimetableContent(args.lineId, it, "date TODO")
             setupViewPager(it)
         })
 
@@ -104,8 +120,6 @@ class TimetableDetailFragment : Fragment() {
                 }
             }
         })
-
-        viewModel.populateTimetable(args.lineId, args.areaId, args.content)
 
 
 
@@ -143,7 +157,7 @@ class TimetableDetailFragment : Fragment() {
         val adapter = TimetableSliderAdapter(childFragmentManager, fragmentsList, titles)
 
         view_pager.adapter = adapter
-
+        view_pager.currentItem = activeViewPagerPage
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -172,7 +186,7 @@ class TimetableDetailFragment : Fragment() {
                 viewModel.updateFavouritesStatus(args.lineId, FAVOURITE_REMOVED)
             }
             R.id.action_gmaps -> {
-                Timber.i("Ka cvice bez vode")
+                // TODO
             }
         }
         return super.onOptionsItemSelected(item)

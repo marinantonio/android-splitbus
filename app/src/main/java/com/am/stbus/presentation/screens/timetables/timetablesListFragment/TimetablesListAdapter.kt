@@ -25,10 +25,12 @@
 package com.am.stbus.presentation.screens.timetables.timetablesListFragment
 
 import android.content.Context
+import android.content.ContextWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
 import com.am.stbus.common.TimetablesData
@@ -89,7 +91,7 @@ class TimetablesListAdapter(val context: Context?,
                 }
 
                 iv_menu.setOnClickListener {
-                    PopupMenu(it.context, it).apply {
+                    PopupMenu(ContextThemeWrapper(it.context, R.style.ListPopup), it).apply {
                         inflate(R.menu.menu_timetable_list)
 
                         // Favourites labels

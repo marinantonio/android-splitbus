@@ -30,10 +30,18 @@
     <color name="colorBackground">@color/bijela</color>
     <color name="colorText">@color/crnaOpisi</color>
 
+    <!-- Toolbar -->
+    <color name="assetColorIcons">@color/crna</color>
+    <color name="colorToolbarPopupBackground">@color/bijela</color>
+    <color name="colorToolbarPopupText">@color/crnaOpisi</color>
+
     <!-- BottomNavBar -->
     <color name="colorBottomNavItemBackground">@color/bijela</color>
     <color name="colorBottomNavItemSelected">@color/plavaCijan</color>
     <color name="colorBottomNavItemUnSelected">@color/crna</color>
+
+    <!-- System Navigation Background Color -->
+    <color name="colorSystemNavigationBackground">@color/bijela</color>
 
     <!-- RecyclerView liste -->
     <color name="colorListItemLineId">@color/plavaCijan</color>
@@ -64,6 +72,8 @@
     <color name="sivaOpisi">#969696</color>
     <color name="sivaDivider">#e0e0e0</color>
     <color name="sivaDivider30">#51E0E0E0</color>
+    <color name="prozirnaAndroid">@android:color/transparent</color>
+
 
 
 

@@ -36,9 +36,9 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class TimetableDetailViewModel(
+        private val args: TimetableDetailFragmentArgs,
         private val timetableListUseCase: TimetableListUseCase,
         private val timetableDetailUseCase: TimetableDetailUseCase
 ) : ViewModel() {
@@ -66,9 +66,11 @@ class TimetableDetailViewModel(
     val updatedFavourite: LiveData<Int>
         get() = _updatedFavourite
 
+    init {
+        populateTimetable(args.lineId, args.areaId, args.content, args.contentDate)
+    }
 
-
-    fun populateTimetable(lineId: Int, areaId: Int, timetableContent: String) {
+    private fun populateTimetable(lineId: Int, areaId: Int, timetableContent: String, date: String) {
         if (timetableContent.isNotEmpty()) {
             _timetableContent.postValue(timetableContent)
             _smallLoading.postValue(true)
@@ -76,12 +78,7 @@ class TimetableDetailViewModel(
             _fullScreenLoading.postValue(true)
         }
 
-        // Update endpoint
-        fetchAndPopulateTimetable(lineId, areaId)
-    }
-
-    private fun fetchAndPopulateTimetable(lineId: Int, areaId: Int) {
-
+        // Update content
         val timetableBaseUrl = when(areaId) {
             TimetablesData.AREA_CITY -> Constants.AREA_CITY_URL
             TimetablesData.AREA_URBAN -> Constants.AREA_URBAN_URL
@@ -91,14 +88,19 @@ class TimetableDetailViewModel(
             else -> throw IllegalArgumentException("Illegal areaId $areaId")
         }
 
-        timetableDetailUseCase.getTimetableDetail(timetableBaseUrl, lineId)
+        fetchAndPopulateTimetable(lineId, timetableBaseUrl)
+    }
+
+    private fun fetchAndPopulateTimetable(lineId: Int, timetableBaseUrl: String) {
+        timetableDetailUseCase.getTimetableDetail(lineId, timetableBaseUrl)
                 .subscribeOn(schedulers)
                 .observeOn(thread)
                 .subscribe(object: SingleObserver<String> {
-                    override fun onSuccess(t: String) {
-                        _timetableContent.postValue(t)
+                    override fun onSuccess(content: String) {
+                        _timetableContent.postValue(content)
                         _fullScreenLoading.postValue(false)
                         _smallLoading.postValue(false)
+                        saveTimetableContent(lineId, content)
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -115,13 +117,11 @@ class TimetableDetailViewModel(
     }
 
     fun updateFavouritesStatus(lineId: Int, favouriteStatus: Int) {
-
         timetableListUseCase.updateFavourites(lineId, favouriteStatus)
                 .subscribeOn(schedulers)
                 .observeOn(thread)
                 .subscribe(object: CompletableObserver {
                     override fun onComplete() {
-                        Timber.e("onComplete updateFavourite")
                         _updatedFavourite.postValue(favouriteStatus)
                     }
 
@@ -133,11 +133,22 @@ class TimetableDetailViewModel(
                 })
     }
 
-    // TODO: Implement the ViewModel
-    // MAIN LOADING SCREEN SHOULD BE PRESENT
 
+    fun saveTimetableContent(lineId: Int, timetableContent: String) {
+        timetableDetailUseCase.saveTimetableDetail(lineId, timetableContent, "datum TODO") // TODO
+                .subscribeOn(schedulers)
+                .observeOn(thread)
+                .subscribe(object: CompletableObserver{
+                    override fun onComplete() {
+                        _smallLoading.postValue(false)
+                    }
 
-    fun saveTimetableContent(timetableContent: String) {
-        // Store this in the db
+                    override fun onSubscribe(d: Disposable) {
+                    }
+
+                    override fun onError(e: Throwable) {
+                    }
+
+                })
     }
 }

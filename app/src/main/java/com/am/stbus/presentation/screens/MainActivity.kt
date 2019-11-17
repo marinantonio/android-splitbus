@@ -24,7 +24,9 @@
 
 package com.am.stbus.presentation.screens
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -35,6 +37,13 @@ import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
 import com.am.stbus.R
 import kotlinx.android.synthetic.main.activity_main.*
+import android.view.WindowManager
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
+import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,8 +55,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setupAppTheme()
+
+        container.systemUiVisibilityFullScreen()
 
         val navigationController: NavController = findNavController(R.id.nav_host_fragment)
 
@@ -70,15 +80,27 @@ class MainActivity : AppCompatActivity() {
             nav_view.visibility = View.VISIBLE
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
             supportActionBar?.setDisplayShowHomeEnabled(false)
+            setupWhiteNavigationNavigationBarColor(true)
         } else {
             nav_view.visibility = View.GONE
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
+            setupWhiteNavigationNavigationBarColor(false)
         }
 
         app_bar.isVisible = destination.id == R.id.settingsFragment
     }
 
+    private fun setupWhiteNavigationNavigationBarColor(colored: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (colored) {
+                window.navigationBarColor = ContextCompat.getColor(this, R.color.colorSystemNavigationBackground)
+            } else {
+                window.navigationBarColor = ContextCompat.getColor(this, R.color.prozirnaAndroid)
+            }
+        }
+
+    }
 
     fun setupAppTheme() {
         val preference = PreferenceManager.getDefaultSharedPreferences(this)

@@ -34,7 +34,7 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
             app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -51,12 +52,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <uk.co.senab.photoview.PhotoView
-            android:id="@+id/iv_slika"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:src="@drawable/ic_draw_favoriti" />
-
         <ProgressBar
             android:id="@+id/pb_loading"
             android:layout_width="wrap_content"
@@ -65,6 +60,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <uk.co.senab.photoview.PhotoView
+            android:id="@+id/iv_slika"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/ic_draw_favoriti" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

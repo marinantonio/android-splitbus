@@ -245,7 +245,8 @@
     <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
     <string name="bus121">Sv. Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
-    <string name="bus14">Brda - Kopilica - Dubrovačka - Bolnice - Žnjan - Duilovo</string>
+    <string name="bus141">Brda - Kopilica - Dubrovačka - Hospitals - Žnjan - Duilovo</string>
+    <string name="bus142">Duilovo - Žnjan - Dubrovačka - Hospitals - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Ferry Port - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
     <string name="bus17">Spinut - Lora - Trstenik - Lora - Spinut</string>

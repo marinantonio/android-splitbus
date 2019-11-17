@@ -37,7 +37,6 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase) : ViewModel() {
 
@@ -53,7 +52,6 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
         get() = _removedFavourite
 
     init {
-        Timber.e("Initing viewModel")
         getTimetables()
     }
 

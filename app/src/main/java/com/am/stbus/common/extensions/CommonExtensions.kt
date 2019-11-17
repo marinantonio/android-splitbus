@@ -22,35 +22,9 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetables
+package com.am.stbus.common.extensions
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.am.stbus.domain.models.Timetable
+import android.content.res.Resources
 
-class TimetablesSharedViewModel : ViewModel() {
-
-    private val _timetables = MutableLiveData<List<Timetable>>()
-    val timetables: LiveData<List<Timetable>>
-        get() = _timetables
-
-    fun saveTimetables(timetables: List<Timetable>) {
-        _timetables.value = timetables
-    }
-
-    fun updateFavourite(lineId: Int, favourite: Int) {
-        //val newTimetables = _timetables.value
-        _timetables.value?.find { timetable -> timetable.lineId == lineId}?.favourite = favourite
-        _timetables.postValue(_timetables.value)
-    }
-
-    fun updateTimetableContent(lineId: Int, content: String, contentDate: String) {
-        _timetables.value?.find { timetable -> timetable.lineId == lineId }?.let {
-            it.content = content
-            it.contentDate = contentDate
-        }
-        _timetables.postValue(_timetables.value)
-    }
-
-}
+fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
+fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()

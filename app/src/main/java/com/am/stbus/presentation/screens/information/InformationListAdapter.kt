@@ -58,6 +58,10 @@ class InformationListAdapter(val context: Context?,
         informationList.clear()
     }
 
+    fun isEmpty(): Boolean {
+        return informationList.isEmpty()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
             TYPE_HEADER -> HeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_row_information_header, parent, false))

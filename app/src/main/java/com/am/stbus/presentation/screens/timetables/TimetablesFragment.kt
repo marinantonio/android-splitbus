@@ -34,6 +34,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
 import com.am.stbus.R
 import com.am.stbus.common.TimetablesData
+import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_timetables.*

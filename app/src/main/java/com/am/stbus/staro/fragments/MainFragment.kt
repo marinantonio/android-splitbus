@@ -132,7 +132,7 @@ class MainFragment : Fragment() {
             db.addVozniRed(VozniRed(getString(R.string.bus11),7, "11", 1, 0))
             db.addVozniRed(VozniRed(getString(R.string.bus121),8, "12", 1,0))
             db.addVozniRed(VozniRed(getString(R.string.bus122),9, "12", 1,0))
-            db.addVozniRed(VozniRed(getString(R.string.bus14),10, "14", 1,0))
+            db.addVozniRed(VozniRed(getString(R.string.bus141),10, "14", 1,0))
             db.addVozniRed(VozniRed(getString(R.string.bus15),11, "15", 1, 0))
             db.addVozniRed(VozniRed(getString(R.string.bus17),12, "17", 1, 0))
             db.addVozniRed(VozniRed(getString(R.string.bus18),13, "18", 1, 0))
