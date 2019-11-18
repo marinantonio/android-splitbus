@@ -78,21 +78,11 @@ class TimetableDetailViewModel(
             _fullScreenLoading.postValue(true)
         }
 
-        // Update content
-        val timetableBaseUrl = when(areaId) {
-            TimetablesData.AREA_CITY -> Constants.AREA_CITY_URL
-            TimetablesData.AREA_URBAN -> Constants.AREA_URBAN_URL
-            TimetablesData.AREA_SUBURBAN -> Constants.AREA_SUBURBAN_URL
-            TimetablesData.AREA_TROGIR -> Constants.AREA_TROGIR_URL
-            TimetablesData.AREA_SOLTA -> Constants.AREA_SOLTA_URL
-            else -> throw IllegalArgumentException("Illegal areaId $areaId")
-        }
-
-        fetchAndPopulateTimetable(lineId, timetableBaseUrl)
+        fetchAndPopulateTimetable(lineId, areaId)
     }
 
-    private fun fetchAndPopulateTimetable(lineId: Int, timetableBaseUrl: String) {
-        timetableDetailUseCase.getTimetableDetail(lineId, timetableBaseUrl)
+    fun fetchAndPopulateTimetable(lineId: Int, areaId: Int) {
+        timetableDetailUseCase.getTimetableDetail(lineId, getTimetableBaseUrl(areaId))
                 .subscribeOn(schedulers)
                 .observeOn(thread)
                 .subscribe(object: SingleObserver<String> {
@@ -150,5 +140,16 @@ class TimetableDetailViewModel(
                     }
 
                 })
+    }
+
+    fun getTimetableBaseUrl(areaId: Int): String {
+        return when (areaId) {
+            TimetablesData.AREA_CITY -> Constants.AREA_CITY_URL
+            TimetablesData.AREA_URBAN -> Constants.AREA_URBAN_URL
+            TimetablesData.AREA_SUBURBAN -> Constants.AREA_SUBURBAN_URL
+            TimetablesData.AREA_TROGIR -> Constants.AREA_TROGIR_URL
+            TimetablesData.AREA_SOLTA -> Constants.AREA_SOLTA_URL
+            else -> throw IllegalArgumentException("Illegal areaId $areaId")
+        }
     }
 }

@@ -59,6 +59,10 @@ class TimetableDetailDayFragment : Fragment() {
         tv_valid_from.text = "${timetableContent?.get(0)} ${timetableContent?.get(1)}"
         tv_timetable.text = timetable
         tv_note.text = timetableContent?.get(5)
+
+        swipe_to_refresh.setOnRefreshListener {
+            (parentFragment as TimetableDetailFragment).fetchAndPopulateTimetable()
+        }
     }
 
     private fun cleanTimetable(timetable: String?): String {

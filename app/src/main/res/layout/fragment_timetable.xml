@@ -52,21 +52,21 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <include
-        android:id="@+id/snippet_loading"
-        layout="@layout/snippet_loading"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:visibility="gone" />
+        <include
+            android:id="@+id/snippet_loading"
+            layout="@layout/snippet_loading"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:visibility="gone" />
 
-    <include
-        layout="@layout/snippet_error"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:visibility="gone" />
+        <include
+            layout="@layout/snippet_error"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -40,8 +40,8 @@ import com.am.stbus.common.TimetablesData
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
-import kotlinx.android.synthetic.main.activity_main.toolbar
-import kotlinx.android.synthetic.main.fragment_timetables.*
+import kotlinx.android.synthetic.main.fragment_timetable.*
+import kotlinx.android.synthetic.main.fragment_timetable_day.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -121,17 +121,11 @@ class TimetableDetailFragment : Fragment() {
             }
         })
 
+        viewModel.smallLoading.observe(viewLifecycleOwner, Observer {
+            swipe_to_refresh.isRefreshing = it
+        })
 
-
-        // AKO NEMA TREBA VATAT IZ VJUMODELA, AL SVAKAKO VJUMODEL TREBA UVATIT STOGOD
-
-        // POKAZAT LOADING BAR GORI DA PREUZIMA NESTO
-
-        // POKAZAT GOVNO OD SNACKBARA S DATUMOM KOJI GOVORI DA TREBA PRIKAZAT JOS STOGOD
-
-        // AJMO PRVO NEKAKO
-
-        // ODI TRIBA METNIT OVAJ ON OPTIONS SELECTED ZBOG FAVORITA, GMAPSA
+        // SNACKBAR DATUM :)
 
         // ERROR HANDLING
 
@@ -190,6 +184,10 @@ class TimetableDetailFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun fetchAndPopulateTimetable() {
+        viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId)
     }
 
 
