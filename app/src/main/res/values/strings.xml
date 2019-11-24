@@ -31,6 +31,17 @@
     <string name="nav_information">Information</string>
     <string name="nav_setttings">Settings</string>
 
+    <!-- Welcome -->
+    <string name="welcome_first_run_toolbar">Welcome</string>
+    <string name="welcome_first_run_title">Thank you for downloading!</string>
+    <string name="welcome_first_run_desc">Welcome to all new &lt;b>Split Bus&lt;/b> App!</string>
+
+    <string name="welcome_update_toolbar">App updated</string>
+    <string name="welcome_update_title">Split Bus v%1$s</string>
+    <string name="welcome_update_desc">Whats all new in the new release</string>
+
+
+
     <!-- Favourites -->
     <string name="favourite_empty_title">Empty favourites!</string>
     <string name="favourite_empty_message">Add desired bus routes to the favourites and they will appear here on the homescreen</string>

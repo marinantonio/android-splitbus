@@ -46,8 +46,14 @@ class SplitBusApplication : Application() {
         super.onCreate()
         setupKoin()
         setupTimber()
+        setupThreeTen()
+    }
 
-        AndroidThreeTen.init(this)
+    private fun setupKoin() {
+        startKoin {
+            androidContext(applicationContext)
+            modules(listOfModules)
+        }
     }
 
     private fun setupTimber() {
@@ -56,10 +62,7 @@ class SplitBusApplication : Application() {
         }
     }
 
-    private fun setupKoin() {
-        startKoin {
-            androidContext(applicationContext)
-            modules(listOfModules)
-        }
+    private fun setupThreeTen() {
+        AndroidThreeTen.init(this)
     }
 }

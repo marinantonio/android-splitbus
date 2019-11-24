@@ -24,7 +24,31 @@
 
 package com.am.stbus.common.extensions
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
+import android.net.Uri
+import android.os.Build
+import com.am.stbus.BuildConfig
+import com.am.stbus.common.Constants.PROMET_URL
 
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
+
+fun Context.startUrl(url: String) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+
+fun Context.loadPrometUrl() = this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PROMET_URL)))
+fun Context.loadEmailReport(linija: String, error: String) = this.startActivity(Intent.createChooser(
+        Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "antoniomarinnn@gmail.com", null)).apply {
+            putExtra(Intent.EXTRA_SUBJECT, "Split Bus")
+            putExtra(Intent.EXTRA_TEXT,
+                            "Molimo opisite problem!(Please describe your issue!)" +
+                            "\n\n\n\nInformacije o uredaju \n --------------------------------" +
+                            "\n Linija: $linija \n Split Bus verzija: ${BuildConfig.VERSION_NAME}" +
+                            "\n Greska: $error" +
+                            "\n Android: ${Build.VERSION.RELEASE} (SDK: ${Build.VERSION.SDK_INT})" +
+                            "\n Telefon: ${Build.MODEL} (Uredaj: ${Build.DEVICE})"
+            )
+        }, "Email")
+)
+

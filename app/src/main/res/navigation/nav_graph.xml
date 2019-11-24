@@ -38,6 +38,21 @@
         <action
             android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
             app:destination="@id/timetableDetailFragment" />
+        <action
+            android:id="@+id/action_favouriteFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+
+    <!-- Welcome fragment -->
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.am.stbus.presentation.screens.favourites.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer"/>
     </fragment>
 
 

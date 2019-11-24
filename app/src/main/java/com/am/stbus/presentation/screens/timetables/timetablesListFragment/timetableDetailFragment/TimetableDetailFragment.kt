@@ -37,6 +37,8 @@ import androidx.viewpager.widget.ViewPager
 import com.am.stbus.R
 import com.am.stbus.common.Constants
 import com.am.stbus.common.TimetablesData
+import com.am.stbus.common.extensions.loadEmailReport
+import com.am.stbus.common.extensions.loadPrometUrl
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
@@ -49,7 +51,6 @@ import org.koin.core.parameter.parametersOf
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.FormatStyle
-import timber.log.Timber
 
 class TimetableDetailFragment : Fragment() {
 
@@ -138,16 +139,15 @@ class TimetableDetailFragment : Fragment() {
 
         viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
             tab_layout.isVisible = false
+            view_pager.isVisible = false
             snippet_error.isVisible = true
 
             btn_promet.setOnClickListener {
-                Timber.e("Promet!")
-                // TODO
+                requireContext().loadPrometUrl()
             }
 
             btn_error.setOnClickListener {
-                Timber.e("Report error $errorMessage")
-                // TODO
+                requireContext().loadEmailReport(args.lineNumber, errorMessage)
             }
         })
 

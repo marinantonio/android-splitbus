@@ -40,6 +40,7 @@ object Constants {
 
     // Timetable string delimited
     const val EMA_DELIMITER = "emayz"
+    const val DOWNLOADED_RECENTLY = 3L
 
     // O Aplikaciji
     const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"

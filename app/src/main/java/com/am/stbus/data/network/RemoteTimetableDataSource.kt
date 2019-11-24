@@ -78,7 +78,13 @@ class RemoteTimetableDataSource {
                     doc.select("div.c-vozni-red-note__items").text()
             )
 
-            return@fromCallable timetableItems.joinToString(Constants.EMA_DELIMITER)
+            if (doc.select("p.c-vozni-red__valid").text().isNullOrBlank() && workDayList.isEmpty() && saturdayList.isEmpty() && sundayList.isEmpty()) {
+                // Null response
+                return@fromCallable ""
+            } else {
+                // Valid response
+                return@fromCallable timetableItems.joinToString(Constants.EMA_DELIMITER)
+            }
         }
     }
 }

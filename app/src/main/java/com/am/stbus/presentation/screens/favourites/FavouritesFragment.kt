@@ -98,16 +98,9 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun checkShouldWelcomeBeShown() {
-        //val sharedPref = activity?.getSharedPreferences(SHARED_PREFS_SPLIT_BUS, Context.MODE_PRIVATE)
-
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        //val defaultValue = resources.getInteger(R.integer.saved_high_score_default_key)
-        val highScore = sharedPref.getInt(SHARED_PREFS_BUILD_VERSION_KEY, SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE)
-        Timber.e("$highScore")
 
-
-
-        when (highScore) {
+        when (sharedPref.getInt(SHARED_PREFS_BUILD_VERSION_KEY, SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE)) {
             BuildConfig.VERSION_CODE -> Timber.i("All good! :)")
             SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE -> showWelcomeFragment(FIRST_RUN_CONTENT)
             else -> showWelcomeFragment(UPDATE_APP_CONTENT)
@@ -116,10 +109,16 @@ class FavouritesFragment : Fragment() {
 
     private fun showWelcomeFragment(updateAppContent: Int) {
 
-        when(updateAppContent) {
-            FIRST_RUN_CONTENT -> Timber.e("First run content")
-            UPDATE_APP_CONTENT -> Timber.e("Update app content")
-        }
+        // Pokreni Welcome fragment
+        view?.findNavController()?.navigate(
+                FavouritesFragmentDirections.actionFavouriteFragmentToWelcomeFragment(
+                        when (updateAppContent) {
+                            FIRST_RUN_CONTENT -> FIRST_RUN_CONTENT
+                            UPDATE_APP_CONTENT -> UPDATE_APP_CONTENT
+                            else -> throw IllegalArgumentException("Wrong first run argument")
+                        }
+                )
+        )
 
         // Update value in shared prefs
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
@@ -129,7 +128,6 @@ class FavouritesFragment : Fragment() {
         }
 
     }
-
 
     private fun onTimetableClicked(timetable: Timetable) {
         view?.findNavController()?.navigate(FavouritesFragmentDirections

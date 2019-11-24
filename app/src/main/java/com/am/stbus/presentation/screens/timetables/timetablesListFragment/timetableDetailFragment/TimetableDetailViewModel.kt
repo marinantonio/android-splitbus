@@ -28,6 +28,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.common.Constants
+import com.am.stbus.common.Constants.DOWNLOADED_RECENTLY
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.common.helpers.Event
 import com.am.stbus.domain.usecases.timetables.TimetableDetailUseCase
@@ -39,6 +40,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import org.threeten.bp.LocalDateTime
 import timber.log.Timber
+import java.net.UnknownHostException
 
 class TimetableDetailViewModel(
         private val args: TimetableDetailFragmentArgs,
@@ -80,7 +82,10 @@ class TimetableDetailViewModel(
     private fun populateTimetable(lineId: Int, areaId: Int, timetableContent: String, date: String) {
         if (timetableContent.isNotEmpty()) {
             _timetableContent.postValue(UpdatedTimetable(timetableContent, date))
-            fetchAndPopulateTimetable(lineId, areaId, date, true)
+            if (isntDownloadedRecently(date)) {
+                // Download only if old data is older than 2 hours
+                fetchAndPopulateTimetable(lineId, areaId, date, true)
+            }
         } else {
             _fullScreenLoading.postValue(true)
             fetchAndPopulateTimetable(lineId, areaId, date, false)
@@ -93,11 +98,14 @@ class TimetableDetailViewModel(
                 .observeOn(thread)
                 .subscribe(object: SingleObserver<String> {
                     override fun onSuccess(content: String) {
-                        Timber.i("onSuccess")
-                        _timetableContent.postValue(UpdatedTimetable(content, LocalDateTime.now().toString()))
-                        _fullScreenLoading.postValue(false)
-                        _smallLoading.postValue(false)
-                        saveTimetableContent(lineId, content)
+                        if (content.isNotBlank()) {
+                            _timetableContent.postValue(UpdatedTimetable(content, LocalDateTime.now().toString()))
+                            _fullScreenLoading.postValue(false)
+                            _smallLoading.postValue(false)
+                            saveTimetableContent(lineId, content)
+                        } else {
+                            onError(IllegalStateException("Empty timetable, possibly wrong url!"))
+                        }
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -106,14 +114,23 @@ class TimetableDetailViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        if (date.isNullOrEmpty()) {
-                            Timber.i("date.isEmpty()")
-                            _fullScreenLoading.postValue(false)
-                            _error.postValue(e.localizedMessage)
-                        } else {
-                            Timber.i("!date.isEmpty()")
-                            _smallLoading.postValue(false)
-                            _showSnackBar.postValue(Event(date))
+                        when (e) {
+                            is UnknownHostException -> {
+                                // No internet exception
+                                if (date.isNullOrEmpty()) {
+                                    _fullScreenLoading.postValue(false)
+                                } else {
+                                    _smallLoading.postValue(false)
+                                    _showSnackBar.postValue(Event(date))
+                                }
+                            }
+                            else -> {
+                                // All other errors, including Empty timetable
+                                _fullScreenLoading.postValue(false)
+                                _smallLoading.postValue(false)
+                                _error.postValue(e.localizedMessage)
+                                saveTimetableContent(args.lineId, "")
+                            }
                         }
                     }
                 })
@@ -164,6 +181,10 @@ class TimetableDetailViewModel(
             TimetablesData.AREA_SOLTA -> Constants.AREA_SOLTA_URL
             else -> throw IllegalArgumentException("Illegal areaId $areaId")
         }
+    }
+
+    private fun isntDownloadedRecently(date: String): Boolean {
+        return LocalDateTime.parse(date).isBefore(LocalDateTime.now().minusHours(DOWNLOADED_RECENTLY))
     }
 
     data class UpdatedTimetable(val content: String, val contentDate: String)
