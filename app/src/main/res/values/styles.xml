@@ -23,17 +23,16 @@
   -->
 
 <resources>
+    <style name="Base.V0.Theme.AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    </style>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="Base.Theme.AppTheme" parent="Base.V0.Theme.AppTheme"/>
+
+    <style name="AppTheme" parent="Base.Theme.AppTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:background">@color/colorBackground</item>
-    </style>
-
-    <style name="Transparent" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
     <!-- Toolbar -->

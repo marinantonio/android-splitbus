@@ -35,8 +35,16 @@ class TimetablesSharedViewModel : ViewModel() {
     val timetables: LiveData<List<Timetable>>
         get() = _timetables
 
+    private val _smallLoading = MutableLiveData<Boolean>()
+    val smallLoading: LiveData<Boolean>
+        get() = _smallLoading
+
     fun saveTimetables(timetables: List<Timetable>) {
         _timetables.value = timetables
+    }
+
+    fun setSmallLoading(loading: Boolean) {
+        _smallLoading.postValue(loading)
     }
 
     fun updateFavourite(lineId: Int, favourite: Int) {

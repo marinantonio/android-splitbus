@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="@string/app_name" />
+            app:title="@string/nav_favourites" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -58,41 +58,44 @@
             tools:visibility="gone" />
 
         <TextView
-            android:id="@+id/tv_error_naslov"
+            android:id="@+id/tv_empty_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:textAlignment="center"
-            android:text="@string/vozni_red_nema_favorita_naslov"
-            android:textColor="@color/colorText"
+            android:text="@string/favourite_empty_title"
+            android:textColor="@color/colorLoadingTitle"
             android:textSize="24sp"
-            android:visibility="gone"
+            android:textAlignment="center"
             app:fontFamily="@font/font_semi_bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_error_opis"
+            app:layout_constraintBottom_toTopOf="@+id/tv_empty_message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
+            android:visibility="gone"
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/tv_error_opis"
+            android:id="@+id/tv_empty_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
-            android:text="@string/vozni_red_nema_favorita_opis"
+            android:text="@string/favourite_empty_message"
+            android:textColor="@color/colorLoadingDesc"
+            android:textSize="16sp"
             android:textAlignment="center"
-            android:visibility="gone"
+            app:fontFamily="@font/font_regular"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tv_error_naslov"
+            app:layout_constraintEnd_toEndOf="@+id/tv_empty_title"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/tv_error_naslov"
-            app:layout_constraintTop_toBottomOf="@+id/tv_error_naslov"
+            app:layout_constraintStart_toStartOf="@+id/tv_empty_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_empty_title"
+            android:visibility="gone"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

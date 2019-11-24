@@ -24,26 +24,20 @@
 
 package com.am.stbus.presentation.screens
 
-import android.content.Context
+import android.os.Build
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
 import com.am.stbus.R
-import kotlinx.android.synthetic.main.activity_main.*
-import android.view.WindowManager
-import android.os.Build
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
-import androidx.core.view.isInvisible
 import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -91,12 +85,13 @@ class MainActivity : AppCompatActivity() {
         app_bar.isVisible = destination.id == R.id.settingsFragment
     }
 
-    private fun setupWhiteNavigationNavigationBarColor(colored: Boolean) {
+    private fun setupWhiteNavigationNavigationBarColor(white: Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (colored) {
-                window.navigationBarColor = ContextCompat.getColor(this, R.color.colorSystemNavigationBackground)
+            if (white) {
+                //window.navigationBarColor = ContextCompat.getColor(this, R.color.colorSystemNavigationBackground)
             } else {
                 window.navigationBarColor = ContextCompat.getColor(this, R.color.prozirnaAndroid)
+
             }
         }
 

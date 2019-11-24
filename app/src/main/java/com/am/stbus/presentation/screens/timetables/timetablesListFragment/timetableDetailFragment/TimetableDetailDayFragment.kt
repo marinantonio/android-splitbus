@@ -29,13 +29,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.am.stbus.R
+import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.SATURDAY
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.SUNDAY
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.WORK_DAY
 import kotlinx.android.synthetic.main.fragment_timetable_day.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class TimetableDetailDayFragment : Fragment() {
+
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +68,10 @@ class TimetableDetailDayFragment : Fragment() {
         swipe_to_refresh.setOnRefreshListener {
             (parentFragment as TimetableDetailFragment).fetchAndPopulateTimetable()
         }
+
+        timetablesSharedViewModel.smallLoading.observe(viewLifecycleOwner, Observer {
+            swipe_to_refresh.isRefreshing = it
+        })
     }
 
     private fun cleanTimetable(timetable: String?): String {

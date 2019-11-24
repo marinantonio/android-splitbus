@@ -24,6 +24,7 @@
 
 package com.am.stbus.presentation.screens.favourites
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,16 +34,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.am.stbus.BuildConfig
 import com.am.stbus.R
-import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_favourites.*
-import kotlinx.android.synthetic.main.fragment_favourites.toolbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class FavouritesFragment : Fragment() {
 
@@ -81,8 +81,8 @@ class FavouritesFragment : Fragment() {
             }
 
             rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
-            tv_error_naslov.isVisible = favouriteTimetables.isEmpty()
-            tv_error_opis.isVisible = favouriteTimetables.isEmpty()
+            tv_empty_title.isVisible = favouriteTimetables.isEmpty()
+            tv_empty_message.isVisible = favouriteTimetables.isEmpty()
 
         })
 
@@ -93,6 +93,41 @@ class FavouritesFragment : Fragment() {
         viewModel.removedFavourite.observe(viewLifecycleOwner, Observer<TimetablesListFragment.UpdatedFavourite> {
             timetablesSharedViewModel.updateFavourite(it.lineId, it.favourite)
         })
+
+        checkShouldWelcomeBeShown()
+    }
+
+    private fun checkShouldWelcomeBeShown() {
+        //val sharedPref = activity?.getSharedPreferences(SHARED_PREFS_SPLIT_BUS, Context.MODE_PRIVATE)
+
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        //val defaultValue = resources.getInteger(R.integer.saved_high_score_default_key)
+        val highScore = sharedPref.getInt(SHARED_PREFS_BUILD_VERSION_KEY, SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE)
+        Timber.e("$highScore")
+
+
+
+        when (highScore) {
+            BuildConfig.VERSION_CODE -> Timber.i("All good! :)")
+            SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE -> showWelcomeFragment(FIRST_RUN_CONTENT)
+            else -> showWelcomeFragment(UPDATE_APP_CONTENT)
+        }
+    }
+
+    private fun showWelcomeFragment(updateAppContent: Int) {
+
+        when(updateAppContent) {
+            FIRST_RUN_CONTENT -> Timber.e("First run content")
+            UPDATE_APP_CONTENT -> Timber.e("Update app content")
+        }
+
+        // Update value in shared prefs
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putInt(SHARED_PREFS_BUILD_VERSION_KEY, BuildConfig.VERSION_CODE)
+            commit()
+        }
+
     }
 
 
@@ -114,6 +149,16 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun onTimetableGmapsClicked(timetable: Timetable) {
+        // TODO: OnTImetableGmapsClicked
+    }
+
+    companion object {
+        const val SHARED_PREFS_SPLIT_BUS = "SB_PREFERENCES"
+        const val SHARED_PREFS_BUILD_VERSION_KEY = "BUILD_VERSION"
+        const val SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE = 0
+
+        const val FIRST_RUN_CONTENT = 0
+        const val UPDATE_APP_CONTENT = 1
 
     }
 

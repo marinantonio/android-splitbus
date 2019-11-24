@@ -31,6 +31,11 @@
     <string name="nav_information">Information</string>
     <string name="nav_setttings">Settings</string>
 
+    <!-- Favourites -->
+    <string name="favourite_empty_title">Empty favourites!</string>
+    <string name="favourite_empty_message">Add desired bus routes to the favourites and they will appear here on the homescreen</string>
+
+
     <!-- Timetables -->
     <string name="timetables_area_city">City</string>
     <string name="timetables_area_urban">Urban</string>
@@ -45,6 +50,9 @@
     <string name="timetable_detail_work_day">Work day</string>
     <string name="timetable_detail_saturday">Saturday</string>
     <string name="timetable_detail_sunday">Sunday</string>
+
+    <string name="timetable_detail_snackbar_message">You are in offline mode! Data shown was saved at %1$s</string>
+    <string name="timetable_detail_snackbar_refresh">Refresh</string>
 
 
 

@@ -22,44 +22,30 @@
  * SOFTWARE.
  */
 
-package com.am.stbus
+package com.am.stbus.common.helpers
 
-import android.app.Application
-import com.am.stbus.common.di.*
-import com.jakewharton.threetenabp.AndroidThreeTen
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
-import timber.log.Timber
+/**
+ * Used as a wrapper for data that is exposed via a LiveData that represents an event.
+ */
+open class Event<out T>(private val content: T) {
 
-class SplitBusApplication : Application() {
+    var hasBeenHandled = false
+        private set // Allow external read but not write
 
-    private var listOfModules = listOf(
-            applicationModule,
-            localModules,
-            networkModules,
-            repositoriesModule,
-            useCaseModule,
-            viewModelModule
-    )
-
-    override fun onCreate() {
-        super.onCreate()
-        setupKoin()
-        setupTimber()
-
-        AndroidThreeTen.init(this)
-    }
-
-    private fun setupTimber() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
+    /**
+     * Returns the content and prevents its use again.
+     */
+    fun getContentIfNotHandled(): T? {
+        return if (hasBeenHandled) {
+            null
+        } else {
+            hasBeenHandled = true
+            content
         }
     }
 
-    private fun setupKoin() {
-        startKoin {
-            androidContext(applicationContext)
-            modules(listOfModules)
-        }
-    }
+    /**
+     * Returns the content, even if it's already been handled.
+     */
+    fun peekContent(): T = content
 }

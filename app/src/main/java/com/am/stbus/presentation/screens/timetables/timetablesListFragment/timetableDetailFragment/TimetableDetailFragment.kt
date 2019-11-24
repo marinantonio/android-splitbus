@@ -40,11 +40,16 @@ import com.am.stbus.common.TimetablesData
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_timetable.*
-import kotlinx.android.synthetic.main.fragment_timetable_day.*
+import kotlinx.android.synthetic.main.snippet_error.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.format.DateTimeFormatter
+import org.threeten.bp.format.FormatStyle
+import timber.log.Timber
 
 class TimetableDetailFragment : Fragment() {
 
@@ -103,8 +108,8 @@ class TimetableDetailFragment : Fragment() {
         })
 
         viewModel.timetableContent.observe(viewLifecycleOwner, Observer {
-            timetablesSharedViewModel.updateTimetableContent(args.lineId, it, "date TODO")
-            setupViewPager(it)
+            timetablesSharedViewModel.updateTimetableContent(args.lineId, it.content, it.contentDate)
+            setupViewPager(it.content)
         })
 
         viewModel.updatedFavourite.observe(viewLifecycleOwner, Observer {
@@ -122,14 +127,36 @@ class TimetableDetailFragment : Fragment() {
         })
 
         viewModel.smallLoading.observe(viewLifecycleOwner, Observer {
-            swipe_to_refresh.isRefreshing = it
+            timetablesSharedViewModel.setSmallLoading(it)
         })
 
-        // SNACKBAR DATUM :)
+        viewModel.showSnackBar.observe(viewLifecycleOwner, Observer {
+            Snackbar.make(requireView(), generateMessage(it.peekContent()), Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.timetable_detail_snackbar_refresh)) {
+                viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId, args.contentDate, true)
+            }.show()
+        })
 
-        // ERROR HANDLING
+        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+            tab_layout.isVisible = false
+            snippet_error.isVisible = true
+
+            btn_promet.setOnClickListener {
+                Timber.e("Promet!")
+                // TODO
+            }
+
+            btn_error.setOnClickListener {
+                Timber.e("Report error $errorMessage")
+                // TODO
+            }
+        })
 
         tab_layout.setupWithViewPager(view_pager)
+    }
+
+    private fun generateMessage(date: String): String {
+        val formattedDate = LocalDateTime.parse(date).format(DateTimeFormatter.ofLocalizedDateTime( FormatStyle.MEDIUM ))
+        return getString(R.string.timetable_detail_snackbar_message, formattedDate)
     }
 
     private fun setupViewPager(timetableContent: String) {
@@ -187,7 +214,7 @@ class TimetableDetailFragment : Fragment() {
     }
 
     fun fetchAndPopulateTimetable() {
-        viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId)
+        viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId, args.contentDate, false)
     }
 
 

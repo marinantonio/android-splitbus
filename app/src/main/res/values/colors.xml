@@ -28,6 +28,10 @@
     <color name="colorPrimaryDark">@color/zutaTamnija</color>
     <color name="colorAccent">@color/plavaCijan</color>
     <color name="colorBackground">@color/bijela</color>
+    <color name="colorOverflowEdgeEffect">@color/zutaGlavna</color>
+
+
+
     <color name="colorText">@color/crnaOpisi</color>
 
     <!-- Toolbar -->
@@ -63,7 +67,8 @@
     <color name="zutaGlavna">#ffee58</color>
     <color name="zutaTamnija">#c9bc1f</color>
     <color name="plavaCijan">#2a5176</color>
-    <color name="plavaCijanTamnija">#0C1116</color>
+    <color name="plavaCijanTamnija">#090B0E</color>
+<!--    #0C1116-->
     <color name="bijela">#ffffff</color>
     <color name="crna">#000000</color>
     <color name="crnaNaslovi">#181818</color>

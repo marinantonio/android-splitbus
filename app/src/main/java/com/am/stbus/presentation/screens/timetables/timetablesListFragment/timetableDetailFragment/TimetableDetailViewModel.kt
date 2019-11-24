@@ -29,6 +29,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.common.Constants
 import com.am.stbus.common.TimetablesData
+import com.am.stbus.common.helpers.Event
 import com.am.stbus.domain.usecases.timetables.TimetableDetailUseCase
 import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
 import io.reactivex.CompletableObserver
@@ -36,6 +37,8 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import org.threeten.bp.LocalDateTime
+import timber.log.Timber
 
 class TimetableDetailViewModel(
         private val args: TimetableDetailFragmentArgs,
@@ -46,8 +49,8 @@ class TimetableDetailViewModel(
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _timetableContent = MutableLiveData<String>()
-    val timetableContent: LiveData<String>
+    private val _timetableContent = MutableLiveData<UpdatedTimetable>()
+    val timetableContent: LiveData<UpdatedTimetable>
         get() = _timetableContent
 
     private val _fullScreenLoading = MutableLiveData<Boolean>()
@@ -57,6 +60,10 @@ class TimetableDetailViewModel(
     private val _smallLoading = MutableLiveData<Boolean>()
     val smallLoading: LiveData<Boolean>
         get() = _smallLoading
+
+    private val _showSnackBar = MutableLiveData<Event<String>>()
+    val showSnackBar: LiveData<Event<String>>
+        get() = _showSnackBar
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String>
@@ -72,38 +79,44 @@ class TimetableDetailViewModel(
 
     private fun populateTimetable(lineId: Int, areaId: Int, timetableContent: String, date: String) {
         if (timetableContent.isNotEmpty()) {
-            _timetableContent.postValue(timetableContent)
-            _smallLoading.postValue(true)
+            _timetableContent.postValue(UpdatedTimetable(timetableContent, date))
+            fetchAndPopulateTimetable(lineId, areaId, date, true)
         } else {
             _fullScreenLoading.postValue(true)
+            fetchAndPopulateTimetable(lineId, areaId, date, false)
         }
-
-        fetchAndPopulateTimetable(lineId, areaId)
     }
 
-    fun fetchAndPopulateTimetable(lineId: Int, areaId: Int) {
+    fun fetchAndPopulateTimetable(lineId: Int, areaId: Int, date: String?, showSmallLoading: Boolean) {
         timetableDetailUseCase.getTimetableDetail(lineId, getTimetableBaseUrl(areaId))
                 .subscribeOn(schedulers)
                 .observeOn(thread)
                 .subscribe(object: SingleObserver<String> {
                     override fun onSuccess(content: String) {
-                        _timetableContent.postValue(content)
+                        Timber.i("onSuccess")
+                        _timetableContent.postValue(UpdatedTimetable(content, LocalDateTime.now().toString()))
                         _fullScreenLoading.postValue(false)
                         _smallLoading.postValue(false)
                         saveTimetableContent(lineId, content)
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        //_loading.postValue(true)
+                        Timber.i("onSubscribe")
+                        _smallLoading.postValue(showSmallLoading)
                     }
 
                     override fun onError(e: Throwable) {
-                        //_loading.postValue(false)
-                        //_error.postValue(e.localizedMessage)
+                        if (date.isNullOrEmpty()) {
+                            Timber.i("date.isEmpty()")
+                            _fullScreenLoading.postValue(false)
+                            _error.postValue(e.localizedMessage)
+                        } else {
+                            Timber.i("!date.isEmpty()")
+                            _smallLoading.postValue(false)
+                            _showSnackBar.postValue(Event(date))
+                        }
                     }
                 })
-
-
     }
 
     fun updateFavouritesStatus(lineId: Int, favouriteStatus: Int) {
@@ -125,7 +138,7 @@ class TimetableDetailViewModel(
 
 
     fun saveTimetableContent(lineId: Int, timetableContent: String) {
-        timetableDetailUseCase.saveTimetableDetail(lineId, timetableContent, "datum TODO") // TODO
+        timetableDetailUseCase.saveTimetableDetail(lineId, timetableContent, LocalDateTime.now().toString())
                 .subscribeOn(schedulers)
                 .observeOn(thread)
                 .subscribe(object: CompletableObserver{
@@ -142,7 +155,7 @@ class TimetableDetailViewModel(
                 })
     }
 
-    fun getTimetableBaseUrl(areaId: Int): String {
+    private fun getTimetableBaseUrl(areaId: Int): String {
         return when (areaId) {
             TimetablesData.AREA_CITY -> Constants.AREA_CITY_URL
             TimetablesData.AREA_URBAN -> Constants.AREA_URBAN_URL
@@ -152,4 +165,6 @@ class TimetableDetailViewModel(
             else -> throw IllegalArgumentException("Illegal areaId $areaId")
         }
     }
+
+    data class UpdatedTimetable(val content: String, val contentDate: String)
 }
