@@ -27,6 +27,8 @@ package com.am.stbus.presentation.screens.settings
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.am.stbus.R
@@ -55,6 +57,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
         }
         sharedPreferences.registerOnSharedPreferenceChangeListener(listener)
+
+        // About fragment
+        findPreference<Preference>("about")?.setOnPreferenceClickListener {
+            view?.findNavController()?.navigate(SettingsFragmentDirections.actionSettingsFragmentToAboutFragment())
+            true
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

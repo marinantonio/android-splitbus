@@ -48,6 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ToolbarTheme"
+                app:titleTextAppearance="@style/ToolbarText"
                 app:title="@string/app_name" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -75,7 +77,9 @@
             app:menu="@menu/bottom_nav_menu"
             app:labelVisibilityMode="labeled"
             app:itemIconTint="@drawable/selector_bottom_nav_item"
-            app:itemTextColor="@drawable/selector_bottom_nav_item" />
+            app:itemTextColor="@drawable/selector_bottom_nav_item"
+            app:itemTextAppearanceActive="@style/BottomNavigationViewTextTheme"
+            app:itemTextAppearanceInactive="@style/BottomNavigationViewTextTheme" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

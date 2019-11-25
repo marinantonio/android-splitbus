@@ -29,8 +29,6 @@
     <color name="colorAccent">@color/zutaTamnija</color>
     <color name="colorBackground">@color/plavaCijanTamnija</color>
     <color name="colorOverflowEdgeEffect">@color/zutaTamnija</color>
-
-
     <color name="colorText">@color/sivaOpisi</color>
 
     <!-- Toolbar -->

@@ -35,7 +35,6 @@ import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
@@ -108,7 +107,7 @@ class InformationListFragment : Fragment() {
             ID_PARKING -> loadUrl(PARKING_URL)
             ID_GARAGES -> loadUrl(GARAZE_URL)
             ID_PROMET_WEB -> loadUrl(PROMET_URL)
-            else -> InformationListFragmentDirections.actionInformationFragmentToInformationDetailFragment(information.informationTitle, information.informationDesc)
+            else -> throw IllegalArgumentException("Wrong information destination!")
         }
     }
 
@@ -121,7 +120,7 @@ class InformationListFragment : Fragment() {
                 ID_SUBURBAN_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_suburban_map_title), KARTA_PRIGRAD_URL)
                 ID_TARIFF_ZONES_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_tariff_zones_title), TARIFNE_URL)
                 ID_CYCLES -> InformationListFragmentDirections.actionInformationListFragmentToInformationWebViewFragment(getString(R.string.information_cycles_title), NEXT_BIKE_IFRAME)
-                else -> InformationListFragmentDirections.actionInformationFragmentToInformationDetailFragment(information.informationTitle, information.informationDesc)
+                else -> throw IllegalArgumentException("Wrong information destination!")
             }
         })
     }

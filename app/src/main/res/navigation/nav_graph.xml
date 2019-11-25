@@ -79,7 +79,7 @@
             android:id="@+id/timetableDetailFragment"
             android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
             android:label="fragment_timetable_detail"
-            tools:layout="@layout/fragment_dashboard_detail">
+            tools:layout="@layout/fragment_timetable">
         <argument
             android:name="lineId"
             android:defaultValue="0"
@@ -118,9 +118,6 @@
         android:label="fragment_information_list"
         tools:layout="@layout/fragment_information_list">
         <action
-            android:id="@+id/action_informationFragment_to_informationDetailFragment"
-            app:destination="@id/informationDetailFragment"/>
-        <action
             android:id="@+id/action_informationListFragment_to_informationNewsListFragment"
             app:destination="@id/informationNewsListFragment" />
         <action
@@ -129,9 +126,6 @@
         <action
             android:id="@+id/action_informationListFragment_to_informationWebViewFragment"
             app:destination="@id/informationWebViewFragment" />
-        <action
-            android:id="@+id/action_informationListFragment_to_informationDetailFragment"
-            app:destination="@id/informationDetailFragment" />
     </fragment>
 
 
@@ -199,29 +193,21 @@
     </fragment>
 
 
-
-
-    <!-- Placeholder koji triba maknit ca -->
-    <fragment
-            android:id="@+id/informationDetailFragment"
-            android:name="com.am.stbus.presentation.screens.information.informationDetailFragment.InformationDetailFragment"
-            android:label="fragment_information_detail"
-            tools:layout="@layout/fragment_information_news_detail">
-        <argument
-                android:name="notificationTitle"
-                android:defaultValue="Test Title"
-                app:argType="string"/>
-        <argument
-                android:name="notificationMessage"
-                android:defaultValue="Test Title"
-                app:argType="string"/>
-    </fragment>
-
-
     <!-- Settings Fragment -->
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.am.stbus.presentation.screens.settings.SettingsFragment"
-        android:label="fragment_settings" />
+        android:label="fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.am.stbus.presentation.screens.settings.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_welcome" />
 
 </navigation>

@@ -41,7 +41,6 @@
     <string name="welcome_update_desc">Whats all new in the new release</string>
 
 
-
     <!-- Favourites -->
     <string name="favourite_empty_title">Empty favourites!</string>
     <string name="favourite_empty_message">Add desired bus routes to the favourites and they will appear here on the homescreen</string>
@@ -64,8 +63,6 @@
 
     <string name="timetable_detail_snackbar_message">You are in offline mode! Data shown was saved at %1$s</string>
     <string name="timetable_detail_snackbar_refresh">Refresh</string>
-
-
 
 
     <!-- Information -->
@@ -102,10 +99,6 @@
     <string name="error_still_not_finished">Not finished yet, coming in the next updates!</string>
 
 
-
-
-
-
     <!-- Informacije -->
     <string name="informacije_prometsplit_naslov">Promet Split Web</string>
     <string name="informacije_prometsplit_opis">Ako ne radi aplikacija potražite vozne redove na službenoj Prometovoj Stranici</string>
@@ -121,8 +114,6 @@
     <string name="informacije_parking_opis">Map displaying all public car parking sites</string>
     <string name="informacije_garaze_naslov">Garage</string>
     <string name="informacije_garaze_opis">Map displaying locations of all public car garages</string>
-
-
 
 
     <string name="nav_favoriti">Favourites</string>
@@ -167,8 +158,6 @@
     <string name="vozni_red_error_opis">This might occur if Promet Split made some changes to their website.</string>
     <string name="vozni_red_report_error">Report Error</string>
     <string name="vozni_red_error_promet_web">Promet Web</string>
-
-
 
 
     <!-- Interaktivna karta -->
@@ -260,7 +249,7 @@
     <string name="bus7">Žnjan - Zvončac - Žnjan</string>
     <string name="bus8">Žnjan - Market - Zvončac - Market - Žnjan</string>
     <string name="bus9">Ravne Njive - Ferry Port - Ravne Njive</string>
-    <string name="bus10">Japirko - Ferry Port - Japirko</string>
+    <string name="bus10">Japirko - HNK - Japirko</string>
     <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
     <string name="bus121">Sv. Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
@@ -342,6 +331,8 @@
     <string name="bus932">Šerići - Đirlići - Tešije - Malačka - K. Stari</string>
     <string name="kstarizelj">Kaštel Stari - Train station</string>
     <string name="zeljkstari">Train station - Kaštel Stari</string>
+    <string name="trogir_kstari">Trogir - Kaštel Stari (Train station)</string>
+    <string name="kstari_trogir">Kaštel Stari (Train station) - Trogir</string>
     <string name="rudinekstari">Rudine - Kaštel stari</string>
     <string name="kstarirudine">Kaštel stari - Rudine</string>
 

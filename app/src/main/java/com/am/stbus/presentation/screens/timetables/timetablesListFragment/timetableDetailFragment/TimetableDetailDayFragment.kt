@@ -78,7 +78,7 @@ class TimetableDetailDayFragment : Fragment() {
         return if (!timetable.isNullOrEmpty()) {
             val cleanedString = timetable
                     .replace("[\\[\\],]".toRegex(), "")
-                    .replace(" ", "\t\t")
+                    .replace(" ", " \t\t\t ")
             return if (cleanedString.isBlank()) {
                 getString(R.string.vozni_red_nema_polazaka)
             } else {

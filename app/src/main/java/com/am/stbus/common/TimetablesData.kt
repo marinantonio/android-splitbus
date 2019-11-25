@@ -97,7 +97,9 @@ class TimetablesData {
                 134 -> R.string.bus602
                 135 -> R.string.zeljkstari
                 136 -> R.string.kstarizelj
-                137 -> R.string.trostdirekt2
+                137 -> R.string.trogir_kstari
+                138 -> R.string.kstari_trogir
+                139 -> R.string.trostdirekt2
 
                 // Prigradsko
                 201 -> R.string.bus671
@@ -226,7 +228,9 @@ class TimetablesData {
                 134 -> "60 RAVNIČKI MOST - OMIŠ - SPLIT"
                 135 -> "ŽELJEZNIČKA STANICA - KAŠTEL STARI"
                 136 -> "KAŠTEL STARI - ŽELJEZNIČKA STANICA"
-                137 -> "TROGIR - SPLIT (direktna)"
+                137 -> "TROGIR KOLODVOR - ŽELJEZNIČKA STANICA (K. STARI) INTEGRIRANA LINIJA (INTEGRATED LINE)"
+                138 -> "ŽELJEZNIČKA STANICA (K. STARI) - TROGIR KOLODVOR INTEGRIRANA LINIJA (INTEGRATED LINE)"
+                139 -> "TROGIR - SPLIT (direktna)"
 
 
                 // Prigradsko
@@ -345,6 +349,7 @@ class TimetablesData {
                 Timetable(117, "31", 311, AREA_URBAN, 0, "", ""),
                 Timetable(118, "31", 312, AREA_URBAN, 0, "", ""),
                 Timetable(119, "32", 321, AREA_URBAN, 0, "", ""),
+                Timetable(120, "32", 322, AREA_URBAN, 0, "", ""),
                 Timetable(121, "33", 331, AREA_URBAN, 0, "", ""),
                 Timetable(122, "33", 332, AREA_URBAN, 0, "", ""),
                 Timetable(123, "34", 341, AREA_URBAN, 0, "", ""),
@@ -362,6 +367,8 @@ class TimetablesData {
                 Timetable(135, "", 1000, AREA_URBAN, 0, "", ""),
                 Timetable(136, "", 1001, AREA_URBAN, 0, "", ""),
                 Timetable(137, "", 1002, AREA_URBAN, 0, "", ""),
+                Timetable(138, "", 1003, AREA_URBAN, 0, "", ""),
+                Timetable(139, "", 1004, AREA_URBAN, 0, "", ""),
 
                 // Prigradsko
                 Timetable(201, "67", 31, AREA_SUBURBAN, 0, "", ""),
@@ -390,7 +397,7 @@ class TimetablesData {
                 Timetable(224, "93", 31, AREA_SUBURBAN, 0, "", ""),
                 Timetable(225, "93", 31, AREA_SUBURBAN, 0, "", ""),
                 Timetable(226, "", 31, AREA_SUBURBAN, 0, "", ""),
-                Timetable(226, "", 31, AREA_SUBURBAN, 0, "", ""),
+                Timetable(227, "", 31, AREA_SUBURBAN, 0, "", ""),
 
                 // Trogir i Solta
                 Timetable(301, "41", 31, AREA_TROGIR, 0, "", ""),
@@ -415,7 +422,7 @@ class TimetablesData {
                 Timetable(401, "", 31, AREA_SOLTA, 0, "", ""),
                 Timetable(402, "", 31, AREA_SOLTA, 0, "", ""),
                 Timetable(403, "", 31, AREA_SOLTA, 0, "", ""),
-                Timetable(403, "", 31, AREA_SOLTA, 0, "", "")
+                Timetable(404, "", 31, AREA_SOLTA, 0, "", "")
         )
 
     }

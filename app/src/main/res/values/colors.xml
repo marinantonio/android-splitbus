@@ -29,9 +29,6 @@
     <color name="colorAccent">@color/plavaCijan</color>
     <color name="colorBackground">@color/bijela</color>
     <color name="colorOverflowEdgeEffect">@color/zutaGlavna</color>
-
-
-
     <color name="colorText">@color/crnaOpisi</color>
 
     <!-- Toolbar -->
@@ -52,6 +49,11 @@
     <color name="colorListItemTitle">@color/crnaNaslovi</color>
     <color name="colorListItemDesc">@color/crnaOpisi</color>
     <color name="colorListItemDivider">@color/sivaDivider</color>
+
+    <!-- Timetable Detail -->
+    <color name="colorTimetableValidFrom">@color/plavaCijan</color>
+    <color name="colorTimetableContent">@color/crnaNaslovi</color>
+    <color name="colorTimetableNote">@color/crnaNaslovi</color>
 
     <!-- Loading/Error ekrani -->
     <color name="colorLoadingTitle">@color/crnaNaslovi</color>

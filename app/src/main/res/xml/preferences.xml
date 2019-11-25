@@ -72,10 +72,14 @@
             android:key="about"
             android:summary="@string/pref_about_summary"
             android:title="@string/pref_about">
-            <intent
-                android:action="com.am.stbus.SETTING_START_ACTIVITY"
-                android:targetClass="com.am.stbus.staro.activities.MainActivityOld"
-                android:targetPackage="com.am.stbus"/>
+<!--            <intent-->
+<!--                android:action="com.am.stbus.SETTING_START_ACTIVITY"-->
+<!--                android:targetClass="com.am.stbus.presentation.screens.settings.AboutActivity"-->
+<!--                android:targetPackage="com.am.stbus"/>-->
+
+<!--            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.am.stbus" android:targetClass="com.am.stbus.presentation.screens.settings.AboutActivity" />-->
+
+<!--            <intent android:action="open.about.activity"/>-->
         </Preference>
     </PreferenceCategory>
 

@@ -40,6 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:titleTextAppearance="@style/ToolbarText"
             app:title="@string/app_name" />
 
         <com.google.android.material.tabs.TabLayout
@@ -48,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             app:tabMode="auto"
-            app:tabGravity="fill" />
+            app:tabGravity="fill"
+            app:tabTextAppearance="@style/TabLayoutTextTheme"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
