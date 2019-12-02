@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,22 @@
   -->
 
 <resources>
-    <string-array name="pref_karta_naslovi">
+    <string-array name="pref_dark_mode_titles">
+        <item>Prati sustav</item>
+        <item>Tamna</item>
+        <item>Svijetla</item>
+    </string-array>
+    <string-array name="pref_dark_mode_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="pref_gmaps_titles">
         <item>Satelit</item>
         <item>Prometnice</item>
         <item>Teren</item>
     </string-array>
-    <string-array name="pref_karta_vrijednosti">
+    <string-array name="pref_gmaps_values">
         <item>1</item>
         <item>2</item>
         <item>3</item>

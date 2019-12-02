@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<resources>
+    <color name="colorPrimary">@color/crna</color>
+    <color name="colorPrimaryDark">@color/crna</color>
+    <color name="colorAccent">@color/zutaTamnija</color>
+    <color name="colorBackground">@color/plavaCijanTamnija</color>
+    <color name="colorOverflowEdgeEffect">@color/zutaTamnija</color>
+    <color name="colorText">@color/sivaOpisi</color>
+
+    <!-- Toolbar -->
+    <color name="assetColorIcons">@color/bijela</color>
+    <color name="colorToolbarPopupBackground">@color/crna</color>
+    <color name="colorToolbarPopupText">@color/bijela</color>
+
+    <!-- BottomNavBar -->
+    <color name="colorBottomNavItemBackground">@color/crna</color>
+    <color name="colorBottomNavItemSelected">@color/zutaTamnija</color>
+    <color name="colorBottomNavItemUnSelected">@color/bijela</color>
+
+    <!-- System Navigation Background Color -->
+    <color name="colorSystemNavigationBackground">@color/crna</color>
+
+    <!-- RecyclerView liste -->
+    <color name="colorListItemLineId">@color/zutaTamnija</color>
+    <color name="colorListItemTitle">@color/bijela</color>
+    <color name="colorListItemDesc">@color/sivaOpisi</color>
+    <color name="colorListItemDivider">@color/sivaDivider30</color>
+
+    <!-- Timetable Detail -->
+    <color name="colorTimetableValidFrom">@color/zutaTamnija</color>
+    <color name="colorTimetableContent">@color/bijela</color>
+    <color name="colorTimetableNote">@color/bijela</color>
+
+    <!-- Loading/Error ekrani -->
+    <color name="colorLoadingTitle">@color/bijela</color>
+    <color name="colorLoadingDesc">@color/sivaOpisi</color>
+
+    <!-- Gmaps popup -->
+    <color name="colorGmapsPopupBackground">@color/plavaCijanTamnija</color>
+    <color name="colorGmapsPopupTitle">@color/bijela</color>
+    <color name="colorGmapsPopupBuses">@color/zutaTamnija</color>
+
+
+
+</resources>

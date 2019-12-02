@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#-keep class com.am.stbus.** { *; }
+#-keepattributes Exceptions, Signature, InnerClasses
+
+# Prevents obfuscation of files, fixes WebView loading font and libraries loading
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+-keep class **.R$*

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/favouriteFragment">
+
+    <!-- Favoriti -->
+    <fragment
+            android:id="@+id/favouriteFragment"
+            android:name="com.am.stbus.presentation.screens.favourites.FavouritesFragment"
+            android:label="fragment_favourite"
+            tools:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
+            app:destination="@id/timetableDetailFragment" />
+        <action
+            android:id="@+id/action_favouriteFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+
+    <!-- Vozni redovi -->
+    <fragment
+        android:id="@+id/timetablesFragment"
+        android:name="com.am.stbus.presentation.screens.timetables.TimetablesFragment"
+        android:label="fragment_timetables"
+        tools:layout="@layout/fragment_timetables">
+        <action
+            android:id="@+id/action_timetablesFragment_to_timetablesDetailFragment"
+            app:destination="@id/timetableDetailFragment">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/timetableListFragment"
+        android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment"
+        android:label="fragment_timetable_list"
+        tools:layout="@layout/fragment_timetables_list"/>
+
+    <!-- Vozni redovi detail -->
+    <fragment
+            android:id="@+id/timetableDetailFragment"
+            android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
+            android:label="fragment_timetable_detail"
+            tools:layout="@layout/fragment_timetable">
+        <argument
+            android:name="lineId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="lineNumber"
+            android:defaultValue=" "
+            app:argType="string"/>
+        <argument
+            android:name="gmapsId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="areaId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="favourite"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="content"
+            android:defaultValue=" "
+            app:argType="string"/>
+        <argument
+            android:name="contentDate"
+            android:defaultValue=" "
+            app:argType="string"/>
+    </fragment>
+
+
+    <!-- Informacije -->
+    <fragment
+        android:id="@+id/informationListFragment"
+        android:name="com.am.stbus.presentation.screens.information.InformationListFragment"
+        android:label="fragment_information_list"
+        tools:layout="@layout/fragment_information_list">
+        <action
+            android:id="@+id/action_informationListFragment_to_informationNewsListFragment"
+            app:destination="@id/informationNewsListFragment" />
+        <action
+            android:id="@+id/action_informationListFragment_to_informationImageViewFragment"
+            app:destination="@id/informationImageViewFragment" />
+        <action
+            android:id="@+id/action_informationListFragment_to_informationWebViewFragment"
+            app:destination="@id/informationWebViewFragment" />
+    </fragment>
+
+
+    <!-- Informacije Novosti Lista -->
+    <fragment
+        android:id="@+id/informationNewsListFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.InformationNewsListFragment"
+        android:label="information_news_list_fragment"
+        tools:layout="@layout/fragment_information_news_list" >
+        <action
+            android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
+            app:destination="@id/informationNewsDetailFragment" />
+    </fragment>
+
+    <!-- Informacije Novost Detail -->
+    <fragment
+        android:id="@+id/informationNewsDetailFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
+        android:label="information_news_detail_fragment"
+        tools:layout="@layout/fragment_information_news_detail" >
+        <argument
+            android:name="newsTitle"
+            android:defaultValue="Title"
+            app:argType="string"/>
+        <argument
+            android:name="newsDate"
+            android:defaultValue="Date"
+            app:argType="string"/>
+        <argument
+            android:name="newsUrl"
+            android:defaultValue="Url"
+            app:argType="string"/>
+    </fragment>
+
+    <!-- Informacije ImageView Detail -->
+    <fragment
+        android:id="@+id/informationImageViewFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationImageViewFragment.InformationImageViewFragment"
+        android:label="information_image_view_fragment"
+        tools:layout="@layout/fragment_information_image_view" >
+        <argument
+            android:name="imageTitle"
+            android:defaultValue="Image"
+            app:argType="string"/>
+        <argument
+            android:name="imageUrl"
+            android:defaultValue="url"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Informacije WebView Detail -->
+    <fragment
+        android:id="@+id/informationWebViewFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationWebViewFragment.InformationWebViewFragment"
+        android:label="information_web_view_fragment"
+        tools:layout="@layout/fragment_information_web_view" >
+        <argument
+            android:name="webViewTitle"
+            android:defaultValue="Image"
+            app:argType="string"/>
+        <argument
+            android:name="webViewContent"
+            android:defaultValue="url"
+            app:argType="string" />
+    </fragment>
+
+
+    <!-- Settings Fragment -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.am.stbus.presentation.screens.settings.SettingsFragment"
+        android:label="fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment">
+        </action>
+    </fragment>
+
+    <!-- About Fragment -->
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.am.stbus.presentation.screens.settings.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+
+    <!-- Content fragment -->
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.am.stbus.presentation.screens.settings.ContentFragment"
+        android:label="fragment_content"
+        tools:layout="@layout/fragment_content">
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+
+</navigation>

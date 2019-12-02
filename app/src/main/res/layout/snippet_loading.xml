@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -42,17 +42,16 @@
 
     <TextView
         android:id="@+id/tv_loading_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:gravity="center_horizontal"
-        android:text="@string/preuzimanje"
-        android:textColor="@color/colorText"
+        android:text="@string/snippet_loading_title"
+        android:textColor="@color/colorLoadingTitle"
         android:textSize="24sp"
+        android:textAlignment="center"
         app:fontFamily="@font/font_semi_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,22 +60,17 @@
 
     <TextView
         android:id="@+id/tv_loading_description"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_horizontal"
-        android:text="@string/preuzimanje_opis"
-        android:textColor="@color/colorText"
+        android:text="@string/snippet_loading_desc"
+        android:textColor="@color/colorLoadingDesc"
         android:textSize="16sp"
+        android:textAlignment="center"
         app:fontFamily="@font/font_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_loading_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_loading_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_loading_title" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

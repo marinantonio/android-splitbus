@@ -1,7 +1,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -22,41 +22,44 @@
   ~ SOFTWARE.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.V0.Theme.AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    </style>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
+    <style name="Base.Theme.AppTheme" parent="Base.V0.Theme.AppTheme"/>
+
+    <style name="AppTheme" parent="Base.Theme.AppTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/bijela</item>
-        <item name="android:buttonStyle">@style/AppTheme.Button</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColor">@color/colorText</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.NoActionBarActivites">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.TabBar" parent="TextAppearance.Design.Tab">
-        <item name="android:textColor">@color/crna</item>
-        <item name="android:textSize">15sp</item>
-    </style>
-
+    <!-- Toolbar -->
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">@color/crna</item>
+        <item name="android:textColorSecondary">@color/assetColorIcons</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ToolbarText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ListPopup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorToolbarPopupBackground</item>
+        <item name="android:textColor">@color/colorToolbarPopupText</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
+    </style>
+
+    <!-- Tab Layout -->
+    <style name="TabLayoutTextTheme" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
+    </style>
+
+    <!-- BottomNavigation Menu -->
+    <style name="BottomNavigationViewTextTheme">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
+    </style>
+
 
 </resources>

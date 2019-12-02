@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2018 Antonio Marin
+  ~ Copyright (c) 2013 - 2019 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,63 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#ffee58</color>
-    <color name="colorPrimaryDark">#c9bc1f</color>
-    <color name="colorAccent">#2a5176</color>
+    <color name="colorPrimary">@color/zutaGlavna</color>
+    <color name="colorPrimaryDark">@color/zutaTamnija</color>
+    <color name="colorAccent">@color/plavaCijan</color>
+    <color name="colorBackground">@color/bijela</color>
+    <color name="colorOverflowEdgeEffect">@color/zutaGlavna</color>
+    <color name="colorText">@color/crnaOpisi</color>
+
+    <!-- Toolbar -->
+    <color name="assetColorIcons">@color/crna</color>
+    <color name="colorToolbarPopupBackground">@color/bijela</color>
+    <color name="colorToolbarPopupText">@color/crnaOpisi</color>
+
+    <!-- BottomNavBar -->
+    <color name="colorBottomNavItemBackground">@color/bijela</color>
+    <color name="colorBottomNavItemSelected">@color/plavaCijan</color>
+    <color name="colorBottomNavItemUnSelected">@color/crna</color>
+
+    <!-- System Navigation Background Color -->
+    <color name="colorSystemNavigationBackground">@color/bijela</color>
+
+    <!-- RecyclerView liste -->
+    <color name="colorListItemLineId">@color/plavaCijan</color>
+    <color name="colorListItemTitle">@color/crnaNaslovi</color>
+    <color name="colorListItemDesc">@color/crnaOpisi</color>
+    <color name="colorListItemDivider">@color/sivaDivider</color>
+
+    <!-- Timetable Detail -->
+    <color name="colorTimetableValidFrom">@color/plavaCijan</color>
+    <color name="colorTimetableContent">@color/crnaNaslovi</color>
+    <color name="colorTimetableNote">@color/crnaNaslovi</color>
+
+    <!-- Loading/Error ekrani -->
+    <color name="colorLoadingTitle">@color/crnaNaslovi</color>
+    <color name="colorLoadingDesc">@color/crnaNaslovi</color>
+
+    <!-- Gmaps popup -->
+    <color name="colorGmapsPopupBackground">@color/bijela</color>
+    <color name="colorGmapsPopupTitle">@color/crnaNaslovi</color>
+    <color name="colorGmapsPopupBuses">@color/plavaCijan</color>
+
+
+    <!-- Paleta boja -->
+    <color name="zutaGlavna">#ffee58</color>
+    <color name="zutaTamnija">#c9bc1f</color>
+    <color name="plavaCijan">#2a5176</color>
+    <color name="plavaCijanTamnija">#090B0E</color>
+<!--    #0C1116-->
+    <color name="bijela">#ffffff</color>
+    <color name="crna">#000000</color>
+    <color name="crnaNaslovi">#181818</color>
+    <color name="crnaOpisi">#212121</color>
+    <color name="sivaNaslovi">#BDBDBD</color>
+    <color name="sivaOpisi">#969696</color>
+    <color name="sivaDivider">#e0e0e0</color>
+    <color name="sivaDivider30">#51E0E0E0</color>
+    <color name="prozirnaAndroid">@android:color/transparent</color>
+
 
     <!--
         <color name="colorAccent">#607D8B</color>
@@ -34,10 +88,9 @@
     <color name="nazivlinijelist">#181818</color>
     <color name="sivapreuzeto">#787878</color>
     <color name="alertdialogtext">#1f1f1f</color>
-    <color name="colorText">#181818</color>
-    <color name="bijela">#ffffff</color>
     <color name="primary_text">#212121</color>
     <color name="divider">#e0e0e0</color>
-    <color name="crna">#000000</color>
     <color name="colorAccentTran">#D92a5176</color>
+
+
 </resources>

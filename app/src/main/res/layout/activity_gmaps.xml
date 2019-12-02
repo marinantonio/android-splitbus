@@ -32,23 +32,22 @@
       android:id="@+id/app_bar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
+      android:fitsSystemWindows="true"
       android:background="@android:color/transparent"
-      android:theme="@style/AppTheme.AppBarOverlay"
       app:elevation="0dp">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        app:theme="@style/ThemeOverlay.MaterialComponents.Light"
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark"/>
 
   </com.google.android.material.appbar.AppBarLayout>
 
-  <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+  <fragment
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".activities.GmapsActivity"
+      tools:context=".presentation.screens.gmaps.GmapsActivity"
       android:id="@+id/map"
       android:name="com.google.android.gms.maps.SupportMapFragment"
       android:layout_width="match_parent"
