@@ -1,3 +1,32 @@
+## 3.0.0 (2019-12-02)
+
+* [747b695](https://github.com/marinantonio/android-splitbus/commit/747b6954be27fe995645f983f1c8a44177d5dc64) Verzija 3.0.0 - Antonio Marin
+* [199835d](https://github.com/marinantonio/android-splitbus/commit/199835dc11811ab0745ff9564be5dd582c20013d) Pročišćeno sve što mora biti, vrijeme je za merge u Master! - Antonio Marin
+* [d4cbf43](https://github.com/marinantonio/android-splitbus/commit/d4cbf435035e34b29cd2aab58d7a76e9efdf6bf3) Programiranje je manje vise gotovo, jos treba content napisati - Antonio Marin
+* [0b941d8](https://github.com/marinantonio/android-splitbus/commit/0b941d85e224a136e28569183b92bb3a1ab50e99) Fragment dobrodoslice, sastavljen error handling - Antonio Marin
+* [2fee99c](https://github.com/marinantonio/android-splitbus/commit/2fee99c96e41531de0976e9542b7809631b22e9c) Rjesavanje starog koda, tako da napravimo mjesta za novi - Antonio Marin
+* [fefcf3c](https://github.com/marinantonio/android-splitbus/commit/fefcf3ce3c616d4ba74dcc725f28ac368ba1c0ef) Dodan error handling za vozne redove, i dodana logika za ekrane dobrodošlice! - Antonio Marin
+* [d59fabe](https://github.com/marinantonio/android-splitbus/commit/d59fabe891287b12c14911b63f8546ca93324f8f) Dodano "potegni za osvježavanje" :) unutar voznog reda - Antonio Marin
+* [5be3f37](https://github.com/marinantonio/android-splitbus/commit/5be3f37cdc0788ab21db10a83205b23f9770d7bf) Dodana podrška za offline spremanje voznih redova - Antonio Marin
+* [ac2500c](https://github.com/marinantonio/android-splitbus/commit/ac2500cd5b28a4818f2aa09f7a7fc81a68075a5e) Vozni redovi skoro funkcionalni :) - Antonio Marin
+* [8146f20](https://github.com/marinantonio/android-splitbus/commit/8146f20b6c2f1096a39d2f2ee9ddbecb625d4847) Postavljeni svi vozni redovi - Antonio Marin
+* [a01b5fd](https://github.com/marinantonio/android-splitbus/commit/a01b5fd9bf43a76d7a4e1ecdfb8d5bbafff1b557) Zapoceo rad na voznim redovima! - Antonio Marin
+* [b0c023f](https://github.com/marinantonio/android-splitbus/commit/b0c023fe04434aa9820293c1306d7abe857bebe9) Manje promjene u informacijama - Antonio Marin
+* [7c8e753](https://github.com/marinantonio/android-splitbus/commit/7c8e75334cb711e03f36d9b9f5446003ff97c2a0) Malo ciste arhitekture! - Antonio Marin
+* [9755a82](https://github.com/marinantonio/android-splitbus/commit/9755a82b52d3ff7fd142c6ce6f2f551ca0e261b6) Ostatak informacija stavljen u funkciju :) - Antonio Marin
+* [9e52572](https://github.com/marinantonio/android-splitbus/commit/9e52572baf3df3f8cae912c778654859a07f8682) Test no2 :) - Antonio Marin
+* [ac97677](https://github.com/marinantonio/android-splitbus/commit/ac97677000cce7e7dcd70849aceeaa95a030d559) Test :) - Antonio Marin
+* [50b6d4a](https://github.com/marinantonio/android-splitbus/commit/50b6d4ab52d13da0ef47697b584869b7b5822879) Zapoceto dodavanje Fragmenta za slike - Antonio Marin
+* [132af21](https://github.com/marinantonio/android-splitbus/commit/132af213ce6de4764e69ad9519d5be29d80f1ded) Copyright update - Antonio Marin
+* [77e00d5](https://github.com/marinantonio/android-splitbus/commit/77e00d58ee3e42479db23d93590a21fe25128115) Vijesti su skoro gotove, odsad koristim WebView! - Antonio Marin
+* [51a5688](https://github.com/marinantonio/android-splitbus/commit/51a568801749c87a88ef278de13744db4b1cd26f) Dodatni radovi na informacijama - Antonio Marin
+* [43a7670](https://github.com/marinantonio/android-splitbus/commit/43a76709ba417d02546ed676a5fc96bc1255d743) Informacije, RXJava, Room za cacheanje responseova - Antonio Marin
+* [b7180e1](https://github.com/marinantonio/android-splitbus/commit/b7180e10669cab9f8ed5bee025018049db627cd1) Zapoceto prepisivanje svega po ko zna koji put, zasad informacije i dark mode funkcionalni - Antonio Marin
+* [9eafdfd](https://github.com/marinantonio/android-splitbus/commit/9eafdfd80a2b59b7c58e0a02145617318d6b0f66) Manje ispravke - Antonio Marin
+* [905c3e1](https://github.com/marinantonio/android-splitbus/commit/905c3e151f170ace7bdfe9112104004b94c271db) Ups - Antonio Marin
+* [911ffd4](https://github.com/marinantonio/android-splitbus/commit/911ffd49a975ff39142bd60e5649799539900f92) Changelog - Antonio Marin
+
+
 ## 2.5.6 (2019-08-18)
 
 * [9c32be4](https://github.com/marinantonio/android-splitbus/commit/9c32be492a040b030d52d973442ce4314461cf21) 2.5.6 - Manji ispravci i promjene - Antonio Marin
