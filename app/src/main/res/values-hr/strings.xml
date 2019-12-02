@@ -162,12 +162,13 @@
     <p>Split Bus olakšava građanima i posjetiteljima Splita svakodnevno snalaženje u javnom prijevozu.
     Aplikacije je besplatna, bez reklama, te otvorenog koda.</p>
     <h4>Što je novo?</h4>
-    <p>Potpuno je prepisan kod, pa bi aplikacija sada trebala puno bolje raditi! Dok sam prepisivao odlučio
-    sam dodat i pokoju sitnicu pa ćete primjetiti da se vozni redovi sada pohranjuju i lokalno, pa će biti dostupni
-    i ako nemate interneta. Malo je promjena i u dizajnu, a možda najbitnije da je sad dodana podrška na nativni Android tamni način.</p>
+    <p>Potpuno je prepisan kod, pa bi aplikacija sad trebala puno bolje raditi! Dok sam prepisivao odlučio
+    sam dodat i pokoju sitnicu pa ćete primjetiti da se vozni redovi pohranjuju i lokalno, pa će biti dostupni
+    i ako nemate interneta. Ima par sitnica i u dizajnu aplikacije, a možda najbitnije je da je dodan tamni način.
     <h4>Što je iduće?</h4>
     <p>Interaktivna karta vjerojatno nije najtočnija, to ću morati pogledati za iduće nadogradnje.
     Molim Vas za malo strpljenja s tim jer oduzima jako puno vremena, a nisam ni siguran više gdje koja linija prolazi.</p>
+    <p><b>Zahvaljujem na preuzimanju i hvala Vam što koristite Split Bus! :)</b></p>
     ]]>
     </string>
 
@@ -179,7 +180,7 @@
     <br>* Osvježen dizajn, aplikacija sad koristi donju traku kao glavni izbornik
     <br>* Dodan nativni Android tamni način
     <br>* Dodana podrška za pohranjivanje voznih redova na uređaj, tako da ih možete kasnije vidjeti i bez interneta
-    <br>* Dodana karma s Nextbike stanicama
+    <br>* Dodana karta s Nextbike stanicama
     <br>
      <br><b>Napomena: Pošto sam prepisao i internu bazu podataka, favoriti će vam se poništiti!</b>
     ]]>

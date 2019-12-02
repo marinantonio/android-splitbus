@@ -36,8 +36,8 @@ android {
         applicationId "com.am.stbus"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 56
-        versionName "2.5.6"
+        versionCode 58
+        versionName "3.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -102,7 +102,7 @@ dependencies {
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -112,6 +112,10 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.preference:preference-ktx:1.1.0"
+
+    // Gmaps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
     // Material Components
     implementation 'com.google.android.material:material:1.2.0-alpha02'
@@ -134,6 +138,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
 
+    // Jsoup
+    implementation 'org.jsoup:jsoup:1.12.1'
+
     // Room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -149,17 +156,10 @@ dependencies {
     // Timber for Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50'
-    implementation "com.github.bumptech.glide:glide:4.9.0"
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.github.chrisbanes:PhotoView:1.3.0'
-    implementation 'org.jsoup:jsoup:1.12.1'
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    // Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'com.android.support:appcompat-v7:29.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     kapt "com.github.bumptech.glide:compiler:4.9.0"
 
+    // PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:1.3.0'
 }

@@ -64,6 +64,10 @@
     <color name="colorGmapsPopupTitle">@color/bijela</color>
     <color name="colorGmapsPopupBuses">@color/zutaTamnija</color>
 
-
+    <!-- About -->
+    <color name="colorCardBackground">@color/crna</color>
+    <color name="colorAboutTitles">@color/bijela</color>
+    <color name="colorAboutContent">@color/sivaOpisi</color>
+    <color name="colorAboutButtons">@color/zutaTamnija</color>
 
 </resources>

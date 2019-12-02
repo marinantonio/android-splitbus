@@ -64,6 +64,14 @@
     <color name="colorGmapsPopupTitle">@color/crnaNaslovi</color>
     <color name="colorGmapsPopupBuses">@color/plavaCijan</color>
 
+    <!-- About -->
+    <color name="colorCardBackground">@color/bijela</color>
+    <color name="colorAboutTitles">@color/crnaNaslovi</color>
+    <color name="colorAboutContent">@color/crnaNaslovi</color>
+    <color name="colorAboutButtons">@color/plavaCijan</color>
+
+
+
 
     <!-- Paleta boja -->
     <color name="zutaGlavna">#ffee58</color>

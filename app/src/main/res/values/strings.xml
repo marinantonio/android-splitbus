@@ -171,7 +171,7 @@
     <string name="content_update_toolbar">App updated</string>
     <string name="content_update_title">Split Bus v%1$s</string>
     <string name="contnet_update_desc"><![CDATA[
-    Most of the app has been rewritten, there should be number of improvements including:
+    Most of the app has been rewritten, there should be a number of improvements including:
     <br>
     <br>* Refreshed design, now app uses bottom navigation bar
     <br>* Added Android native dark mode
