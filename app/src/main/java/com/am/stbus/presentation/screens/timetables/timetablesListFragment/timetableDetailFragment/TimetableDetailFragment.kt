@@ -26,6 +26,7 @@ package com.am.stbus.presentation.screens.timetables.timetablesListFragment.time
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -82,7 +83,7 @@ class TimetableDetailFragment : Fragment() {
             setNavigationOnClickListener {
                 findNavController().popBackStack()
             }
-            inflateMenu(R.menu.menu_displaybus)
+            inflateMenu(R.menu.menu_timetable)
             onCreateOptionsMenu(menu, MenuInflater(context))
             onPrepareOptionsMenu(menu)
             setOnMenuItemClickListener {
@@ -207,7 +208,7 @@ class TimetableDetailFragment : Fragment() {
                 viewModel.updateFavouritesStatus(args.lineId, FAVOURITE_REMOVED)
             }
             R.id.action_gmaps -> {
-                // TODO
+                Toast.makeText(requireContext(), R.string.information_gmaps_not_ready, Toast.LENGTH_SHORT).show()
             }
         }
         return super.onOptionsItemSelected(item)

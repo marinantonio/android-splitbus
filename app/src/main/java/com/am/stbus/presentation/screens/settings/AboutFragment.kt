@@ -31,19 +31,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
-import androidx.appcompat.app.AlertDialog
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
-import com.am.stbus.common.Constants
+import com.am.stbus.common.Constants.FACEBOOK_URL
+import com.am.stbus.common.Constants.GITHUB_URL
+import com.am.stbus.common.Constants.LINKEDIN_URL
+import com.am.stbus.common.Constants.WEBSITE_URL
 import com.am.stbus.common.extensions.loadEmailReport
-import com.am.stbus.common.extensions.toSpanned
-import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.fragment_favourites.toolbar
+import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.CHANGELOG_CONTENT
+import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FAQ_CONTENT
+import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.LICENCES_CONTENT
+import kotlinx.android.synthetic.main.fragment_about.*
 import org.koin.android.ext.android.inject
 
 class AboutFragment : Fragment() {
@@ -67,14 +69,14 @@ class AboutFragment : Fragment() {
 
         tv_app_version.text = BuildConfig.VERSION_NAME
 
-        btn_changelog.setOnClickListener { openDialog(R.string.about_changelog_title, R.string.about_changelog_content) }
-        btn_github.setOnClickListener { loadUrl(Constants.GITHUB_URL) }
-        btn_facebook.setOnClickListener { loadUrl(Constants.FACEBOOK_URL) }
-        btn_faq.setOnClickListener { openDialog(R.string.about_faq_title, R.string.about_faq_content) }
-        btn_licence.setOnClickListener { openLicensesDialog() }
+        btn_changelog.setOnClickListener { loadContentFragment(CHANGELOG_CONTENT) }
+        btn_github.setOnClickListener { loadUrl(GITHUB_URL) }
+        btn_facebook.setOnClickListener { loadUrl(FACEBOOK_URL) }
+        btn_faq.setOnClickListener {loadContentFragment(FAQ_CONTENT) }
+        btn_licence.setOnClickListener { loadContentFragment(LICENCES_CONTENT) }
         btn_contact.setOnClickListener { requireContext().loadEmailReport("", "Kontakt") }
-        btn_linkedin.setOnClickListener { loadUrl(Constants.LINKEDIN_URL) }
-        btn_website.setOnClickListener { loadUrl(Constants.WEBSITE_URL) }
+        btn_linkedin.setOnClickListener { loadUrl(LINKEDIN_URL) }
+        btn_website.setOnClickListener { loadUrl(WEBSITE_URL) }
     }
 
     private fun loadUrl(url: String) {
@@ -96,33 +98,8 @@ class AboutFragment : Fragment() {
         return intentBuilder.build()
     }
 
-    private fun openDialog(title: Int, content: Int) {
-        val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle(getString(title))
-        alertDialog.setMessage(getString(content).toSpanned())
-        alertDialog.setPositiveButton(getString(R.string.close)) { dialogInterface, _ ->
-            dialogInterface.dismiss()
-        }
-        alertDialog.show()
+    private fun loadContentFragment(contentType: Int) {
+        view?.findNavController()?.navigate(AboutFragmentDirections.actionAboutFragmentToContentFragment(contentType))
     }
-
-    /*
-     Ovaj dialog je drukciji jer koristi WebView s HTML stranicom kako bi licence lijepo izgledale :)
-     https://www.bignerdranch.com/blog/open-source-licenses-and-android/
-     */
-    private fun openLicensesDialog() {
-        val nullParent: ViewGroup? = null // Nema parenta
-        val view = LayoutInflater.from(requireContext()).inflate(R.layout.snippet_dialog_licenses, nullParent) as WebView
-        view.loadUrl("file:///android_asset/licenses.html")
-        val alertDialog = AlertDialog.Builder(requireContext(), R.style.Theme_AppCompat_Light_Dialog_Alert)
-        alertDialog.setView(view)
-        alertDialog.setTitle(getString(R.string.about_licenses_title))
-        alertDialog.setPositiveButton(getString(R.string.close)) { dialogInterface, _ ->
-            dialogInterface.dismiss()
-        }
-        alertDialog.show()
-    }
-
-
 
 }

@@ -31,7 +31,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
-        android:title="@string/pref_general"
+        android:title="@string/settings_general_category"
         android:layout="@layout/preferences_category"
         app:iconSpaceReserved="false">
         <ListPreference
@@ -44,34 +44,34 @@
         <SwitchPreference
             android:key="open_urls"
             android:defaultValue="true"
-            android:title="@string/pref_open_url"
-            android:summary="@string/pref_open_url_summary" />
+            android:title="@string/settings_open_url_title"
+            android:summary="@string/settings_open_url_desc" />
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/title_gmaps"
+        android:title="@string/settings_gmaps_category"
         android:layout="@layout/preferences_category">
         <SwitchPreference
             android:key="traffic"
             android:defaultValue="false"
-            android:title="@string/pref_traffic"
-            android:summary="@string/pref_traffic_summary" />
+            android:title="@string/settings_traffic_title"
+            android:summary="@string/settings_traffic_desc" />
         <ListPreference
             android:key="maptype"
             android:defaultValue="2"
             android:entries="@array/pref_gmaps_titles"
             android:entryValues="@array/pref_gmaps_values"
-            android:title="@string/pref_gmaps"
-            android:summary="@string/pref_gmaps_summary" />
+            android:title="@string/settings_map_type_title"
+            android:summary="@string/settings_map_type_desc" />
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/pref_information"
+        android:title="@string/settings_information_category"
         android:layout="@layout/preferences_category">
         <Preference
             android:key="about"
-            android:summary="@string/pref_about_summary"
-            android:title="@string/pref_about">
+            android:title="@string/settings_about_title"
+            android:summary="@string/settings_about_desc">
 <!--            <intent-->
 <!--                android:action="com.am.stbus.SETTING_START_ACTIVITY"-->
 <!--                android:targetClass="com.am.stbus.presentation.screens.settings.AboutActivity"-->

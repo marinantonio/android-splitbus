@@ -119,6 +119,7 @@ class TimetableDetailViewModel(
                                 // No internet exception
                                 if (date.isNullOrEmpty()) {
                                     _fullScreenLoading.postValue(false)
+                                    _error.postValue(e.localizedMessage)
                                 } else {
                                     _smallLoading.postValue(false)
                                     _showSnackBar.postValue(Event(date))

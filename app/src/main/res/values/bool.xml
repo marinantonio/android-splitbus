@@ -23,13 +23,6 @@
   ~ SOFTWARE.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-     <item
-         android:id="@+id/nav_favourites"
-         android:title="Dpdaj u favorite" />
-
-     <item
-            android:id="@+id/nav_recent"
-            android:title="@string/action_ruta" />
-</menu>
+<resources>
+    <bool name="windowLightNavigationBar">true</bool>
+</resources>

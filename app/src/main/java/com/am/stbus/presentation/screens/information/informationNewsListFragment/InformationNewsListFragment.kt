@@ -32,14 +32,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
+import com.am.stbus.common.extensions.loadEmailReport
+import com.am.stbus.common.extensions.loadPrometUrl
 import com.am.stbus.domain.models.NewsListItem
 import kotlinx.android.synthetic.main.fragment_information_news_list.*
 import kotlinx.android.synthetic.main.snippet_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class InformationNewsListFragment : Fragment() {
 
@@ -72,8 +72,9 @@ class InformationNewsListFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer<String> {
-            if (informationNewsListAdapter.itemCount == 0)
+            if (informationNewsListAdapter.itemCount == 0) {
                 handleErrorScreen(it)
+            }
         })
 
         rv_news_list.apply {
@@ -83,19 +84,17 @@ class InformationNewsListFragment : Fragment() {
         }
     }
 
-    private fun handleErrorScreen(it: String?) {
+    private fun handleErrorScreen(errorMessage: String?) {
         rv_news_list.isVisible = false
         snippet_loading.isVisible = false
         snippet_error.isVisible = true
 
         btn_promet.setOnClickListener {
-            Timber.e("Promet!")
-            // TODO
+            requireContext().loadPrometUrl()
         }
 
         btn_error.setOnClickListener {
-            Timber.e("Report error")
-            // TODO
+            requireContext().loadEmailReport("newsList", errorMessage?:"")
         }
 
     }

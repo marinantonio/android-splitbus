@@ -61,7 +61,8 @@ class TimetableDetailDayFragment : Fragment() {
             else -> throw IllegalArgumentException("Wrong day $day")
         }
 
-        tv_valid_from.text = "${timetableContent?.get(0)} ${timetableContent?.get(1)}"
+        // "${timetableContent?.get(0)}
+        tv_valid_from.text = timetableContent?.get(1)
         tv_timetable.text = timetable
         tv_note.text = timetableContent?.get(5)
 
@@ -80,12 +81,12 @@ class TimetableDetailDayFragment : Fragment() {
                     .replace("[\\[\\],]".toRegex(), "")
                     .replace(" ", " \t\t\t ")
             return if (cleanedString.isBlank()) {
-                getString(R.string.vozni_red_nema_polazaka)
+                getString(R.string.timetable_detail_no_buses)
             } else {
                 cleanedString
             }
         } else {
-            getString(R.string.vozni_red_nema_polazaka)
+            getString(R.string.timetable_detail_no_buses)
         }
     }
 

@@ -51,13 +51,13 @@
 
     <item
         android:id="@+id/action_report"
-        android:title="@string/vozni_red_report_error"
+        android:title="@string/snippet_error_report"
         android:orderInCategory="400"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+        android:title="@string/nav_setttings"
         android:orderInCategory="500"
         app:showAsAction="never"/>
 

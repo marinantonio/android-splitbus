@@ -29,6 +29,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -37,6 +38,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
 import com.am.stbus.domain.models.Timetable
+import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FIRST_RUN_CONTENT
+import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.UPDATE_APP_CONTENT
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_favourites.*
@@ -111,7 +114,7 @@ class FavouritesFragment : Fragment() {
 
         // Pokreni Welcome fragment
         view?.findNavController()?.navigate(
-                FavouritesFragmentDirections.actionFavouriteFragmentToWelcomeFragment(
+                FavouritesFragmentDirections.actionFavouriteFragmentToContentFragment(
                         when (updateAppContent) {
                             FIRST_RUN_CONTENT -> FIRST_RUN_CONTENT
                             UPDATE_APP_CONTENT -> UPDATE_APP_CONTENT
@@ -147,17 +150,16 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun onTimetableGmapsClicked(timetable: Timetable) {
-        // TODO: OnTImetableGmapsClicked
+        Toast.makeText(requireContext(), R.string.information_gmaps_not_ready, Toast.LENGTH_SHORT).show()
+//        val intent = Intent(requireActivity(), GmapsActivity::class.java)
+//        intent.putExtra("gmaps", timetable.gmapsId)
+//        startActivity(intent)
     }
 
     companion object {
         const val SHARED_PREFS_SPLIT_BUS = "SB_PREFERENCES"
         const val SHARED_PREFS_BUILD_VERSION_KEY = "BUILD_VERSION"
         const val SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE = 0
-
-        const val FIRST_RUN_CONTENT = 0
-        const val UPDATE_APP_CONTENT = 1
-
     }
 
 }

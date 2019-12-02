@@ -39,9 +39,8 @@ import com.am.stbus.R
 import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
 
-    //private val sharedViewModel by viewModel<TimetablesSharedViewModel>()
+class MainActivity : AppCompatActivity() {
 
     private val rootFragments: IntArray =
             intArrayOf(R.id.favouriteFragment, R.id.timetablesFragment, R.id.informationListFragment, R.id.settingsFragment)
@@ -86,12 +85,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupWhiteNavigationNavigationBarColor(white: Boolean) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1) {
+            window.navigationBarColor = ContextCompat.getColor(this, R.color.crna)
+        }
+        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             if (white) {
-                //window.navigationBarColor = ContextCompat.getColor(this, R.color.colorSystemNavigationBackground)
+                window.navigationBarColor = ContextCompat.getColor(this, R.color.colorSystemNavigationBackground)
             } else {
                 window.navigationBarColor = ContextCompat.getColor(this, R.color.prozirnaAndroid)
-
             }
         }
 

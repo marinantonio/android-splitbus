@@ -61,7 +61,6 @@ import com.am.stbus.common.InformationConstants.TARIFNE_URL
 import com.am.stbus.common.InformationConstants.TYPE_HEADER
 import com.am.stbus.common.InformationConstants.TYPE_ITEM
 import com.am.stbus.domain.models.Information
-import com.am.stbus.presentation.screens.gmaps.GmapsActivity
 import kotlinx.android.synthetic.main.fragment_information_list.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -126,8 +125,9 @@ class InformationListFragment : Fragment() {
     }
 
     private fun startGmapsActivity() {
-        val intent = Intent(context, GmapsActivity::class.java)
-        startActivity(intent)
+        Toast.makeText(requireContext(), R.string.information_gmaps_not_ready, Toast.LENGTH_SHORT).show()
+//        val intent = Intent(context, GmapsActivity::class.java)
+//        startActivity(intent)
     }
 
     private fun loadUrl(url: String) {

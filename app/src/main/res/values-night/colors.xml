@@ -50,6 +50,11 @@
     <color name="colorListItemDesc">@color/sivaOpisi</color>
     <color name="colorListItemDivider">@color/sivaDivider30</color>
 
+    <!-- Timetable Detail -->
+    <color name="colorTimetableValidFrom">@color/zutaTamnija</color>
+    <color name="colorTimetableContent">@color/bijela</color>
+    <color name="colorTimetableNote">@color/bijela</color>
+
     <!-- Loading/Error ekrani -->
     <color name="colorLoadingTitle">@color/bijela</color>
     <color name="colorLoadingDesc">@color/sivaOpisi</color>
