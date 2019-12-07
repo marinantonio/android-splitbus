@@ -1,3 +1,10 @@
+## 3.0.1 (2019-12-07)
+
+* [9f98864](https://github.com/marinantonio/android-splitbus/commit/9f98864e364fca6d17013df003ef479cd0fa7d27) Verzija 3.0.1 - Antonio Marin
+* [9dc477a](https://github.com/marinantonio/android-splitbus/commit/9dc477a25cc7ccedd3eb881b05291865b959103d) Hotfix commit, popravljeno rušenje aplikacije kao i preklapanje status bara. Druge manje promjene - Antonio Marin
+* [82efee0](https://github.com/marinantonio/android-splitbus/commit/82efee02a7672c39385546c2f7498ccfa5e56209) Changelog - Antonio Marin
+
+
 ## 3.0.0 (2019-12-02)
 
 * [747b695](https://github.com/marinantonio/android-splitbus/commit/747b6954be27fe995645f983f1c8a44177d5dc64) Verzija 3.0.0 - Antonio Marin
