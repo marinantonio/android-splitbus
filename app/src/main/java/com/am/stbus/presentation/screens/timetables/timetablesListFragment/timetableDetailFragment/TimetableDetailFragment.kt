@@ -55,7 +55,7 @@ import org.threeten.bp.format.FormatStyle
 
 class TimetableDetailFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { requireParentFragment() })
 
     private val viewModel: TimetableDetailViewModel by viewModel{ parametersOf(args) }
 

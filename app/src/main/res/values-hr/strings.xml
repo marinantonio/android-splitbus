@@ -175,14 +175,12 @@
     <string name="content_update_toolbar">Aplikacija nadograđena</string>
     <string name="content_update_title">Split Bus v%1$s</string>
     <string name="contnet_update_desc"><![CDATA[
-    Kompletno prepisan veći dio aplikacija, unaprijeđeno je sve što se da, a najveće promjene su:
+    Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
     <br>
-    <br>* Osvježen dizajn, aplikacija sad koristi donju traku kao glavni izbornik
-    <br>* Dodan nativni Android tamni način
-    <br>* Dodana podrška za pohranjivanje voznih redova na uređaj, tako da ih možete kasnije vidjeti i bez interneta
-    <br>* Dodana karta s Nextbike stanicama
+    <br>* Popravljeno rušenje aplikacije koje bi se nekad događalo pri povratku iz voznog reda na listu
+    <br>* Popravljenjo (nadam se) preklapanje statusne trake i izbornika koje se događalo na nekim uređajima
+    <br>* Druge manje promjene
     <br>
-     <br><b>Napomena: Pošto sam prepisao i internu bazu podataka, favoriti će vam se poništiti!</b>
     ]]>
     </string>
 

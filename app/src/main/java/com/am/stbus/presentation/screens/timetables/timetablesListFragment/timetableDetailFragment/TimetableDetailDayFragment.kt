@@ -40,7 +40,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class TimetableDetailDayFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { requireParentFragment() })
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,

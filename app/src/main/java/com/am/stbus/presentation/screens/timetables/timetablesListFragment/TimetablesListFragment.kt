@@ -43,7 +43,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TimetablesListFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
 
     private val viewModel: TimetablesListViewModel by viewModel()
 

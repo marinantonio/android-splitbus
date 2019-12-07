@@ -53,18 +53,22 @@ class RemoteTimetableDataSource {
                     for (e in it) {
                         workDayList.add("\n ${e.text()}")
                     }
+                    // dodgy fix za zadnji red :)
+                    workDayList.add("")
                 }
 
                 select("table.c-vozni-red__table td:eq(1)").let {
                     for (e in it) {
                         saturdayList.add("\n ${e.text()}")
                     }
+                    saturdayList.add("")
                 }
 
                 select("table.c-vozni-red__table td:eq(2)").let {
                     for (e in it) {
                         sundayList.add("\n ${e.text()}")
                     }
+                    sundayList.add("")
                 }
             }
 

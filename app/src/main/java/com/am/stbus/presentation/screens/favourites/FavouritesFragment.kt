@@ -34,6 +34,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
@@ -49,7 +50,7 @@ import timber.log.Timber
 
 class FavouritesFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>()
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
 
     private val viewModel: FavouritesViewModel by viewModel()
 
@@ -78,10 +79,9 @@ class FavouritesFragment : Fragment() {
 
         timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>> { timetables ->
             val favouriteTimetables = timetables.filter { it.favourite == 1 }
-            if (favouriteTimetables.isNotEmpty()) {
-                favouriteAdapter.clear()
-                favouriteAdapter.addEntireData(timetables.filter { it.favourite == 1 })
-            }
+
+            favouriteAdapter.clear()
+            favouriteAdapter.addEntireData(favouriteTimetables)
 
             rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
             tv_empty_title.isVisible = favouriteTimetables.isEmpty()

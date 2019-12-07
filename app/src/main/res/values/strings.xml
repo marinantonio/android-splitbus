@@ -171,14 +171,12 @@
     <string name="content_update_toolbar">App updated</string>
     <string name="content_update_title">Split Bus v%1$s</string>
     <string name="contnet_update_desc"><![CDATA[
-    Most of the app has been rewritten, there should be a number of improvements including:
+    Thank you all for your early feedback and bug reports! This release contains following:
     <br>
-    <br>* Refreshed design, now app uses bottom navigation bar
-    <br>* Added Android native dark mode
-    <br>* Added support for storing timetables locally, for later offline viewing
-    <br>* Added map with Nextbike bicycle stations
+    <br>* Fixed app crash that occurred sometimes when going back from timetable to timetable list
+    <br>* Fixed (hopefully) status bar and toolbar overlapping happening on certain devices
+    <br>* Other more minor changes
     <br>
-     <br><b>Note: There were major changes to the local database structure which will cause your favourites to reset!</b>
     ]]>
     </string>
 
