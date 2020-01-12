@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_favouriteFragment_to_contentFragment"
             app:destination="@id/contentFragment" />
+        <action
+            android:id="@+id/action_favouriteFragment_to_timetableListFragment"
+            app:destination="@+id/timetableListFragment" />
     </fragment>
 
     <!-- Vozni redovi -->
@@ -52,6 +55,11 @@
         <action
             android:id="@+id/action_timetablesFragment_to_timetablesDetailFragment"
             app:destination="@id/timetableDetailFragment">
+        </action>
+        <action
+            android:id="@+id/action_timetablesFragment_to_timetablesFragment"
+            app:destination="@id/timetablesFragment"
+            app:popUpTo="@+id/nav_graph">
         </action>
     </fragment>
 

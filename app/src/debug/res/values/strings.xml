@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~ Copyright (c) 2013 - 2020 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -23,27 +22,7 @@
   ~ SOFTWARE.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
+    <string name="app_name">Split Bus Dev</string>
+</resources>
 
-    <item
-        android:id="@+id/favouriteFragment"
-        android:icon="@drawable/ic_draw_favoriti"
-        android:title="@string/nav_favourites"/>
-
-    <item
-        android:id="@+id/timetablesFragment"
-        android:icon="@drawable/ic_draw_gradski"
-        android:title="@string/nav_timetables"/>
-
-
-    <item
-        android:id="@+id/informationListFragment"
-        android:icon="@drawable/ic_draw_informacije"
-        android:title="@string/nav_information"/>
-
-    <item
-        android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_draw_postavke"
-        android:title="@string/nav_settings"/>
-
-</menu>

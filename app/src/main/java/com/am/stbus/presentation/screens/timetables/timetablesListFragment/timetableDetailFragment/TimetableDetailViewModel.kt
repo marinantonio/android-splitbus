@@ -39,7 +39,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import org.threeten.bp.LocalDateTime
-import timber.log.Timber
 import java.net.UnknownHostException
 
 class TimetableDetailViewModel(
@@ -109,7 +108,6 @@ class TimetableDetailViewModel(
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        Timber.i("onSubscribe")
                         _smallLoading.postValue(showSmallLoading)
                     }
 

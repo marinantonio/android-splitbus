@@ -24,6 +24,7 @@
 
 package com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -55,7 +56,7 @@ import org.threeten.bp.format.FormatStyle
 
 class TimetableDetailFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { requireParentFragment() })
+    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
 
     private val viewModel: TimetableDetailViewModel by viewModel{ parametersOf(args) }
 
@@ -133,9 +134,11 @@ class TimetableDetailFragment : Fragment() {
         })
 
         viewModel.showSnackBar.observe(viewLifecycleOwner, Observer {
-            Snackbar.make(requireView(), generateMessage(it.peekContent()), Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.timetable_detail_snackbar_refresh)) {
-                viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId, args.contentDate, true)
-            }.show()
+            Snackbar.make(requireView(), generateMessage(it.peekContent()), Snackbar.LENGTH_INDEFINITE)
+                    .setTextColor(Color.WHITE)
+                    .setAction(getString(R.string.timetable_detail_snackbar_refresh)) {
+                        viewModel.fetchAndPopulateTimetable(args.lineId, args.areaId, args.contentDate, true)
+                    }.show()
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->

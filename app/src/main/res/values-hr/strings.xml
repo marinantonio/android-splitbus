@@ -29,7 +29,7 @@
     <string name="nav_favourites">Favoriti</string>
     <string name="nav_timetables">Vozni redovi</string>
     <string name="nav_information">Informacije</string>
-    <string name="nav_setttings">Postavke</string>
+    <string name="nav_settings">Postavke</string>
 
 
     <!-- Favourites -->
@@ -174,12 +174,11 @@
 
     <string name="content_update_toolbar">Aplikacija nadograđena</string>
     <string name="content_update_title">Split Bus v%1$s</string>
-    <string name="contnet_update_desc"><![CDATA[
+    <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
     <br>
-    <br>* Popravljeno rušenje aplikacije koje bi se nekad događalo pri povratku iz voznog reda na listu
-    <br>* Popravljenjo (nadam se) preklapanje statusne trake i izbornika koje se događalo na nekim uređajima
-    <br>* Druge manje promjene
+    <br>* Dodan Crashlytics za praćenje rušenja aplikacije
+    <br>* Razne ispravke greški
     <br>
     ]]>
     </string>

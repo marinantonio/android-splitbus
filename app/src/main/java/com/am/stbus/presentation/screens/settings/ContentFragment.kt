@@ -63,8 +63,8 @@ class ContentFragment : Fragment() {
 
         when (args.type) {
             FIRST_RUN_CONTENT -> updateViews(getString(R.string.content_first_run_toolbar), getString(R.string.content_first_run_title), getString(R.string.content_first_run_desc))
-            UPDATE_APP_CONTENT -> updateViews(getString(R.string.content_update_toolbar), getString(R.string.content_update_title, generateChangelogTitle()), getString(R.string.contnet_update_desc))
-            CHANGELOG_CONTENT -> updateViews(getString(R.string.about_changelog_toolbar), getString(R.string.content_update_title, generateChangelogTitle()), getString(R.string.contnet_update_desc))
+            UPDATE_APP_CONTENT -> updateViews(getString(R.string.content_update_toolbar), getString(R.string.content_update_title, generateChangelogTitle()), getString(R.string.content_update_desc))
+            CHANGELOG_CONTENT -> updateViews(getString(R.string.about_changelog_toolbar), getString(R.string.content_update_title, generateChangelogTitle()), getString(R.string.content_update_desc))
             FAQ_CONTENT -> updateViews(getString(R.string.content_faq_toolbar), getString(R.string.content_faq_title), getString(R.string.content_faq_desc))
             LICENCES_CONTENT -> updateLicensesView()
         }

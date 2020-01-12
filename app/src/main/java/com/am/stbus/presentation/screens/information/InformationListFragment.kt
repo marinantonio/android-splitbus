@@ -133,7 +133,7 @@ class InformationListFragment : Fragment() {
     private fun loadUrl(url: String) {
         if (preferencesManager.getBoolean("open_urls", true)) {
             val customTabsIntent : CustomTabsIntent = buildCustomTabsIntent()
-            customTabsIntent.launchUrl(context, Uri.parse(url))
+            customTabsIntent.launchUrl(requireContext(), Uri.parse(url))
         } else {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             context?.startActivity(intent)

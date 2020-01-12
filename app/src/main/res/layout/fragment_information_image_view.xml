@@ -62,12 +62,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <uk.co.senab.photoview.PhotoView
+        <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/iv_slika"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:src="@drawable/ic_draw_favoriti" />
-
+            android:scaleType="center"
+            tools:src="@drawable/ic_draw_favoriti"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

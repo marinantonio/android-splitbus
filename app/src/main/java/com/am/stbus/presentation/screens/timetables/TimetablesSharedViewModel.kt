@@ -48,7 +48,6 @@ class TimetablesSharedViewModel : ViewModel() {
     }
 
     fun updateFavourite(lineId: Int, favourite: Int) {
-        //val newTimetables = _timetables.value
         _timetables.value?.find { timetable -> timetable.lineId == lineId}?.favourite = favourite
         _timetables.postValue(_timetables.value)
     }

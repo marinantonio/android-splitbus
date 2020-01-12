@@ -57,7 +57,7 @@
 
     <item
         android:id="@+id/action_settings"
-        android:title="@string/nav_setttings"
+        android:title="@string/nav_settings"
         android:orderInCategory="500"
         app:showAsAction="never"/>
 

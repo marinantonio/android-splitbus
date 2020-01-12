@@ -72,7 +72,17 @@ class TimetablesListFragment : Fragment() {
 
         timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>>{
             timetableListAdapter.clear()
-            timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
+
+            // Ne najljepsi fix, ali ovo se dogada zbog sharedViewModela!
+            // Ukratko, ako parentActivity bude unisten sharedViewModel nece imat odakle dobit podatke
+            // pa ce se app rusiti. Ako napravim da se rekreira onda korisnik nece dobit updejtani recyclerView
+            // (Ako se skine timetable ili promjeni fav status) to se nece odraziti u listi ovdje, stoga sharedViewModel
+            // Mora pratiti nav_graph.
+            if (!it.isNullOrEmpty()) {
+                timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
+            } else {
+                parentFragment?.findNavController()?.navigate(TimetablesFragmentDirections.actionTimetablesFragmentToTimetablesFragment())
+            }
         })
 
         viewModel.updatedFavourite.observe(viewLifecycleOwner, Observer<UpdatedFavourite>{

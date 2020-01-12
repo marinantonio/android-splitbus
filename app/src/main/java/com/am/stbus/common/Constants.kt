@@ -71,7 +71,7 @@ object InformationConstants {
     const val ID_PROMET_WEB = 12
 
     // Informacije
-    const val KARTA_GRAD_URL = "https://www.dropbox.com/s/wdh2p8tbfzbtk5b/kartagrad.png?dl=1"
+    const val KARTA_GRAD_URL = "https://www.dropbox.com/s/yawkjlza31zn6lv/kartagrad1.png?dl=1"
     const val KARTA_PRIGRAD_URL = "https://www.dropbox.com/s/0k6c96k4e261kwf/kartaprigrad.png?dl=1"
     const val TARIFNE_URL = "https://www.dropbox.com/s/ujsw5xjicx7i0az/tarifnezone.png?dl=1"
     const val PARKING_URL = "http://www.splitparking.hr/parkiralista"

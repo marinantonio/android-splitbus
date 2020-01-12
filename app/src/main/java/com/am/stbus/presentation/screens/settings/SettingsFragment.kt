@@ -67,7 +67,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity.toolbar.title = getString(R.string.nav_setttings)
+        mainActivity.toolbar.title = getString(R.string.nav_settings)
     }
 
 }
