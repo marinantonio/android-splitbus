@@ -1,3 +1,9 @@
+## 3.0.2 (2020-01-12)
+
+* [46cdaf8](https://github.com/marinantonio/android-splitbus/commit/46cdaf82e8ff6b7a3da7c977b38dbd91f1f160c0) Verzija 3.0.2 - Antonio Marin
+* [10cc2ea](https://github.com/marinantonio/android-splitbus/commit/10cc2eac64c3aa6313ab7c68a58be253f453c2d1) Changelog - Antonio Marin
+
+
 ## 3.0.1 (2019-12-07)
 
 * [9f98864](https://github.com/marinantonio/android-splitbus/commit/9f98864e364fca6d17013df003ef479cd0fa7d27) Verzija 3.0.1 - Antonio Marin
