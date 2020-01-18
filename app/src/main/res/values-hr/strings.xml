@@ -177,9 +177,9 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
     <br>
-    <br>* Dodan Crashlytics za praćenje rušenja aplikacije
-    <br>* Razne ispravke greški
+    <br>* Popravljeno rušenje koje se događalo pri povratku iz voznog reda na favorite
     <br>
+    <br> Napomena: Prepisivanje i uređivanje svih ruti na interaktivnoj karti će malo potrajati, unaprijed se ispričavam i zahvaljujem na strpljenju!
     ]]>
     </string>
 

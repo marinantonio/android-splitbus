@@ -173,8 +173,9 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your early feedback and bug reports! This release contains following:
     <br>
-    <br>* Added support for Crashlytics for tracking app crashes
-    <br>* Various bug fixes
+    <br>* Crash fix occurring when returning to Favourites from timetable
+    <br>
+    <br> Note: I'm completely rewriting interactive maps, and I don't expect to finish anytime. Sorry about this and thanks for your understanding!
     <br>
     ]]>
     </string>
