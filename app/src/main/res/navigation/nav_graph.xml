@@ -56,11 +56,6 @@
             android:id="@+id/action_timetablesFragment_to_timetablesDetailFragment"
             app:destination="@id/timetableDetailFragment">
         </action>
-        <action
-            android:id="@+id/action_timetablesFragment_to_timetablesFragment"
-            app:destination="@id/timetablesFragment"
-            app:popUpTo="@+id/nav_graph">
-        </action>
     </fragment>
 
     <fragment

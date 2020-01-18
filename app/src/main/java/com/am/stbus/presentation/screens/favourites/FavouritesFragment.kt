@@ -78,15 +78,21 @@ class FavouritesFragment : Fragment() {
         }
 
         timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>> { timetables ->
-            val favouriteTimetables = timetables.filter { it.favourite == 1 }
+            /** Sličan fix kao i u [TimetablesListFragment.onViewCreated], malo rekurzivna funkcija
+             * koja riješava problem ako se MainActivity uništi a korisnik zapne na TimetableDetail ekranu i
+             * onda se pokušava vratiti natrag na favorite. SharedViewModel nažalost će biti uništen tada jer
+             * prati navGraph, a vozni redovi će biti null!
+             */
+            if (!timetables.isNullOrEmpty()) {
+                val favouriteTimetables = timetables.filter { it.favourite == 1 }
 
-            favouriteAdapter.clear()
-            favouriteAdapter.addEntireData(favouriteTimetables)
+                favouriteAdapter.clear()
+                favouriteAdapter.addEntireData(favouriteTimetables)
 
-            rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
-            tv_empty_title.isVisible = favouriteTimetables.isEmpty()
-            tv_empty_message.isVisible = favouriteTimetables.isEmpty()
-
+                rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
+                tv_empty_title.isVisible = favouriteTimetables.isEmpty()
+                tv_empty_message.isVisible = favouriteTimetables.isEmpty()
+            }
         })
 
         viewModel.timetableList.observe(viewLifecycleOwner, Observer<List<Timetable>> {

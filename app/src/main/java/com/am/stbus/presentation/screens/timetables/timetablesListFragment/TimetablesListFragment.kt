@@ -80,8 +80,6 @@ class TimetablesListFragment : Fragment() {
             // Mora pratiti nav_graph.
             if (!it.isNullOrEmpty()) {
                 timetableListAdapter.addEntireData(it.filter { timetable -> timetable.areaId == areaId })
-            } else {
-                parentFragment?.findNavController()?.navigate(TimetablesFragmentDirections.actionTimetablesFragmentToTimetablesFragment())
             }
         })
 
