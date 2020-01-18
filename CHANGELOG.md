@@ -1,3 +1,10 @@
+## 3.0.3 (2020-01-18)
+
+* [df94b80](https://github.com/marinantonio/android-splitbus/commit/df94b8034dca4ea0eb64cc70b6e60632feb8e4ee) 3.0.3 - Nova verzija - Antonio Marin
+* [9a8cbeb](https://github.com/marinantonio/android-splitbus/commit/9a8cbebed5c46c28fe3052814296525c20c63c65) Popravljeno rušenje aplikacije pri povratku u FavoritesFragment - Antonio Marin
+* [5e8b426](https://github.com/marinantonio/android-splitbus/commit/5e8b4263047a8c90e9a2c60ec7dc099fc90ab72a) changelog - Antonio Marin
+
+
 ## 3.0.2 (2020-01-12)
 
 * [46cdaf8](https://github.com/marinantonio/android-splitbus/commit/46cdaf82e8ff6b7a3da7c977b38dbd91f1f160c0) Verzija 3.0.2 - Antonio Marin
