@@ -111,6 +111,9 @@
             android:id="@+id/action_informationListFragment_to_informationNewsListFragment"
             app:destination="@id/informationNewsListFragment" />
         <action
+            android:id="@+id/action_informationListFragment_to_informationGmapsFragment"
+            app:destination="@+id/informationGmapsFragment" />
+        <action
             android:id="@+id/action_informationListFragment_to_informationImageViewFragment"
             app:destination="@id/informationImageViewFragment" />
         <action
@@ -128,6 +131,18 @@
         <action
             android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
             app:destination="@id/informationNewsDetailFragment" />
+    </fragment>
+
+    <!-- Informacije Gmaps Karta -->
+    <fragment
+        android:id="@+id/informationGmapsFragment"
+        android:name="com.am.stbus.presentation.screens.information.informationGmapsFragment.GmapsFragment"
+        android:label="information_gmaps_fragment"
+        tools:layout="fragment_gmaps">
+        <argument
+            android:name="gmapsId"
+            android:defaultValue="0"
+            app:argType="integer"/>
     </fragment>
 
     <!-- Informacije Novost Detail -->
@@ -204,6 +219,7 @@
             android:id="@+id/action_aboutFragment_to_contentFragment"
             app:destination="@id/contentFragment" />
     </fragment>
+
 
     <!-- Content fragment -->
     <fragment

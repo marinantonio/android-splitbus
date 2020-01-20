@@ -55,6 +55,11 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+# Fastlane
+fastlane/
+Gemfile
+Gemfile.lock
+
 # Android
 release/
 release/res/values/

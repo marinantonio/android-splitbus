@@ -24,20 +24,118 @@
 
 package com.am.stbus.presentation.screens.information.informationGmapsFragment
 
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.preference.PreferenceManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.PermissionChecker
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
+import com.am.stbus.R
+import com.am.stbus.presentation.screens.gmaps.data.Stanice
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
+import timber.log.Timber
 
 class GmapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var map: GoogleMap
 
-    override fun onMapReady(p0: GoogleMap?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+
+        return inflater.inflate(R.layout.fragment_information_gmaps, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val mapFragment: SupportMapFragment = childFragmentManager
+                .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        map = googleMap
+        map.apply {
+            uiSettings.isZoomControlsEnabled = true
+            animateCamera(CameraUpdateFactory.newLatLngZoom(Stanice.VUKKAMPUSS, 12f))
+            uiSettings.isMapToolbarEnabled = true
+        }
+
+        val myPreference = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        when (myPreference.getString("maptype", "2")) {
+            "1" -> map.mapType = GoogleMap.MAP_TYPE_HYBRID
+            "2" -> map.mapType = GoogleMap.MAP_TYPE_NORMAL
+            "3" -> map.mapType = GoogleMap.MAP_TYPE_TERRAIN
+        }
+
+        if (myPreference.getBoolean("traffic", false)) {
+            map.isTrafficEnabled = true
+        }
+
+        setupUserLocation()
     }
 
     override fun onInfoWindowClick(p0: Marker?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    private fun setupUserLocation() {
+        Timber.i("Setup userLocation!")
+        if (checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
+            requestPermissions(
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+            return
+        }
+
+        // 1
+        map.isMyLocationEnabled = true
+
+        /*   // 2
+           fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+               // Got last known location. In some rare situations this can be null.
+               // 3
+               if (location != null) {
+                   lastLocation = location
+                   val currentLatLng = LatLng(location.latitude, location.longitude)
+                   //map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+               }
+           }*/
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            LOCATION_PERMISSION_REQUEST_CODE -> {
+                // If request is cancelled, the result arrays are empty.
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Dopusteno
+                    setupUserLocation()
+                } else {
+                    // TODO: Error message
+                    // Dopustenje odbijeno
+                }
+                return
+            }
+
+            // When se koristi za druga dopustenja kojih nemamo zasad
+            else -> {
+                // Ignoriraj sve ostalo
+            }
+        }
+    }
+
+    companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+    }
+
+
 
 }

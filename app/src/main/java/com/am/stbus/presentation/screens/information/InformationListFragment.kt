@@ -98,7 +98,7 @@ class InformationListFragment : Fragment() {
         when (information.informationId) {
             ID_LATEST_NEWS -> navigateToFragment(information)
             ID_TOURIST_INFO -> Toast.makeText(context, context!!.getText(R.string.error_still_not_finished), Toast.LENGTH_SHORT).show()
-            ID_GMAPS -> startGmapsActivity()
+            ID_GMAPS -> navigateToFragment(information)
             ID_URBAN_MAP -> navigateToFragment(information)
             ID_SUBURBAN_MAP -> navigateToFragment(information)
             ID_TARIFF_ZONES_MAP -> navigateToFragment(information)
@@ -115,6 +115,7 @@ class InformationListFragment : Fragment() {
             when (information.informationId) {
                 ID_LATEST_NEWS -> InformationListFragmentDirections.actionInformationListFragmentToInformationNewsListFragment()
                 //ID_TOURIST_INFO -> Toast.makeText(context, context!!.getText(R.string.error_still_not_finished), Toast.LENGTH_SHORT).show()
+                ID_GMAPS -> InformationListFragmentDirections.actionInformationListFragmentToInformationGmapsFragment(0)
                 ID_URBAN_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_urban_map_title), KARTA_GRAD_URL)
                 ID_SUBURBAN_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_suburban_map_title), KARTA_PRIGRAD_URL)
                 ID_TARIFF_ZONES_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_tariff_zones_title), TARIFNE_URL)
