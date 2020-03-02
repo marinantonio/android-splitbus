@@ -29,6 +29,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
     compileSdkVersion 29
@@ -170,4 +171,7 @@ dependencies {
 
     // PhotoView
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    // Libraries
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 }

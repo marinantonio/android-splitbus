@@ -44,9 +44,10 @@ import com.am.stbus.common.Constants.WEBSITE_URL
 import com.am.stbus.common.extensions.loadEmailReport
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.CHANGELOG_CONTENT
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FAQ_CONTENT
-import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.LICENCES_CONTENT
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import kotlinx.android.synthetic.main.fragment_about.*
 import org.koin.android.ext.android.inject
+
 
 class AboutFragment : Fragment() {
 
@@ -73,7 +74,7 @@ class AboutFragment : Fragment() {
         btn_github.setOnClickListener { loadUrl(GITHUB_URL) }
         btn_facebook.setOnClickListener { loadUrl(FACEBOOK_URL) }
         btn_faq.setOnClickListener {loadContentFragment(FAQ_CONTENT) }
-        btn_licence.setOnClickListener { loadContentFragment(LICENCES_CONTENT) }
+        btn_licence.setOnClickListener { startActivity(Intent(requireContext(), OssLicensesMenuActivity::class.java)) }
         btn_contact.setOnClickListener { requireContext().loadEmailReport("", "Kontakt") }
         btn_linkedin.setOnClickListener { loadUrl(LINKEDIN_URL) }
         btn_website.setOnClickListener { loadUrl(WEBSITE_URL) }

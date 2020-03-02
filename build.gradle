@@ -22,6 +22,7 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_safe_args_version"
         classpath "com.google.gms:google-services:$gms_services_version"
         classpath "io.fabric.tools:gradle:$fabric_version"
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.1'
     }
 }
 
