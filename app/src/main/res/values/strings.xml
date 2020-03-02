@@ -87,6 +87,31 @@
 
     <!-- Gmaps -->
     <string name="information_gmaps_not_ready">Interactive map is coming back in following updates!</string>
+    <string name="information_gmaps_route_selector_popup_title">Select direction</string>
+    <string name="information_gmaps_route_selector_popup_close">Close</string>
+    <string name="gmaps_route_31">3 - Brda &#8212;> Lovrinac</string>
+    <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
+    <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
+    <string name="gmaps_route_62">6 - HNK &#8212;> Kila</string>
+    <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
+    <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
+    <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
+    <string name="gmaps_route_402">40 - Ferry Port &#8212;> Kila</string>
+
+    <string name="gmaps_menu_main_city_stops">Main city stops</string>
+    <string name="gmaps_menu_other_city_stops">Other city stops</string>
+    <string name="gmaps_menu_suburban_stops">Suburban stops</string>
+    <string name="nijejos">Not finished yet! :(</string>
+    <string name="menu_prijava">Report wrong data</string>
+    <string name="warningpopup">For ease of viewing outside of city interactive map only shows end bus stations. Also most of suburban bus lines don\'t stop at the urban city bus stations so they\'re not shown on map as well. \n\nSince I cannot find anywhere exact bus routes and station locations there can be some wrong map data. If you notice any please report using \'Report wrong data\' option below. \nThank you for your understanding</string>
+    <string name="permission_altert_title">Location Permission Needed</string>
+    <string name="permission_altert_message">This app needs the Location permission, please accept to use location functionality</string>
+    <string name="gmaps_select_title">Select bus route</string>
+    <string name="gmaps_stanica_opcina">OPĆINA - CITY HALL</string>
+    <string name="gmaps_stanica_solinska">PROMET BUS STATION - SUKOIŠAN</string>
+    <string name="gmaps_stanica_pazar">MARKET - PAZAR</string>
+    <string name="gmaps_stanica_tr_luka">FERRY PORT</string>
+    <string name="gmaps_stanica_ak_split">SPLIT BUS STATION</string>
 
 
     <!-- Settings -->
@@ -133,26 +158,10 @@
     <!-- Error msg -->
     <string name="error_still_not_finished">Not finished yet, coming in the next updates!</string>
 
+
     <!-- Accessibility -->
     <string name="accessibility_logo">Split Bus logo</string>
     <string name="accessibility_menu">Menu button</string>
-
-
-    <!-- Interaktivna karta -->
-    <string name="gmaps_menu_main_city_stops">Main city stops</string>
-    <string name="gmaps_menu_other_city_stops">Other city stops</string>
-    <string name="gmaps_menu_suburban_stops">Suburban stops</string>
-    <string name="nijejos">Not finished yet! :(</string>
-    <string name="menu_prijava">Report wrong data</string>
-    <string name="warningpopup">For ease of viewing outside of city interactive map only shows end bus stations. Also most of suburban bus lines don\'t stop at the urban city bus stations so they\'re not shown on map as well. \n\nSince I cannot find anywhere exact bus routes and station locations there can be some wrong map data. If you notice any please report using \'Report wrong data\' option below. \nThank you for your understanding</string>
-    <string name="permission_altert_title">Location Permission Needed</string>
-    <string name="permission_altert_message">This app needs the Location permission, please accept to use location functionality</string>
-    <string name="gmaps_select_title">Select bus route</string>
-    <string name="gmaps_stanica_opcina">OPĆINA - CITY HALL</string>
-    <string name="gmaps_stanica_solinska">PROMET BUS STATION - SUKOIŠAN</string>
-    <string name="gmaps_stanica_pazar">MARKET - PAZAR</string>
-    <string name="gmaps_stanica_tr_luka">FERRY PORT</string>
-    <string name="gmaps_stanica_ak_split">SPLIT BUS STATION</string>
 
 
     <!-- Content -->
@@ -173,9 +182,9 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your early feedback and bug reports! This release contains following:
     <br>
-    <br>* Crash fix occurring when returning to Favourites from timetable
+    <br>* Interactive map is back, thanks for your patience, added routes 3, 6, 18 and 40, please test and report feedback!
+    <br>* Crash fix occurring when clicking on urls inside WebVies
     <br>
-    <br> Note: I\'m completely rewriting interactive maps, and I don\'t expect to finish anytime. Sorry about this and thanks for your understanding!
     <br>
     ]]>
     </string>

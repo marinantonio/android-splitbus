@@ -88,6 +88,8 @@
     <color name="sivaDivider">#e0e0e0</color>
     <color name="sivaDivider30">#51E0E0E0</color>
     <color name="prozirnaAndroid">@android:color/transparent</color>
+    <color name="poluprozirniStatusBar">#20111111</color>
+    <color name="zutaGmapsRute">#ffff00</color>
 
 
     <!--

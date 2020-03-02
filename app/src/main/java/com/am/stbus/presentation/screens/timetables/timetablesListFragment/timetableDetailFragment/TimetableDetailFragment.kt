@@ -27,12 +27,12 @@ package com.am.stbus.presentation.screens.timetables.timetablesListFragment.time
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager.widget.ViewPager
@@ -58,7 +58,7 @@ class TimetableDetailFragment : Fragment() {
 
     private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
 
-    private val viewModel: TimetableDetailViewModel by viewModel{ parametersOf(args) }
+    private val viewModel: TimetableDetailViewModel by viewModel { parametersOf(args) }
 
     private val args: TimetableDetailFragmentArgs by navArgs()
 
@@ -211,7 +211,8 @@ class TimetableDetailFragment : Fragment() {
                 viewModel.updateFavouritesStatus(args.lineId, FAVOURITE_REMOVED)
             }
             R.id.action_gmaps -> {
-                Toast.makeText(requireContext(), R.string.information_gmaps_not_ready, Toast.LENGTH_SHORT).show()
+                view?.findNavController()?.navigate(TimetableDetailFragmentDirections
+                        .actionTimetableDetailFragmentToInformationGmapsFragment(args.gmapsId))
             }
         }
         return super.onOptionsItemSelected(item)

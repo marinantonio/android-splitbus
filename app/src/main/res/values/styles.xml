@@ -41,6 +41,15 @@
         <item name="android:textColorSecondary">@color/assetColorIcons</item>
     </style>
 
+    <style name="ToolbarThemeAllBlack" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="background">@android:color/transparent</item>
+        <item name="colorOnPrimary">@color/crna</item>
+    </style>
+
+    <style name="ToolbarTextAllBlack" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
+    </style>
+
     <style name="ToolbarText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_semi_bold</item>
     </style>

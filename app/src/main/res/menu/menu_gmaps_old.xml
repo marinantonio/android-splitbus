@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~ Copyright (c) 2013 - 2020 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -28,8 +28,38 @@
 
     <item
         android:id="@+id/action_main_markers"
+        android:checkable="true"
+        android:checked="false"
         android:title="@string/gmaps_menu_main_city_stops"
         android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_city_markers"
+        android:checkable="true"
+        android:checked="false"
+        android:title="@string/gmaps_menu_other_city_stops"
+        android:orderInCategory="200"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_urban_markers"
+        android:checkable="true"
+        android:checked="false"
+        android:title="@string/gmaps_menu_suburban_stops"
+        android:orderInCategory="300"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_report"
+        android:title="@string/snippet_error_report"
+        android:orderInCategory="400"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/nav_settings"
+        android:orderInCategory="500"
         app:showAsAction="never"/>
 
 </menu>

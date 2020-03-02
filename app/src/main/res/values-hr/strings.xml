@@ -87,6 +87,31 @@
 
     <!-- Gmaps -->
     <string name="information_gmaps_not_ready">Interaktivna karta dolazi u nadolazećim nadogradnjama!</string>
+    <string name="information_gmaps_route_selector_popup_title">Select direction</string>
+    <string name="information_gmaps_route_selector_popup_close">Close</string>
+    <string name="gmaps_route_31">3 - Brda &#8212;> Lovrinac</string>
+    <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
+    <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
+    <string name="gmaps_route_62">6 - HNK &#8212;> Kila</string>
+    <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
+    <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
+    <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
+    <string name="gmaps_route_402">40 - Ferry Port &#8212;> Kila</string>
+
+    <string name="gmaps_menu_main_city_stops">Glavne gradske stanice</string>
+    <string name="gmaps_menu_other_city_stops">Ostale gradske stanice</string>
+    <string name="gmaps_menu_suburban_stops">Prigradske stanice</string>
+    <string name="nijejos">Nije još napravljeno, očekujte u sljedećim nadogradnjama :)</string>
+    <string name="menu_prijava">Prijavi pogrešku</string>
+    <string name="warningpopup">Radi preglednosti karte izvan grada prikazane su samo krajnje autobusne stanice. Isto tako prigradske linije nemaju naviku stajati na većini gradskih stanica stoga su i te stanice izostavljene na kartama. \n\nStanice i rute sam ja crtao pa je moguće da postoje pogreške, posebice za prigradske linije. Ukoliko je nešto krivo možete prijavite pogrešku pa ću to ispraviti u sljedećim nadogradnjama. \n\nHvala vam na razumijevanju</string>
+    <string name="permission_altert_title">Potrebno je dopuštenje</string>
+    <string name="permission_altert_message">Kako bi Vas aplikacija locirala na interaktivnoj karti potrebno je odobriti lokaciju</string>
+    <string name="gmaps_select_title">Odaberite rutu</string>
+    <string name="gmaps_stanica_opcina">OPĆINA</string>
+    <string name="gmaps_stanica_solinska">KOLODVOR SUKOIŠAN</string>
+    <string name="gmaps_stanica_pazar">PAZAR</string>
+    <string name="gmaps_stanica_tr_luka">TRAJEKTNA LUKA</string>
+    <string name="gmaps_stanica_ak_split">AK SPLIT</string>
 
 
     <!-- Settings -->
@@ -133,26 +158,10 @@
     <!-- Error msg -->
     <string name="error_still_not_finished">Interaktivna karta se nadograđuje, molimo strpite se do sljedećih nadogradnji!</string>
 
+
     <!-- Accessibility -->
     <string name="accessibility_logo">Split Bus logo</string>
     <string name="accessibility_menu">Menu button</string>
-
-
-    <!-- Interaktivna karta -->
-    <string name="gmaps_menu_main_city_stops">Glavne gradske stanice</string>
-    <string name="gmaps_menu_other_city_stops">Ostale gradske stanice</string>
-    <string name="gmaps_menu_suburban_stops">Prigradske stanice</string>
-    <string name="nijejos">Nije još napravljeno, očekujte u sljedećim nadogradnjama :)</string>
-    <string name="menu_prijava">Prijavi pogrešku</string>
-    <string name="warningpopup">Radi preglednosti karte izvan grada prikazane su samo krajnje autobusne stanice. Isto tako prigradske linije nemaju naviku stajati na većini gradskih stanica stoga su i te stanice izostavljene na kartama. \n\nStanice i rute sam ja crtao pa je moguće da postoje pogreške, posebice za prigradske linije. Ukoliko je nešto krivo možete prijavite pogrešku pa ću to ispraviti u sljedećim nadogradnjama. \n\nHvala vam na razumijevanju</string>
-    <string name="permission_altert_title">Potrebno je dopuštenje</string>
-    <string name="permission_altert_message">Kako bi Vas aplikacija locirala na interaktivnoj karti potrebno je odobriti lokaciju</string>
-    <string name="gmaps_select_title">Odaberite rutu</string>
-    <string name="gmaps_stanica_opcina">OPĆINA</string>
-    <string name="gmaps_stanica_solinska">KOLODVOR SUKOIŠAN</string>
-    <string name="gmaps_stanica_pazar">PAZAR</string>
-    <string name="gmaps_stanica_tr_luka">TRAJEKTNA LUKA</string>
-    <string name="gmaps_stanica_ak_split">AK SPLIT</string>
 
 
     <!-- Content -->
@@ -177,9 +186,9 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
     <br>
-    <br>* Popravljeno rušenje koje se događalo pri povratku iz voznog reda na favorite
+    <br>* Interaktivna karta je ponovo aktivna, zahvaljujem na vašem strpljenju! Zasad su dodane samo rute 3, 6, 18 i 40, molim vas testirajte i javite dojmove.
+    <br>* Popravljeno rušenje koje se događalo pri klikanju na poveznicu unutar novosti
     <br>
-    <br> Napomena: Prepisivanje i uređivanje svih ruti na interaktivnoj karti će malo potrajati, unaprijed se ispričavam i zahvaljujem na strpljenju!
     ]]>
     </string>
 

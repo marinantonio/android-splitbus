@@ -36,14 +36,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
 import com.am.stbus.R
+import com.am.stbus.common.extensions.changeStatusBarColor
 import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    private val rootFragments: IntArray =
-            intArrayOf(R.id.favouriteFragment, R.id.timetablesFragment, R.id.informationListFragment, R.id.settingsFragment)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val onDestinationChangedListener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
-        if (rootFragments.contains(destination.id)) {
+        if (destination.id in ROOT_FRAGMENTS) {
             nav_view.visibility = View.VISIBLE
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
             supportActionBar?.setDisplayShowHomeEnabled(false)
@@ -79,6 +77,12 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
             setupWhiteNavigationNavigationBarColor(false)
+        }
+
+        if (destination.id == R.id.informationGmapsFragment) {
+            this.changeStatusBarColor(R.color.poluprozirniStatusBar)
+        } else {
+            this.changeStatusBarColor(R.color.colorPrimaryDark)
         }
 
         app_bar.isVisible = destination.id == R.id.settingsFragment
@@ -105,5 +109,15 @@ class MainActivity : AppCompatActivity() {
             "2" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "3" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+    }
+
+    companion object {
+
+        val ROOT_FRAGMENTS = intArrayOf(
+                R.id.favouriteFragment,
+                R.id.timetablesFragment,
+                R.id.informationListFragment,
+                R.id.settingsFragment
+        )
     }
 }

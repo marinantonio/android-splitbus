@@ -29,7 +29,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -156,10 +155,8 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun onTimetableGmapsClicked(timetable: Timetable) {
-        Toast.makeText(requireContext(), R.string.information_gmaps_not_ready, Toast.LENGTH_SHORT).show()
-//        val intent = Intent(requireActivity(), GmapsActivity::class.java)
-//        intent.putExtra("gmaps", timetable.gmapsId)
-//        startActivity(intent)
+        view?.findNavController()?.navigate(FavouritesFragmentDirections
+                .actionFavouriteFragmentToInformationGmapsFragment(timetable.gmapsId))
     }
 
     companion object {
