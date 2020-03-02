@@ -29,6 +29,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -36,6 +38,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
+import com.am.stbus.common.Constants
+import com.am.stbus.common.extensions.loadUrl
 import com.am.stbus.common.extensions.toPx
 import com.am.stbus.domain.models.NewsItem
 import kotlinx.android.synthetic.main.fragment_information_news_detail.*
@@ -86,6 +90,14 @@ class InformationNewsDetailFragment : Fragment() {
             isHorizontalScrollBarEnabled = false
             loadDataWithBaseURL("file:///android_res/", formatNewsTextForWebView(it.newsItemContent), "text/html", "utf-8", null)
         }
+
+        web_view.webViewClient  = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                requireContext().loadUrl(Constants.PROMET_URL + url.replace("file://", ""))
+                return true
+            }
+        }
+
     }
 
     private fun formatNewsTextForWebView(newsContent: String): String {

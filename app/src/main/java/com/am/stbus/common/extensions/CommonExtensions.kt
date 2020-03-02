@@ -35,7 +35,7 @@ import com.am.stbus.common.Constants.PROMET_URL
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
 
-fun Context.startUrl(url: String) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+fun Context.loadUrl(url: String) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 
 fun Context.loadPrometUrl() = this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PROMET_URL)))
 fun Context.loadEmailReport(linija: String, error: String) = this.startActivity(Intent.createChooser(

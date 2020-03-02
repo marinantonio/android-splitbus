@@ -30,10 +30,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.am.stbus.R
+import com.am.stbus.common.Constants
+import com.am.stbus.common.extensions.loadUrl
 import kotlinx.android.synthetic.main.fragment_information_web_view.*
 
 class InformationWebViewFragment : Fragment() {
@@ -62,6 +66,13 @@ class InformationWebViewFragment : Fragment() {
             webViewSettings.javaScriptEnabled = true
             setBackgroundColor(Color.TRANSPARENT)
             loadDataWithBaseURL("file:///android_res/", args.webViewContent, "text/html", "utf-8", null)
+        }
+
+        web_view.webViewClient  = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                requireContext().loadUrl(Constants.PROMET_URL + url)
+                return true
+            }
         }
 
 
