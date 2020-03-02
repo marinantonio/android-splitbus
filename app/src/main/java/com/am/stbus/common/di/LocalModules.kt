@@ -36,7 +36,7 @@ val localModules = module {
                 androidApplication(),
                 AppDatabase::class.java,
                 "split-bus-db"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     single {
