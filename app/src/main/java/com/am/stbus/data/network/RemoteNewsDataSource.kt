@@ -69,21 +69,31 @@ class RemoteNewsDataSource {
         return Single.fromCallable {
 
             val doc = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-            var newsContent: String
             var newsImgUrl: String
+            val newsContentWithAttachments: String
 
             doc.apply {
-                newsContent = if (select("[class=c-article-detail__body c-text-body]").size > 0) {
+                val newsContent = if (select("[class=c-article-detail__body c-text-body]").size > 0) {
                     select("[class=c-article-detail__body c-text-body]").html()
                 } else {
                     select("[class=EDN_article_content]").html()
                 }
 
+
+                val ul = doc.select("[class=o-list-bare c-article-document-list]").select("li")
+                val attachments = ul.map {
+                    val attachmentUrl = it.select("[class=c-article-document o-media]").first().attr("href")
+                    val attachmentTitle = it.select("[class=c-article-document__title c-text-lead]").text()
+                    return@map "<a href=\"$attachmentUrl\">$attachmentTitle</a>"
+                }.joinToString(separator = "<br><br>")
+
+                newsContentWithAttachments = newsContent + attachments
+
                 newsImgUrl = "http://www.promet-split.hr${select("[class=c-gallery-fotorama__item c-gallery-fotorama__item--image js-gallery-unwrap]")
                         .attr("data-img")}"
             }
 
-            return@fromCallable NewsItem(newsContent, newsImgUrl)
+            return@fromCallable NewsItem(newsContentWithAttachments, newsImgUrl)
         }
     }
 
