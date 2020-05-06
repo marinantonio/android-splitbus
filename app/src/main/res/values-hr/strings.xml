@@ -87,8 +87,8 @@
 
     <!-- Gmaps -->
     <string name="information_gmaps_not_ready">Interaktivna karta dolazi u nadolazećim nadogradnjama!</string>
-    <string name="information_gmaps_route_selector_popup_title">Select direction</string>
-    <string name="information_gmaps_route_selector_popup_close">Close</string>
+    <string name="information_gmaps_route_selector_popup_title">Odaberite smjer</string>
+    <string name="information_gmaps_route_selector_popup_close">Zatvori</string>
     <string name="gmaps_route_11">1 - Starine &#8212;> HNK</string>
     <string name="gmaps_route_12">1 - HNK &#8212;> Starine</string>
     <string name="gmaps_route_31">3 - Brda &#8212;> Lovrinac</string>
@@ -186,9 +186,9 @@
     <string name="content_update_toolbar">Aplikacija nadograđena</string>
     <string name="content_update_title">Split Bus v%1$s</string>
     <string name="content_update_desc"><![CDATA[
-    Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
+    Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Dodani su privitci u novostima, odsad možete preuzeti dokumente s voznim redovima izravno iz aplikacije
+    <br>* Dodani privitci u novostima, odsad možete preuzeti dokumente s voznim redovima izravno iz aplikacije
     <br>* Dodana linija br. 1 na interaktivnu kartu, molim vas da provjerite rutu i stanice!
     <br>
     ]]>
