@@ -79,12 +79,12 @@ class RemoteNewsDataSource {
                     select("[class=EDN_article_content]").html()
                 }
 
-
                 val ul = doc.select("[class=o-list-bare c-article-document-list]").select("li")
                 val attachments = ul.map {
                     val attachmentUrl = it.select("[class=c-article-document o-media]").first().attr("href")
                     val attachmentTitle = it.select("[class=c-article-document__title c-text-lead]").text()
-                    return@map "<a href=\"$attachmentUrl\">$attachmentTitle</a>"
+                    val attachmentProperties = it.select("[class=c-article-document__meta c-text-smallprint]").text()
+                    return@map "<a href=\"$attachmentUrl\">$attachmentTitle $attachmentProperties</a>"
                 }.joinToString(separator = "<br><br>")
 
                 newsContentWithAttachments = newsContent + attachments

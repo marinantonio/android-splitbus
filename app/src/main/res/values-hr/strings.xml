@@ -89,6 +89,8 @@
     <string name="information_gmaps_not_ready">Interaktivna karta dolazi u nadolazećim nadogradnjama!</string>
     <string name="information_gmaps_route_selector_popup_title">Select direction</string>
     <string name="information_gmaps_route_selector_popup_close">Close</string>
+    <string name="gmaps_route_11">1 - Starine &#8212;> HNK</string>
+    <string name="gmaps_route_12">1 - HNK &#8212;> Starine</string>
     <string name="gmaps_route_31">3 - Brda &#8212;> Lovrinac</string>
     <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
     <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
@@ -146,8 +148,8 @@
 
 
     <!-- Snippets -->
-    <string name="snippet_loading_title">Downloading &#8230;</string>
-    <string name="snippet_loading_desc">Fetching latest data, please hold on!</string>
+    <string name="snippet_loading_title">Preuzimanje &#8230;</string>
+    <string name="snippet_loading_desc">Skidaju se najnoviji podatci, molimo Vas za strpljenje!</string>
     <string name="snippet_error_symbol">;(</string>
     <string name="snippet_error_title">Nema podataka!</string>
     <string name="snippet_error_desc">Ovo se može dogoditi ako Promet Split napravi neočekivane promjene na svojoj internet stranici.</string>
