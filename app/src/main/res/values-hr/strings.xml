@@ -188,9 +188,8 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji je:
     <br>
-    <br>* Interaktivna karta je ponovo aktivna, zahvaljujem na vašem strpljenju! Zasad su dodane samo rute 3, 6, 18 i 40, molim vas testirajte i javite dojmove.
-    <br>* Linije 7 i 8 su izmjenjene, a pošto su dodane nove stavke favoriti će se poništiti! Isprike zbog tog.
-    <br>* Popravljeno rušenje koje se događalo pri klikanju na poveznicu unutar novosti
+    <br>* Dodani su privitci u novostima, odsad možete preuzeti dokumente s voznim redovima izravno iz aplikacije
+    <br>* Dodana linija br. 1 na interaktivnu kartu, molim vas da provjerite rutu i stanice!
     <br>
     ]]>
     </string>

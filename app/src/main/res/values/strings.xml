@@ -184,9 +184,8 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your early feedback and bug reports! This release contains following:
     <br>
-    <br>* Interactive map is back, thanks for your patience! Added routes 3, 6, 18 and 40, please test and report feedback!
-    <br>* Updates to lines 7 and 8, this will cause Favourites to reset, sorry for that
-    <br>* Crash fix occurring when clicking on urls inside WebVies
+    <br>* Added attachments in the news, now you can download timetables as documents
+    <br>* Added line 1 on the interactive map, please check route and report any issues!
     <br>
     <br>
     ]]>
