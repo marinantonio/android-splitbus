@@ -95,6 +95,10 @@
     <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
     <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
     <string name="gmaps_route_62">6 - HNK &#8212;> Kila</string>
+    <string name="gmaps_route_71">7 - Žnjan &#8212;> Zapadna Obala</string>
+    <string name="gmaps_route_72">7 - Zapadna Obala &#8212;> Žnjan</string>
+    <string name="gmaps_route_81">8 - Žnjan &#8212;> Zvončac</string>
+    <string name="gmaps_route_82">8 - Zvončac &#8212;> Žnjan</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
@@ -171,14 +175,15 @@
     <string name="content_first_run_title">Dobrodošli u novi Split Bus app!</string>
     <string name="content_first_run_desc"><![CDATA[
     <p>Split Bus olakšava građanima i posjetiteljima Splita svakodnevno snalaženje u javnom prijevozu.
-    Aplikacije je besplatna, bez reklama, te otvorenog koda.</p>
+    Aplikacije je potpuno besplatna, bez reklama, te otvorenog koda.</p>
     <h4>Što je novo?</h4>
-    <p>Potpuno je prepisan kod, pa bi aplikacija sad trebala puno bolje raditi! Dok sam prepisivao odlučio
-    sam dodat i pokoju sitnicu pa ćete primjetiti da se vozni redovi pohranjuju i lokalno, pa će biti dostupni
-    i ako nemate interneta. Ima par sitnica i u dizajnu aplikacije, a možda najbitnije je da je dodan tamni način.
+    <p>Potpuno je prepisan kod, što će utjecati na glađe izvođenje! Dok sam prepisivao odlučio
+    sam dodat i pokoju sitnicu pa ćete primjetiti da se vozni redovi pohranjuju i lokalno, odnosno jednom
+    preuzeti biti će dostupni i ako nemate interneta. Ima par sitnica i u dizajnu aplikacije,
+    a možda najbitnije, dodan je tamni način.
     <h4>Što je iduće?</h4>
-    <p>Interaktivna karta vjerojatno nije najtočnija, to ću morati pogledati za iduće nadogradnje.
-    Molim Vas za malo strpljenja s tim jer oduzima jako puno vremena, a nisam ni siguran više gdje koja linija prolazi.</p>
+    <p>Na Interaktivnoj karti fali većina linija, molim Vas za malo strpljenja s tim.
+    Oduzima jako puno vremena, a nisam ni siguran više gdje koja linija prolazi.</p>
     <p><b>Zahvaljujem na preuzimanju i hvala Vam što koristite Split Bus! :)</b></p>
     ]]>
     </string>
@@ -188,8 +193,8 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Dodani privitci u novostima, odsad možete preuzeti dokumente s voznim redovima izravno iz aplikacije
-    <br>* Dodana linija br. 1 na interaktivnu kartu, molim vas da provjerite rutu i stanice!
+    <br>* Dodane linije br. 7 i 8 na interaktivnoj karti. Dodaju se i ostale, ali vas molim za malo strpljenja.
+    <br>* Ispravljene pokoje greškice i nadograđeni interni alati
     <br>
     ]]>
     </string>

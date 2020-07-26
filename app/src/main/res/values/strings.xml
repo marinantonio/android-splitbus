@@ -95,6 +95,10 @@
     <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
     <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
     <string name="gmaps_route_62">6 - HNK &#8212;> Kila</string>
+    <string name="gmaps_route_71">7 - Žnjan &#8212;> Zapadna Obala</string>
+    <string name="gmaps_route_72">7 - Zapadna Obala &#8212;> Žnjan</string>
+    <string name="gmaps_route_81">8 - Žnjan &#8212;> Zvončac</string>
+    <string name="gmaps_route_82">8 - Zvončac &#8212;> Žnjan</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
@@ -133,7 +137,7 @@
 
 
     <!-- About -->
-    <string name="about_app_desc">Split Bus helps out citizens and tourists with the public transport in Split. The app is free, open source, packed with features while maintaining simple easy to use design.
+    <string name="about_app_desc">Split Bus helps out citizens and tourists with the public transport in Split. The app is free, open sourced, packed with features while maintaining simple easy to use design.
     \n\nApp obtains data directly from Promet d.o.o. website. I cannot be held responsible for their content or availability. </string>
     <string name="about_changelog">Changelog</string>
     <string name="about_github">GitHub</string>
@@ -171,22 +175,22 @@
     <string name="content_first_run_title">Welcome to Split Bus app!</string>
     <string name="content_first_run_desc"><![CDATA[
     <p>Split Bus is made to simplify local public transport for both residents and tourists found in Split.
-    App is free, open sourced, and as I am the only developer, not in any way related to the with bus service provider
-    I cannot guarantee for app content. For more info please check app settings where you can read more in the FAQ section or report
+    App is free, open sourced, and not in any way related to the bus service provider Promet Split d.o.o.</p>
+    <p>As I am the only developer I cannot guarantee for app content. For more info please check app settings where you can read more in the FAQ section or report
     any issues using the contact form.</p>
-    <p><b>Important note:</b> Routes on the Interactive map might not be fully in line with the latest changes, in order to avoid misleading
-    data Interactive map will be disabled until It gets updates!</p>
+    <p><b>Important note:</b> Routes on the Interactive map might not be fully in a line with the latest changes, please bear with me while I make updates to it.
+    Sorry for any inconveniences this might caused!</p>
+    <p>Wish you a pleasant stay in Split! Antonio Marin</p>
     ]]>
     </string>
 
     <string name="content_update_toolbar">App updated</string>
     <string name="content_update_title">Split Bus v%1$s</string>
     <string name="content_update_desc"><![CDATA[
-    Thank you all for your early feedback and bug reports! This release contains following:
+    Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Added attachments in the news, now you can download timetables as documents
-    <br>* Added line 1 on the interactive map, please check route and report any issues!
-    <br>
+    <br>* Added lines 7 and 8 on the interactive map, please check routes and report any issues!
+    <br>* More internal bug fixes and updates
     <br>
     ]]>
     </string>
