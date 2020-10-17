@@ -45,7 +45,9 @@ class InformationNewsListFragment : Fragment() {
 
     private val viewModel: InformationNewsListViewModel by viewModel()
 
-    private val informationNewsListAdapter = InformationNewsListAdapter(context) { onNewsItemClicked(it)}
+    private val informationNewsListAdapter by lazy {
+        InformationNewsListAdapter(requireContext()) { onNewsItemClicked(it) }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

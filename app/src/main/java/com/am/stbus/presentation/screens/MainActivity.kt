@@ -32,12 +32,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
 import com.am.stbus.R
 import com.am.stbus.common.extensions.changeStatusBarColor
-import com.am.stbus.common.extensions.systemUiVisibilityFullScreen
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -48,9 +47,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupAppTheme()
 
-        container.systemUiVisibilityFullScreen()
+        //container.systemUiVisibilityFullScreen()
 
-        val navigationController: NavController = findNavController(R.id.nav_host_fragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navigationController = navHostFragment.navController
 
         // Za skrivanje bottomNavBara
         navigationController.addOnDestinationChangedListener(onDestinationChangedListener)
@@ -80,8 +80,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (destination.id == R.id.informationGmapsFragment) {
+            container.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
             this.changeStatusBarColor(R.color.poluprozirniStatusBar)
         } else {
+            container.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             this.changeStatusBarColor(R.color.colorPrimaryDark)
         }
 

@@ -63,15 +63,14 @@ import com.am.stbus.common.InformationConstants.TYPE_ITEM
 import com.am.stbus.domain.models.Information
 import kotlinx.android.synthetic.main.fragment_information_list.*
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class InformationListFragment : Fragment() {
 
-    private val viewModel: InformationListViewModel by viewModel()
-
     private val preferencesManager: SharedPreferences by inject()
 
-    private val informationListAdapter = InformationListAdapter(context) { onInformationClicked(it) }
+    private val informationListAdapter by lazy {
+        InformationListAdapter(requireContext()) { onInformationClicked(it) }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -97,7 +96,7 @@ class InformationListFragment : Fragment() {
     private fun onInformationClicked(information: Information) {
         when (information.informationId) {
             ID_LATEST_NEWS -> navigateToFragment(information)
-            ID_TOURIST_INFO -> Toast.makeText(context, context!!.getText(R.string.error_still_not_finished), Toast.LENGTH_SHORT).show()
+            ID_TOURIST_INFO -> Toast.makeText(requireContext(), requireContext().getText(R.string.error_still_not_finished), Toast.LENGTH_SHORT).show()
             ID_GMAPS -> navigateToFragment(information)
             ID_URBAN_MAP -> navigateToFragment(information)
             ID_SUBURBAN_MAP -> navigateToFragment(information)
@@ -137,7 +136,7 @@ class InformationListFragment : Fragment() {
             customTabsIntent.launchUrl(requireContext(), Uri.parse(url))
         } else {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            context?.startActivity(intent)
+            requireContext().startActivity(intent)
         }
     }
 
@@ -146,7 +145,7 @@ class InformationListFragment : Fragment() {
         // Show the title
         intentBuilder.setShowTitle(true)
         // Set the color of Toolbar
-        intentBuilder.setToolbarColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
+        intentBuilder.setToolbarColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
         return intentBuilder.build()
     }
 

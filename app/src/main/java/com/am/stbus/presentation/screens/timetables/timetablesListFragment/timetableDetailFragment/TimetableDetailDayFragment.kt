@@ -30,18 +30,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.am.stbus.R
+import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.SATURDAY
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.SUNDAY
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment.Companion.WORK_DAY
 import kotlinx.android.synthetic.main.fragment_timetable_day.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class TimetableDetailDayFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
+    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,

@@ -50,7 +50,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.preferences)
 
         // Mijenjanje teme u postavkama
-        val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
         listener = SharedPreferences.OnSharedPreferenceChangeListener { _, string ->
             if (string == "darkMode") {
                 mainActivity.setupAppTheme()
