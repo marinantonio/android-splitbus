@@ -1,28 +1,25 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.gradle_version = '4.0.1'
-    ext.kotlin_version = '1.3.72'
+    ext.gradle_version = '4.1.0'
+    ext.kotlin_version = '1.4.10'
     ext.navigation_safe_args_version = '2.1.0-alpha05'
     ext.gms_services_version = '4.3.3'
-    ext.fabric_version = '1.31.2'
+    ext.licenses_version = '0.10.2'
+    ext.crashlytics_version = '2.3.0'
 
     repositories {
         mavenCentral()
         google()
         jcenter()
-
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
-
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_safe_args_version"
         classpath "com.google.gms:google-services:$gms_services_version"
-        classpath "io.fabric.tools:gradle:$fabric_version"
-        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.2'
+        classpath "com.google.android.gms:oss-licenses-plugin:$licenses_version"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$crashlytics_version"
     }
 }
 

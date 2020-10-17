@@ -29,8 +29,17 @@ import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import com.am.stbus.BuildConfig
 import com.am.stbus.common.Constants.PROMET_URL
+import org.koin.androidx.viewmodel.ViewModelParameter
+import org.koin.androidx.viewmodel.koin.getViewModel
+import org.koin.core.parameter.ParametersDefinition
+import org.koin.core.qualifier.Qualifier
+import org.koin.java.KoinJavaComponent.getKoin
 
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
@@ -52,3 +61,12 @@ fun Context.loadEmailReport(linija: String, error: String) = this.startActivity(
         }, "Email")
 )
 
+
+inline fun <reified VM : ViewModel> Fragment.sharedGraphViewModel(
+        @IdRes navGraphId: Int,
+        qualifier: Qualifier? = null,
+        noinline parameters: ParametersDefinition? = null
+) = lazy {
+    val store = findNavController().getViewModelStoreOwner(navGraphId).viewModelStore
+    getKoin().getViewModel(ViewModelParameter(VM::class, qualifier, parameters, null, store, null))
+}

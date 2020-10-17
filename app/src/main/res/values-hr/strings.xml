@@ -99,10 +99,14 @@
     <string name="gmaps_route_72">7 - Zapadna Obala &#8212;> Žnjan</string>
     <string name="gmaps_route_81">8 - Žnjan &#8212;> Zvončac</string>
     <string name="gmaps_route_82">8 - Zvončac &#8212;> Žnjan</string>
+    <string name="gmaps_route_91">9 - Ravne Njive &#8212;> Trajektna Luka</string>
+    <string name="gmaps_route_92">9 - Trajektna Luka &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_111">11 - Ravne Njive &#8212;> HNK</string>
+    <string name="gmaps_route_112">11 - HNK &#8212;> Ravne Njive</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
-    <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
-    <string name="gmaps_route_402">40 - Ferry Port &#8212;> Kila</string>
+    <string name="gmaps_route_401">40 - Kila &#8212;> Trajektna Luka</string>
+    <string name="gmaps_route_402">40 - Trajektna Luka &#8212;> Kila</string>
 
     <string name="gmaps_menu_main_city_stops">Glavne gradske stanice</string>
     <string name="gmaps_menu_other_city_stops">Ostale gradske stanice</string>
@@ -193,7 +197,8 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Dodane linije br. 7 i 8 na interaktivnoj karti. Dodaju se i ostale, ali vas molim za malo strpljenja.
+    <br>* Dodane linije br. 9 i 11 na interaktivnoj karti. Dodaju se i ostale, ali vas molim za malo strpljenja
+    <br>* Ispravke na rutama 7 i 8
     <br>* Ispravljene pokoje greškice i nadograđeni interni alati
     <br>
     ]]>

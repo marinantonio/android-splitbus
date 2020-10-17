@@ -33,32 +33,33 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
+import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FIRST_RUN_CONTENT
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.UPDATE_APP_CONTENT
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_favourites.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class FavouritesFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
+    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
 
     private val viewModel: FavouritesViewModel by viewModel()
 
-    private val favouriteAdapter = FavouritesAdapter(
-            context,
-            { onTimetableClicked(it) },
-            { position, timetable -> onTimetableFavouritesClicked(position, timetable)},
-            { onTimetableGmapsClicked(it) }
-    )
+    private val favouriteAdapter by lazy {
+        FavouritesAdapter(
+                requireContext(),
+                { onTimetableClicked(it) },
+                { position, timetable -> onTimetableFavouritesClicked(position, timetable) },
+                { onTimetableGmapsClicked(it) }
+        )
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

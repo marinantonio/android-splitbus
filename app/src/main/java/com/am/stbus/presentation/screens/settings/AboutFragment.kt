@@ -86,7 +86,7 @@ class AboutFragment : Fragment() {
             customTabsIntent.launchUrl(requireContext(), Uri.parse(url))
         } else {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            context?.startActivity(intent)
+            requireContext().startActivity(intent)
         }
     }
 
@@ -95,7 +95,7 @@ class AboutFragment : Fragment() {
         // Show the title
         intentBuilder.setShowTitle(true)
         // Set the color of Toolbar
-        intentBuilder.setToolbarColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
+        intentBuilder.setToolbarColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
         return intentBuilder.build()
     }
 

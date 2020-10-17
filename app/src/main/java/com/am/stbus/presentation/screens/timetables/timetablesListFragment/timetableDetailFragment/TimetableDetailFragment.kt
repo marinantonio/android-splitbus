@@ -33,7 +33,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager.widget.ViewPager
 import com.am.stbus.R
@@ -41,13 +40,13 @@ import com.am.stbus.common.Constants
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.common.extensions.loadEmailReport
 import com.am.stbus.common.extensions.loadPrometUrl
+import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_timetable.*
 import kotlinx.android.synthetic.main.snippet_error.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.threeten.bp.LocalDateTime
@@ -56,7 +55,7 @@ import org.threeten.bp.format.FormatStyle
 
 class TimetableDetailFragment : Fragment() {
 
-    private val timetablesSharedViewModel by sharedViewModel<TimetablesSharedViewModel>(from = { findNavController().getViewModelStoreOwner(R.id.nav_graph)})
+    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
 
     private val viewModel: TimetableDetailViewModel by viewModel { parametersOf(args) }
 
@@ -85,7 +84,7 @@ class TimetableDetailFragment : Fragment() {
                 findNavController().popBackStack()
             }
             inflateMenu(R.menu.menu_timetable)
-            onCreateOptionsMenu(menu, MenuInflater(context))
+            onCreateOptionsMenu(menu, MenuInflater(requireContext()))
             onPrepareOptionsMenu(menu)
             setOnMenuItemClickListener {
                 onOptionsItemSelected(it)

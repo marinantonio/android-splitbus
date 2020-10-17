@@ -101,7 +101,7 @@ class InformationNewsDetailFragment : Fragment() {
     }
 
     private fun formatNewsTextForWebView(newsContent: String): String {
-        val textColor = "#" + Integer.toHexString(ContextCompat.getColor(context!!, R.color.colorText) and 0x00ffffff)
+        val textColor = "#" + Integer.toHexString(ContextCompat.getColor(requireContext(), R.color.colorText) and 0x00ffffff)
         val textFixedImageTags = newsContent.replace("src=\"/", "src=\"http://www.promet-split.hr/")
         return "<head>\n " +
                 "</head>\n" +
