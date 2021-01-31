@@ -201,7 +201,7 @@ class TimetablesData {
                 103 -> "2 SPLIT- POLJIČKA - K. SUĆURAC (STRINJE) - ZRAČNA L."
                 104 -> "2A K. SUĆURAC(STRINJE) - TR. LUKA - K. SUĆURAC(STRINJE)"
                 105 -> "5 DRAČEVAC - HNK - DRAČEVAC"
-                106 -> "5A DRAČEVAC - SOLIN - VISOKA - HNK - DRAČEVAC"
+                106 -> "5A DRAČEVAC -SOLIN- VISOKA- HNK - DRAČEVAC"
                 107 -> "10 JAPIRKO - HNK - JAPIRKO"
                 108 -> "16 NINČEVIĆI - HNK - NINČEVIĆI"
                 109 -> "22 KLIS MEGDAN-G.RUPOTINA-HNK-KLIS MEGDAN"

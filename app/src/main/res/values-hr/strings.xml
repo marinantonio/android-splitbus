@@ -103,6 +103,8 @@
     <string name="gmaps_route_92">9 - Trajektna Luka &#8212;> Ravne Njive</string>
     <string name="gmaps_route_111">11 - Ravne Njive &#8212;> HNK</string>
     <string name="gmaps_route_112">11 - HNK &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_151">15 - Duilovo &#8212;> Trajektna Luka</string>
+    <string name="gmaps_route_152">15 - Trajektna Luka &#8212;> Duilovo</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Trajektna Luka</string>
