@@ -145,16 +145,25 @@ class TimetablesData {
                 306 -> R.string.bus442
                 307 -> R.string.bus451
                 308 -> R.string.bus452
-                309 -> R.string.bus47
-                310 -> R.string.bus48
-                311 -> R.string.bus491
-                312 -> R.string.bus492
-                313 -> R.string.bus501
-                314 -> R.string.bus502
-                315 -> R.string.bus511
-                316 -> R.string.bus512
-                317 -> R.string.bus521
-                318 -> R.string.bus522
+                309 -> R.string.bus471
+                310 -> R.string.bus472
+                311 -> R.string.bus4911
+                312 -> R.string.bus4912
+                313 -> R.string.bus4921
+                314 -> R.string.bus4922
+                315 -> R.string.bus5011
+                316 -> R.string.bus5012
+                317 -> R.string.bus5021
+                318 -> R.string.bus5022
+                319 -> R.string.bus5023
+                322 -> R.string.bus511
+                323 -> R.string.bus512
+                324 -> R.string.bus5211
+                325 -> R.string.bus5212
+                326 -> R.string.bus5213
+                327 -> R.string.bus5214
+                328 -> R.string.bus5215
+
 
                 401 -> R.string.buss1
                 402 -> R.string.buss2
@@ -184,8 +193,8 @@ class TimetablesData {
                 16 -> "18 BRNIK - HNK - BRNIK"
                 17 -> "20 RAVNE NJIVE - ZVONČAC"
                 18 -> "21 SV.FRANE - MEJE - SV.FRANE"
-                19 -> "24 SPLIT - KOPILICA - DOM. RATA - STOBREČ - TTTS"
-                20 -> "24 TTTS - STOBREČ - DOM. RATA - KOPILICA - SPLIT"
+                19 -> "24 SPLIT - POLJIČKA - TTTS"
+                20 -> "24 TTTS -POLJIČKA - SPLIT"
                 21 -> "25 SPLIT - STOBREČ"
                 22 -> "25 STOBREČ - SPLIT"
                 23 -> "26 SPLIT - KAMEN"
@@ -202,7 +211,7 @@ class TimetablesData {
                 104 -> "2A K. SUĆURAC(STRINJE) - TR. LUKA - K. SUĆURAC(STRINJE)"
                 105 -> "5 DRAČEVAC - HNK - DRAČEVAC"
                 106 -> "5A DRAČEVAC -SOLIN- VISOKA- HNK - DRAČEVAC"
-                107 -> "10 JAPIRKO - HNK - JAPIRKO"
+                107 -> "10 JAPIRKO"
                 108 -> "16 NINČEVIĆI - HNK - NINČEVIĆI"
                 109 -> "22 KLIS MEGDAN-G.RUPOTINA-HNK-KLIS MEGDAN"
                 110 -> "23 HNK - SOLIN - HNK"
@@ -232,9 +241,9 @@ class TimetablesData {
                 134 -> "60 RAVNIČKI MOST - OMIŠ - SPLIT"
                 135 -> "ŽELJEZNIČKA STANICA - KAŠTEL STARI"
                 136 -> "KAŠTEL STARI - ŽELJEZNIČKA STANICA"
-                137 -> "TROGIR KOLODVOR - ŽELJEZNIČKA STANICA (K. STARI) INTEGRIRANA LINIJA (INTEGRATED LINE)"
-                138 -> "ŽELJEZNIČKA STANICA (K. STARI) - TROGIR KOLODVOR INTEGRIRANA LINIJA (INTEGRATED LINE)"
-                139 -> "TROGIR - SPLIT (direktna)"
+                137 -> "TROGIR KOLODVOR - ŽELJEZNIČKA STANICA"
+                138 -> "ŽELJEZNIČKA STANICA (K. STARI) - TROGIR KOLODVOR INTEGRIRANA "
+                139 -> "TROGIR - SPLIT"
 
 
                 // Prigradsko
@@ -270,24 +279,33 @@ class TimetablesData {
                 227 -> "RUDINE - KAŠTEL STARI"
 
                 // Trogir i Solta
-                301 -> "41 TROGIR - PLANO - MALJKOVIĆI"
-                302 -> "41 MALJKOVIĆI - PLANO - TROGIR"
+                301 -> "41 TROGIR"
+                302 -> "41 PLANO"
                 303 -> "42 TROGIR - SLATINE"
                 304 -> "42 SLATINE - TROGIR"
                 305 -> "44 TROGIR - OKRUG DONJI"
                 306 -> "44 OKRUG DONJI - TROGIR"
-                307 -> "45 TROGIR - HOTEL MEDENA - VRANJICA"
-                308 -> "45 VRANJICA - HOTEL MEDENA - TROGIR"
-                309 -> "47 TROGIR - HOTEL MEDENA - VRSINE - MARINA - TROGIR"
-                310 -> "48 TROGIR - HOTEL MEDENA - MARINA - DOGRADE - VRSINE - TROGIR"
-                311 -> "49 TROGIR - HOTEL MEDENA - VINIŠĆE"
-                312 -> "49 VINIŠĆE - HOTEL MEDENA - TROGIR"
-                313 -> "50 TROGIR - HOTEL MEDENA - SEVID"
-                314 -> "50 SEVID - HOTEL MEDENA - TROGIR"
-                315 -> "51 TROGIR - LJUBITOVICA"
-                316 -> "51 LJUBITOVICA - TROGIR"
-                317 -> "52 TROGIR - VINOVAC"
-                318 -> "52 VINOVAC - TROGIR"
+                307 -> "45 TROGIR"
+                308 -> "45 VRANJICA"
+                309 -> "47 TROGIR"
+                310 -> "47 MARINA"
+                311 -> "49 TROGIR - MARINA - VINIŠĆE"
+                312 -> "49 TROGIR - VRSINE - MARINA - VINIŠĆE"
+                313 -> "49 VINIŠĆE - MARINA"
+                314 -> "49 VINIŠĆE - MARINA - TROGIR"
+                315 -> "50 TROGIR -VRSINE - MARINA - SEVID"
+                316 -> "50 TROGIR - MARINA - VINIŠĆE - SEVID"
+                317 -> "50 SEVID - VINIŠĆE -TROGIR"
+                318 -> "50 SEVID -TROGIR"
+                319 -> "50 SEVID -MARINA"
+                322 -> "51 TROGIR"
+                323 -> "51 LJUBITOVICA"
+                324 -> "52 TROGIR - VRSINE -"
+                325 -> "52 VINOVAC - BLIZNA - DOGRADE"
+                326 -> "52 MARINA (OKRETIŠTE) - VINOVAC"
+                327 -> "52 VINOVAC - BLIZNA - MARINA - DOGRADE"
+                328 -> "52 VINOVAC - BLIZNA - MARINA - TROGIR"
+
 
                 401 -> "MASLINICA - DONJE SELO - SREDNJE SELO - GROHOTE - ROGAČ"
                 402 -> "ROGAČ - GROHOTE - SREDNJE SELO - DONJE SELO - MASLINICA"
@@ -415,15 +433,23 @@ class TimetablesData {
                 Timetable(307, "45", 31, AREA_TROGIR, 0, "", ""),
                 Timetable(308, "45", 31, AREA_TROGIR, 0, "", ""),
                 Timetable(309, "47", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(310, "48", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(310, "47", 31, AREA_TROGIR, 0, "", ""),
                 Timetable(311, "49", 31, AREA_TROGIR, 0, "", ""),
                 Timetable(312, "49", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(313, "50", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(314, "50", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(315, "51", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(316, "51", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(317, "52", 31, AREA_TROGIR, 0, "", ""),
-                Timetable(318, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(313, "49", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(314, "49", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(315, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(316, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(317, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(318, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(319, "50", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(322, "51", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(323, "51", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(324, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(325, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(326, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(327, "52", 31, AREA_TROGIR, 0, "", ""),
+                Timetable(328, "52", 31, AREA_TROGIR, 0, "", ""),
 
                 Timetable(401, "", 31, AREA_SOLTA, 0, "", ""),
                 Timetable(402, "", 31, AREA_SOLTA, 0, "", ""),
