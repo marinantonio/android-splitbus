@@ -199,11 +199,12 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Popravljeni vozni redovi koji se nisu prikazivali, poput linija br. 5A, 10, a i par ostalih. Zbog većeg obujma promjena,
-    interna baza je znatnije izmjenjena što znači da će vam se favoriti poništiti. Isprike zbog navedenog!
-    <br>* Dodane linija br. 15 na interaktivnoj karti. Dodaju se i ostale, ali vas molim za malo strpljenja
+    <br>* Popravljeni vozni redovi koji se nisu prikazivali, poput linija br. 5A, 10, a i par ostalih
+    <br>* Dodane linija br. 15 na interaktivnoj karti
     <br>* Ispravljene pokoje greškice i nadograđeni interni alati
     <br>
+    <br>
+    <b>NAPOMENA:</b> Favoriti će se Vam se poništiti jer je interna baza nadograđena, ispričavam se zbog toga toga!
     ]]>
     </string>
 
@@ -369,6 +370,5 @@
     <string name="buss2">Rogač - Grohote - Srednje Selo - Donje Selo - Maslinica</string>
     <string name="buss3">Stomorska - Gornje Selo - Nečujam - Grohote - Rogač</string>
     <string name="buss4">Rogač - Grohote - Nečujam - Gornje Selo - Stomorska</string>
-    <string name="buss5">Trogir - Plano - Maljkovići</string>
 
 </resources>

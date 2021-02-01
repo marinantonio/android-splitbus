@@ -195,11 +195,12 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Timetable updates, fixes for various timetables not loading including 5A, 10 and others. Unfortunately
-    favourites had to be reset!
+    <br>* Timetable updates, fixes for various timetables not loading including 5A, 10 and others
     <br>* Added line 15 on the interactive map, please check routes and report any issues!
     <br>* More internal bug fixes and updates
     <br>
+    <br>
+    <b>NOTE:</b> Your favourites will reset as internal database has been upgraded! Apologies for this!
     ]]>
     </string>
 
