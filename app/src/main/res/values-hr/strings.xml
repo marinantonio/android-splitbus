@@ -1,7 +1,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2013 - 2019 Antonio Marin
+  ~ Copyright (c) 2013 - 2021 Antonio Marin
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -103,6 +103,8 @@
     <string name="gmaps_route_92">9 - Trajektna Luka &#8212;> Ravne Njive</string>
     <string name="gmaps_route_111">11 - Ravne Njive &#8212;> HNK</string>
     <string name="gmaps_route_112">11 - HNK &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_151">15 - Duilovo &#8212;> Trajektna Luka</string>
+    <string name="gmaps_route_152">15 - Trajektna Luka &#8212;> Duilovo</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Trajektna Luka</string>
@@ -197,10 +199,12 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Dodane linije br. 9 i 11 na interaktivnoj karti. Dodaju se i ostale, ali vas molim za malo strpljenja
-    <br>* Ispravke na rutama 7 i 8
+    <br>* Popravljeni vozni redovi koji se nisu prikazivali, poput linija br. 5A, 10, a i par ostalih
+    <br>* Dodane linija br. 15 na interaktivnoj karti
     <br>* Ispravljene pokoje greškice i nadograđeni interni alati
     <br>
+    <br>
+    <b>NAPOMENA:</b> Favoriti će se Vam se poništiti jer je interna baza nadograđena, ispričavam se zbog toga toga!
     ]]>
     </string>
 
@@ -244,7 +248,7 @@
     <string name="bus81">Žnjan - Zvončac</string>
     <string name="bus82">Zvončac - Žnjan</string>
     <string name="bus9">Ravne Njive - Trajektna Luka - Ravne Njive</string>
-    <string name="bus10">Japirko - HNK - Japirko</string>
+    <string name="bus10">Japirko - Trajektna Luka - Japirko</string>
     <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
     <string name="bus121">Sv.Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
@@ -333,24 +337,32 @@
 
 
     <!-- Trogir -->
-    <string name="bus411">Trogir - Plano - Maljkovići</string>
-    <string name="bus412">Maljkovići - Plano - Trogir</string>
+    <string name="bus411">Trogir - Plano</string>
+    <string name="bus412">Plano - Trogir</string>
     <string name="bus421">Trogir - Slatine</string>
     <string name="bus422">Slatine - Trogir</string>
     <string name="bus441">Trogir - Okrug Donji</string>
     <string name="bus442">Okrug Donji - Trogir</string>
-    <string name="bus451">Trogir - Hotel Medena - Vranjica</string>
-    <string name="bus452">Vranjica - Hotel Medena - Trogir</string>
-    <string name="bus47">Trogir - Hotel Medena - Vrsine - Marina - Trogir</string>
-    <string name="bus48">Trogir - Hotel Medena - Marina - Dograde - Vrsine - Trogir</string>
-    <string name="bus491">Trogir - Hotel Medena - Vinišće</string>
-    <string name="bus492">Vinišće - Hotel Medena - Trogir</string>
-    <string name="bus501">Trogir - Hotel Medena - Sevid</string>
-    <string name="bus502">Sevid - Hotel Medena - Trogir</string>
-    <string name="bus511">Trogir - Ljubitovica</string>
+    <string name="bus451">Trogir - Seget Vranjica</string>
+    <string name="bus452">Seget Vranjica - Trogir</string>
+    <string name="bus471">Trogir - Marina</string>
+    <string name="bus472">Marina - Trogir</string>
+    <string name="bus4911">Trogir - Marina - Vinišće</string>
+    <string name="bus4912">Trogir - Vrsine - Marina - Vinišće</string>
+    <string name="bus4921">Vinišće - Marina</string>
+    <string name="bus4922">Vinišće - Marina - Trogir</string>
+    <string name="bus5011">Trogir - Vrsine - Marina - Sevid</string>
+    <string name="bus5012">Trogir - Marina - Vinišće - Sevid</string>
+    <string name="bus5021">Sevid - Vinišće - Trogir</string>
+    <string name="bus5022">Sevid - Trogir</string>
+    <string name="bus5023">Sevid - Marina</string>
+    <string name="bus511">Trogir - Bristivica - Ljubitovica</string>
     <string name="bus512">Ljubitovica - Trogir</string>
-    <string name="bus521">Trogir - Vinovac</string>
-    <string name="bus522">Vinovac - Trogir</string>
+    <string name="bus5211">Trogir - Vrsine - Marina - Vinovac</string>
+    <string name="bus5212">Vinovac - Blizna - Dograde - Marina - Trogir</string>
+    <string name="bus5213">Marina (okretište) - Vinovac</string>
+    <string name="bus5214">Vinovac - Blizna - Marina - Dograde - Vrsine - Trogir</string>
+    <string name="bus5215">Vinovac - Blizna - Marina - Trogir</string>
 
 
     <!-- Trogir -->
@@ -358,6 +370,5 @@
     <string name="buss2">Rogač - Grohote - Srednje Selo - Donje Selo - Maslinica</string>
     <string name="buss3">Stomorska - Gornje Selo - Nečujam - Grohote - Rogač</string>
     <string name="buss4">Rogač - Grohote - Nečujam - Gornje Selo - Stomorska</string>
-    <string name="buss5">Trogir - Plano - Maljkovići</string>
 
 </resources>

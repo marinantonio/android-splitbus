@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2019 Antonio Marin
+ * Copyright (c) 2013 - 2021 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ package com.am.stbus.common
 
 object Constants {
 
-    const val DB_VERSION = 2
+    const val DB_VERSION = 3
 
     const val PROMET_URL = "http://www.promet-split.hr"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
