@@ -195,10 +195,7 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Timetable updates, fixes for various timetables not loading including 5A, 10 and others
-    <br>* Added line 15 on the interactive map, please check routes and report any issues!
-    <br>* More internal bug fixes and updates
-    <br>
+    <br>* Fixes for lines 7, 11 and 17
     <br>
     <b>NOTE:</b> Your favourites will reset as internal database has been upgraded! Apologies for this!
     ]]>
@@ -238,20 +235,22 @@
     <string name="bus5">Dračevac - HNK - Dračevac</string>
     <string name="bus51">Dračevac - Solin - Visoka - HNK - Dračevac</string>
     <string name="bus6">Kila - Vukovarska - HNK - Kila</string>
-    <string name="bus71">Žnjan - Zapadna Obala</string>
-    <string name="bus72">Zapadna Obala - Žnjan</string>
+    <string name="bus71">Žnjan - Spinut - Zapadna Obala</string>
+    <string name="bus72">Zapadna Obala - Spinut - Žnjan</string>
     <string name="bus81">Žnjan - Zvončac</string>
     <string name="bus82">Zvončac - Žnjan</string>
     <string name="bus9">Ravne Njive - Ferry Port - Ravne Njive</string>
     <string name="bus10">Japirko - Ferry Port - Japirko</string>
-    <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
+    <string name="bus111">Spinut - Kampus - Pujanke - Ravne Njive</string>
+    <string name="bus112">Ravne Njive - Pujanke - Kampus - Spinut</string>
     <string name="bus121">Sv.Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
     <string name="bus141">Brda - Kopilica - Dubrovačka - Hospitals - Žnjan - Duilovo</string>
     <string name="bus142">Duilovo - Žnjan - Dubrovačka - Hospitals - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Ferry Port - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
-    <string name="bus17">Spinut - Lora - Trstenik - Lora - Spinut</string>
+    <string name="bus171">Spinut - Lora - Kampus - Spinut</string>
+    <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
     <string name="bus18">Brnik - HNK - Brnik</string>
     <string name="bus20">Ravne Njive - Zvončac</string>
     <string name="bus21">Sv.Frane - Meje - Sv.Frane</string>

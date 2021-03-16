@@ -199,10 +199,7 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Popravljeni vozni redovi koji se nisu prikazivali, poput linija br. 5A, 10, a i par ostalih
-    <br>* Dodane linija br. 15 na interaktivnoj karti
-    <br>* Ispravljene pokoje greškice i nadograđeni interni alati
-    <br>
+    <br>* Popravljene linije koje ne rade 7, 11 i 17. Tokom sljedećih par dana ažurirati ću i interaktivnu kartu s najnovijim promjenama u rutama!
     <br>
     <b>NAPOMENA:</b> Favoriti će se Vam se poništiti jer je interna baza nadograđena, ispričavam se zbog toga toga!
     ]]>
@@ -249,14 +246,16 @@
     <string name="bus82">Zvončac - Žnjan</string>
     <string name="bus9">Ravne Njive - Trajektna Luka - Ravne Njive</string>
     <string name="bus10">Japirko - Trajektna Luka - Japirko</string>
-    <string name="bus11">Ravne Njive - Pujanke - HNK - Ravne Njive</string>
+    <string name="bus111">Spinut - Kampus - Pujanke - Ravne Njive</string>
+    <string name="bus112">Ravne Njive - Pujanke - Kampus - Spinut</string>
     <string name="bus121">Sv.Frane - Bene</string>
     <string name="bus122">Bene - Meje - Sv.Frane</string>
     <string name="bus141">Brda - Kopilica - Dubrovačka - Bolnice - Žnjan - Duilovo</string>
     <string name="bus142">Duilovo - Žnjan - Dubrovačka - Bolnice - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Trajektna Luka - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
-    <string name="bus17">Spinut - Lora - Trstenik - Lora - Spinut</string>
+    <string name="bus171">Spinut - Lora - Kampus - Spinut</string>
+    <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
     <string name="bus18">Brnik - HNK - Brnik</string>
     <string name="bus20">Ravne Njive - Zvončac</string>
     <string name="bus21">Sv.Frane - Meje - Sv.Frane</string>

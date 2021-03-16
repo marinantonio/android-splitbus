@@ -32,14 +32,14 @@ apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion = '29.0.3'
     defaultConfig {
         applicationId "com.am.stbus"
         minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 70
-        versionName "3.1.6"
+        targetSdkVersion 30
+        versionCode 71
+        versionName "3.1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
