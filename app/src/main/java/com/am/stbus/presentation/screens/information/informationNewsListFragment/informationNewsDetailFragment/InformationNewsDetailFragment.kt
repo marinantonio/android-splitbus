@@ -117,7 +117,7 @@ class InformationNewsDetailFragment : Fragment() {
     private fun handleErrorScreen(errorMessage: String?) {
         web_view.loadDataWithBaseURL(
                 "file:///android_res/",
-                errorMessage,
+                errorMessage ?: "",
                 "text/html",
                 "utf-8",
                 null)

@@ -173,9 +173,9 @@ class TimetableDetailViewModel(
 
     private fun getTimetableBaseUrl(areaId: Int): String {
         return when (areaId) {
-            TimetablesData.AREA_CITY -> Constants.AREA_CITY_URL
+            TimetablesData.AREA_CITY -> Constants.AREA_URBAN_URL
             TimetablesData.AREA_URBAN -> Constants.AREA_URBAN_URL
-            TimetablesData.AREA_SUBURBAN -> Constants.AREA_SUBURBAN_URL
+            TimetablesData.AREA_SUBURBAN -> Constants.AREA_URBAN_URL
             TimetablesData.AREA_TROGIR -> Constants.AREA_TROGIR_URL
             TimetablesData.AREA_SOLTA -> Constants.AREA_SOLTA_URL
             else -> throw IllegalArgumentException("Illegal areaId $areaId")
