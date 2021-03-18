@@ -195,9 +195,10 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Fixes for lines 7, 11 and 17
+    <br>* Fixes for not showing Urban and Suburban timetables
     <br>
-    <b>NOTE:</b> Your favourites will reset as internal database has been upgraded! Apologies for this!
+    <br>
+    <b>NOTE:</b> These changes are result of recent unannounced changes on Promet website! I was not aware of them!
     ]]>
     </string>
 

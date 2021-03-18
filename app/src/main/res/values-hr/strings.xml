@@ -199,9 +199,10 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Popravljene linije koje ne rade 7, 11 i 17. Tokom sljedećih par dana ažurirati ću i interaktivnu kartu s najnovijim promjenama u rutama!
+    <br>* Popravak za neprikazivanje Gradski i prigradskih voznih redova!
     <br>
-    <b>NAPOMENA:</b> Favoriti će se Vam se poništiti jer je interna baza nadograđena, ispričavam se zbog toga toga!
+    <br><b>NAPOMENA:</b> Aplikacija je prestala radit kad je Promet napravio promjene na njihovoj stranici! Ja ne
+utječem na to, niti mi oni jave kad se to dogodi. Ukoliko applikacija ne radi javite mi mailom pa ću promjeniti!
     ]]>
     </string>
 
