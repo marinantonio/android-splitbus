@@ -101,10 +101,12 @@
     <string name="gmaps_route_82">8 - Zvončac &#8212;> Žnjan</string>
     <string name="gmaps_route_91">9 - Ravne Njive &#8212;> Ferry Port</string>
     <string name="gmaps_route_92">9 - Ferry Port &#8212;> Ravne Njive</string>
-    <string name="gmaps_route_111">11 - Ravne Njive &#8212;> HNK</string>
-    <string name="gmaps_route_112">11 - HNK &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_111">11 - Spinut &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_112">11 - Ravne Njive &#8212;> Spinut</string>
     <string name="gmaps_route_151">15 - Duilovo &#8212;> Ferry Port</string>
     <string name="gmaps_route_152">15 - Ferry Port &#8212;> Duilovo</string>
+    <string name="gmaps_route_171">17 - Spinut &#8212;> Trstenik</string>
+    <string name="gmaps_route_172">17 - Trstenik &#8212;> Spinut</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
@@ -195,7 +197,7 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Fixes for not showing Urban and Suburban timetables
+    <br>* Added Line 17 on Interactive map, 7 and 11 updated
     <br>
     <br>
     <b>NOTE:</b> These changes are result of recent unannounced changes on Promet website! I was not aware of them!
@@ -250,7 +252,7 @@
     <string name="bus142">Duilovo - Žnjan - Dubrovačka - Hospitals - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Ferry Port - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
-    <string name="bus171">Spinut - Lora - Kampus - Spinut</string>
+    <string name="bus171">Spinut - Lora - Kampus - Trstenik</string>
     <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
     <string name="bus18">Brnik - HNK - Brnik</string>
     <string name="bus20">Ravne Njive - Zvončac</string>
