@@ -101,10 +101,12 @@
     <string name="gmaps_route_82">8 - Zvončac &#8212;> Žnjan</string>
     <string name="gmaps_route_91">9 - Ravne Njive &#8212;> Trajektna Luka</string>
     <string name="gmaps_route_92">9 - Trajektna Luka &#8212;> Ravne Njive</string>
-    <string name="gmaps_route_111">11 - Ravne Njive &#8212;> HNK</string>
-    <string name="gmaps_route_112">11 - HNK &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_111">11 - Spinut &#8212;> Ravne Njive</string>
+    <string name="gmaps_route_112">11 - Ravne Njive &#8212;> Spinut</string>
     <string name="gmaps_route_151">15 - Duilovo &#8212;> Trajektna Luka</string>
     <string name="gmaps_route_152">15 - Trajektna Luka &#8212;> Duilovo</string>
+    <string name="gmaps_route_171">17 - Spinut &#8212;> Trstenik</string>
+    <string name="gmaps_route_172">17 - Trstenik &#8212;> Spinut</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Trajektna Luka</string>
@@ -152,7 +154,7 @@
     <string name="about_licenses">Licence</string>
     <string name="about_dev_name">Antonio Marin</string>
     <string name="about_dev_desc">Aplikaciju je napisao i održava Antonio Marin, a svi zainteresirani za sudjelovanje u razvoju nek provjere Github. Za ostala pitanja, prijave, ideje i sl. Slobodno se javite!</string>
-    <string name="about_contact">Contact</string>
+    <string name="about_contact">Kontakt</string>
     <string name="about_linkedin">LinkedIn</string>
     <string name="about_website">Website</string>
 
@@ -199,10 +201,12 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Popravak za neprikazivanje Gradski i prigradskih voznih redova!
+    <br>* Dodana linija 17 na interaktivnoj karti, ispravljene linije 7 i 11
+    <br>* Ažurirana karta gradskih linija
     <br>
-    <br><b>NAPOMENA:</b> Aplikacija je prestala radit kad je Promet napravio promjene na njihovoj stranici! Ja ne
-utječem na to, niti mi oni jave kad se to dogodi. Ukoliko applikacija ne radi javite mi mailom pa ću promjeniti!
+    <br>
+    <br><b>NAPOMENA:</b> Molim vas provjerite rute na interaktivnoj karti, te slobodno
+    prijavite moguće greške. Kontakt obrazac se nalazi u Postavkama -> O aplikaciji
     ]]>
     </string>
 
@@ -255,7 +259,7 @@ utječem na to, niti mi oni jave kad se to dogodi. Ukoliko applikacija ne radi j
     <string name="bus142">Duilovo - Žnjan - Dubrovačka - Bolnice - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Trajektna Luka - Duilovo</string>
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
-    <string name="bus171">Spinut - Lora - Kampus - Spinut</string>
+    <string name="bus171">Spinut - Lora - Kampus - Trstenik</string>
     <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
     <string name="bus18">Brnik - HNK - Brnik</string>
     <string name="bus20">Ravne Njive - Zvončac</string>
