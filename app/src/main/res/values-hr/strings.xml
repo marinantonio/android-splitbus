@@ -154,7 +154,7 @@
     <string name="about_licenses">Licence</string>
     <string name="about_dev_name">Antonio Marin</string>
     <string name="about_dev_desc">Aplikaciju je napisao i održava Antonio Marin, a svi zainteresirani za sudjelovanje u razvoju nek provjere Github. Za ostala pitanja, prijave, ideje i sl. Slobodno se javite!</string>
-    <string name="about_contact">Contact</string>
+    <string name="about_contact">Kontakt</string>
     <string name="about_linkedin">LinkedIn</string>
     <string name="about_website">Website</string>
 
@@ -201,10 +201,12 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Popravak za neprikazivanje Gradski i prigradskih voznih redova!
+    <br>* Dodana linija 17 na interaktivnoj karti, ispravljene linije 7 i 11
+    <br>* Ažurirana karta gradskih linija
     <br>
-    <br><b>NAPOMENA:</b> Aplikacija je prestala radit kad je Promet napravio promjene na njihovoj stranici! Ja ne
-utječem na to, niti mi oni jave kad se to dogodi. Ukoliko applikacija ne radi javite mi mailom pa ću promjeniti!
+    <br>
+    <br><b>NAPOMENA:</b> Molim vas provjerite rute na interaktivnoj karti, te slobodno
+    prijavite moguće greške. Kontakt obrazac se nalazi u Postavkama -> O aplikaciji
     ]]>
     </string>
 
