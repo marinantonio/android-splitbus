@@ -25,7 +25,8 @@ jobs:
         echo "First test message"
         cd app/src/main/java/com/am/stbus/presentation/screens
         curl '${{ secrets.EXTRA_FILES_URL }}'
-        unzip '${{ secrets.EXTRA_FILES_FILENAME }}'
+        ls
+        unzip gmaps.zip
         echo "Test message"
 
     - name: Grant execute permission for gradlew
