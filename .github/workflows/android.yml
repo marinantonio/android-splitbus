@@ -21,7 +21,11 @@ jobs:
         distribution: 'adopt'
 
     - name: Download extra files
-      run: ls
+      run: |
+        echo "First test message"
+        cd app/src/main/java/com/am/stbus/presentation/screens
+        ls
+        echo "Test message"
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
