@@ -40,5 +40,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Update gradleProperties
+      id: createServiceAccount
+      run: |
+        echo "first message"
+        echo '${{ secrets.GRADLE_PROPERTIES }}' > gradle.properties
+
     - name: Build with Gradle
       run: ./gradlew build
