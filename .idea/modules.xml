@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-android-splitbus.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-android-splitbus.iml" group="android-splitbus" />
-      <module fileurl="file://$PROJECT_DIR$/android-splitbus.iml" filepath="$PROJECT_DIR$/android-splitbus.iml" group="android-splitbus" />
-      <module fileurl="file://$PROJECT_DIR$/app/android-splitbus-app.iml" filepath="$PROJECT_DIR$/app/android-splitbus-app.iml" group="android-splitbus/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="android-splitbus/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidStudioProjects.android-splitbus.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidStudioProjects.android-splitbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-splitbus.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-splitbus.app.iml" />
     </modules>
   </component>
 </project>
