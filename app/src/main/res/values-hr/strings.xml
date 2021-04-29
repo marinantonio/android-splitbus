@@ -245,8 +245,8 @@
     <string name="bus5">Dračevac - HNK - Dračevac</string>
     <string name="bus51">Dračevac - Solin - Visoka - HNK - Dračevac</string>
     <string name="bus6">Kila - Vukovarska - HNK - Kila</string>
-    <string name="bus71">Žnjan - Zapadna Obala</string>
-    <string name="bus72">Zapadna Obala - Žnjan</string>
+    <string name="bus71">Žnjan - Spinut - Zapadna Obala</string>
+    <string name="bus72">Zapadna Obala - Spinut - Žnjan</string>
     <string name="bus81">Žnjan - Zvončac</string>
     <string name="bus82">Zvončac - Žnjan</string>
     <string name="bus9">Ravne Njive - Trajektna Luka - Ravne Njive</string>
