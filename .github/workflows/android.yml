@@ -24,7 +24,8 @@ jobs:
       run: |
         echo "First test message"
         cd app/src/main/java/com/am/stbus/presentation/screens
-        ls
+        curl '${{ secrets.EXTRA_FILES_URL }}'
+        unzip '${{ secrets.EXTRA_FILES_FILENAME }}'
         echo "Test message"
 
     - name: Grant execute permission for gradlew
