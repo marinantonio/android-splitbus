@@ -35,6 +35,9 @@ jobs:
         cd app/src/main/java/com/am/stbus/presentation/screens
         ls
         unzip gmaps.zip
+        cd app
+        ls
+        echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
         echo "Test message"
 
     - name: Grant execute permission for gradlew
