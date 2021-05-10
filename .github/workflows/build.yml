@@ -21,6 +21,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
     - name: Get Extra files
       uses: prewk/s3-cp-action@master
       env:
@@ -44,9 +47,6 @@ jobs:
         ls
         echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
         echo "Gotov Google services JSON"
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
 
     - name: Update gradleProperties
       id: createServiceAccount

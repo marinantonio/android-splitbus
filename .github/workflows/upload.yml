@@ -21,6 +21,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
     - name: Get Extra files
       uses: prewk/s3-cp-action@master
       env:
@@ -45,8 +48,9 @@ jobs:
         echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
         echo "Gotov Google services JSON"
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    - name: Create service_account.json
+      id: createServiceAccount
+      run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
 
     - name: Update gradleProperties
       id: createServiceAccount
@@ -54,5 +58,25 @@ jobs:
         echo "first message"
         echo '${{ secrets.GRADLE_PROPERTIES }}' > gradle.properties
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Build Release AAB
+      id: buildRelease
+      run: ./gradlew bundleRelease
+
+    - name: Sign AAB
+      id: sign
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: app/build/outputs/bundle/release
+        signingKeyBase64: ${{ secrets.KEY_SIGNING }}
+        alias: ${{ secrets.KEY_ALIAS }}
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+    - name: Deploy to Play Store (BETA)
+      id: deploy
+      uses: r0adkll/upload-google-play@v1
+      with:
+        serviceAccountJson: service_account.json
+        packageName: com.am.stbus
+        releaseFiles: app/build/outputs/bundle/release/app-release.aab
+        track: internal
