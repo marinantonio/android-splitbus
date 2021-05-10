@@ -55,4 +55,4 @@ jobs:
         echo '${{ secrets.GRADLE_PROPERTIES }}' > gradle.properties
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew buildRelease
