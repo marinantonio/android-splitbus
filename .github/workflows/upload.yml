@@ -1,0 +1,57 @@
+name: Android Build
+
+on:
+  push:
+    branches: !master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Get Extra files
+      uses: prewk/s3-cp-action@master
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-west-1'
+        SOURCE: 's3://splitbus/gmaps.zip'
+        DEST: './app/src/main/java/com/am/stbus/presentation/screens'
+
+    - name: Unzip extra files
+      run: |
+        echo "Poceo unzip"
+        cd app/src/main/java/com/am/stbus/presentation/screens
+        ls
+        unzip gmaps.zip
+        echo "Gotov unzip"
+
+    - name: Add Google services JSON
+      run: |
+        cd app
+        ls
+        echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
+        echo "Gotov Google services JSON"
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Update gradleProperties
+      id: createServiceAccount
+      run: |
+        echo "first message"
+        echo '${{ secrets.GRADLE_PROPERTIES }}' > gradle.properties
+
+    - name: Build with Gradle
+      run: ./gradlew build
