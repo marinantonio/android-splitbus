@@ -2,7 +2,7 @@ name: Android Build
 
 on:
   push:
-    branches: [ marinantonio-ci ]
+    branches: master
 
 jobs:
   build:
