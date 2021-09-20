@@ -55,7 +55,7 @@ import com.am.stbus.common.InformationConstants.ID_URBAN_MAP
 import com.am.stbus.common.InformationConstants.ID_WEBSITES_CATEGORY
 import com.am.stbus.common.InformationConstants.KARTA_GRAD_URL
 import com.am.stbus.common.InformationConstants.KARTA_PRIGRAD_URL
-import com.am.stbus.common.InformationConstants.NEXT_BIKE_IFRAME
+import com.am.stbus.common.InformationConstants.NEXT_BIKE_URL
 import com.am.stbus.common.InformationConstants.PARKING_URL
 import com.am.stbus.common.InformationConstants.TARIFNE_URL
 import com.am.stbus.common.InformationConstants.TYPE_HEADER
@@ -101,7 +101,7 @@ class InformationListFragment : Fragment() {
             ID_URBAN_MAP -> navigateToFragment(information)
             ID_SUBURBAN_MAP -> navigateToFragment(information)
             ID_TARIFF_ZONES_MAP -> navigateToFragment(information)
-            ID_CYCLES -> navigateToFragment(information)
+            ID_CYCLES -> loadUrl(NEXT_BIKE_URL)
             ID_PARKING -> loadUrl(PARKING_URL)
             ID_GARAGES -> loadUrl(GARAZE_URL)
             ID_PROMET_WEB -> loadUrl(PROMET_URL)
@@ -118,7 +118,7 @@ class InformationListFragment : Fragment() {
                 ID_URBAN_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_urban_map_title), KARTA_GRAD_URL)
                 ID_SUBURBAN_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_suburban_map_title), KARTA_PRIGRAD_URL)
                 ID_TARIFF_ZONES_MAP -> InformationListFragmentDirections.actionInformationListFragmentToInformationImageViewFragment(getString(R.string.information_tariff_zones_title), TARIFNE_URL)
-                ID_CYCLES -> InformationListFragmentDirections.actionInformationListFragmentToInformationWebViewFragment(getString(R.string.information_cycles_title), NEXT_BIKE_IFRAME)
+                //ID_CYCLES -> InformationListFragmentDirections.actionInformationListFragmentToInformationWebViewFragment(getString(R.string.information_cycles_title), NEXT_BIKE_IFRAME)
                 else -> throw IllegalArgumentException("Wrong information destination!")
             }
         })
