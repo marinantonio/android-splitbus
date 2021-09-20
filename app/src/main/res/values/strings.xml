@@ -197,11 +197,11 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Added Line 17 on Interactive map, 7 and 11 updated
-    <br>* Updated Urban area map
+    <br>* Interactive map - Line No. 8 updated
+    <br>* Updated maps on found on Information section, fixed Nextbike URL
     <br>
     <br>
-    <b>NOTE:</b> Please let me know if you find any issues on interactive map!
+    <b>NOTE:</b> Please let me know if you find any more issues on the Interactive map!
     ]]>
     </string>
 
