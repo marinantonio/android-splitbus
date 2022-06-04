@@ -26,17 +26,31 @@ package com.am.stbus.domain.usecases.news
 
 import com.am.stbus.domain.models.NewsListItem
 import com.am.stbus.domain.repositories.NewsRepository
-import io.reactivex.Completable
-import io.reactivex.Single
+import kotlinx.coroutines.CoroutineDispatcher
 
 class NewsListUseCase(private val newsRepository: NewsRepository) {
 
-    fun build(remote: Boolean): Single<List<NewsListItem>> {
-        return newsRepository.getNewsList(remote)
+    suspend fun getLocalNewsList(
+        dispatcher: CoroutineDispatcher
+    ): List<NewsListItem> {
+        return newsRepository.getNewsList(false, dispatcher)
     }
 
-    fun save(list: List<NewsListItem>): Completable {
-        return newsRepository.saveNewsList(list)
+    suspend fun getRemoteNewsList(
+        dispatcher: CoroutineDispatcher
+    ): List<NewsListItem> {
+        newsRepository.deleteNewsList()
+        val list = newsRepository.getNewsList(true, dispatcher)
+        newsRepository.saveNewsList(list)
+        return list
+    }
+
+    suspend fun deleteNewsList() {
+        newsRepository.deleteNewsList()
+    }
+
+    suspend fun save(list: List<NewsListItem>) {
+        newsRepository.saveNewsList(list)
     }
 
 }

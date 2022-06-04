@@ -26,11 +26,12 @@ package com.am.stbus.domain.repositories
 
 import com.am.stbus.domain.models.NewsItem
 import com.am.stbus.domain.models.NewsListItem
-import io.reactivex.Completable
 import io.reactivex.Single
+import kotlinx.coroutines.CoroutineDispatcher
 
 interface NewsRepository {
-    fun getNewsList(remote: Boolean): Single<List<NewsListItem>>
+    suspend fun getNewsList(remote: Boolean, dispatcher: CoroutineDispatcher): List<NewsListItem>
+    suspend fun saveNewsList(list: List<NewsListItem>)
+    suspend fun deleteNewsList()
     fun getNewsDetail(remote: Boolean, url: String): Single<NewsItem>
-    fun saveNewsList(list: List<NewsListItem>): Completable
 }
