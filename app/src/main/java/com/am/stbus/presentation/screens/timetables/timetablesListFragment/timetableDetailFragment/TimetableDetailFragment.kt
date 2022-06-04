@@ -37,16 +37,17 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewpager.widget.ViewPager
 import com.am.stbus.R
 import com.am.stbus.common.Constants
+import com.am.stbus.common.Constants.ACTIVE_GMAPS_IDS
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.common.extensions.loadEmailReport
 import com.am.stbus.common.extensions.loadPrometUrl
-import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_ADDED
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment.Companion.FAVOURITE_REMOVED
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_timetable.*
 import kotlinx.android.synthetic.main.snippet_error.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.threeten.bp.LocalDateTime
@@ -55,7 +56,7 @@ import org.threeten.bp.format.FormatStyle
 
 class TimetableDetailFragment : Fragment() {
 
-    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
+    private val timetablesSharedViewModel: TimetablesSharedViewModel by koinNavGraphViewModel(R.id.nav_graph)
 
     private val viewModel: TimetableDetailViewModel by viewModel { parametersOf(args) }
 
@@ -197,6 +198,8 @@ class TimetableDetailFragment : Fragment() {
         addFavorites.isVisible = args.favourite == FAVOURITE_REMOVED
         removeFavorites.isVisible = args.favourite == FAVOURITE_ADDED
 
+        menu.findItem(R.id.action_gmaps).isVisible = ACTIVE_GMAPS_IDS.contains(args.gmapsId)
+
         super.onPrepareOptionsMenu(menu)
 
     }
@@ -238,5 +241,5 @@ class TimetableDetailFragment : Fragment() {
 
         override fun getCount(): Int = fragments.size
 
-        override fun getPageTitle(position: Int): CharSequence? = getString(fragmentTitles[position])
+        override fun getPageTitle(position: Int): CharSequence = getString(fragmentTitles[position])
     }}

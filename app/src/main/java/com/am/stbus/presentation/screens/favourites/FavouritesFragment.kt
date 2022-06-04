@@ -31,38 +31,39 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
-import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FIRST_RUN_CONTENT
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.UPDATE_APP_CONTENT
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_favourites.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class FavouritesFragment : Fragment() {
 
-    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
+    private val timetablesSharedViewModel: TimetablesSharedViewModel by koinNavGraphViewModel(R.id.nav_graph)
 
     private val viewModel: FavouritesViewModel by viewModel()
 
     private val favouriteAdapter by lazy {
         FavouritesAdapter(
-                requireContext(),
-                { onTimetableClicked(it) },
-                { position, timetable -> onTimetableFavouritesClicked(position, timetable) },
-                { onTimetableGmapsClicked(it) }
+            requireContext(),
+            { onTimetableClicked(it) },
+            { position, timetable -> onTimetableFavouritesClicked(position, timetable) },
+            { onTimetableGmapsClicked(it) }
         )
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
 
@@ -77,31 +78,35 @@ class FavouritesFragment : Fragment() {
             adapter = favouriteAdapter
         }
 
-        timetablesSharedViewModel.timetables.observe(viewLifecycleOwner, Observer<List<Timetable>> { timetables ->
+        timetablesSharedViewModel.timetables.observe(viewLifecycleOwner) { timetables ->
             /** Sličan fix kao i u [TimetablesListFragment.onViewCreated], malo rekurzivna funkcija
              * koja riješava problem ako se MainActivity uništi a korisnik zapne na TimetableDetail ekranu i
              * onda se pokušava vratiti natrag na favorite. SharedViewModel nažalost će biti uništen tada jer
              * prati navGraph, a vozni redovi će biti null!
              */
-            if (!timetables.isNullOrEmpty()) {
-                val favouriteTimetables = timetables.filter { it.favourite == 1 }
+            val favouriteTimetables = timetables.filter { it.favourite == 1 }
+            favouriteAdapter.clear()
+            favouriteAdapter.addEntireData(favouriteTimetables)
 
+            rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
+            tv_empty_title.isVisible = favouriteTimetables.isEmpty()
+            tv_empty_message.isVisible = favouriteTimetables.isEmpty()
+        }
+
+        viewModel.timetableList.observe(viewLifecycleOwner) { timetables ->
+            if (favouriteAdapter.itemCount == 0) {
                 favouriteAdapter.clear()
-                favouriteAdapter.addEntireData(favouriteTimetables)
-
-                rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
-                tv_empty_title.isVisible = favouriteTimetables.isEmpty()
-                tv_empty_message.isVisible = favouriteTimetables.isEmpty()
+                favouriteAdapter.addEntireData(timetables)
             }
-        })
 
-        viewModel.timetableList.observe(viewLifecycleOwner, Observer<List<Timetable>> {
-            timetablesSharedViewModel.saveTimetables(it)
-        })
+            rv_timetables.isVisible = favouriteAdapter.itemCount > 0
+            tv_empty_title.isVisible = favouriteAdapter.itemCount == 0
+            tv_empty_message.isVisible = favouriteAdapter.itemCount == 0
+        }
 
-        viewModel.removedFavourite.observe(viewLifecycleOwner, Observer<TimetablesListFragment.UpdatedFavourite> {
+        viewModel.removedFavourite.observe(viewLifecycleOwner) {
             timetablesSharedViewModel.updateFavourite(it.lineId, it.favourite)
-        })
+        }
 
         checkShouldWelcomeBeShown()
     }
@@ -109,7 +114,10 @@ class FavouritesFragment : Fragment() {
     private fun checkShouldWelcomeBeShown() {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
 
-        when (sharedPref.getInt(SHARED_PREFS_BUILD_VERSION_KEY, SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE)) {
+        when (sharedPref.getInt(
+            SHARED_PREFS_BUILD_VERSION_KEY,
+            SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE
+        )) {
             BuildConfig.VERSION_CODE -> Timber.i("All good! :)")
             SHARED_PREFS_BUILD_VERSION_DEFAULT_VALUE -> showWelcomeFragment(FIRST_RUN_CONTENT)
             else -> showWelcomeFragment(UPDATE_APP_CONTENT)
@@ -119,19 +127,19 @@ class FavouritesFragment : Fragment() {
     private fun showWelcomeFragment(updateAppContent: Int) {
 
         // Pokreni Welcome fragment
-        view?.findNavController()?.navigate(
-                FavouritesFragmentDirections.actionFavouriteFragmentToContentFragment(
-                        when (updateAppContent) {
-                            FIRST_RUN_CONTENT -> FIRST_RUN_CONTENT
-                            UPDATE_APP_CONTENT -> UPDATE_APP_CONTENT
-                            else -> throw IllegalArgumentException("Wrong first run argument")
-                        }
-                )
+        requireView().findNavController().navigate(
+            FavouritesFragmentDirections.actionFavouriteFragmentToContentFragment(
+                when (updateAppContent) {
+                    FIRST_RUN_CONTENT -> FIRST_RUN_CONTENT
+                    UPDATE_APP_CONTENT -> UPDATE_APP_CONTENT
+                    else -> throw IllegalArgumentException("Wrong first run argument")
+                }
+            )
         )
 
         // Update value in shared prefs
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        with (sharedPref.edit()) {
+        with(sharedPref.edit()) {
             putInt(SHARED_PREFS_BUILD_VERSION_KEY, BuildConfig.VERSION_CODE)
             commit()
         }
@@ -139,16 +147,18 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun onTimetableClicked(timetable: Timetable) {
-        view?.findNavController()?.navigate(FavouritesFragmentDirections
+        requireView().findNavController().navigate(
+            FavouritesFragmentDirections
                 .actionFavouriteFragmentToTimetableDetailFragment(
-                        timetable.lineId,
-                        timetable.lineNumber,
-                        timetable.gmapsId,
-                        timetable.areaId,
-                        timetable.favourite,
-                        timetable.content,
-                        timetable.contentDate
-                ))
+                    timetable.lineId,
+                    timetable.lineNumber,
+                    timetable.gmapsId,
+                    timetable.areaId,
+                    timetable.favourite,
+                    timetable.content,
+                    timetable.contentDate
+                )
+        )
     }
 
     private fun onTimetableFavouritesClicked(position: Int, timetable: Timetable) {
@@ -156,8 +166,10 @@ class FavouritesFragment : Fragment() {
     }
 
     private fun onTimetableGmapsClicked(timetable: Timetable) {
-        view?.findNavController()?.navigate(FavouritesFragmentDirections
-                .actionFavouriteFragmentToInformationGmapsFragment(timetable.gmapsId))
+        requireView().findNavController().navigate(
+            FavouritesFragmentDirections
+                .actionFavouriteFragmentToInformationGmapsFragment(timetable.gmapsId)
+        )
     }
 
     companion object {

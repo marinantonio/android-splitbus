@@ -160,9 +160,10 @@ class InformationGmapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInf
         setupUserLocation()
     }
 
-    override fun onInfoWindowClick(marker: Marker?) {
+    override fun onInfoWindowClick(marker: Marker) {
         createMarkerAlert(marker)
     }
+
 
     private fun setupUserLocation() {
         if (checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
@@ -284,11 +285,10 @@ class InformationGmapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInf
         }
 
         listOfStops.forEach {
-            map.addMarker(MarkerOptions().position(it.latLng!!)).apply {
-                tag = MarkerData(null, it.title, it.lineNumbers, it.gmapsIds)
-                title = it.title
-                setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_pin))
-            }
+            map.addMarker(MarkerOptions().position(it.latLng!!)
+                .title(it.title)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_pin))
+            )?.tag = MarkerData(null, it.title, it.lineNumbers, it.gmapsIds)
         }
 
         map.addPolyline(PolylineOptions().addAll(listOfStops.map { it.latLng })
@@ -307,11 +307,10 @@ class InformationGmapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInf
 
     private fun showGeneralStops() {
         GLAVNE_STANICE.forEach {
-            map.addMarker(MarkerOptions().position(it.latLng!!)).apply {
-                tag = MarkerData(null, it.title, it.lineNumbers, it.gmapsIds)
-                title = it.title
-                setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_pin))
-            }
+            map.addMarker(MarkerOptions().position(it.latLng!!)
+                .title(it.title)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_pin))
+            )?.tag = MarkerData(null, it.title, it.lineNumbers, it.gmapsIds)
         }
     }
 
@@ -329,6 +328,5 @@ class InformationGmapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInf
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
-
 
 }

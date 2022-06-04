@@ -78,3 +78,4 @@ gradle.properties
 # Changelog generator
 changelog.sh
 
+/.idea/deploymentTargetDropDown.xml

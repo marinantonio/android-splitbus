@@ -27,21 +27,16 @@ package com.am.stbus.presentation.screens.information.informationNewsListFragmen
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.am.stbus.domain.models.NewsListItem
 import com.am.stbus.domain.usecases.news.NewsListUseCase
-import io.reactivex.CompletableObserver
-import io.reactivex.SingleObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class InformationNewsListViewModel(
         private val getNewsListUseCase: NewsListUseCase
 ) : ViewModel() {
-
-    private val schedulers = Schedulers.io()
-    private val thread = AndroidSchedulers.mainThread()
 
     private val _newsList = MutableLiveData<List<NewsListItem>>()
     val newsList: LiveData<List<NewsListItem>>
@@ -60,65 +55,36 @@ class InformationNewsListViewModel(
     }
 
     private fun getLocalNewsList() {
-        getNewsListUseCase.build(false)
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object : SingleObserver<List<NewsListItem>> {
-                    override fun onSuccess(news: List<NewsListItem>) {
-                        getRemoteNewsList()
-                        if (news.isNotEmpty()) {
-                            _newsList.postValue(news)
-                            _loading.postValue(false)
-                        }
-
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-                        _loading.postValue(true)
-                    }
-
-                    override fun onError(e: Throwable) {
-                        _error.postValue(e.localizedMessage)
-                    }
-
-                })
+        viewModelScope.launch {
+            try {
+                val newsList = getNewsListUseCase.getLocalNewsList(Dispatchers.IO)
+                if (newsList.isNotEmpty()) {
+                    _newsList.postValue(newsList)
+                    _loading.postValue(false)
+                } else {
+                    _loading.postValue(true)
+                }
+                getRemoteNewsList()
+            } catch (e: Exception) {
+                _loading.postValue(false)
+                _error.postValue(e.localizedMessage)
+            }
+        }
     }
 
     private fun getRemoteNewsList() {
-        getNewsListUseCase.build(true)
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object : SingleObserver<List<NewsListItem>> {
-                    override fun onSuccess(news: List<NewsListItem>) {
-                        saveRemoteList(news)
-                        _newsList.postValue(news)
-                        _loading.postValue(false)
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-                    }
-
-                    override fun onError(e: Throwable) {
-                        _error.postValue(e.localizedMessage)
-                    }
-
-                })
-    }
-
-    private fun saveRemoteList(news: List<NewsListItem>){
-        getNewsListUseCase.save(news)
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object: CompletableObserver {
-                    override fun onComplete() {
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-                    }
-
-                    override fun onError(e: Throwable) {
-                    }
-                })
+        viewModelScope.launch {
+            try {
+                val newsList = getNewsListUseCase.getRemoteNewsList( Dispatchers.IO)
+                if (newsList.isNotEmpty()) {
+                    _newsList.postValue(newsList)
+                    _loading.postValue(false)
+                }
+            } catch (e: Exception) {
+                _loading.postValue(false)
+                _error.postValue(e.localizedMessage)
+            }
+        }
     }
 }
 

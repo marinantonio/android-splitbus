@@ -29,17 +29,8 @@ import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
-import androidx.annotation.IdRes
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import com.am.stbus.BuildConfig
 import com.am.stbus.common.Constants.PROMET_URL
-import org.koin.androidx.viewmodel.ViewModelParameter
-import org.koin.androidx.viewmodel.koin.getViewModel
-import org.koin.core.parameter.ParametersDefinition
-import org.koin.core.qualifier.Qualifier
-import org.koin.java.KoinJavaComponent.getKoin
 
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
@@ -47,26 +38,22 @@ fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toIn
 fun Context.loadUrl(url: String) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 
 fun Context.loadPrometUrl() = this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PROMET_URL)))
-fun Context.loadEmailReport(linija: String, error: String) = this.startActivity(Intent.createChooser(
-        Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "antoniomarinnn@gmail.com", null)).apply {
+fun Context.loadEmailReport(linija: String, error: String) = this.startActivity(
+    Intent.createChooser(
+        Intent(
+            Intent.ACTION_SENDTO,
+            Uri.fromParts("mailto", "antoniomarinnn@gmail.com", null)
+        ).apply {
             putExtra(Intent.EXTRA_SUBJECT, "Split Bus")
-            putExtra(Intent.EXTRA_TEXT,
-                            "Molimo opisite problem!(Please describe your issue!)" +
-                            "\n\n\n\nInformacije o uredaju \n --------------------------------" +
-                            "\n Linija: $linija \n Split Bus verzija: ${BuildConfig.VERSION_NAME}" +
-                            "\n Greska: $error" +
-                            "\n Android: ${Build.VERSION.RELEASE} (SDK: ${Build.VERSION.SDK_INT})" +
-                            "\n Telefon: ${Build.MODEL} (Uredaj: ${Build.DEVICE})"
+            putExtra(
+                Intent.EXTRA_TEXT,
+                "Molimo opisite problem!(Please describe your issue!)" +
+                        "\n\n\n\nInformacije o uredaju \n --------------------------------" +
+                        "\n Linija: $linija \n Split Bus verzija: ${BuildConfig.VERSION_NAME}" +
+                        "\n Greska: $error" +
+                        "\n Android: ${Build.VERSION.RELEASE} (SDK: ${Build.VERSION.SDK_INT})" +
+                        "\n Telefon: ${Build.MODEL} (Uredaj: ${Build.DEVICE})"
             )
-        }, "Email")
+        }, "Email"
+    )
 )
-
-
-inline fun <reified VM : ViewModel> Fragment.sharedGraphViewModel(
-        @IdRes navGraphId: Int,
-        qualifier: Qualifier? = null,
-        noinline parameters: ParametersDefinition? = null
-) = lazy {
-    val store = findNavController().getViewModelStoreOwner(navGraphId).viewModelStore
-    getKoin().getViewModel(ViewModelParameter(VM::class, qualifier, parameters, null, store, null))
-}

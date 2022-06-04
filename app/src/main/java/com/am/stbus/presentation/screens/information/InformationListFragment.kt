@@ -35,7 +35,7 @@ import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
 import com.am.stbus.common.Constants.PROMET_URL
@@ -110,7 +110,7 @@ class InformationListFragment : Fragment() {
     }
 
     private fun navigateToFragment(information: Information) {
-        view?.findNavController()?.navigate(let {
+        Navigation.findNavController(requireView()).navigate(let {
             when (information.informationId) {
                 ID_LATEST_NEWS -> InformationListFragmentDirections.actionInformationListFragmentToInformationNewsListFragment()
                 //ID_TOURIST_INFO -> Toast.makeText(context, context!!.getText(R.string.error_still_not_finished), Toast.LENGTH_SHORT).show()
