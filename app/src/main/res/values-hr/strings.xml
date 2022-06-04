@@ -204,8 +204,9 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Ispravljena linija br. 8 na Interaktivnoj mapi
-    <br>* Popravljene karte u Informacijama i ispravljen Nextbike URL
+    <br>* Zbog kompatibilinosti s novim Google kartama, Split Bus odsad zahtjeva Android verziju 4.4 i novije
+    <br>* Dodane linije br. 12 i 21 na Interaktivnoj karti, te ispravljena linija br 6.
+    <br>* Nadograđene interne biblioteke, ispravci grešaka
     <br>
     <br>
     <br><b>NAPOMENA:</b> Molim vas provjerite rute na interaktivnoj karti, te slobodno
