@@ -28,6 +28,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.common.TimetablesData
+import com.am.stbus.common.helpers.Event
+import com.am.stbus.common.helpers.inEvent
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
@@ -43,8 +45,8 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _timetableList = MutableLiveData<List<Timetable>>()
-    val timetableList: LiveData<List<Timetable>>
+    private val _timetableList = MutableLiveData<Event<List<Timetable>>>()
+    val timetableList: LiveData<Event<List<Timetable>>>
         get() = _timetableList
 
     private val _removedFavourite = MutableLiveData<TimetablesListFragment.UpdatedFavourite>()
@@ -57,67 +59,67 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
 
     private fun getTimetables() {
         timetableListUseCase.getTimetables()
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object : SingleObserver<List<Timetable>> {
-                    override fun onSuccess(timetables: List<Timetable>) {
-                        if (timetables.isEmpty()) {
-                            saveTimetables()
-                        } else {
-                            _timetableList.postValue(timetables)
-                        }
+            .subscribeOn(schedulers)
+            .observeOn(thread)
+            .subscribe(object : SingleObserver<List<Timetable>> {
+                override fun onSuccess(timetables: List<Timetable>) {
+                    if (timetables.isEmpty()) {
+                        saveTimetables()
+                    } else {
+                        val favouriteTimetables = timetables.filter { it.favourite == 1 }
+                        _timetableList.postValue(favouriteTimetables.inEvent())
                     }
+                }
 
-                    override fun onSubscribe(d: Disposable) {
-                        // TODO
-                    }
+                override fun onSubscribe(d: Disposable) {
+                    // TODO
+                }
 
-                    override fun onError(e: Throwable) {
-                        // TODO
-                    }
+                override fun onError(e: Throwable) {
+                    // TODO
+                }
 
-                })
+            })
     }
 
     private fun saveTimetables() {
         timetableListUseCase.saveTimetables(TimetablesData.list)
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object: CompletableObserver {
-                    override fun onComplete() {
-                        _timetableList.postValue(TimetablesData.list)
-                    }
+            .subscribeOn(schedulers)
+            .observeOn(thread)
+            .subscribe(object : CompletableObserver {
+                override fun onComplete() {
+                    _timetableList.postValue(emptyList<Timetable>().inEvent())
+                }
 
-                    override fun onSubscribe(d: Disposable) {
-                    }
+                override fun onSubscribe(d: Disposable) {
+                }
 
-                    override fun onError(e: Throwable) {
-                    }
-                })
+                override fun onError(e: Throwable) {
+                }
+            })
     }
 
     fun removeFavouritesStatus(position: Int, timetable: Timetable) {
-
         timetableListUseCase.updateFavourites(timetable.lineId, FAVOURITE_REMOVED)
-                .subscribeOn(schedulers)
-                .observeOn(thread)
-                .subscribe(object: CompletableObserver {
-                    override fun onComplete() {
-                        _removedFavourite.postValue(
-                                TimetablesListFragment.UpdatedFavourite(
-                                        position,
-                                        timetable.lineId,
-                                        FAVOURITE_REMOVED
-                                )
+            .subscribeOn(schedulers)
+            .observeOn(thread)
+            .subscribe(object : CompletableObserver {
+                override fun onComplete() {
+                    _removedFavourite.postValue(
+                        TimetablesListFragment.UpdatedFavourite(
+                            position,
+                            timetable.lineId,
+                            FAVOURITE_REMOVED
                         )
-                    }
+                    )
+                }
 
-                    override fun onSubscribe(d: Disposable) {
-                    }
+                override fun onSubscribe(d: Disposable) {
+                }
 
-                    override fun onError(e: Throwable) {
-                    }
-                })
+                override fun onError(e: Throwable) {
+                }
+            })
     }
 
 }

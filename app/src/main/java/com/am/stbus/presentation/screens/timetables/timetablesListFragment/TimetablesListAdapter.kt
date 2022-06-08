@@ -32,6 +32,7 @@ import android.widget.PopupMenu
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.recyclerview.widget.RecyclerView
 import com.am.stbus.R
+import com.am.stbus.common.Constants.ACTIVE_GMAPS_IDS
 import com.am.stbus.common.TimetablesData
 import com.am.stbus.domain.models.Timetable
 import kotlinx.android.synthetic.main.item_row_timetable.view.*
@@ -101,6 +102,8 @@ class TimetablesListAdapter(val context: Context?,
                                 else -> throw IllegalArgumentException("Illegal favourite status ${item.favourite}")
                             }
                         }
+
+                        menu.findItem(R.id.action_gmaps).isVisible = ACTIVE_GMAPS_IDS.contains(item.gmapsId)
 
                         // onClickListeners
                         setOnMenuItemClickListener { menuItem ->

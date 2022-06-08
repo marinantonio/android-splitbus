@@ -28,40 +28,47 @@ import com.am.stbus.common.Constants
 import com.am.stbus.domain.models.NewsItem
 import com.am.stbus.domain.models.NewsListItem
 import io.reactivex.Single
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
+import timber.log.Timber
 
 class RemoteNewsDataSource {
 
-    fun getNewsList(): Single<List<NewsListItem>> {
-        return Single.fromCallable {
+    suspend fun getNewsList(dispatcher: CoroutineDispatcher): List<NewsListItem> {
+        return withContext(dispatcher) {
+            try {
+                val doc = Jsoup.connect(Constants.PROMET_NOVOSTI_URL).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
+                val newsList = mutableListOf<NewsListItem>()
+                var count = 0
+                val elements = doc.select("h3.c-article-card__title > a")
 
-            val doc = Jsoup.connect(Constants.PROMET_NOVOSTI_URL).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-            val newsList = mutableListOf<NewsListItem>()
-            var count = 0
-            val elements = doc.select("h3.c-article-card__title > a")
+                for (e in elements) {
 
-            for (e in elements) {
+                    val title = e.text()
+                    val url = e.attr("href")
 
-                val title = e.text()
-                val url = e.attr("href")
+                    var summary = ""
+                    var datum: String
 
-                var summary = ""
-                var datum: String
+                    doc.apply {
+                        datum = select("div.c-article-card__date")[count].text()
+                        val summaryElement = select("div.c-article-card__content")[count]
+                        val summaryElementSize = summaryElement.select("div.c-article-card__summary").size
+                        if (summaryElementSize > 0)
+                            summary = summaryElement.child(2).text()
 
-                doc.apply {
-                    datum = select("div.c-article-card__date")[count].text()
-                    val summaryElement = select("div.c-article-card__content")[count]
-                    val summaryElementSize = summaryElement.select("div.c-article-card__summary").size
-                    if (summaryElementSize > 0)
-                        summary = summaryElement.child(2).text()
+                    }
 
+                    newsList.add(NewsListItem(count, title, summary, datum, url))
+                    count += 1
                 }
 
-                newsList.add(NewsListItem(count, title, summary, datum, url))
-                count += 1
+                newsList
+            } catch (e: Exception) {
+                Timber.e("Error fetching content")
+                emptyList<NewsListItem>()
             }
-
-            return@fromCallable newsList
         }
     }
 
@@ -81,7 +88,7 @@ class RemoteNewsDataSource {
 
                 val ul = doc.select("[class=o-list-bare c-article-document-list]").select("li")
                 val attachments = ul.map {
-                    val attachmentUrl = it.select("[class=c-article-document o-media]").first().attr("href")
+                    val attachmentUrl = it.select("[class=c-article-document o-media]").first()?.attr("href")
                     val attachmentTitle = it.select("[class=c-article-document__title c-text-lead]").text()
                     val attachmentProperties = it.select("[class=c-article-document__meta c-text-smallprint]").text()
                     return@map "<a href=\"$attachmentUrl\">$attachmentTitle $attachmentProperties</a>"

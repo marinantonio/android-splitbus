@@ -48,6 +48,8 @@ class FavouritesAdapter(val context: Context?,
 
     fun addEntireData(timetables: List<Timetable>) {
         items.addAll(timetables)
+        //notifyItemRangeInserted(0, timetables.size)
+        // Dodati remove funkcije...
         notifyDataSetChanged()
     }
 

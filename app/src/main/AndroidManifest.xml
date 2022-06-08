@@ -36,6 +36,8 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:name=".SplitBusApplication"
@@ -60,10 +62,11 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".presentation.screens.MainActivity">
+        <activity
+            android:name=".presentation.screens.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

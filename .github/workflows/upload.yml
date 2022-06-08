@@ -80,3 +80,4 @@ jobs:
         packageName: com.am.stbus
         releaseFiles: app/build/outputs/bundle/release/app-release.aab
         track: internal
+        status: completed

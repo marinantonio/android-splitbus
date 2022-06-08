@@ -37,10 +37,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.am.stbus.BuildConfig
 import com.am.stbus.R
-import com.am.stbus.common.Constants.FACEBOOK_URL
 import com.am.stbus.common.Constants.GITHUB_URL
-import com.am.stbus.common.Constants.LINKEDIN_URL
-import com.am.stbus.common.Constants.WEBSITE_URL
 import com.am.stbus.common.extensions.loadEmailReport
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.CHANGELOG_CONTENT
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FAQ_CONTENT
@@ -72,12 +69,9 @@ class AboutFragment : Fragment() {
 
         btn_changelog.setOnClickListener { loadContentFragment(CHANGELOG_CONTENT) }
         btn_github.setOnClickListener { loadUrl(GITHUB_URL) }
-        btn_facebook.setOnClickListener { loadUrl(FACEBOOK_URL) }
         btn_faq.setOnClickListener {loadContentFragment(FAQ_CONTENT) }
         btn_licence.setOnClickListener { startActivity(Intent(requireContext(), OssLicensesMenuActivity::class.java)) }
         btn_contact.setOnClickListener { requireContext().loadEmailReport("", "Kontakt") }
-        btn_linkedin.setOnClickListener { loadUrl(LINKEDIN_URL) }
-        btn_website.setOnClickListener { loadUrl(WEBSITE_URL) }
     }
 
     private fun loadUrl(url: String) {

@@ -29,22 +29,26 @@ import com.am.stbus.data.network.RemoteNewsDataSource
 import com.am.stbus.domain.models.NewsItem
 import com.am.stbus.domain.models.NewsListItem
 import com.am.stbus.domain.repositories.NewsRepository
-import io.reactivex.Completable
 import io.reactivex.Single
+import kotlinx.coroutines.CoroutineDispatcher
 
 class NewsRepositoryImpl(
         private val remoteNewsDataSource: RemoteNewsDataSource,
         private val localNewsDataSource: NewsDao
 ): NewsRepository {
-    override fun getNewsList(remote: Boolean): Single<List<NewsListItem>> {
+    override suspend fun getNewsList(remote: Boolean, dispatcher: CoroutineDispatcher): List<NewsListItem> {
         return when(remote) {
-            true -> remoteNewsDataSource.getNewsList()
+            true -> remoteNewsDataSource.getNewsList(dispatcher)
             false -> localNewsDataSource.getAll()
         }
     }
 
-    override fun saveNewsList(list: List<NewsListItem>): Completable {
-        return localNewsDataSource.insertAll(list)
+    override suspend fun saveNewsList(list: List<NewsListItem>) {
+        localNewsDataSource.insertAll(list)
+    }
+
+    override suspend fun deleteNewsList() {
+        localNewsDataSource.nukeTable()
     }
 
     override fun getNewsDetail(remote: Boolean, url: String): Single<NewsItem> {

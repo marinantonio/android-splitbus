@@ -42,6 +42,13 @@ object Constants {
     const val EMA_DELIMITER = "emayz"
     const val DOWNLOADED_RECENTLY = 3L
 
+    // Podrzane gmaps linije
+    val ACTIVE_GMAPS_IDS = listOf(
+        10, 31, 32, 60, 71, 72, 81, 82,
+        90, 111, 112, 121, 122, 151, 152,
+        171, 172, 180, 210, 40
+    )
+
     // O Aplikaciji
     const val GITHUB_URL = "https://github.com/marinantonio/android-splitbus"
     const val FACEBOOK_URL = "https://www.facebook.com/splitbuss/"

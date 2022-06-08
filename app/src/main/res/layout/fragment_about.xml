@@ -22,8 +22,7 @@
   ~ SOFTWARE.
   -->
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -41,8 +40,8 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ToolbarTheme"
-            app:titleTextAppearance="@style/ToolbarText"
-            app:title="@string/settings_about_title" />
+            app:title="@string/settings_about_title"
+            app:titleTextAppearance="@style/ToolbarText" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -115,8 +114,8 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:textAlignment="center"
-                        android:textSize="17sp"
                         android:textColor="@color/colorAboutTitles"
+                        android:textSize="17sp"
                         app:fontFamily="@font/font_regular"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -139,20 +138,31 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_app_version" />
 
                     <Button
-                        android:id="@+id/btn_changelog"
+                        android:id="@+id/btn_faq"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
+                        android:text="@string/about_faq"
+                        android:textColor="@color/colorAboutButtons"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_changelog"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_app_desc" />
+
+                    <Button
+                        android:id="@+id/btn_changelog"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
                         android:text="@string/about_changelog"
                         android:textColor="@color/colorAboutButtons"
                         app:layout_constraintEnd_toStartOf="@+id/btn_github"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="packed"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_app_desc" />
+                        app:layout_constraintStart_toEndOf="@+id/btn_faq"
+                        app:layout_constraintTop_toTopOf="@+id/btn_faq" />
 
                     <Button
                         android:id="@+id/btn_github"
@@ -160,63 +170,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:text="@string/about_github"
-                        android:textColor="@color/colorAboutButtons"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_facebook"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/btn_changelog"
-                        app:layout_constraintTop_toTopOf="@+id/btn_changelog" />
-
-                    <Button
-                        android:id="@+id/btn_facebook"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:text="@string/about_facebook"
+                        android:text="@string/about_github"
                         android:textColor="@color/colorAboutButtons"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/btn_github"
-                        app:layout_constraintTop_toTopOf="@+id/btn_changelog" />
-
-                    <Button
-                        android:id="@+id/btn_faq"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/about_faq"
-                        android:textColor="@color/colorAboutButtons"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_licence"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="packed"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btn_github" />
+                        app:layout_constraintStart_toEndOf="@+id/btn_changelog"
+                        app:layout_constraintTop_toTopOf="@+id/btn_faq" />
 
                     <Button
                         android:id="@+id/btn_licence"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/about_licenses"
                         android:textColor="@color/colorAboutButtons"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/btn_faq"
-                        app:layout_constraintTop_toTopOf="@+id/btn_faq" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_changelog" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -251,9 +226,9 @@
                         android:layout_marginRight="8dp"
                         android:text="@string/about_dev_name"
                         android:textAllCaps="true"
+                        android:textColor="@color/colorAboutTitles"
                         android:textSize="28sp"
                         app:fontFamily="@font/font_semi_bold"
-                        android:textColor="@color/colorAboutTitles"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.502"
                         app:layout_constraintStart_toStartOf="parent"
@@ -280,48 +255,15 @@
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
                         android:text="@string/about_contact"
                         android:textColor="@color/colorAboutButtons"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_linkedin"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_dev_desc" />
-
-                    <Button
-                        android:id="@+id/btn_linkedin"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:text="@string/about_linkedin"
-                        android:textColor="@color/colorAboutButtons"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_website"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/btn_contact"
-                        app:layout_constraintTop_toTopOf="@+id/btn_contact" />
-
-                    <Button
-                        android:id="@+id/btn_website"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:text="@string/about_website"
-                        android:textColor="@color/colorAboutButtons"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/btn_linkedin"
-                        app:layout_constraintTop_toTopOf="@+id/btn_contact" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

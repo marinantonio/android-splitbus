@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
   ~ Copyright (c) 2013 - 2021 Antonio Marin
@@ -24,17 +23,17 @@
   -->
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/favouriteFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/favouriteFragment">
 
     <!-- Favoriti -->
     <fragment
-            android:id="@+id/favouriteFragment"
-            android:name="com.am.stbus.presentation.screens.favourites.FavouritesFragment"
-            android:label="fragment_favourite"
-            tools:layout="@layout/fragment_favourites">
+        android:id="@+id/favouriteFragment"
+        android:name="com.am.stbus.presentation.screens.favourites.FavouritesFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_favouriteFragment_to_timetableDetailFragment"
             app:destination="@id/timetableDetailFragment" />
@@ -67,46 +66,47 @@
         android:id="@+id/timetableListFragment"
         android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment"
         android:label="fragment_timetable_list"
-        tools:layout="@layout/fragment_timetables_list"/>
+        tools:layout="@layout/fragment_timetables_list" />
 
     <!-- Vozni redovi detail -->
     <fragment
-            android:id="@+id/timetableDetailFragment"
-            android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
-            android:label="fragment_timetable_detail"
-            tools:layout="@layout/fragment_timetable">
-        <argument
-            android:name="lineId"
-            android:defaultValue="0"
-            app:argType="integer"/>
-        <argument
-            android:name="lineNumber"
-            android:defaultValue=" "
-            app:argType="string"/>
-        <argument
-            android:name="gmapsId"
-            android:defaultValue="0"
-            app:argType="integer"/>
-        <argument
-            android:name="areaId"
-            android:defaultValue="0"
-            app:argType="integer"/>
-        <argument
-            android:name="favourite"
-            android:defaultValue="0"
-            app:argType="integer"/>
-        <argument
-            android:name="content"
-            android:defaultValue=" "
-            app:argType="string"/>
-        <argument
-            android:name="contentDate"
-            android:defaultValue=" "
-            app:argType="string"/>
+        android:id="@+id/timetableDetailFragment"
+        android:name="com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragment"
+        android:label="fragment_timetable_detail"
+        tools:layout="@layout/fragment_timetable">
 
         <action
             android:id="@+id/action_timetableDetailFragment_to_informationGmapsFragment"
             app:destination="@+id/informationGmapsFragment" />
+
+        <argument
+            android:name="lineId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="lineNumber"
+            android:defaultValue=" "
+            app:argType="string" />
+        <argument
+            android:name="gmapsId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="areaId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="favourite"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="content"
+            android:defaultValue=" "
+            app:argType="string" />
+        <argument
+            android:name="contentDate"
+            android:defaultValue=" "
+            app:argType="string" />
     </fragment>
 
 
@@ -136,7 +136,7 @@
         android:id="@+id/informationNewsListFragment"
         android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.InformationNewsListFragment"
         android:label="information_news_list_fragment"
-        tools:layout="@layout/fragment_information_news_list" >
+        tools:layout="@layout/fragment_information_news_list">
         <action
             android:id="@+id/action_informationNewsListFragment_to_informationNewsDetailFragment"
             app:destination="@id/informationNewsDetailFragment" />
@@ -151,7 +151,7 @@
         <argument
             android:name="gmapsId"
             android:defaultValue="0"
-            app:argType="integer"/>
+            app:argType="integer" />
     </fragment>
 
     <!-- Informacije Novost Detail -->
@@ -159,19 +159,19 @@
         android:id="@+id/informationNewsDetailFragment"
         android:name="com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailFragment"
         android:label="information_news_detail_fragment"
-        tools:layout="@layout/fragment_information_news_detail" >
+        tools:layout="@layout/fragment_information_news_detail">
         <argument
             android:name="newsTitle"
             android:defaultValue="Title"
-            app:argType="string"/>
+            app:argType="string" />
         <argument
             android:name="newsDate"
             android:defaultValue="Date"
-            app:argType="string"/>
+            app:argType="string" />
         <argument
             android:name="newsUrl"
             android:defaultValue="Url"
-            app:argType="string"/>
+            app:argType="string" />
     </fragment>
 
     <!-- Informacije ImageView Detail -->
@@ -179,11 +179,11 @@
         android:id="@+id/informationImageViewFragment"
         android:name="com.am.stbus.presentation.screens.information.informationImageViewFragment.InformationImageViewFragment"
         android:label="information_image_view_fragment"
-        tools:layout="@layout/fragment_information_image_view" >
+        tools:layout="@layout/fragment_information_image_view">
         <argument
             android:name="imageTitle"
             android:defaultValue="Image"
-            app:argType="string"/>
+            app:argType="string" />
         <argument
             android:name="imageUrl"
             android:defaultValue="url"
@@ -195,11 +195,11 @@
         android:id="@+id/informationWebViewFragment"
         android:name="com.am.stbus.presentation.screens.information.informationWebViewFragment.InformationWebViewFragment"
         android:label="information_web_view_fragment"
-        tools:layout="@layout/fragment_information_web_view" >
+        tools:layout="@layout/fragment_information_web_view">
         <argument
             android:name="webViewTitle"
             android:defaultValue="Image"
-            app:argType="string"/>
+            app:argType="string" />
         <argument
             android:name="webViewContent"
             android:defaultValue="url"
@@ -214,8 +214,7 @@
         android:label="fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment">
-        </action>
+            app:destination="@id/aboutFragment"></action>
     </fragment>
 
     <!-- About Fragment -->
@@ -223,7 +222,7 @@
         android:id="@+id/aboutFragment"
         android:name="com.am.stbus.presentation.screens.settings.AboutFragment"
         android:label="fragment_about"
-        tools:layout="@layout/fragment_about" >
+        tools:layout="@layout/fragment_about">
         <action
             android:id="@+id/action_aboutFragment_to_contentFragment"
             app:destination="@id/contentFragment" />
@@ -239,7 +238,7 @@
         <argument
             android:name="type"
             android:defaultValue="0"
-            app:argType="integer"/>
+            app:argType="integer" />
     </fragment>
 
 

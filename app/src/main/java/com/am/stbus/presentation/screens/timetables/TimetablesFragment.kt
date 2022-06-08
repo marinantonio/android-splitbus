@@ -31,18 +31,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.lifecycle.Observer
 import com.am.stbus.R
 import com.am.stbus.common.TimetablesData
-import com.am.stbus.common.extensions.sharedGraphViewModel
-import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_timetables.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TimetablesFragment : Fragment() {
 
-    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
+    private val timetablesSharedViewModel: TimetablesSharedViewModel by koinNavGraphViewModel(R.id.nav_graph)
 
     private val viewModel: TimetablesViewModel by viewModel()
 
@@ -56,9 +54,9 @@ class TimetablesFragment : Fragment() {
 
         toolbar.title = getString(R.string.nav_timetables)
 
-        viewModel.timetableList.observe(viewLifecycleOwner, Observer<List<Timetable>>{
+        viewModel.timetableList.observe(viewLifecycleOwner) {
             timetablesSharedViewModel.saveTimetables(it)
-        })
+        }
 
         setupViewPager()
         tab_layout.setupWithViewPager(view_pager)

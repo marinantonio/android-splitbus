@@ -103,12 +103,15 @@
     <string name="gmaps_route_92">9 - Trajektna Luka &#8212;> Ravne Njive</string>
     <string name="gmaps_route_111">11 - Spinut &#8212;> Ravne Njive</string>
     <string name="gmaps_route_112">11 - Ravne Njive &#8212;> Spinut</string>
+    <string name="gmaps_route_121">12 - Sv. Frane &#8212;> Bene</string>
+    <string name="gmaps_route_122">12 - Bene &#8212;> Sv. Frane</string>
     <string name="gmaps_route_151">15 - Duilovo &#8212;> Trajektna Luka</string>
     <string name="gmaps_route_152">15 - Trajektna Luka &#8212;> Duilovo</string>
     <string name="gmaps_route_171">17 - Spinut &#8212;> Trstenik</string>
     <string name="gmaps_route_172">17 - Trstenik &#8212;> Spinut</string>
     <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
+    <string name="gmaps_route_210">21 - Sv. Frane &#8212;> Meje</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Trajektna Luka</string>
     <string name="gmaps_route_402">40 - Trajektna Luka &#8212;> Kila</string>
 
@@ -153,7 +156,7 @@
     <string name="about_faq">ČPP</string>
     <string name="about_licenses">Licence</string>
     <string name="about_dev_name">Antonio Marin</string>
-    <string name="about_dev_desc">Aplikaciju je napisao i održava Antonio Marin, a svi zainteresirani za sudjelovanje u razvoju nek provjere Github. Za ostala pitanja, prijave, ideje i sl. Slobodno se javite!</string>
+    <string name="about_dev_desc">Aplikaciju napisao i održava Antonio Marin, a svi zainteresirani za sudjelovanje u razvoju nek provjere GitHub. Za ostala pitanja, prijave, ideje i sl. javite se koristeći Kontakt tipku!</string>
     <string name="about_contact">Kontakt</string>
     <string name="about_linkedin">LinkedIn</string>
     <string name="about_website">Website</string>
@@ -201,8 +204,9 @@
     <string name="content_update_desc"><![CDATA[
     Hvala vam na dosad poslanim komentarima i prijavama pogreški! U ovoj verziji su:
     <br>
-    <br>* Ispravljena linija br. 8 na Interaktivnoj mapi
-    <br>* Popravljene karte u Informacijama i ispravljen Nextbike URL
+    <br>* Zbog kompatibilinosti s novim Google kartama, Split Bus odsad zahtjeva Android verziju 4.4 i novije
+    <br>* Dodane linije br. 12 i 21 na Interaktivnoj karti, te ispravljena linija br 6.
+    <br>* Nadograđene interne biblioteke, ispravci grešaka
     <br>
     <br>
     <br><b>NAPOMENA:</b> Molim vas provjerite rute na interaktivnoj karti, te slobodno

@@ -26,23 +26,24 @@ package com.am.stbus.data.local
 
 import androidx.room.*
 import com.am.stbus.domain.models.NewsListItem
-import io.reactivex.Completable
-import io.reactivex.Single
 
 @Dao
 interface NewsDao {
     @Query("SELECT * FROM newsListItem")
-    fun getAll(): Single<List<NewsListItem>>
+    suspend fun getAll(): List<NewsListItem>
 
     @Query("SELECT * FROM newsListItem WHERE newsId IN (:newsIds)")
-    fun loadAllByIds(newsIds: IntArray): List<NewsListItem>
+    suspend fun loadAllByIds(newsIds: IntArray): List<NewsListItem>
 
     @Query("SELECT * FROM newsListItem WHERE url LIKE :url LIMIT 1")
-    fun findByUrl(url: String): NewsListItem
+    suspend fun findByUrl(url: String): NewsListItem
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(news: List<NewsListItem>): Completable
+    suspend fun insertAll(news: List<NewsListItem>)
 
     @Delete
-    fun delete(news: NewsListItem)
+    suspend fun delete(news: NewsListItem)
+
+    @Query("DELETE FROM newsListItem")
+    suspend fun nukeTable()
 }

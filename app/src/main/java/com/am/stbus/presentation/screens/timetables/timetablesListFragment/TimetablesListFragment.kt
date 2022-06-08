@@ -33,16 +33,16 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.am.stbus.R
-import com.am.stbus.common.extensions.sharedGraphViewModel
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.timetables.TimetablesFragmentDirections
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
 import kotlinx.android.synthetic.main.fragment_timetables_list.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TimetablesListFragment : Fragment() {
 
-    private val timetablesSharedViewModel by this.sharedGraphViewModel<TimetablesSharedViewModel>(R.id.nav_graph)
+    private val timetablesSharedViewModel: TimetablesSharedViewModel by koinNavGraphViewModel(R.id.nav_graph)
 
     private val viewModel: TimetablesListViewModel by viewModel()
 
