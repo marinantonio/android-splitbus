@@ -35,12 +35,10 @@ open class Event<out T>(private val content: T) {
     /**
      * Returns the content and prevents its use again.
      */
-    fun getContentIfNotHandled(): T? {
-        return if (hasBeenHandled) {
-            null
-        } else {
+    fun getContentIfNotHandled(action: (T) -> Unit) {
+        if (!hasBeenHandled) {
+            action(content)
             hasBeenHandled = true
-            content
         }
     }
 
@@ -49,3 +47,6 @@ open class Event<out T>(private val content: T) {
      */
     fun peekContent(): T = content
 }
+
+fun <T> T.inEvent(): Event<T> = Event(this)
+

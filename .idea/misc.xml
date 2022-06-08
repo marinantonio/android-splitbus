@@ -3,12 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/STROJ/AndroidStudioProjects/android-splitbus/app/src/main/res/layout/fragment_favourites.xml" value="0.21331521739130435" />
-        <entry key="..\:/Users/STROJ/AndroidStudioProjects/android-splitbus/app/src/main/res/menu/menu_timetable.xml" value="0.5420512820512821" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.3848958333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -28,6 +28,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am.stbus.common.TimetablesData
+import com.am.stbus.common.helpers.Event
+import com.am.stbus.common.helpers.inEvent
 import com.am.stbus.domain.models.Timetable
 import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
 import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
@@ -43,8 +45,8 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
     private val schedulers = Schedulers.io()
     private val thread = AndroidSchedulers.mainThread()
 
-    private val _timetableList = MutableLiveData<List<Timetable>>()
-    val timetableList: LiveData<List<Timetable>>
+    private val _timetableList = MutableLiveData<Event<List<Timetable>>>()
+    val timetableList: LiveData<Event<List<Timetable>>>
         get() = _timetableList
 
     private val _removedFavourite = MutableLiveData<TimetablesListFragment.UpdatedFavourite>()
@@ -65,7 +67,7 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
                         saveTimetables()
                     } else {
                         val favouriteTimetables = timetables.filter { it.favourite == 1 }
-                        _timetableList.postValue(favouriteTimetables)
+                        _timetableList.postValue(favouriteTimetables.inEvent())
                     }
                 }
 
@@ -86,7 +88,7 @@ class FavouritesViewModel(private val timetableListUseCase: TimetableListUseCase
             .observeOn(thread)
             .subscribe(object : CompletableObserver {
                 override fun onComplete() {
-                    _timetableList.postValue(TimetablesData.list)
+                    _timetableList.postValue(emptyList<Timetable>().inEvent())
                 }
 
                 override fun onSubscribe(d: Disposable) {

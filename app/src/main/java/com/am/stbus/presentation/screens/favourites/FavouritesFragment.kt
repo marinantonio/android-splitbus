@@ -39,7 +39,6 @@ import com.am.stbus.domain.models.Timetable
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.FIRST_RUN_CONTENT
 import com.am.stbus.presentation.screens.settings.ContentFragment.Companion.UPDATE_APP_CONTENT
 import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
-import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListFragment
 import kotlinx.android.synthetic.main.fragment_favourites.*
 import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -79,29 +78,14 @@ class FavouritesFragment : Fragment() {
         }
 
         timetablesSharedViewModel.timetables.observe(viewLifecycleOwner) { timetables ->
-            /** Sličan fix kao i u [TimetablesListFragment.onViewCreated], malo rekurzivna funkcija
-             * koja riješava problem ako se MainActivity uništi a korisnik zapne na TimetableDetail ekranu i
-             * onda se pokušava vratiti natrag na favorite. SharedViewModel nažalost će biti uništen tada jer
-             * prati navGraph, a vozni redovi će biti null!
-             */
-            val favouriteTimetables = timetables.filter { it.favourite == 1 }
-            favouriteAdapter.clear()
-            favouriteAdapter.addEntireData(favouriteTimetables)
-
-            rv_timetables.isVisible = favouriteTimetables.isNotEmpty()
-            tv_empty_title.isVisible = favouriteTimetables.isEmpty()
-            tv_empty_message.isVisible = favouriteTimetables.isEmpty()
+            val favouriteTimetables = timetables?.filter { it.favourite == 1 } ?: emptyList()
+            populateFavouriteTimetables(favouriteTimetables)
         }
 
-        viewModel.timetableList.observe(viewLifecycleOwner) { timetables ->
-            if (favouriteAdapter.itemCount == 0) {
-                favouriteAdapter.clear()
-                favouriteAdapter.addEntireData(timetables)
+        viewModel.timetableList.observe(viewLifecycleOwner) { timetablesEvent ->
+            timetablesEvent.getContentIfNotHandled {
+                populateFavouriteTimetables(it)
             }
-
-            rv_timetables.isVisible = favouriteAdapter.itemCount > 0
-            tv_empty_title.isVisible = favouriteAdapter.itemCount == 0
-            tv_empty_message.isVisible = favouriteAdapter.itemCount == 0
         }
 
         viewModel.removedFavourite.observe(viewLifecycleOwner) {
@@ -109,6 +93,18 @@ class FavouritesFragment : Fragment() {
         }
 
         checkShouldWelcomeBeShown()
+    }
+
+    private fun populateFavouriteTimetables(timetables: List<Timetable>) {
+
+        favouriteAdapter.clear()
+        favouriteAdapter.addEntireData(timetables)
+
+        rv_timetables.isVisible = timetables.isNotEmpty()
+        tv_empty_title.isVisible = timetables.isEmpty()
+        tv_empty_message.isVisible = timetables.isEmpty()
+
+
     }
 
     private fun checkShouldWelcomeBeShown() {

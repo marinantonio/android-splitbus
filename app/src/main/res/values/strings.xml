@@ -200,8 +200,9 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Interactive map - Line No. 8 updated
-    <br>* Updated maps on found on Information section, fixed Nextbike URL
+    <br>* Due to compatibility issues, Split Bus now requires Android 4.4 and newer
+    <br>* Interactive map - Added lines 12 and 21, rectified line 6
+    <br>* Updated internal libs, bugfixes
     <br>
     <br>
     <b>NOTE:</b> Please let me know if you find any more issues on the Interactive map!
