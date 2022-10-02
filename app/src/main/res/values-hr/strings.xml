@@ -240,7 +240,7 @@
 
 
     <!-- Gradski busevi -->
-    <string name="bus1">Starine - HNK - Starine</string>
+    <string name="bus1">Bunje - HNK - Bunje</string>
     <string name="bus021">Zračna Luka - Kaštel Sućurac (Strinje) - Poljička - Split</string>
     <string name="bus022">Split - Poljička - Kaštel Sućurac (Strinje) - Zračna Luka</string>
     <string name="bus023">Kaštel Sućurac (Strinje) - Trajektna Luka - Kaštel Sućurac (Strinje)</string>
@@ -353,24 +353,16 @@
     <string name="bus442">Okrug Donji - Trogir</string>
     <string name="bus451">Trogir - Seget Vranjica</string>
     <string name="bus452">Seget Vranjica - Trogir</string>
-    <string name="bus471">Trogir - Marina</string>
-    <string name="bus472">Marina - Trogir</string>
-    <string name="bus4911">Trogir - Marina - Vinišće</string>
-    <string name="bus4912">Trogir - Vrsine - Marina - Vinišće</string>
-    <string name="bus4921">Vinišće - Marina</string>
-    <string name="bus4922">Vinišće - Marina - Trogir</string>
-    <string name="bus5011">Trogir - Vrsine - Marina - Sevid</string>
-    <string name="bus5012">Trogir - Marina - Vinišće - Sevid</string>
-    <string name="bus5021">Sevid - Vinišće - Trogir</string>
-    <string name="bus5022">Sevid - Trogir</string>
-    <string name="bus5023">Sevid - Marina</string>
-    <string name="bus511">Trogir - Bristivica - Ljubitovica</string>
+    <string name="bus481">Trogir - Vrsine - Marina</string>
+    <string name="bus482">Marina - Trogir</string>
+    <string name="bus491">Trogir - Marina - Vinišće</string>
+    <string name="bus492">Vinišće - Marina - Trogir</string>
+    <string name="bus501">Trogir - Marina - Vinišće - Sevid</string>
+    <string name="bus502">Sevid - Trogir</string>
+    <string name="bus511">Trogir - Blizina - Bristivica - Ljubitovica</string>
     <string name="bus512">Ljubitovica - Trogir</string>
-    <string name="bus5211">Trogir - Vrsine - Marina - Vinovac</string>
-    <string name="bus5212">Vinovac - Blizna - Dograde - Marina - Trogir</string>
-    <string name="bus5213">Marina (okretište) - Vinovac</string>
-    <string name="bus5214">Vinovac - Blizna - Marina - Dograde - Vrsine - Trogir</string>
-    <string name="bus5215">Vinovac - Blizna - Marina - Trogir</string>
+    <string name="bus521">Trogir - Vrsine - Marina - Vinovac</string>
+    <string name="bus522">Vinovac - Blizina - Marina - Dograde - Vrsine - Trogir</string>
 
 
     <!-- Trogir -->
