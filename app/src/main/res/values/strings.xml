@@ -200,12 +200,10 @@
     <string name="content_update_desc"><![CDATA[
     Thank you all for your feedback and bug reports! This release contains following:
     <br>
-    <br>* Due to compatibility issues, Split Bus now requires Android 4.4 and newer
-    <br>* Interactive map - Added lines 12 and 21, rectified line 6
-    <br>* Updated internal libs, bugfixes
+    <br>* Fixes to various timetables not appearing
     <br>
     <br>
-    <b>NOTE:</b> Please let me know if you find any more issues on the Interactive map!
+    <b>NOTE:</b> Favourites will reset due timetable updates, sorry for that!
     ]]>
     </string>
 
