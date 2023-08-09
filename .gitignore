@@ -79,3 +79,4 @@ gradle.properties
 changelog.sh
 
 /.idea/deploymentTargetDropDown.xml
+/.idea/kotlinc.xml

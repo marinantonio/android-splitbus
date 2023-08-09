@@ -109,7 +109,7 @@
     <string name="gmaps_route_152">15 - Ferry Port &#8212;> Duilovo</string>
     <string name="gmaps_route_171">17 - Spinut &#8212;> Trstenik</string>
     <string name="gmaps_route_172">17 - Trstenik &#8212;> Spinut</string>
-    <string name="gmaps_route_181">18 - Brnik &#8212;> HNK</string>
+    <string name="gmaps_route_181">18 - Sirobuja &#8212;> HNK</string>
     <string name="gmaps_route_182">18 - HNK &#8212;> Brnik</string>
     <string name="gmaps_route_210">21 - Sv. Frane &#8212;> Meje</string>
     <string name="gmaps_route_401">40 - Kila &#8212;> Ferry Port</string>
@@ -257,7 +257,7 @@
     <string name="bus16">Ninčevići - HNK - Ninčevići</string>
     <string name="bus171">Spinut - Lora - Kampus - Trstenik</string>
     <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
-    <string name="bus18">Brnik - HNK - Brnik</string>
+    <string name="bus18">Sirobuja - HNK - Sirobuja</string>
     <string name="bus20">Ravne Njive - Zvončac</string>
     <string name="bus21">Sv.Frane - Meje - Sv.Frane</string>
     <string name="bus22">Klis Megdan - Gornja Rupotina - HNK - Klis Megdan</string>

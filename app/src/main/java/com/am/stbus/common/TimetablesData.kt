@@ -185,7 +185,7 @@ class TimetablesData {
                         15 -> "15 DUILOVO"
                         16 -> "17 SPINUT"
                         17 -> "17 TRSTENIK"
-                        18 -> "18 BRNIK"
+                        18 -> "18 SIROBUJA"
                         19 -> "20 BRDA"
                         20 -> "21 SV.FRANE"
                         21 -> "24 SPLIT"
