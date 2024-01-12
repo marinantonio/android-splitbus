@@ -91,8 +91,8 @@
     <string name="information_gmaps_route_selector_popup_close">Zatvori</string>
     <string name="gmaps_route_11">1 - Starine &#8212;> HNK</string>
     <string name="gmaps_route_12">1 - HNK &#8212;> Starine</string>
-    <string name="gmaps_route_31">3 - Brda &#8212;> Lovrinac</string>
-    <string name="gmaps_route_32">3 - Lovrinac &#8212;> Brda</string>
+    <string name="gmaps_route_31">3 - Brnik &#8212;> Brda &#8212;> Brnik</string>
+    <string name="gmaps_route_32">3A - Brnik &#8212;> Poljička &#8212;> Brnik</string>
     <string name="gmaps_route_61">6 - Kila &#8212;> HNK</string>
     <string name="gmaps_route_62">6 - HNK &#8212;> Kila</string>
     <string name="gmaps_route_71">7 - Žnjan &#8212;> Zapadna Obala</string>
@@ -241,8 +241,8 @@
     <string name="bus021">Zračna Luka - Kaštel Sućurac (Strinje) - Poljička - Split</string>
     <string name="bus022">Split - Poljička - Kaštel Sućurac (Strinje) - Zračna Luka</string>
     <string name="bus023">Kaštel Sućurac (Strinje) - Trajektna Luka - Kaštel Sućurac (Strinje)</string>
-    <string name="bus31">Lovrinac - Brda</string>
-    <string name="bus32">Brda - Lovrinac</string>
+    <string name="bus31">Brnik - Poljička - Brnik</string>
+    <string name="bus32">Brnik - Brda - Brnik</string>
     <string name="bus5">Dračevac - HNK - Dračevac</string>
     <string name="bus51">Dračevac - Solin - Visoka - HNK - Dračevac</string>
     <string name="bus6">Kila - Vukovarska - HNK - Kila</string>
