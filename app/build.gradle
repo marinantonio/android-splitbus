@@ -38,8 +38,8 @@ android {
         applicationId "com.am.stbus"
         minSdkVersion 19
         targetSdkVersion 32
-        versionCode 79
-        versionName "3.2.2"
+        versionCode 80
+        versionName "3.2.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         multiDexEnabled true

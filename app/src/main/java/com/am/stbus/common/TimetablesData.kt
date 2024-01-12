@@ -168,8 +168,8 @@ class TimetablesData {
         fun getTimetableTitleAsOnPrometWebsite(lineId: Int): String =
                 when (lineId) {
                         // Gradski
-                        1 -> "3 BRDA"
-                        2 -> "3 LOVRINAC"
+                        1 -> "3 BRNIK"
+                        2 -> "3A BRNIK"
                         3 -> "6 KILA"
                         4 -> "7 ŽNJAN"
                         5 -> "7 ZAPADNA"
@@ -311,7 +311,7 @@ class TimetablesData {
                 val list: List<Timetable> = listOf(
                         // Gradski
                         Timetable(1, "3", 31, AREA_CITY, 0, "", ""),
-                        Timetable(2, "3", 32, AREA_CITY, 0, "", ""),
+                        Timetable(2, "3A", 32, AREA_CITY, 0, "", ""),
                         Timetable(3, "6", 60, AREA_CITY, 0, "", ""),
                         Timetable(4, "7", 71, AREA_CITY, 0, "", ""),
                         Timetable(5, "7", 72, AREA_CITY, 0, "", ""),
