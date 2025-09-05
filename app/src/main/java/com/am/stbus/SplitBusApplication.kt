@@ -25,7 +25,6 @@
 package com.am.stbus
 
 import android.app.Application
-import com.am.stbus.common.di.*
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -33,34 +32,34 @@ import timber.log.Timber
 
 class SplitBusApplication : Application() {
 
-    private var listOfModules = listOf(
-            applicationModule,
-            localModules,
-            networkModules,
-            repositoriesModule,
-            useCaseModule,
-            viewModelModule
-    )
+/*    private var listOfModules = listOf(
+        applicationModule,
+        localModules,
+        networkModules,
+        repositoriesModule,
+        useCaseModule,
+        viewModelModule
+    )*/
 
     override fun onCreate() {
         super.onCreate()
         setupKoin()
-        setupTimber()
+        //setupTimber()
         setupThreeTen()
     }
 
     private fun setupKoin() {
         startKoin {
             androidContext(applicationContext)
-            modules(listOfModules)
+            //modules(listOfModules)
         }
     }
 
-    private fun setupTimber() {
+/*    private fun setupTimber() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-    }
+    }*/
 
     private fun setupThreeTen() {
         AndroidThreeTen.init(this)
