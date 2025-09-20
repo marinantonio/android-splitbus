@@ -83,6 +83,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.jsoup)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

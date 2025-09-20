@@ -1,6 +1,5 @@
-package com.am.breweyexplorer.presentation.screens.home
+package com.am.stbus.presentation.screens.home
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,15 +7,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.am.breweyexplorer.presentation.theme.BreweyExplorerTheme
-import com.am.breweyexplorer.presentation.theme.PastelPurpleBg
 import com.am.stbus.presentation.screens.BaseScreen
+import com.am.stbus.presentation.theme.SplitBusTheme
 
 @Composable
 fun HomeScreenWithToolbar() {
     BaseScreen(
-        modifier = Modifier.background(PastelPurpleBg),
-        title = "Home"
+        title = "Timetables"
     ) {
         HomeScreen()
     }
@@ -26,17 +23,16 @@ fun HomeScreenWithToolbar() {
 fun HomeScreen() {
     Text(
         modifier = Modifier.fillMaxWidth(),
-        text = "Test"
+        text = "Timetables"
     )
 }
 
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    BreweyExplorerTheme {
+    SplitBusTheme {
         Row(
             modifier = Modifier
-                .background(PastelPurpleBg)
                 .fillMaxSize()
         ) {
             HomeScreen()

@@ -25,10 +25,14 @@
 package com.am.stbus
 
 import android.app.Application
+import com.am.stbus.common.di.apiModule
+import com.am.stbus.common.di.networkModule
+import com.am.stbus.common.di.repositoryModule
+import com.am.stbus.common.di.useCaseModule
+import com.am.stbus.common.di.viewModelModule
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import timber.log.Timber
 
 class SplitBusApplication : Application() {
 
@@ -41,6 +45,14 @@ class SplitBusApplication : Application() {
         viewModelModule
     )*/
 
+    private var listOfModules = listOf(
+        apiModule,
+        networkModule,
+        repositoryModule,
+        useCaseModule,
+        viewModelModule
+    )
+
     override fun onCreate() {
         super.onCreate()
         setupKoin()
@@ -51,7 +63,7 @@ class SplitBusApplication : Application() {
     private fun setupKoin() {
         startKoin {
             androidContext(applicationContext)
-            //modules(listOfModules)
+            modules(listOfModules)
         }
     }
 
