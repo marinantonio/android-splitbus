@@ -22,24 +22,19 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.models
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-val viewModelModule = module {
-
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
-    }
-}
+@Serializable
+data class Model(
+    @SerialName("departureTime")
+    val departureTime: String?,
+    @SerialName("transportServiceRouteTripId")
+    val transportServiceRouteTripId: Int?,
+    @SerialName("transportServiceRouteId")
+    val transportServiceRouteId: Int?,
+    @SerialName("transportServiceRouteCode")
+    val transportServiceRouteCode: String?
+)

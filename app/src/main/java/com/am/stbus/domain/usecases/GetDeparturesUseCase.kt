@@ -22,24 +22,33 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain.usecases
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import com.am.stbus.data.models.Model
+import com.am.stbus.domain.PrometApiRepository
+import timber.log.Timber
 
-val viewModelModule = module {
+class GetDeparturesUseCase(
+    private val prometApiRepository: PrometApiRepository
+) {
+    suspend fun run(): Result<List<Model>> {
 
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
+        Timber.d("Debugging - calling endpoint...")
 
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
+        val doc = prometApiRepository.getApi()
+
+        return if (doc.isSuccessful) {
+            Result.success(doc.body() ?: emptyList())
+        } else {
+            Result.failure(Exception("null"))
+        }
+
+        /*
+                return if doc.isSuccessful {
+                    //Result.success(doc)
+                    Result.failure(Exception("null"))
+                } else {
+                    Result.failure(Exception("null"))        }
+        */
     }
 }

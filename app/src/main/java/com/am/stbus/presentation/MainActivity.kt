@@ -4,35 +4,35 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DirectionsBus
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.rounded.DepartureBoard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entry
 import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.am.stbus.presentation.screens.home.HomeScreenWithToolbar
-import com.am.stbus.presentation.screens.timetables.Timetable
-import com.am.stbus.presentation.screens.timetables.TimetablesDetailWithToolbar
-import com.am.stbus.presentation.screens.timetables.TimetablesWithToolbar
+import com.am.stbus.data.models.BusLine
+import com.am.stbus.presentation.screens.departures.DeparturesScreen
+import com.am.stbus.presentation.screens.home.HomeScreen
+import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailScreen
+import com.am.stbus.presentation.screens.timetables.list.TimetablesScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
-
+import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
 
-    @OptIn(ExperimentalMaterial3ExpressiveApi::class)
+    @OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,57 +40,60 @@ class MainActivity : ComponentActivity() {
 
             SplitBusTheme {
 
-                val topLevelBackStack = remember { TopLevelBackStack<Any>(Home) }
+                val backStack = rememberNavBackStack<NavKey>(HomeScreenKey)
+
+                val barsVisible = TOP_LEVEL_ROUTES.map { it.navKey }.contains(backStack.last())
 
                 Scaffold(
                     bottomBar = {
-                        NavigationBar {
-                            TOP_LEVEL_ROUTES.forEach { topLevelRoute ->
+                        if (barsVisible) {
+                            NavigationBar {
+                                TOP_LEVEL_ROUTES.forEach { topLevelRoute ->
 
-                                val isSelected = topLevelRoute == topLevelBackStack.topLevelKey
-                                NavigationBarItem(
-                                    selected = isSelected,
-                                    onClick = {
-                                        topLevelBackStack.addTopLevel(topLevelRoute)
-                                    },
-                                    icon = {
-                                        Icon(
-                                            imageVector = topLevelRoute.icon,
-                                            contentDescription = null
-                                        )
-                                    }
-                                )
+                                    val isSelected = topLevelRoute.navKey == backStack.last()
+
+                                    NavigationBarItem(
+                                        selected = isSelected,
+                                        onClick = {
+                                            if (!backStack.contains(topLevelRoute.navKey)) {
+                                                backStack.add(topLevelRoute.navKey)
+                                                if (backStack.size > 2) {
+                                                    backStack.removeAt(1)
+                                                }
+                                            }
+                                        },
+                                        icon = {
+                                            Icon(
+                                                imageVector = topLevelRoute.icon,
+                                                contentDescription = null
+                                            )
+                                        }
+                                    )
+                                }
                             }
                         }
                     }
-                ) { _ ->
+                ) { innerPadding ->
+
                     NavDisplay(
-                        backStack = topLevelBackStack.backStack,
-                        onBack = { topLevelBackStack.removeLast() },
+                        modifier = Modifier.padding(innerPadding),
+                        backStack = backStack,
+                        onBack = { backStack.removeLastOrNull() },
                         entryProvider = entryProvider {
-                            entry<Home> {
-                                HomeScreenWithToolbar()
+                            entry<HomeScreenKey> {
+                                HomeScreen()
                             }
-                            entry<TimetablesList> {
-                                TimetablesWithToolbar {
-                                    topLevelBackStack.add(TimetableDetail(it))
+                            entry<BusStopsScreenKey> {
+                                DeparturesScreen()
+                            }
+                            entry<TimetablesListScreenKey> {
+                                TimetablesScreen {
+                                    backStack.add(TimetableDetailScreenKey(it))
                                 }
                             }
-                            entry<TimetableDetail> {
-                                TimetablesDetailWithToolbar(timetable = it.timetable)
+                            entry<TimetableDetailScreenKey> {
+                                TimetablesDetailScreen(busLine = it.busLine)
                             }
-
-                            /*              entry<ChatList> {
-                                              BreweriesScreenWithToolbar {
-                                                  topLevelBackStack.add(BreweryDetail(it))
-                                              }
-                                          }
-                                          entry<BreweryDetail> { key ->
-                                              BreweryDetailScreen(key.brewery)
-                                          }
-                                          entry<ChatDetail> {
-                                              AccountScreenWithToolbar()
-                                          }*/
                         }
                     )
                 }
@@ -99,6 +102,68 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Bottom Bar
+private sealed interface BottomBarRoutes {
+    val icon: ImageVector
+    val navKey: NavKey
+}
+
+private data object Home : BottomBarRoutes {
+    override val icon = Icons.Default.Home
+    override val navKey: NavKey = HomeScreenKey
+}
+
+private data object BusStops : BottomBarRoutes {
+    override val icon = Icons.Rounded.DepartureBoard
+    override val navKey: NavKey = BusStopsScreenKey
+}
+
+private data object TimetablesList : BottomBarRoutes {
+    override val icon = Icons.Default.DirectionsBus
+    override val navKey: NavKey = TimetablesListScreenKey
+}
+
+private val TOP_LEVEL_ROUTES: List<BottomBarRoutes> =
+    listOf(Home, BusStops, TimetablesList)
+
+
+@Serializable
+data object HomeScreenKey : NavKey
+
+@Serializable
+data object BusStopsScreenKey : NavKey
+
+@Serializable
+data object TimetablesListScreenKey : NavKey
+
+@Serializable
+data class TimetableDetailScreenKey(val busLine: BusLine) : NavKey
+
+private fun getTitleForActiveScreen(selectedNavKey: NavKey): String {
+    return when (selectedNavKey) {
+        is HomeScreenKey -> "Favourites"
+        is BusStopsScreenKey -> "Bus stops"
+        is TimetablesListScreenKey -> "Vozni redovi"
+        else -> "Detalj"
+    }
+}
+
+/*
+fun getIconForNavKey(selectedKey: NavKey): ImageVector {
+    return when (selectedKey) {
+        is HomeScreen -> Icons.Default.Home
+        is UserProfile -> Icons.Default.DirectionsBus
+        else -> Icons.Default.DirectionsBus
+    }
+}
+
+private val BOTTOM_BAR_KEYS: List<NavKey> =
+    listOf(Home, UserProfile)
+
+*/
+
+
+/*
 private sealed interface TopLevelRoute {
     val icon: ImageVector
 }
@@ -113,19 +178,13 @@ private data object TimetablesList : TopLevelRoute {
 
 data class TimetableDetail(val timetable: Timetable)
 
-
-
-private data object ChatList : TopLevelRoute {
-    override val icon = Icons.Default.Face
+private data object DeparturesScreenWithToolbar : TopLevelRoute {
+    override val icon = Icons.Default.AccessTime
 }
 
 
-/*
-private data object ChatDetail
-data class BreweryDetail(val brewery: Brewery)
-*/
-
-private val TOP_LEVEL_ROUTES: List<TopLevelRoute> = listOf(Home, TimetablesList)
+private val TOP_LEVEL_ROUTES: List<TopLevelRoute> =
+    listOf(Home, TimetablesList, DeparturesScreenWithToolbar)
 
 class TopLevelBackStack<T : Any>(startKey: T) {
 
@@ -177,3 +236,4 @@ class TopLevelBackStack<T : Any>(startKey: T) {
         updateBackStack()
     }
 }
+*/

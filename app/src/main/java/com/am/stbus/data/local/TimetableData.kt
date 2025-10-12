@@ -22,24 +22,15 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.local
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+class TimetableData {
 
-val viewModelModule = module {
-
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
-    }
+    // 675258 - HNK
+    // 676742 - HNK izlaz
+    // 676393 - Autobusni kolodvor sukoisan
+    // 675287 opcina prema pazaru
+    // 675286 opcina prema kvartovima
+    // 675289 pazar prema trajektnoj luci
+    // 675290 pazar prema opcini
 }

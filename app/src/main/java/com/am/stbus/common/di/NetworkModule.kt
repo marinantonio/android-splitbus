@@ -1,5 +1,6 @@
 package com.am.stbus.common.di
 
+import com.am.stbus.common.Constants.PROMET_API_URL
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -19,12 +20,21 @@ val networkModule = module {
     // Provide OkHttpClient
     single {
         OkHttpClient.Builder()
-            .build()
+            .addInterceptor { chain ->
+                //return response
+                chain.proceed(
+                    //create request
+                    chain.request()
+                        .newBuilder()
+                    //add headers to the request builder
+
+                )
+            }.build()
     }
 
     single {
         Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
+            .baseUrl(PROMET_API_URL)
             .client(get())
             .addConverterFactory(
                 Json.asConverterFactory(

@@ -22,24 +22,36 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.presentation.screens.departures
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.am.stbus.data.models.Model
+import com.am.stbus.domain.usecases.GetDeparturesUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-val viewModelModule = module {
+class DeparturesListViewModel(
+    private val getDeparturesUseCase: GetDeparturesUseCase
+) : ViewModel() {
 
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
+    var timetableData by mutableStateOf(emptyList<Model>())
+
+    fun getTimetableData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = getDeparturesUseCase.run()
+
+            result.onSuccess {
+                timetableData = it
+                Timber.d("Debugging - success ${it}")
+            }.onFailure {
+                Timber.d("Debugging - error ${it}")
+            }
+        }
     }
 
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
-    }
 }

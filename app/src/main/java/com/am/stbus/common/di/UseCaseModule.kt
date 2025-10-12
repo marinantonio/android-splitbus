@@ -24,10 +24,17 @@
 
 package com.am.stbus.common.di
 
+import com.am.stbus.domain.usecases.GetDeparturesUseCase
 import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
+
+    factory {
+        GetDeparturesUseCase(
+            prometApiRepository = get()
+        )
+    }
 
     factory {
         GetTimetableDetailDataUseCase(

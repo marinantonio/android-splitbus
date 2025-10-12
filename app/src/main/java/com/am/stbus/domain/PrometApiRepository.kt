@@ -22,24 +22,18 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import com.am.stbus.data.ApiService
+import com.am.stbus.data.models.Model
+import retrofit2.Response
 
-val viewModelModule = module {
+class PrometApiRepository(
+    private val apiService: ApiService
+) {
 
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
+    suspend fun getApi(): Response<List<Model>> {
+        return apiService.getSomething()
     }
 
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
-    }
 }

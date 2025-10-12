@@ -22,24 +22,32 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.presentation.screens.common
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
-val viewModelModule = module {
-
-    viewModel {
-        DeparturesListViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AppBarScreen(
+    modifier: Modifier = Modifier,
+    title: String,
+    content: @Composable ColumnScope.() -> Unit = {}
+) {
+    Column(
+        modifier = modifier.fillMaxSize()
+    ) {
+        TopAppBar(title = {
+            Text(
+                text = title
+            )
+        })
+        content()
     }
 }

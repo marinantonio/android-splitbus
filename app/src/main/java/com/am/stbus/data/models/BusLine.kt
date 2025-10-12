@@ -22,35 +22,14 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetables
+package com.am.stbus.data.models
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import timber.log.Timber
+import kotlinx.serialization.Serializable
 
-class TimetablesDetailViewModel(
-    private val getTimetableDetailDataUseCase: GetTimetableDetailDataUseCase
-) : ViewModel() {
-
-    var timetableData by mutableStateOf("")
-
-    fun getTimetableData() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = getTimetableDetailDataUseCase.run("test")
-
-            result.onSuccess {
-                timetableData = it
-                Timber.d("Debugging - success ${it}")
-            }.onFailure {
-                Timber.d("Debugging - error ${it}")
-            }
-        }
-    }
-
-}
+@Serializable
+data class BusLine(
+    val id: Int,
+    val title: Int,
+    val number: String,
+    val websiteTitle: String
+)
