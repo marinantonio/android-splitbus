@@ -45,22 +45,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.am.stbus.data.local.CITY_BUS_LINES
-import com.am.stbus.data.local.CITY_URBAN_LINES
+import com.am.stbus.data.localdb.CITY_BUS_LINES
+import com.am.stbus.data.localdb.CITY_URBAN_LINES
 import com.am.stbus.data.models.BusLine
+import com.am.stbus.data.models.BusLineArea
+import com.am.stbus.data.models.BusLineArea.Companion.getPagerTitle
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 import kotlinx.coroutines.launch
-import kotlinx.serialization.Serializable
 
 @Composable
 fun TimetablesScreen(
@@ -69,7 +66,6 @@ fun TimetablesScreen(
 
     val scope = rememberCoroutineScope()
 
-    // Display 10 items
     val pagerState = rememberPagerState(
         pageCount = { timetableAreas.size }
     )
@@ -93,7 +89,7 @@ fun TimetablesScreen(
                     },
                     text = {
                         Text(
-                            text = timetableArea.title
+                            text = stringResource(timetableArea.busLineArea.getPagerTitle())
                         )
                     }
                 )
@@ -102,7 +98,7 @@ fun TimetablesScreen(
 
         HorizontalPager(state = pagerState) { page ->
 
-            val busLinesForArea = timetableAreas[page].busLinesForArea
+            val busLinesForArea = timetableAreas[page].busLines
 
             Column(
                 modifier = Modifier
@@ -142,50 +138,17 @@ fun TimetablesScreen(
     }
 }
 
-val timetableAreas = listOf(
-    TimetableArea(title = "Gradski", busLinesForArea = CITY_BUS_LINES),
-    TimetableArea(title = "Prigradski", busLinesForArea = CITY_URBAN_LINES)
+private val timetableAreas = listOf(
+    TimetableArea(busLineArea = BusLineArea.City, busLines = CITY_BUS_LINES),
+    TimetableArea(busLineArea = BusLineArea.Urban, busLines = CITY_URBAN_LINES)
 )
 
 data class TimetableArea(
-    val title: String,
-    val busLinesForArea: List<BusLine>
+    val busLineArea: BusLineArea,
+    val busLines: List<BusLine>
 )
 
-@Composable
-fun measureTextWidth(text: String, style: TextStyle): Dp {
-    val textMeasurer = rememberTextMeasurer()
-    val widthInPixels = textMeasurer.measure(text, style).size.width
-    return with(LocalDensity.current) { widthInPixels.toDp() }
-}
 
-
-/*
-        listOfTimetables.forEach {
-            Card(
-                modifier = Modifier
-                    .clickable {
-                        onTimetableClick(it)
-                    }
-            ) {
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    text = stringResource(it.title),
-                )
-            }
-            Spacer(modifier = Modifier.height(4.dp))
-*/
-
-
-
-@Serializable
-data class Timetable(
-    val id: Int,
-    val title: Int,
-    val titleWebsite: String
-)
 
 @Preview
 @Composable

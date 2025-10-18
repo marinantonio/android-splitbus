@@ -22,29 +22,14 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.local
+package com.am.stbus.data.models
 
-import com.am.stbus.R
-import com.am.stbus.data.models.BusLine
+import kotlinx.serialization.Serializable
 
-
-val CITY_BUS_LINES = listOf(
-    BusLine(id = 1, title = R.string.bus32, number = "3", websiteTitle = "3 BRNIK"),
-    BusLine(id = 2, title = R.string.bus31, number = "3A", websiteTitle = "3A BRNIK"),
-    BusLine(id = 3, title = R.string.bus6, number = "6", websiteTitle = "6 KILA")
+@Serializable
+data class BusStop(
+    val id: Int,
+    val title: String,
 )
 
-val CITY_URBAN_LINES = listOf(
-    BusLine(id = 100, title = R.string.bus1, number = "1", websiteTitle = "1 BUNJE"),
-    BusLine(id = 101, title = R.string.bus022, number = "2", websiteTitle = "2 SPLIT"),
-    BusLine(id = 102, title = R.string.bus021, number = "2", websiteTitle = "2 ZRAČNA")
-)
 
-/*
-sealed class BusLineArea {
-    object City: BusLineArea()
-    object Urban: BusLineArea()
-    object Suburban: BusLineArea()
-    object Trogir: BusLineArea()
-    object Solta: BusLineArea()
-}*/

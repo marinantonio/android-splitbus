@@ -1,6 +1,7 @@
 package com.am.stbus.common.di
 
 import com.am.stbus.common.Constants.PROMET_API_URL
+import com.am.stbus.common.PROMET_KEY
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -26,8 +27,12 @@ val networkModule = module {
                     //create request
                     chain.request()
                         .newBuilder()
-                    //add headers to the request builder
-
+                        .also {
+                            it.addHeader("accept", "application/json, text/plain, */*")
+                            it.addHeader("appuid", "PrometSplit.Mobile")
+                            it.addHeader("x-auth-key", PROMET_KEY)
+                            it.addHeader("x-tenant", "KingICT.PS.Public")
+                        }.build()
                 )
             }.build()
     }
@@ -44,14 +49,4 @@ val networkModule = module {
             .build()
     }
 
-    /*    // Provide Retrofit
-        single {
-            Retrofit.Builder()
-                .baseUrl("https://api.openbrewerydb.org/v1/")
-                .client(get())
-                .addConverterFactory(
-                    Json.asConverterFactory(
-                        "application/json; charset=UTF8".toMediaType()))
-                .build()
-        }*/
 }

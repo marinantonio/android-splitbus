@@ -22,18 +22,21 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.domain
+package com.am.stbus.data.localdb
 
-import com.am.stbus.data.ApiService
-import com.am.stbus.data.models.Model
-import retrofit2.Response
+import com.am.stbus.R
+import com.am.stbus.data.models.BusLine
 
-class PrometApiRepository(
-    private val apiService: ApiService
-) {
 
-    suspend fun getApi(): Response<List<Model>> {
-        return apiService.getSomething()
-    }
+val CITY_BUS_LINES = listOf(
+    BusLine(id = 1, title = R.string.bus32, number = "3", websiteTitle = "3 BRNIK"),
+    BusLine(id = 2, title = R.string.bus31, number = "3A", websiteTitle = "3A BRNIK"),
+    BusLine(id = 3, title = R.string.bus6, number = "6", websiteTitle = "6 KILA"),
+    BusLine(id = 4, title = R.string.bus761, number = "76", websiteTitle = "7226 KLJACI -"),
+)
 
-}
+val CITY_URBAN_LINES = listOf(
+    BusLine(id = 100, title = R.string.bus1, number = "1", websiteTitle = "1 BUNJE"),
+    BusLine(id = 101, title = R.string.bus022, number = "2", websiteTitle = "2 SPLIT"),
+    BusLine(id = 102, title = R.string.bus021, number = "2", websiteTitle = "2 ZRAČNA")
+)

@@ -22,15 +22,17 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.local
+package com.am.stbus.data.models
 
-class TimetableData {
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-    // 675258 - HNK
-    // 676742 - HNK izlaz
-    // 676393 - Autobusni kolodvor sukoisan
-    // 675287 opcina prema pazaru
-    // 675286 opcina prema kvartovima
-    // 675289 pazar prema trajektnoj luci
-    // 675290 pazar prema opcini
-}
+@Serializable
+data class BusStopArrivals(
+    @SerialName("lineNumber")
+    val lineNumber: String?,
+    @SerialName("title")
+    val title: String?,
+    @SerialName("time")
+    val time: String?,
+)

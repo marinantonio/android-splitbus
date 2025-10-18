@@ -22,32 +22,37 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.domain
+package com.am.stbus.data.localdb
 
-import com.am.stbus.common.Constants
-import com.am.stbus.common.Constants.AREA_CITY_URL
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
+import com.am.stbus.data.models.BusStop
 
-class TimetablesRepository {
-
-    suspend fun getTimetableDetail(timetableId: String): Document {
-
-        //getTimetableBaseUrl(areaId)
-
-        val url = AREA_CITY_URL
-        val gradski = "3 BRNIK"
-
-        val timetableId = Jsoup.connect(url).timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-            .select(
-                ".c-vozni-red__search-select option:contains("
-                        + "$gradski".uppercase()
-                        + ")"
-            )
-            .attr("value")
-
-        return Jsoup.connect(Constants.PROMET_URL + timetableId)
-            .timeout(Constants.NETWORK_REQUEST_TIMEOUT).get()
-    }
-
-}
+val BUS_ARRIVALS_STOPS = listOf(
+    BusStop(
+        id = 675258,
+        title = "HNK"
+    ),
+    BusStop(
+        id = 676742,
+        title = "HNK Izlaz"
+    ),
+    BusStop(
+        id = 675289,
+        title = "Pazar - Prema trajektnoj luci"
+    ),
+    BusStop(
+        id = 675290,
+        title = "Pazar - Prema općini"
+    ),
+    BusStop(
+        id = 675287,
+        title = "Općina - Prema pazaru"
+    ),
+    BusStop(
+        id = 675286,
+        title = "Općina - Prema Dom. Rata"
+    ),
+    BusStop(
+        id = 676393,
+        title = "Autobusni kolodvor Sukoišan"
+    )
+)

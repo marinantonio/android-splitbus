@@ -24,62 +24,75 @@
 
 package com.am.stbus.domain.usecases
 
-import com.am.stbus.common.Constants
-import com.am.stbus.domain.TimetablesRepository
+import com.am.stbus.domain.repositories.TimetablesRepository
 
 class GetTimetableDetailDataUseCase(
     private val timetablesRepository: TimetablesRepository
 ) {
-    suspend fun run(timetableId: String): Result<String> {
+    fun run(websiteTitle: String): Result<TimetableDetailData> {
+        return try {
 
-        val doc = timetablesRepository.getTimetableDetail(timetableId)
+            val timetableId = timetablesRepository.getTimetableId(websiteTitle)
 
-        val workDayList = ArrayList<String>()
-        val saturdayList = ArrayList<String>()
-        val sundayList = ArrayList<String>()
-
-        doc.apply {
-            select("table.c-vozni-red__table td:eq(0)").let {
-                for (e in it) {
-                    workDayList.add("\n ${e.text()}")
-                }
-                // dodgy fix za zadnji red :)
-                workDayList.add("")
+            if (timetableId == null) {
+                return Result.failure(Exception("Missing timetableId"))
             }
 
-            select("table.c-vozni-red__table td:eq(1)").let {
-                for (e in it) {
-                    saturdayList.add("\n ${e.text()}")
-                }
-                saturdayList.add("")
+            val doc = timetablesRepository.getTimetableForId(timetableId)
+
+            val workDayList = mutableListOf<List<String>>()
+            val saturdayList = mutableListOf<List<String>>()
+            val sundayList = mutableListOf<List<String>>()
+
+            val table = doc.select("table.c-vozni-red__table")
+
+            table.select("tbody tr").forEach { row ->
+                val cells = row.select("td")
+
+                // Column 0: Weekday
+                workDayList.add(
+                    cells.getOrNull(0)
+                        ?.select("span.c-vozni-red__box--new")?.map {
+                            it.text()
+                        } ?: emptyList()
+                )
+
+                // Column 1: Saturday
+                saturdayList.add(
+                    cells.getOrNull(1)
+                        ?.select("span.c-vozni-red__box--new")?.map {
+                            it.text()
+                        } ?: emptyList()
+                )
+
+                // Column 2: Sunday/Holiday
+                sundayList.add(
+                    cells.getOrNull(2)
+                        ?.select("span.c-vozni-red__box--new")?.map {
+                            it.text()
+                        } ?: emptyList()
+                )
             }
 
-            select("table.c-vozni-red__table td:eq(2)").let {
-                for (e in it) {
-                    sundayList.add("\n ${e.text()}")
-                }
-                sundayList.add("")
-            }
-        }
-
-
-        val timetableItems = listOf(
-            doc.select("h3.c-vozni-red__line").text(),
-            doc.select("p.c-vozni-red__valid").text(),
-            workDayList,
-            saturdayList,
-            sundayList,
-            doc.select("div.c-vozni-red-note__items").text()
-        )
-
-        if (doc.select("p.c-vozni-red__valid").text()
-                .isBlank() && workDayList.isEmpty() && saturdayList.isEmpty() && sundayList.isEmpty()
-        ) {
-            // Null response
-            return Result.failure(Exception("null"))
-        } else {
-            // Valid response
-            return Result.success(timetableItems.joinToString(Constants.EMA_DELIMITER))
+            Result.success(
+                TimetableDetailData(
+                    validFrom = doc.select("p.c-vozni-red__valid").text(),
+                    workdayItems = workDayList.toList(),
+                    saturdayItems = saturdayList.toList(),
+                    sundayList = sundayList.toList(),
+                    notes = doc.select("div.c-vozni-red-note__items").text()
+                )
+            )
+        } catch (exp: Exception) {
+            Result.failure(exp)
         }
     }
+
+    data class TimetableDetailData(
+        val validFrom: String,
+        val workdayItems: List<List<String>>,
+        val saturdayItems: List<List<String>>,
+        val sundayList: List<List<String>>,
+        val notes: String
+    )
 }

@@ -34,11 +34,11 @@ jobs:
           echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
           echo "Gotov Google services JSON"
 
-      - name: Update gradleProperties
-        id: createServiceAccount
+      - name: Update secrets
+        id: updateSecrets
         run: |
-          echo "first message"
-          echo '${{ secrets.GRADLE_PROPERTIES }}' > gradle.properties
+          echo "Updating Secrets.kt"
+          echo '${{ secrets.SECRETS }}' > app/src/main/java/com/am/stbus/common/Secrets.kt    
 
       - name: Build with Gradle
         run: ./gradlew buildRelease

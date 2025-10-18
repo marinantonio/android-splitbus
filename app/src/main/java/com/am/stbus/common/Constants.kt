@@ -31,6 +31,9 @@ object Constants {
     const val PROMET_URL = "http://www.promet-split.hr"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
     const val PROMET_API_URL = "https://api.promet-split.hr/Fleet/api/v1/"
+    const val PROMET_ALL_LINES_URL = "$PROMET_URL/vozni-red/sve-linije/"
+    const val PROMET_ALL_LINE_ID_URL = "$PROMET_URL/vozni-red/sve-linije/linijaid/"
+
 
     // Timetable Base URLs
     const val AREA_CITY_URL = "$PROMET_URL/vozni-red/split/"

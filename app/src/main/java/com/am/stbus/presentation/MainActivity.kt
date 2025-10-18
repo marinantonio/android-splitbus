@@ -23,8 +23,10 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.am.stbus.data.models.BusLine
-import com.am.stbus.presentation.screens.departures.DeparturesScreen
+import com.am.stbus.data.models.BusStop
 import com.am.stbus.presentation.screens.home.HomeScreen
+import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailScreen
+import com.am.stbus.presentation.screens.stoparrivals.list.BusStopArrivalsListScreen
 import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailScreen
 import com.am.stbus.presentation.screens.timetables.list.TimetablesScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
@@ -84,7 +86,17 @@ class MainActivity : ComponentActivity() {
                                 HomeScreen()
                             }
                             entry<BusStopsScreenKey> {
-                                DeparturesScreen()
+                                BusStopArrivalsListScreen {
+                                    backStack.add(BusStopArrivalsDetailScreenKey(it))
+                                }
+                            }
+                            entry<BusStopArrivalsDetailScreenKey> {
+                                BusStopArrivalsDetailScreen(
+                                    busStop = it.busStop,
+                                    onBackClicked = {
+                                        backStack.removeAt(backStack.lastIndex)
+                                    }
+                                )
                             }
                             entry<TimetablesListScreenKey> {
                                 TimetablesScreen {
@@ -92,7 +104,12 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
                             entry<TimetableDetailScreenKey> {
-                                TimetablesDetailScreen(busLine = it.busLine)
+                                TimetablesDetailScreen(
+                                    busLine = it.busLine,
+                                    onBackClicked = {
+                                        backStack.removeAt(backStack.lastIndex)
+                                    }
+                                )
                             }
                         }
                     )
@@ -138,6 +155,9 @@ data object TimetablesListScreenKey : NavKey
 
 @Serializable
 data class TimetableDetailScreenKey(val busLine: BusLine) : NavKey
+
+@Serializable
+data class BusStopArrivalsDetailScreenKey(val busStop: BusStop) : NavKey
 
 private fun getTitleForActiveScreen(selectedNavKey: NavKey): String {
     return when (selectedNavKey) {

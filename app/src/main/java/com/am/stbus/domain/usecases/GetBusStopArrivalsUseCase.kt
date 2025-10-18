@@ -22,38 +22,26 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetables.detail
+package com.am.stbus.domain.usecases
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.am.stbus.data.models.BusStopArrivals
+import com.am.stbus.domain.repositories.PrometApiRepository
 
-class TimetablesDetailViewModel(
-    private val getTimetableDetailDataUseCase: GetTimetableDetailDataUseCase
-) : ViewModel() {
+class GetBusStopArrivalsUseCase(
+    private val prometApiRepository: PrometApiRepository
+) {
+    suspend fun run(busStopId: Int): Result<List<BusStopArrivals>> {
+        return try {
+            val response = prometApiRepository.getBusStopArrivals(busStopId)
 
-    var loading by mutableStateOf(true)
-
-    var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
-
-    fun getTimetableData(websiteTitle: String) {
-        loading = true
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = getTimetableDetailDataUseCase.run(websiteTitle)
-
-            result.onSuccess {
-                timetableData = it
-                loading = false
-            }.onFailure {
-                timetableData = null
-                loading = false
+            if (response.isSuccessful) {
+                Result.success(response.body() ?: emptyList())
+            } else {
+                Result.failure(Exception("error"))
             }
+        } catch (exp: Exception) {
+            Result.failure(Exception(exp))
         }
-    }
 
+    }
 }

@@ -22,36 +22,17 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.departures
+package com.am.stbus.domain.repositories
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.am.stbus.data.models.Model
-import com.am.stbus.domain.usecases.GetDeparturesUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import timber.log.Timber
+import com.am.stbus.data.ApiService
+import com.am.stbus.data.models.BusStopArrivals
+import retrofit2.Response
 
-class DeparturesListViewModel(
-    private val getDeparturesUseCase: GetDeparturesUseCase
-) : ViewModel() {
-
-    var timetableData by mutableStateOf(emptyList<Model>())
-
-    fun getTimetableData() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = getDeparturesUseCase.run()
-
-            result.onSuccess {
-                timetableData = it
-                Timber.d("Debugging - success ${it}")
-            }.onFailure {
-                Timber.d("Debugging - error ${it}")
-            }
-        }
+class PrometApiRepository(
+    private val apiService: ApiService
+) {
+    suspend fun getBusStopArrivals(busStopId: Int): Response<List<BusStopArrivals>> {
+        return apiService.getBusStopArrivals(busStopId = busStopId)
     }
 
 }

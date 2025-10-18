@@ -166,7 +166,7 @@
     <string name="snippet_loading_title">Preuzimanje &#8230;</string>
     <string name="snippet_loading_desc">Skidaju se najnoviji podatci, molimo Vas za strpljenje!</string>
     <string name="snippet_error_symbol">;(</string>
-    <string name="snippet_error_title">Nema podataka!</string>
+    <!--    <string name="snippet_error_title">Nema podataka!</string>-->
     <string name="snippet_error_desc">Ovo se može dogoditi ako Promet Split napravi neočekivane promjene na svojoj internet stranici.</string>
     <string name="snippet_error_report">Prijava greške</string>
     <string name="snippet_error_promet">Promet Web</string>

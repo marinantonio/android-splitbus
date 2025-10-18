@@ -22,38 +22,36 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetables.detail
+package com.am.stbus.domain.repositories
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.am.stbus.common.Constants.NETWORK_REQUEST_TIMEOUT
+import com.am.stbus.common.Constants.PROMET_ALL_LINES_URL
+import com.am.stbus.common.Constants.PROMET_ALL_LINE_ID_URL
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 
-class TimetablesDetailViewModel(
-    private val getTimetableDetailDataUseCase: GetTimetableDetailDataUseCase
-) : ViewModel() {
+class TimetablesRepository {
 
-    var loading by mutableStateOf(true)
+    fun getTimetableId(websiteTitle: String): Int? {
 
-    var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
+        val timetablePath =
+            Jsoup.connect(PROMET_ALL_LINES_URL).timeout(NETWORK_REQUEST_TIMEOUT).get()
+            .select(
+                ".c-vozni-red__search-select option:contains("
+                        + websiteTitle
+                        + ")"
+            )
+            .attr("value")
 
-    fun getTimetableData(websiteTitle: String) {
-        loading = true
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = getTimetableDetailDataUseCase.run(websiteTitle)
+        val timetableId = timetablePath.split("/").lastOrNull()?.toIntOrNull()
 
-            result.onSuccess {
-                timetableData = it
-                loading = false
-            }.onFailure {
-                timetableData = null
-                loading = false
-            }
-        }
+        return timetableId
     }
+
+    fun getTimetableForId(timetableId: Int): Document {
+        return Jsoup.connect(PROMET_ALL_LINE_ID_URL + timetableId)
+            .timeout(NETWORK_REQUEST_TIMEOUT).get()
+    }
+
 
 }

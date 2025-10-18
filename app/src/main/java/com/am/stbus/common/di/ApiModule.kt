@@ -34,10 +34,4 @@ val apiModule = module {
         get<Retrofit>().create(ApiService::class.java)
     }
 
-    /*    single<ApiRepository> {
-            ApiRepository(
-                apiService = get()
-            )
-        }*/
-
 }

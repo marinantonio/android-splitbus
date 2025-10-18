@@ -24,30 +24,55 @@
 
 package com.am.stbus.presentation.screens.common
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppBarScreen(
     modifier: Modifier = Modifier,
     title: String,
+    showBackButton: Boolean = false,
+    onBackClicked: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit = {}
 ) {
     Column(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
     ) {
-        TopAppBar(title = {
-            Text(
-                text = title
-            )
-        })
+        TopAppBar(
+            title = {
+                Text(
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    text = title
+                )
+            },
+            navigationIcon = {
+                if (showBackButton) {
+                    IconButton(onClick = { onBackClicked() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back"
+                        )
+                    }
+                }
+            }
+        )
         content()
     }
 }

@@ -22,33 +22,41 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.domain.usecases
+package com.am.stbus.presentation.screens.stoparrivals.detail
 
-import com.am.stbus.data.models.Model
-import com.am.stbus.domain.PrometApiRepository
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.am.stbus.data.models.BusStopArrivals
+import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class GetDeparturesUseCase(
-    private val prometApiRepository: PrometApiRepository
-) {
-    suspend fun run(): Result<List<Model>> {
+class BusStopArrivalsDetailViewModel(
+    private val getDeparturesUseCase: GetBusStopArrivalsUseCase
+) : ViewModel() {
 
-        Timber.d("Debugging - calling endpoint...")
+    var loading by mutableStateOf(true)
 
-        val doc = prometApiRepository.getApi()
+    var busStopArrivals: List<BusStopArrivals>? = null
 
-        return if (doc.isSuccessful) {
-            Result.success(doc.body() ?: emptyList())
-        } else {
-            Result.failure(Exception("null"))
+    fun getBusStopArrivals(busStopId: Int) {
+        loading = true
+        viewModelScope.launch {
+            val result = getDeparturesUseCase.run(busStopId)
+
+            result.onSuccess {
+                Timber.d("Debugging - onSuccess $busStopId")
+                busStopArrivals = it
+                loading = false
+            }.onFailure {
+                Timber.d("Debugging - onFailure $busStopId")
+                busStopArrivals = null
+                loading = false
+            }
         }
-
-        /*
-                return if doc.isSuccessful {
-                    //Result.success(doc)
-                    Result.failure(Exception("null"))
-                } else {
-                    Result.failure(Exception("null"))        }
-        */
     }
+
 }

@@ -24,8 +24,8 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.domain.PrometApiRepository
-import com.am.stbus.domain.TimetablesRepository
+import com.am.stbus.domain.repositories.PrometApiRepository
+import com.am.stbus.domain.repositories.TimetablesRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {

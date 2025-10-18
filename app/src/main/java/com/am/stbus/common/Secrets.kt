@@ -22,19 +22,8 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.models
+package com.am.stbus.common
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Model(
-    @SerialName("departureTime")
-    val departureTime: String?,
-    @SerialName("transportServiceRouteTripId")
-    val transportServiceRouteTripId: Int?,
-    @SerialName("transportServiceRouteId")
-    val transportServiceRouteId: Int?,
-    @SerialName("transportServiceRouteCode")
-    val transportServiceRouteCode: String?
-)
+val PROMET_KEY = "PROMET_KEY"
+val GMAPS_DEBUG_KEY = "GMAPS_DEBUG_KEY"
+val GMAPS_RELEASE_KEY = "GMAPS_RELEASE_KEY"

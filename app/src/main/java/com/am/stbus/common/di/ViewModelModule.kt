@@ -24,7 +24,7 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.presentation.screens.departures.DeparturesListViewModel
+import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailViewModel
 import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -32,7 +32,7 @@ import org.koin.dsl.module
 val viewModelModule = module {
 
     viewModel {
-        DeparturesListViewModel(
+        BusStopArrivalsDetailViewModel(
             getDeparturesUseCase = get()
         )
     }
