@@ -5,6 +5,7 @@ build/
 
 # Local configuration file (sdk path, etc)
 local.properties
+Secrets.kt
 
 # Log files
 *.log
