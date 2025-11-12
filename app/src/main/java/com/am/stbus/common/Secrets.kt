@@ -24,6 +24,6 @@
 
 package com.am.stbus.common
 
-val PROMET_KEY = "IxbMAfY6J5x1rSyfGmLPcMfCcyamb7xEfIuUpb8KNeE="
-val GMAPS_DEBUG_KEY = "AIzaSyCZKjrAHwHhAPBXfvJujbuBFFxGHVt18Ro"
-val GMAPS_RELEASE_KEY = "AIzaSyDu7x2JHOZ756IutTVnRneU-fq45YK9tJA"
+val PROMET_KEY = "placeholder"
+val GMAPS_DEBUG_KEY = "test"
+val GMAPS_RELEASE_KEY = "test2"
