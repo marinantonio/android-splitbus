@@ -24,21 +24,28 @@
 
 package com.am.stbus.common.di
 
+import com.am.stbus.domain.usecases.FavouritesRoomDbUseCase
 import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
 import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
 
-    factory {
+    single {
         GetBusStopArrivalsUseCase(
             prometApiRepository = get()
         )
     }
 
-    factory {
+    single {
         GetTimetableDetailDataUseCase(
             timetablesRepository = get()
+        )
+    }
+
+    single {
+        FavouritesRoomDbUseCase(
+            favouriteItemDao = get()
         )
     }
 

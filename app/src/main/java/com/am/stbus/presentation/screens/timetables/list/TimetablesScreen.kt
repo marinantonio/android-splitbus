@@ -50,18 +50,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.am.stbus.data.localdb.CITY_BUS_LINES
-import com.am.stbus.data.localdb.CITY_URBAN_LINES
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusLineArea
 import com.am.stbus.data.models.BusLineArea.Companion.getPagerTitle
+import com.am.stbus.data.static.CITY_BUS_LINES
+import com.am.stbus.data.static.CITY_URBAN_LINES
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 import kotlinx.coroutines.launch
 
 @Composable
 fun TimetablesScreen(
-    onTimetableClick: (BusLine) -> Unit
+    onBusLineClicked: (BusLine) -> Unit
 ) {
 
     val scope = rememberCoroutineScope()
@@ -73,7 +73,8 @@ fun TimetablesScreen(
     val currentPage = pagerState.currentPage
 
     AppBarScreen(
-        title = "Vozni redovi"
+        title = "Vozni redovi",
+        titleColour = MaterialTheme.colorScheme.secondary
     ) {
         PrimaryTabRow(
             selectedTabIndex = currentPage,
@@ -82,6 +83,7 @@ fun TimetablesScreen(
             timetableAreas.forEachIndexed { index, timetableArea ->
                 Tab(
                     selected = currentPage == index,
+                    selectedContentColor = MaterialTheme.colorScheme.secondary,
                     onClick = {
                         scope.launch {
                             pagerState.animateScrollToPage(index)
@@ -106,36 +108,47 @@ fun TimetablesScreen(
                     .verticalScroll(rememberScrollState())
             ) {
                 busLinesForArea.forEach {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                onTimetableClick(it)
-                            },
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            modifier = Modifier
-                                .width(48.dp)
-                                .padding(start = 0.dp, top = 12.dp, end = 8.dp, bottom = 12.dp),
-                            text = it.number,
-                            color = MaterialTheme.colorScheme.secondary,
-                            textAlign = TextAlign.End,
-                            fontSize = 18.sp,
-                        )
-                        Text(
-                            modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
-                            text = stringResource(it.title)
-                        )
-                    }
-                    HorizontalDivider(
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        thickness = 0.4.dp
+                    BusLineItemView(
+                        busLine = it,
+                        onBusLineClicked = onBusLineClicked
                     )
                 }
             }
         }
     }
+}
+
+@Composable
+fun BusLineItemView(
+    busLine: BusLine,
+    onBusLineClicked: (BusLine) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                onBusLineClicked(busLine)
+            },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            modifier = Modifier
+                .width(48.dp)
+                .padding(start = 0.dp, top = 12.dp, end = 8.dp, bottom = 12.dp),
+            text = busLine.number,
+            color = MaterialTheme.colorScheme.secondary,
+            textAlign = TextAlign.End,
+            fontSize = 18.sp,
+        )
+        Text(
+            modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
+            text = stringResource(busLine.title)
+        )
+    }
+    HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        thickness = 0.4.dp
+    )
 }
 
 private val timetableAreas = listOf(

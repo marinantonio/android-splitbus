@@ -25,13 +25,13 @@
 package com.am.stbus.domain.repositories
 
 import com.am.stbus.data.ApiService
-import com.am.stbus.data.models.BusStopArrivals
+import com.am.stbus.data.models.BusStopArrival
 import retrofit2.Response
 
 class PrometApiRepository(
     private val apiService: ApiService
 ) {
-    suspend fun getBusStopArrivals(busStopId: Int): Response<List<BusStopArrivals>> {
+    suspend fun getBusStopArrivals(busStopId: Int): Response<List<BusStopArrival>> {
         return apiService.getBusStopArrivals(busStopId = busStopId)
     }
 

@@ -29,13 +29,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.am.stbus.data.localdb.BUS_ARRIVALS_STOPS
 import com.am.stbus.data.models.BusStop
+import com.am.stbus.data.static.BUS_ARRIVALS_STOPS
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 
@@ -47,25 +48,37 @@ fun BusStopArrivalsListScreen(
     val busStops = BUS_ARRIVALS_STOPS
 
     AppBarScreen(
-        title = "Stanice"
+        title = "Stanice",
+        titleColour = MaterialTheme.colorScheme.secondary
     ) {
         busStops.forEach {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        onBusStopClicked(it)
-                    }
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-            ) {
-                Text(text = it.title)
-            }
-            HorizontalDivider(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                thickness = 0.4.dp
+            BusStopItemView(
+                busStop = it,
+                onBusStopClicked = onBusStopClicked
             )
         }
     }
+}
+
+@Composable
+fun BusStopItemView(
+    busStop: BusStop,
+    onBusStopClicked: (BusStop) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                onBusStopClicked(busStop)
+            }
+            .padding(horizontal = 16.dp, vertical = 12.dp)
+    ) {
+        Text(text = busStop.title)
+    }
+    HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        thickness = 0.4.dp
+    )
 }
 
 @Preview

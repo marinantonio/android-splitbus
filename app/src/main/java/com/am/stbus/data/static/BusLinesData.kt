@@ -22,11 +22,10 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.localdb
+package com.am.stbus.data.static
 
 import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
-
 
 val CITY_BUS_LINES = listOf(
     BusLine(id = 1, title = R.string.bus32, number = "3", websiteTitle = "3 BRNIK"),
@@ -40,3 +39,9 @@ val CITY_URBAN_LINES = listOf(
     BusLine(id = 101, title = R.string.bus022, number = "2", websiteTitle = "2 SPLIT"),
     BusLine(id = 102, title = R.string.bus021, number = "2", websiteTitle = "2 ZRAČNA")
 )
+
+val COMBINED_BUS_LINES = CITY_BUS_LINES + CITY_URBAN_LINES
+
+fun findBusLinePerId(id: Int): BusLine? {
+    return COMBINED_BUS_LINES.firstOrNull { it.id == id }
+}

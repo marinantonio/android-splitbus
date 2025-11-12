@@ -25,7 +25,7 @@
 package com.am.stbus
 
 import android.app.Application
-import com.am.stbus.common.di.apiModule
+import com.am.stbus.common.di.appModule
 import com.am.stbus.common.di.networkModule
 import com.am.stbus.common.di.repositoryModule
 import com.am.stbus.common.di.useCaseModule
@@ -47,7 +47,7 @@ class SplitBusApplication : Application() {
     )*/
 
     private var listOfModules = listOf(
-        apiModule,
+        appModule,
         networkModule,
         repositoryModule,
         useCaseModule,

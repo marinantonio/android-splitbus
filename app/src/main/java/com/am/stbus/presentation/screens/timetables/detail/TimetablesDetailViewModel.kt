@@ -32,6 +32,7 @@ import androidx.lifecycle.viewModelScope
 import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class TimetablesDetailViewModel(
     private val getTimetableDetailDataUseCase: GetTimetableDetailDataUseCase
@@ -40,6 +41,10 @@ class TimetablesDetailViewModel(
     var loading by mutableStateOf(true)
 
     var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
+
+    init {
+        Timber.d("Debugging - TimetablesDetailViewModel init")
+    }
 
     fun getTimetableData(websiteTitle: String) {
         loading = true

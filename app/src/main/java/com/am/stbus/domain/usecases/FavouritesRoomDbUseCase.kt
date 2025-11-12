@@ -22,31 +22,28 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain.usecases
 
-import com.am.stbus.presentation.MainViewModel
-import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import com.am.stbus.data.models.FavouriteItem
+import com.am.stbus.data.room.FavouriteItemDao
 
-val viewModelModule = module {
+class FavouritesRoomDbUseCase(
+    private val favouriteItemDao: FavouriteItemDao
+) {
+    suspend fun getAllTimetable(): List<FavouriteItem> {
+        return favouriteItemDao.getAll()
+    }
 
-    viewModel {
-        MainViewModel(
-            favouritesRoomDbUseCase = get()
+    suspend fun add(id: Int, type: Int) {
+        favouriteItemDao.insert(
+            FavouriteItem(
+                id = id,
+                type = type
+            )
         )
     }
 
-    viewModel {
-        BusStopArrivalsDetailViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
+    suspend fun remove(id: Int, type: Int) {
+        favouriteItemDao.delete(id, type)
     }
 }

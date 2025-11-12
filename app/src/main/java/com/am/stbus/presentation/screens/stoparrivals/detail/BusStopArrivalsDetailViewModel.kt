@@ -29,9 +29,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.am.stbus.data.models.BusStopArrivals
 import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
 import kotlinx.coroutines.launch
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZonedDateTime
 import timber.log.Timber
 
 class BusStopArrivalsDetailViewModel(
@@ -40,23 +42,69 @@ class BusStopArrivalsDetailViewModel(
 
     var loading by mutableStateOf(true)
 
-    var busStopArrivals: List<BusStopArrivals>? = null
+    var pullToRefreshLoading by mutableStateOf(false)
 
-    fun getBusStopArrivals(busStopId: Int) {
-        loading = true
+    var busStopTimes: List<BusStopTimes>? = null
+
+    init {
+        Timber.d("Debugging - BusStopArrivalsDetailViewModel init")
+    }
+
+    fun getBusStopArrivals(onPullToRefresh: Boolean, busStopId: Int) {
+        if (!onPullToRefresh) {
+            busStopTimes = emptyList()
+        }
+        Timber.d("Debugging - get bus stop arrival $busStopId")
+        pullToRefreshLoading = onPullToRefresh
         viewModelScope.launch {
             val result = getDeparturesUseCase.run(busStopId)
 
-            result.onSuccess {
-                Timber.d("Debugging - onSuccess $busStopId")
-                busStopArrivals = it
+            result.onSuccess { busStopArrivals ->
+                Timber.d("onSuccess $busStopId ${busStopArrivals}")
+                busStopTimes = busStopArrivals.map {
+                    BusStopTimes(
+                        lineNumber = it.lineNumber ?: "",
+                        title = it.title ?: "",
+                        time = convertStringToZonedDateTime(it.time)
+                    )
+                }
                 loading = false
+                pullToRefreshLoading = false
             }.onFailure {
-                Timber.d("Debugging - onFailure $busStopId")
-                busStopArrivals = null
+                Timber.d("onFailure $busStopId $it")
+                busStopTimes = null
+                pullToRefreshLoading = false
                 loading = false
             }
         }
     }
 
+    fun convertStringToZonedDateTime(timeString: String?): ZonedDateTime? {
+        return try {
+            val localDateTime = LocalDateTime.parse(timeString)
+            localDateTime.atZone(ZoneId.of("Europe/Zagreb"))
+        } catch (exp: Exception) {
+            Timber.d("exp $exp")
+            null
+        }
+    }
+
+    data class BusStopTimes(
+        val lineNumber: String,
+        val title: String,
+        val time: ZonedDateTime?
+    )
+
 }
+
+
+/*
+@Serializable
+data class BusStopArrival(
+    @SerialName("lineNumber")
+    val lineNumber: String?,
+    @SerialName("title")
+    val title: String?,
+    @SerialName("time")
+    val time: String?,
+)*/

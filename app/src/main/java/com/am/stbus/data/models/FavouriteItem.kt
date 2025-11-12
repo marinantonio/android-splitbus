@@ -22,31 +22,15 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.models
 
-import com.am.stbus.presentation.MainViewModel
-import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-val viewModelModule = module {
-
-    viewModel {
-        MainViewModel(
-            favouritesRoomDbUseCase = get()
-        )
-    }
-
-    viewModel {
-        BusStopArrivalsDetailViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
-    }
-}
+@Entity
+data class FavouriteItem(
+    @PrimaryKey(autoGenerate = true) val uid: Long = 0,
+    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "type") val type: Int
+)

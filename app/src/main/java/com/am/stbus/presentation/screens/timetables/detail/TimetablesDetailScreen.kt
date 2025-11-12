@@ -39,7 +39,12 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
@@ -64,6 +69,8 @@ import org.koin.androidx.compose.koinViewModel
 fun TimetablesDetailScreen(
     viewModel: TimetablesDetailViewModel = koinViewModel(),
     busLine: BusLine,
+    favourite: Boolean,
+    onFavouriteClicked: (BusLine) -> Unit,
     onBackClicked: () -> Unit
 ) {
 
@@ -87,8 +94,24 @@ fun TimetablesDetailScreen(
 
     AppBarScreen(
         title = title,
+        titleColour = MaterialTheme.colorScheme.secondary,
         showBackButton = true,
-        onBackClicked = onBackClicked
+        onBackClicked = onBackClicked,
+        actions = {
+            IconButton(onClick = {
+                onFavouriteClicked(busLine)
+            }) {
+                Icon(
+                    imageVector = if (favourite) {
+                        Icons.Outlined.Favorite
+                    } else {
+                        Icons.Outlined.FavoriteBorder
+                    },
+                    contentDescription = "Back",
+                    tint = MaterialTheme.colorScheme.secondary
+                )
+            }
+        }
     ) {
         if (loading) {
             LoadingScreen()

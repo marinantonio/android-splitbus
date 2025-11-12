@@ -27,6 +27,7 @@ package com.am.stbus.presentation.screens.common
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -38,6 +39,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,8 +47,10 @@ import androidx.compose.ui.text.font.FontWeight
 fun AppBarScreen(
     modifier: Modifier = Modifier,
     title: String,
+    titleColour: Color,
     showBackButton: Boolean = false,
     onBackClicked: () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
     content: @Composable ColumnScope.() -> Unit = {}
 ) {
     Column(
@@ -58,16 +62,18 @@ fun AppBarScreen(
             title = {
                 Text(
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
+                    color = titleColour,
                     text = title
                 )
             },
+            actions = actions,
             navigationIcon = {
                 if (showBackButton) {
                     IconButton(onClick = { onBackClicked() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = "Back",
+                            tint = titleColour
                         )
                     }
                 }

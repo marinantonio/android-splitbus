@@ -24,15 +24,18 @@
 
 package com.am.stbus.domain.usecases
 
-import com.am.stbus.data.models.BusStopArrivals
+import com.am.stbus.data.models.BusStopArrival
 import com.am.stbus.domain.repositories.PrometApiRepository
+import timber.log.Timber
 
 class GetBusStopArrivalsUseCase(
     private val prometApiRepository: PrometApiRepository
 ) {
-    suspend fun run(busStopId: Int): Result<List<BusStopArrivals>> {
+    suspend fun run(busStopId: Int): Result<List<BusStopArrival>> {
         return try {
             val response = prometApiRepository.getBusStopArrivals(busStopId)
+
+            Timber.d("Debugging - response $response")
 
             if (response.isSuccessful) {
                 Result.success(response.body() ?: emptyList())

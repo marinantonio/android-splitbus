@@ -22,16 +22,22 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.room
 
-import com.am.stbus.data.ApiService
-import org.koin.dsl.module
-import retrofit2.Retrofit
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import com.am.stbus.data.models.FavouriteItem
 
-val apiModule = module {
+@Dao
+interface FavouriteItemDao {
+    @Query("SELECT * FROM favouriteitem")
+    suspend fun getAll(): List<FavouriteItem>
 
-    single<ApiService> {
-        get<Retrofit>().create(ApiService::class.java)
-    }
+    @Insert
+    suspend fun insert(favouriteItem: FavouriteItem)
+
+    @Query("DELETE FROM FavouriteItem WHERE id = :id AND type = :type")
+    suspend fun delete(id: Int, type: Int)
 
 }

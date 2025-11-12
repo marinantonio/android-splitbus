@@ -22,37 +22,17 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.localdb
+package com.am.stbus.data.models
 
-import com.am.stbus.data.models.BusStop
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-val BUS_ARRIVALS_STOPS = listOf(
-    BusStop(
-        id = 675258,
-        title = "HNK"
-    ),
-    BusStop(
-        id = 676742,
-        title = "HNK Izlaz"
-    ),
-    BusStop(
-        id = 675289,
-        title = "Pazar - Prema trajektnoj luci"
-    ),
-    BusStop(
-        id = 675290,
-        title = "Pazar - Prema općini"
-    ),
-    BusStop(
-        id = 675287,
-        title = "Općina - Prema pazaru"
-    ),
-    BusStop(
-        id = 675286,
-        title = "Općina - Prema Dom. Rata"
-    ),
-    BusStop(
-        id = 676393,
-        title = "Autobusni kolodvor Sukoišan"
-    )
+@Serializable
+data class BusStopArrival(
+    @SerialName("lineNumber")
+    val lineNumber: String?,
+    @SerialName("title")
+    val title: String?,
+    @SerialName("time")
+    val time: String?,
 )

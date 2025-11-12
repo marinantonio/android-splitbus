@@ -24,29 +24,30 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.presentation.MainViewModel
-import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
+import androidx.room.Room
+import com.am.stbus.common.room.AppDatabase
+import com.am.stbus.data.ApiService
+import com.am.stbus.data.room.FavouriteItemDao
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+import retrofit2.Retrofit
 
-val viewModelModule = module {
+val appModule = module {
 
-    viewModel {
-        MainViewModel(
-            favouritesRoomDbUseCase = get()
-        )
+    single<ApiService> {
+        get<Retrofit>().create(ApiService::class.java)
     }
 
-    viewModel {
-        BusStopArrivalsDetailViewModel(
-            getDeparturesUseCase = get()
-        )
+    single<AppDatabase> {
+        Room.databaseBuilder(
+            androidContext(),
+            AppDatabase::class.java, "split-bus-db"
+        ).build()
     }
 
-    viewModel {
-        TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
-        )
+    single<FavouriteItemDao> {
+        get<AppDatabase>().favouriteItemDao()
     }
+
+
 }
