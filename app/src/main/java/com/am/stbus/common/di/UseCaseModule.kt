@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2021 Antonio Marin
+ * Copyright (c) 2013 - 2025 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,35 +24,28 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.domain.usecases.news.NewsDetailUseCase
-import com.am.stbus.domain.usecases.news.NewsListUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableDetailUseCase
-import com.am.stbus.domain.usecases.timetables.TimetableListUseCase
+import com.am.stbus.domain.usecases.FavouritesRoomDbUseCase
+import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
+import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
 
-    factory {
-        NewsListUseCase(
-                newsRepository = get()
+    single {
+        GetBusStopArrivalsUseCase(
+            prometApiRepository = get()
         )
     }
 
-    factory {
-        NewsDetailUseCase(
-                newsRepository = get()
+    single {
+        GetTimetableDetailDataUseCase(
+            timetablesRepository = get()
         )
     }
 
-    factory {
-        TimetableListUseCase(
-                timetableRepository = get()
-        )
-    }
-
-    factory {
-        TimetableDetailUseCase(
-                timetableRepository = get()
+    single {
+        FavouritesRoomDbUseCase(
+            favouriteItemDao = get()
         )
     }
 

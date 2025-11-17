@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2021 Antonio Marin
+ * Copyright (c) 2013 - 2025 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,66 +24,29 @@
 
 package com.am.stbus.common.di
 
-import com.am.stbus.presentation.screens.favourites.FavouritesViewModel
-import com.am.stbus.presentation.screens.information.InformationListViewModel
-import com.am.stbus.presentation.screens.information.informationNewsListFragment.InformationNewsListViewModel
-import com.am.stbus.presentation.screens.information.informationNewsListFragment.informationNewsDetailFragment.InformationNewsDetailViewModel
-import com.am.stbus.presentation.screens.timetables.TimetablesSharedViewModel
-import com.am.stbus.presentation.screens.timetables.TimetablesViewModel
-import com.am.stbus.presentation.screens.timetables.timetablesListFragment.TimetablesListViewModel
-import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailFragmentArgs
-import com.am.stbus.presentation.screens.timetables.timetablesListFragment.timetableDetailFragment.TimetableDetailViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import com.am.stbus.presentation.MainViewModel
+import com.am.stbus.presentation.screens.stops.detail.BusStopArrivalsDetailViewModel
+import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
-val viewModelModule = module{
+val viewModelModule = module {
 
     viewModel {
-        InformationListViewModel(
-        )
-    }
-
-    viewModel {
-        FavouritesViewModel(
-                timetableListUseCase = get()
+        MainViewModel(
+            favouritesRoomDbUseCase = get()
         )
     }
 
     viewModel {
-        TimetablesViewModel(
-                timetableListUseCase = get()
+        BusStopArrivalsDetailViewModel(
+            getDeparturesUseCase = get()
         )
     }
 
     viewModel {
-        TimetablesListViewModel(
-                timetableListUseCase = get()
+        TimetablesDetailViewModel(
+            getTimetableDetailDataUseCase = get()
         )
     }
-
-    viewModel {(args: TimetableDetailFragmentArgs) ->
-        TimetableDetailViewModel(
-                args = args,
-                timetableListUseCase = get(),
-                timetableDetailUseCase = get()
-        )
-    }
-
-    viewModel {
-        InformationNewsListViewModel(
-                getNewsListUseCase = get()
-        )
-    }
-
-    viewModel {(url: String) ->
-        InformationNewsDetailViewModel(
-                url = url,
-                getNewsDetailUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesSharedViewModel()
-    }
-
 }

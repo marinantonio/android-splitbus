@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2021 Antonio Marin
+ * Copyright (c) 2013 - 2025 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,14 @@ package com.am.stbus.common
 
 object Constants {
 
-    const val DB_VERSION = 5
+    const val DB_VERSION = 1
 
     const val PROMET_URL = "http://www.promet-split.hr"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
+    const val PROMET_API_URL = "https://api.promet-split.hr/Fleet/api/v1/"
+    const val PROMET_ALL_LINES_URL = "$PROMET_URL/vozni-red/sve-linije/"
+    const val PROMET_ALL_LINE_ID_URL = "$PROMET_URL/vozni-red/sve-linije/linijaid/"
+
 
     // Timetable Base URLs
     const val AREA_CITY_URL = "$PROMET_URL/vozni-red/split/"
@@ -78,17 +82,20 @@ object InformationConstants {
     const val ID_PROMET_WEB = 12
 
     // Informacije
-    const val KARTA_GRAD_URL = "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/grad.jpg"
-    const val KARTA_PRIGRAD_URL = "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/prigrad.jpg"
-    const val TARIFNE_URL = "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/tarifne.jpg"
+    const val KARTA_GRAD_URL =
+        "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/grad.jpg"
+    const val KARTA_PRIGRAD_URL =
+        "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/prigrad.jpg"
+    const val TARIFNE_URL =
+        "https://splitbuspublic.s3.eu-central-1.amazonaws.com/public/tarifne.jpg"
     const val NEXT_BIKE_URL = "https://www.nextbike.hr/hr/split/lokacije/"
     const val PARKING_URL = "http://www.splitparking.hr/parkiralista"
     const val GARAZE_URL = "http://www.splitparking.hr/garaze"
 
-    const val NEXT_BIKE_IFRAME = "<iframe class=\"nextbike_content_iframe\" id=\"nextbikemap\" name=\"nextbikemap\" " +
-            "src=\"https://iframe.nextbike.net/reservation/?lat=43.5162&amp;lng=16.4637&amp;zoom=12&amp;height=400" +
-            "&amp;maponly=1&amp;language=hr&amp;redirect_signup=https://secure.nextbike.net/gt/hr/split/registrirajse/\" " +
-            "width=\"100%\" height=\"400\" frameborder=\"0\"></iframe>"
+    const val NEXT_BIKE_IFRAME =
+        "<iframe class=\"nextbike_content_iframe\" id=\"nextbikemap\" name=\"nextbikemap\" " +
+                "src=\"https://iframe.nextbike.net/reservation/?lat=43.5162&amp;lng=16.4637&amp;zoom=12&amp;height=400" +
+                "&amp;maponly=1&amp;language=hr&amp;redirect_signup=https://secure.nextbike.net/gt/hr/split/registrirajse/\" " +
+                "width=\"100%\" height=\"400\" frameborder=\"0\"></iframe>"
 
 }
-

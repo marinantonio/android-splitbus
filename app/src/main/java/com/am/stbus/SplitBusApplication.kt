@@ -25,7 +25,11 @@
 package com.am.stbus
 
 import android.app.Application
-import com.am.stbus.common.di.*
+import com.am.stbus.common.di.appModule
+import com.am.stbus.common.di.networkModule
+import com.am.stbus.common.di.repositoryModule
+import com.am.stbus.common.di.useCaseModule
+import com.am.stbus.common.di.viewModelModule
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -33,13 +37,21 @@ import timber.log.Timber
 
 class SplitBusApplication : Application() {
 
+/*    private var listOfModules = listOf(
+        applicationModule,
+        localModules,
+        networkModules,
+        repositoriesModule,
+        useCaseModule,
+        viewModelModule
+    )*/
+
     private var listOfModules = listOf(
-            applicationModule,
-            localModules,
-            networkModules,
-            repositoriesModule,
-            useCaseModule,
-            viewModelModule
+        appModule,
+        networkModule,
+        repositoryModule,
+        useCaseModule,
+        viewModelModule
     )
 
     override fun onCreate() {
@@ -57,9 +69,11 @@ class SplitBusApplication : Application() {
     }
 
     private fun setupTimber() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+        Timber.plant(Timber.DebugTree())
+
+        /*   if (BuildConfig.DEBUG) {
+               Timber.plant(Timber.DebugTree())
+           }*/
     }
 
     private fun setupThreeTen() {
