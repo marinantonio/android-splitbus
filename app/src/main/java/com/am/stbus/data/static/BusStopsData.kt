@@ -24,36 +24,37 @@
 
 package com.am.stbus.data.static
 
+import com.am.stbus.R
 import com.am.stbus.data.models.BusStop
 
 val BUS_ARRIVALS_STOPS = listOf(
     BusStop(
         id = 675258,
-        title = "HNK"
+        title = R.string.bus_stop_hnk
     ),
     BusStop(
         id = 676742,
-        title = "HNK Izlaz"
+        title = R.string.bus_stop_hnk_izlaz
     ),
     BusStop(
         id = 675289,
-        title = "Pazar - Prema trajektnoj luci"
+        title = R.string.bus_stop_pazar_poljicka
     ),
     BusStop(
         id = 675290,
-        title = "Pazar - Prema općini"
+        title = R.string.bus_stop_pazar_opcina
     ),
     BusStop(
         id = 675287,
-        title = "Općina - Prema pazaru"
+        title = R.string.bus_stop_opcina_poljicka
     ),
     BusStop(
         id = 675286,
-        title = "Općina - Prema Dom. Rata"
+        title = R.string.bus_stop_opcina_dom_rata
     ),
     BusStop(
         id = 676393,
-        title = "Autobusni kolodvor Sukoišan"
+        title = R.string.bus_stop_sukoišan
     )
 )
 

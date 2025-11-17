@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.stoparrivals.list
+package com.am.stbus.presentation.screens.stops.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -33,8 +33,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.am.stbus.R
 import com.am.stbus.data.models.BusStop
 import com.am.stbus.data.static.BUS_ARRIVALS_STOPS
 import com.am.stbus.presentation.screens.common.AppBarScreen
@@ -48,8 +50,8 @@ fun BusStopArrivalsListScreen(
     val busStops = BUS_ARRIVALS_STOPS
 
     AppBarScreen(
-        title = "Stanice",
-        titleColour = MaterialTheme.colorScheme.secondary
+        title = stringResource(R.string.nav_bus_stops),
+        titleColour = MaterialTheme.colorScheme.tertiary
     ) {
         busStops.forEach {
             BusStopItemView(
@@ -73,7 +75,7 @@ fun BusStopItemView(
             }
             .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
-        Text(text = busStop.title)
+        Text(text = stringResource(busStop.title))
     }
     HorizontalDivider(
         modifier = Modifier.padding(horizontal = 16.dp),

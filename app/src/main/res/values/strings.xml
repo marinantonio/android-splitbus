@@ -27,6 +27,7 @@
 
     <!-- MainActivity -->
     <string name="nav_favourites">Favourites</string>
+    <string name="nav_bus_stops">Bus stops</string>
     <string name="nav_timetables">Timetables</string>
     <string name="nav_information">Information</string>
     <string name="nav_settings">Settings</string>
@@ -35,6 +36,19 @@
     <!-- Favourites -->
     <string name="favourite_empty_title">Empty favourites!</string>
     <string name="favourite_empty_message">Add desired bus routes to the favourites and they will appear here on the homescreen</string>
+
+    <!-- Bus stops -->
+    <string name="bus_stops_no_departures">NO DEPARTURES</string>
+    <string name="bus_stops_info_message">NOTE: Departures are obtained from the Promet website. I am not responsible for their accuracy. More bus stops will be added in the next update.</string>
+
+    <!-- Bus stops data -->
+    <string name="bus_stop_hnk">HNK (National theatre)</string>
+    <string name="bus_stop_hnk_izlaz">HNK (National theatre) exit</string>
+    <string name="bus_stop_pazar_poljicka">Pazar (Market) - towards Ferry Port/Poljička street</string>
+    <string name="bus_stop_pazar_opcina">Pazar (Market) - towards HNK/Općina/Dom. Rata street</string>
+    <string name="bus_stop_opcina_poljicka">Općina (County Hall) - towards HNK/Pazar/Poljička street</string>
+    <string name="bus_stop_opcina_dom_rata">Općina (County Hall) - towards Dom. Rata street</string>
+    <string name="bus_stop_sukoišan">Sukoišan Bus Station</string>
 
 
     <!-- Timetables -->
@@ -232,44 +246,49 @@
 
 
     <!-- Gradski busevi -->
-    <string name="bus1">Bunje - HNK - Bunje</string>
-    <string name="bus021">Airport - Kaštel Sućurac (Strinje) - Poljička - Split</string>
-    <string name="bus022">Split - Poljička - Kaštel Sućurac (Strinje) - Airport</string>
-    <string name="bus023">Kaštel Sućurac (Strinje) - Ferry Port - Kaštel Sućurac (Strinje)</string>
-    <string name="bus31">Brnik - Poljička - Brnik</string>
-    <string name="bus32">Brnik - Brda - Brnik</string>
-    <string name="bus5">Dračevac - HNK - Dračevac</string>
-    <string name="bus51">Dračevac - Solin - Visoka - HNK - Dračevac</string>
-    <string name="bus6">Kila - Vukovarska - HNK - Kila</string>
-    <string name="bus71">Žnjan - Spinut - Zapadna Obala</string>
-    <string name="bus72">Zapadna Obala - Spinut - Žnjan</string>
+    <string name="bus3">Brnik - Brda - Brnik</string>
+    <string name="bus3A">Brnik - Poljička - Brnik</string>
+    <string name="bus6">Kila - HNK - Kila</string>
+    <string name="bus71">Žnjan - Zapadna Obala</string>
+    <string name="bus72">Zapadna Obala - Žnjan</string>
     <string name="bus81">Žnjan - Zvončac</string>
     <string name="bus82">Zvončac - Žnjan</string>
     <string name="bus9">Ravne Njive - Ferry Port - Ravne Njive</string>
-    <string name="bus10">Japirko - Ferry Port - Japirko</string>
     <string name="bus111">Spinut - Kampus - Pujanke - Ravne Njive</string>
     <string name="bus112">Ravne Njive - Pujanke - Kampus - Spinut</string>
     <string name="bus121">Sv.Frane - Bene</string>
-    <string name="bus122">Bene - Meje - Sv.Frane</string>
-    <string name="bus141">Brda - Kopilica - Dubrovačka - Hospitals - Žnjan - Duilovo</string>
-    <string name="bus142">Duilovo - Žnjan - Dubrovačka - Hospitals - Kopilica - Brda</string>
+    <string name="bus122">Bene - Sv.Frane</string>
+    <string name="bus131">Spinut - Žnjan - Duilovo</string>
+    <string name="bus132">Duilovo - Žnjan - Spinut</string>
+    <string name="bus141">Brda - Kopilica - Dubrovačka - Hospitals - Pazdigrad - Duilovo - Žnjan</string>
+    <string name="bus142">Žnjan - Duilovo - Poljička - Hospitals - Kopilica - Brda</string>
     <string name="bus15">Duilovo - Žnjan - Ferry Port - Duilovo</string>
-    <string name="bus16">Ninčevići - HNK - Ninčevići</string>
     <string name="bus171">Spinut - Lora - Kampus - Trstenik</string>
     <string name="bus172">Trstenik - Kampus - Lora - Spinut</string>
     <string name="bus18">Sirobuja - HNK - Sirobuja</string>
-    <string name="bus20">Ravne Njive - Zvončac</string>
-    <string name="bus21">Sv.Frane - Meje - Sv.Frane</string>
-    <string name="bus22">Klis Megdan - Gornja Rupotina - HNK - Klis Megdan</string>
-    <string name="bus23">(N) HNK - Solin - HNK</string>
-    <string name="bus241">Split - Poljička - TTTS</string>
-    <string name="bus242">TTTS - Poljička - Split</string>
+    <string name="bus20">Brda - Zvončac</string>
+    <string name="bus21">Sv.Frane - Zenta - Sv.Frane</string>
+    <string name="bus241">Split - TTTS</string>
+    <string name="bus242">TTTS - Split</string>
     <string name="bus251">Split - Stobreč</string>
     <string name="bus252">Stobreč - Split</string>
     <string name="bus261">Split - Kamen</string>
     <string name="bus262">Kamen - Split</string>
     <string name="bus271">Split - Korešnica - Žrnovnica</string>
     <string name="bus272">Žrnovnica - Korešnica - Split</string>
+
+
+    <!-- Urbano područje -->
+    <string name="bus1">Bunje - HNK - Bunje</string>
+    <string name="bus021">Split - Poljička - Kaštel Sućurac (Strinje) - Airport</string>
+    <string name="bus022">Airport - Kaštel Sućurac (Strinje) - Poljička - Split</string>
+    <string name="bus2A">Kaštel Sućurac (Strinje) - Ferry Port - Kaštel Sućurac (Strinje)</string>
+    <string name="bus5">Dračevac - HNK - Dračevac</string>
+    <string name="bus5A">Dračevac - Solin - HNK - Solin - Dračevac</string>
+    <string name="bus10">Japirko - Ferry Port - Japirko</string>
+    <string name="bus16">Ninčevići - HNK - Ninčevići</string>
+    <string name="bus221">Split - Klis</string>
+    <string name="bus222">Klis - Split</string>
     <string name="bus281">Split - Sitno Gornje - Dubrava</string>
     <string name="bus282">Dubrava - Sitno Gornje - Split</string>
     <string name="bus291">Split - Tugare - Naklice</string>
@@ -280,37 +299,36 @@
     <string name="bus312">Vranjic - Split</string>
     <string name="bus321">Split - Kučine</string>
     <string name="bus322">Kučine - Split</string>
-    <string name="bus331">Split - Kosa</string>
-    <string name="bus332">Kosa - Split</string>
-    <string name="bus341">Split - Klis (Megdan)</string>
-    <string name="bus342">Klis (Megdan) - Split</string>
-    <string name="bus39">(N) Lora - Poljička - TTTS - Lora</string>
-    <string name="bus40">(N) Ferry Port - Kila - Ferry Port</string>
-
-
-    <!-- Prigradski busevi -->
+    <string name="bus331">Split - Klis Kosa</string>
+    <string name="bus332">Klis Kosa - Split</string>
     <string name="bus351">Split - Dugopolje</string>
     <string name="bus352">Dugopolje - Split</string>
     <string name="bus361">Split - Koprivno</string>
     <string name="bus362">Koprivno - Split</string>
     <string name="bus371">Split - Airport - Trogir</string>
     <string name="bus372">Trogir - Airport - Split</string>
-    <string name="trostdirekt1">Split - Trogir (direct)</string>
-    <string name="trostdirekt2">Trogir - Split (direct)</string>
-    <string name="bus381">Split - Kaštel Stari - Resnik </string>
-    <string name="bus382">Resnik - Kaštel Stari - Split </string>
-    <string name="bus601">Split - Omiš - Ravnički most</string>
-    <string name="bus602">Ravnički most - Omiš - Split</string>
+    <string name="bus381">Split - Kaštel Stari - Airport</string>
+    <string name="bus382">Airport - Kaštel Stari - Split</string>
+    <string name="bus601">Split - Omiš - Ravnički Most</string>
+    <string name="bus602">Ravnički Most - Omiš - Split</string>
+    <string name="bus391">Kaštel Stari - Rudine</string>
+    <string name="bus392">Rudine - Kaštel Stari</string>
+    <string name="bus39A1">Kaštel Stari - Train station</string>
+    <string name="bus39A2">Train station - Kaštel Stari</string>
+    <string name="trostdirekt">Trogir - Split (direct)</string>
+
+
+    <!-- Prigradski busevi -->
     <string name="bus671">Split - Kotlenice - Dolac donji - Dolac gornji</string>
     <string name="bus672">Dolac gornji - Dolac donji - Kotlenice - Split</string>
-    <string name="bus681">Split - Tugare - Blato - Šestanovac</string>
+    <string name="bus681">Split - Tugare - Podgrađe - Blato - Šestanovac</string>
     <string name="bus682">Šestanovac - Blato - Tugare - Split</string>
     <string name="bus691">Split - Bisko - Trnbusi - Blato - Šestanovac</string>
     <string name="bus692">Šestanovac - Blato - Trnbusi - Bisko - Split</string>
+    <string name="bus701">Grab - Trilj - Bisko</string>
+    <string name="bus702">Bisko - Trilj - Grab</string>
     <string name="bus711">Split - Neorić - Sutina</string>
     <string name="bus712">Sutina - Neorić - Split </string>
-    <string name="bus721">Split - Neorić - Zelovo</string>
-    <string name="bus722">Zelovo - Neorić - Split</string>
     <string name="bus731">Split - Muć - Ogorje</string>
     <string name="bus732">Ogorje - Muć - Split</string>
     <string name="bus761">Split - Crivac - Kljaci</string>
@@ -328,12 +346,6 @@
     <string name="bus912">Divojevići - Bogdanovići - Sitno - Primorski Dolac - Plano - Kaštel Stari</string>
     <string name="bus931">Kaštel Stari - Malačka - Tešije - Đirlići - Šerići</string>
     <string name="bus932">Šerići - Đirlići - Tešije - Malačka - Kaštel Stari</string>
-    <string name="kstarizelj">Kaštel Stari - Train station</string>
-    <string name="zeljkstari">Train station - Kaštel Stari</string>
-    <string name="trogir_kstari">Trogir - Kaštel Stari (Train station)</string>
-    <string name="kstari_trogir">Kaštel Stari (Train station) - Trogir</string>
-    <string name="rudinekstari">Rudine - Kaštel stari</string>
-    <string name="kstarirudine">Kaštel stari - Rudine</string>
 
     <!-- Trogir -->
     <string name="bus411">Trogir - Plano</string>

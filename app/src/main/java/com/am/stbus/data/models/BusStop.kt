@@ -29,7 +29,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BusStop(
     val id: Int,
-    val title: String,
+    val title: Int,
 )
 
 

@@ -27,8 +27,8 @@ import androidx.navigation3.ui.NavDisplay
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusStop
 import com.am.stbus.presentation.screens.home.HomeScreen
-import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailScreen
-import com.am.stbus.presentation.screens.stoparrivals.list.BusStopArrivalsListScreen
+import com.am.stbus.presentation.screens.stops.detail.BusStopArrivalsDetailScreen
+import com.am.stbus.presentation.screens.stops.list.BusStopArrivalsListScreen
 import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailScreen
 import com.am.stbus.presentation.screens.timetables.list.TimetablesScreen
 import com.am.stbus.presentation.theme.SplitBusTheme

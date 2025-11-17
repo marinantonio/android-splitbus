@@ -25,7 +25,7 @@
 package com.am.stbus.common.di
 
 import com.am.stbus.presentation.MainViewModel
-import com.am.stbus.presentation.screens.stoparrivals.detail.BusStopArrivalsDetailViewModel
+import com.am.stbus.presentation.screens.stops.detail.BusStopArrivalsDetailViewModel
 import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module

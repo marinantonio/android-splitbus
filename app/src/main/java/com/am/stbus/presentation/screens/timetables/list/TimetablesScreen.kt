@@ -50,11 +50,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusLineArea
 import com.am.stbus.data.models.BusLineArea.Companion.getPagerTitle
 import com.am.stbus.data.static.CITY_BUS_LINES
-import com.am.stbus.data.static.CITY_URBAN_LINES
+import com.am.stbus.data.static.SUBURBAN_AREA_BUS_LINES
+import com.am.stbus.data.static.URBAN_AREA_BUS_LINES
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 import kotlinx.coroutines.launch
@@ -73,7 +75,7 @@ fun TimetablesScreen(
     val currentPage = pagerState.currentPage
 
     AppBarScreen(
-        title = "Vozni redovi",
+        title = stringResource(R.string.nav_timetables),
         titleColour = MaterialTheme.colorScheme.secondary
     ) {
         PrimaryTabRow(
@@ -153,7 +155,8 @@ fun BusLineItemView(
 
 private val timetableAreas = listOf(
     TimetableArea(busLineArea = BusLineArea.City, busLines = CITY_BUS_LINES),
-    TimetableArea(busLineArea = BusLineArea.Urban, busLines = CITY_URBAN_LINES)
+    TimetableArea(busLineArea = BusLineArea.Urban, busLines = URBAN_AREA_BUS_LINES),
+    TimetableArea(busLineArea = BusLineArea.Suburban, busLines = SUBURBAN_AREA_BUS_LINES)
 )
 
 data class TimetableArea(

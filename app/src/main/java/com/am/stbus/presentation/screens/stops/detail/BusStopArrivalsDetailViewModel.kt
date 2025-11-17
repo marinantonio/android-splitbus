@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.stoparrivals.detail
+package com.am.stbus.presentation.screens.stops.detail
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

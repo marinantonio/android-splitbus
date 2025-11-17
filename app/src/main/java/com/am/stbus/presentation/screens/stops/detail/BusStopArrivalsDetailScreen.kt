@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.stoparrivals.detail
+package com.am.stbus.presentation.screens.stops.detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -54,6 +54,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -62,6 +63,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
+import com.am.stbus.R
 import com.am.stbus.data.models.BusStop
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.screens.common.ErrorScreen
@@ -109,7 +111,7 @@ fun BusStopArrivalsDetailScreen(
     val title = busStop.title
 
     AppBarScreen(
-        title = title,
+        title = stringResource(title),
         titleColour = MaterialTheme.colorScheme.tertiary,
         showBackButton = true,
         onBackClicked = onBackClicked,
@@ -152,7 +154,7 @@ fun BusStopArrivalsDetailScreen(
                         .verticalScroll(rememberScrollState())
                 ) {
                     if (busStopTimes == null) {
-                        ErrorScreen(title)
+                        ErrorScreen(stringResource(title))
                     } else {
                         val timeNow = ZonedDateTime.now()
 
@@ -206,7 +208,7 @@ fun BusStopArrivalsDetailScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 16.dp, vertical = 32.dp),
-                                text = "NAPOMENA: Podatci su generirani prema podatcima s Prometove internet stranice. Ne odgovaram za njihovu točnost, a više stanica dolazi u sljedećim nadogradnjama",
+                                text = stringResource(R.string.bus_stops_info_message),
                                 fontStyle = FontStyle.Italic,
                                 textAlign = TextAlign.Center,
                                 color = MaterialTheme.colorScheme.secondary
@@ -216,7 +218,7 @@ fun BusStopArrivalsDetailScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 16.dp, vertical = 32.dp),
-                                text = "NEMA POLAZAKA",
+                                text = stringResource(R.string.bus_stops_no_departures),
                                 textAlign = TextAlign.Center,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 20.sp
