@@ -27,11 +27,10 @@
 
     <!-- MainActivity -->
     <string name="nav_favourites">Favoriti</string>
-    <string name="nav_bus_stops">Autobusne stanice</string>
+    <string name="nav_bus_stops">Stanice</string>
     <string name="nav_timetables">Vozni redovi</string>
     <string name="nav_information">Informacije</string>
     <string name="nav_settings">Postavke</string>
-
 
     <!-- Favourites -->
     <string name="favourite_empty_title">Nema favorita!</string>
@@ -317,9 +316,9 @@
     <string name="bus602">Ravnički Most - Omiš - Split</string>
     <string name="bus391">Kaštel Stari - Rudine</string>
     <string name="bus392">Rudine - Kaštel Stari</string>
-    <string name="bus39A1">Kaštel Stari - Train station</string>
-    <string name="bus39A2">Train station - Kaštel Stari</string>
-    <string name="trostdirekt">Trogir - Split (direct)</string>
+    <string name="bus39A1">Kaštel Stari - Željeznička stanica</string>
+    <string name="bus39A2">Željeznička stanica - Kaštel Stari</string>
+    <string name="trostdirekt">Trogir - Split (direktna)</string>
 
 
     <!-- Prigradski busevi -->

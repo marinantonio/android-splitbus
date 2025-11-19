@@ -64,7 +64,7 @@ val URBAN_AREA_BUS_LINES = listOf(
     BusLine(id = 100, title = R.string.bus1, number = "1", websiteTitle = "1 BUNJE"),
     BusLine(id = 101, title = R.string.bus021, number = "2", websiteTitle = "2 SPLIT"),
     BusLine(id = 102, title = R.string.bus022, number = "2", websiteTitle = "2 ZRAČNA"),
-    BusLine(id = 103, title = R.string.bus2A, number = "2A", websiteTitle = "2A K.SUĆURAC"),
+    BusLine(id = 103, title = R.string.bus2A, number = "2A", websiteTitle = "2A K. SUĆURAC"),
     BusLine(id = 104, title = R.string.bus5, number = "5", websiteTitle = "5 DRAČEVAC"),
     BusLine(id = 105, title = R.string.bus5A, number = "5A", websiteTitle = "5A DRAČEVAC"),
     BusLine(id = 106, title = R.string.bus10, number = "10", websiteTitle = "10 JAPIRKO"),
@@ -124,9 +124,9 @@ val SUBURBAN_AREA_BUS_LINES = listOf(
     BusLine(id = 520, title = R.string.bus861, number = "86", websiteTitle = "86 SPLIT"),
     BusLine(id = 521, title = R.string.bus862, number = "86", websiteTitle = "86 KLADNJICE"),
     BusLine(id = 522, title = R.string.bus900, number = "90", websiteTitle = "90 SITNO"),
-    BusLine(id = 523, title = R.string.bus911, number = "91", websiteTitle = "91 K.STARI"),
+    BusLine(id = 523, title = R.string.bus911, number = "91", websiteTitle = "91 K. STARI"),
     BusLine(id = 524, title = R.string.bus912, number = "91", websiteTitle = "91 DIVOJEVIĆI"),
-    BusLine(id = 525, title = R.string.bus931, number = "93", websiteTitle = "93 K.STARI"),
+    BusLine(id = 525, title = R.string.bus931, number = "93", websiteTitle = "93 K. STARI"),
     BusLine(id = 526, title = R.string.bus932, number = "93", websiteTitle = "93 ŠERIĆI")
 )
 
