@@ -2,6 +2,7 @@
 agp = "8.13.0"
 kotlin = "2.2.20"
 ksp = "2.2.20-2.0.4"
+crashlytics = "3.0.6"
 
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -24,6 +25,8 @@ kotlinSerialization = "2.2.20"
 kotlinxSerializationCore = "1.9.0"
 
 room = "2.8.3"
+
+firebaseBom = "34.6.0"
 
 koinBom = "4.1.1"
 retrofit = "3.0.0"
@@ -75,6 +78,10 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
+firebase-bom = { group = "com.google.firebase", name = "koin-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+firebase-analytics = { group = "com.google.firebase", name = "koin-android" }
+
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
 koin-android = { module = "io.insert-koin:koin-android" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose" }
@@ -97,4 +104,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization"}
+crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics" }
 

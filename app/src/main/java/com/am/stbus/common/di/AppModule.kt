@@ -42,7 +42,7 @@ val appModule = module {
         Room.databaseBuilder(
             androidContext(),
             AppDatabase::class.java, "split-bus-db"
-        ).build()
+        ).fallbackToDestructiveMigration(true).build()
     }
 
     single<FavouriteItemDao> {
