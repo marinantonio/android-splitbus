@@ -78,9 +78,9 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
-firebase-bom = { group = "com.google.firebase", name = "koin-bom", version.ref = "firebaseBom" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
-firebase-analytics = { group = "com.google.firebase", name = "koin-android" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
 koin-android = { module = "io.insert-koin:koin-android" }
