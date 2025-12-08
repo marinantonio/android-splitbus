@@ -31,8 +31,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
 import kotlinx.coroutines.launch
-import org.threeten.bp.LocalDateTime
-import org.threeten.bp.ZoneId
 import org.threeten.bp.ZonedDateTime
 import timber.log.Timber
 
@@ -81,8 +79,7 @@ class BusStopArrivalsDetailViewModel(
 
     fun convertStringToZonedDateTime(timeString: String?): ZonedDateTime? {
         return try {
-            val localDateTime = LocalDateTime.parse(timeString)
-            localDateTime.atZone(ZoneId.of("Europe/Zagreb"))
+            ZonedDateTime.parse(timeString)
         } catch (exp: Exception) {
             Timber.d("exp $exp")
             null
