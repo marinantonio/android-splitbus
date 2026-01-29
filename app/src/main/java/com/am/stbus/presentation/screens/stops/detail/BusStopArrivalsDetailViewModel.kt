@@ -44,21 +44,15 @@ class BusStopArrivalsDetailViewModel(
 
     var busStopTimes: List<BusStopTimes>? = null
 
-    init {
-        Timber.d("Debugging - BusStopArrivalsDetailViewModel init")
-    }
-
     fun getBusStopArrivals(onPullToRefresh: Boolean, busStopId: Int) {
         if (!onPullToRefresh) {
             busStopTimes = emptyList()
         }
-        Timber.d("Debugging - get bus stop arrival $busStopId")
         pullToRefreshLoading = onPullToRefresh
         viewModelScope.launch {
             val result = getDeparturesUseCase.run(busStopId)
 
             result.onSuccess { busStopArrivals ->
-                Timber.d("onSuccess $busStopId ${busStopArrivals}")
                 busStopTimes = busStopArrivals.map {
                     BusStopTimes(
                         lineNumber = it.lineNumber ?: "",
@@ -93,15 +87,3 @@ class BusStopArrivalsDetailViewModel(
     )
 
 }
-
-
-/*
-@Serializable
-data class BusStopArrival(
-    @SerialName("lineNumber")
-    val lineNumber: String?,
-    @SerialName("title")
-    val title: String?,
-    @SerialName("time")
-    val time: String?,
-)*/

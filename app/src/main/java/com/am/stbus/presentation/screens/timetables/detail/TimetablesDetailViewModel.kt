@@ -42,19 +42,18 @@ class TimetablesDetailViewModel(
 
     var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
 
-    init {
-        Timber.d("Debugging - TimetablesDetailViewModel init")
-    }
-
     fun getTimetableData(websiteTitle: String) {
         loading = true
         viewModelScope.launch(Dispatchers.IO) {
             val result = getTimetableDetailDataUseCase.run(websiteTitle)
 
             result.onSuccess {
+                Timber.wtf("Success....")
+                Timber.wtf(IllegalArgumentException("test exception"))
                 timetableData = it
                 loading = false
             }.onFailure {
+                Timber.e("")
                 timetableData = null
                 loading = false
             }
