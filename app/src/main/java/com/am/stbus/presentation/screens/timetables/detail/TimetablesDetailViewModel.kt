@@ -42,10 +42,6 @@ class TimetablesDetailViewModel(
 
     var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
 
-    init {
-        Timber.d("Debugging - TimetablesDetailViewModel init")
-    }
-
     fun getTimetableData(websiteTitle: String) {
         loading = true
         viewModelScope.launch(Dispatchers.IO) {
@@ -55,6 +51,8 @@ class TimetablesDetailViewModel(
                 timetableData = it
                 loading = false
             }.onFailure {
+                Timber.wtf("onFailure $websiteTitle $it")
+                Timber.wtf(it)
                 timetableData = null
                 loading = false
             }

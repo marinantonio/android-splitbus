@@ -123,7 +123,6 @@ fun HomeScreenPreview() {
                 .fillMaxSize()
         ) {
             HomeScreen(emptyList(), emptyList(), {}) { }
-            //omeScreen()
         }
     }
 }
