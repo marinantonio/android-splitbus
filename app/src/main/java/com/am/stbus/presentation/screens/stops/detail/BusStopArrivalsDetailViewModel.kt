@@ -63,7 +63,8 @@ class BusStopArrivalsDetailViewModel(
                 loading = false
                 pullToRefreshLoading = false
             }.onFailure {
-                Timber.d("onFailure $busStopId $it")
+                Timber.wtf("onFailure $busStopId $it")
+                Timber.wtf(it)
                 busStopTimes = null
                 pullToRefreshLoading = false
                 loading = false

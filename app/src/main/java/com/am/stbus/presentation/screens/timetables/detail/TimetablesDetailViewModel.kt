@@ -48,12 +48,11 @@ class TimetablesDetailViewModel(
             val result = getTimetableDetailDataUseCase.run(websiteTitle)
 
             result.onSuccess {
-                Timber.wtf("Success....")
-                Timber.wtf(IllegalArgumentException("test exception"))
                 timetableData = it
                 loading = false
             }.onFailure {
-                Timber.e("")
+                Timber.wtf("onFailure $websiteTitle $it")
+                Timber.wtf(it)
                 timetableData = null
                 loading = false
             }

@@ -21,9 +21,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Test
-        run: echo ${{secrets.KEY_STORE_PASSWORD}} | sed 's/./&/g'
-
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
 

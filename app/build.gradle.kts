@@ -16,8 +16,8 @@ android {
         applicationId = "com.am.stbus"
         minSdk = 23
         targetSdk = 36
-        versionCode = 83
-        versionName = "4.0.2"
+        versionCode = 84
+        versionName = "4.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,6 +47,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
