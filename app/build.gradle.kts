@@ -30,13 +30,15 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                // Default file with automatically generated optimization rules.
+                getDefaultProguardFile("proguard-android-optimize.txt")
+            )
+
             firebaseCrashlytics {
                 mappingFileUploadEnabled = true
             }
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {

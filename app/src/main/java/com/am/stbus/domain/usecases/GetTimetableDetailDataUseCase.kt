@@ -33,10 +33,7 @@ class GetTimetableDetailDataUseCase(
         return try {
 
             val timetableId = timetablesRepository.getTimetableId(websiteTitle)
-
-            if (timetableId == null) {
-                return Result.failure(Exception("Missing timetableId"))
-            }
+                ?: return Result.failure(Exception("Missing timetableId"))
 
             val doc = timetablesRepository.getTimetableForId(timetableId)
 
