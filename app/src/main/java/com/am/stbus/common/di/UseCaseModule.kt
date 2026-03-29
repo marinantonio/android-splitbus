@@ -26,10 +26,19 @@ package com.am.stbus.common.di
 
 import com.am.stbus.domain.usecases.FavouritesRoomDbUseCase
 import com.am.stbus.domain.usecases.GetBusStopArrivalsUseCase
-import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
+import com.am.stbus.domain.usecases.gmaps.GetLiveVehiclesFromHubConnection
+import com.am.stbus.domain.usecases.gmaps.GetLiveVehiclesUseCase
+import com.am.stbus.domain.usecases.timetables.GetLocalTimetableDetailDataUseCase
+import com.am.stbus.domain.usecases.timetables.GetRemoteTimetableDetailDataUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
+
+    single {
+        FavouritesRoomDbUseCase(
+            favouriteItemDao = get()
+        )
+    }
 
     single {
         GetBusStopArrivalsUseCase(
@@ -38,14 +47,26 @@ val useCaseModule = module {
     }
 
     single {
-        GetTimetableDetailDataUseCase(
+        GetLiveVehiclesUseCase(
+            prometApiRepository = get()
+        )
+    }
+
+    single {
+        GetLiveVehiclesFromHubConnection(
+            hubConnection = get()
+        )
+    }
+
+    single {
+        GetLocalTimetableDetailDataUseCase(
             timetablesRepository = get()
         )
     }
 
     single {
-        FavouritesRoomDbUseCase(
-            favouriteItemDao = get()
+        GetRemoteTimetableDetailDataUseCase(
+            timetablesRepository = get()
         )
     }
 

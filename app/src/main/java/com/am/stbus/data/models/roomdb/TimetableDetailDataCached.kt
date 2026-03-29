@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,42 +22,17 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.static
+package com.am.stbus.data.models.roomdb
 
-import com.am.stbus.R
-import com.am.stbus.data.models.BusStop
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.am.stbus.data.models.timetables.TimetableDetailData
+import org.threeten.bp.ZonedDateTime
 
-val BUS_ARRIVALS_STOPS = listOf(
-    BusStop(
-        id = 675258,
-        title = R.string.bus_stop_hnk
-    ),
-    BusStop(
-        id = 676742,
-        title = R.string.bus_stop_hnk_izlaz
-    ),
-    BusStop(
-        id = 675289,
-        title = R.string.bus_stop_pazar_poljicka
-    ),
-    BusStop(
-        id = 675290,
-        title = R.string.bus_stop_pazar_opcina
-    ),
-    BusStop(
-        id = 675287,
-        title = R.string.bus_stop_opcina_poljicka
-    ),
-    BusStop(
-        id = 675286,
-        title = R.string.bus_stop_opcina_dom_rata
-    ),
-    BusStop(
-        id = 676393,
-        title = R.string.bus_stop_sukoišan
-    )
+@Entity
+data class TimetableDetailDataCached(
+    @PrimaryKey val websiteTitle: String,
+    @ColumnInfo(name = "timetableDetailData") val timetableDetailData: TimetableDetailData,
+    @ColumnInfo(name = "storedAt") val storedAt: ZonedDateTime
 )
-
-fun findBusStopArrivalPerId(id: Int): BusStop? {
-    return BUS_ARRIVALS_STOPS.firstOrNull { it.id == id }
-}

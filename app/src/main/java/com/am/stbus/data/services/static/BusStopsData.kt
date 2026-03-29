@@ -22,45 +22,42 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.services.static
 
-import com.am.stbus.presentation.MainViewModel
-import com.am.stbus.presentation.screens.info.InfoScreenViewModel
-import com.am.stbus.presentation.screens.info.maps.GmapsScreenViewModel
-import com.am.stbus.presentation.screens.stops.detail.BusStopArrivalsDetailViewModel
-import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import com.am.stbus.R
+import com.am.stbus.data.models.BusStop
 
-val viewModelModule = module {
+val BUS_ARRIVALS_STOPS = listOf(
+    BusStop(
+        id = 675258,
+        title = R.string.bus_stop_hnk
+    ),
+    BusStop(
+        id = 676742,
+        title = R.string.bus_stop_hnk_izlaz
+    ),
+    BusStop(
+        id = 675289,
+        title = R.string.bus_stop_pazar_poljicka
+    ),
+    BusStop(
+        id = 675290,
+        title = R.string.bus_stop_pazar_opcina
+    ),
+    BusStop(
+        id = 675287,
+        title = R.string.bus_stop_opcina_poljicka
+    ),
+    BusStop(
+        id = 675286,
+        title = R.string.bus_stop_opcina_dom_rata
+    ),
+    BusStop(
+        id = 676393,
+        title = R.string.bus_stop_sukoišan
+    )
+)
 
-    viewModel {
-        MainViewModel(
-            favouritesRoomDbUseCase = get()
-        )
-    }
-
-    viewModel {
-        BusStopArrivalsDetailViewModel(
-            getDeparturesUseCase = get()
-        )
-    }
-
-    viewModel {
-        TimetablesDetailViewModel(
-            getLocalTimetableDetailDataUseCase = get(),
-            getRemoteTimetableDetailDataUseCase = get()
-        )
-    }
-
-    viewModel {
-        GmapsScreenViewModel(
-            getLiveVehiclesUseCase = get(),
-            getLiveVehiclesFromHubConnection = get()
-        )
-    }
-
-    viewModel {
-        InfoScreenViewModel()
-    }
+fun findBusStopArrivalPerId(id: Int): BusStop? {
+    return BUS_ARRIVALS_STOPS.firstOrNull { it.id == id }
 }

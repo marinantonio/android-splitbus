@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.stops.list
+package com.am.stbus.presentation.screens.stops
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -38,7 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.am.stbus.R
 import com.am.stbus.data.models.BusStop
-import com.am.stbus.data.static.BUS_ARRIVALS_STOPS
+import com.am.stbus.data.services.static.BUS_ARRIVALS_STOPS
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 

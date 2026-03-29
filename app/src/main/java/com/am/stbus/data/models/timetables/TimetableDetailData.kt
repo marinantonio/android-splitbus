@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,17 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.models.timetables
 
-import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
+data class TimetableDetailData(
+    val validFrom: String,
+    val workdayItems: List<List<String>>,
+    val saturdayItems: List<List<String>>,
+    val sundayList: List<List<String>>,
+    val notes: String
+)
 
-val repositoryModule = module {
-
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
-    }
-
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
-
-}
+data class TimetableDetailDataWithNeedsRefresh(
+    val timetableDetailData: TimetableDetailData,
+    val needsRefresh: Boolean
+)

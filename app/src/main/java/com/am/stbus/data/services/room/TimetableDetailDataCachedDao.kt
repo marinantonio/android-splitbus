@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,20 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.services.room
 
-import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.am.stbus.data.models.roomdb.TimetableDetailDataCached
 
-val repositoryModule = module {
+@Dao
+interface TimetableDetailDataCachedDao {
 
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
-    }
+    @Query("SELECT * FROM TimetableDetailDataCached WHERE websiteTitle = :websiteTitle")
+    suspend fun getTimetableByWebsiteTitle(websiteTitle: String): TimetableDetailDataCached?
 
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
-
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTimetable(timetable: TimetableDetailDataCached)
 }

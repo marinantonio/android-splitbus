@@ -24,8 +24,8 @@
 
 package com.am.stbus.domain.usecases
 
-import com.am.stbus.data.models.FavouriteItem
-import com.am.stbus.data.room.FavouriteItemDao
+import com.am.stbus.data.models.roomdb.FavouriteItem
+import com.am.stbus.data.services.room.FavouriteItemDao
 
 class FavouritesRoomDbUseCase(
     private val favouriteItemDao: FavouriteItemDao

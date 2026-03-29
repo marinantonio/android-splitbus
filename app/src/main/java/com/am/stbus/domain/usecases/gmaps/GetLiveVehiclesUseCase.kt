@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,26 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.domain.usecases.gmaps
 
+import com.am.stbus.data.models.LiveVehicle
 import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
 
-val repositoryModule = module {
+class GetLiveVehiclesUseCase(
+    private val prometApiRepository: PrometApiRepository
+) {
+    suspend fun run(): Result<List<LiveVehicle>> {
+        return try {
+            val response = prometApiRepository.getLiveVehicles()
 
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
+            if (response.isSuccessful) {
+                Result.success(response.body() ?: emptyList())
+            } else {
+                Result.failure(Exception("error"))
+            }
+        } catch (exp: Exception) {
+            Result.failure(Exception(exp))
+        }
+
     }
-
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
-
 }

@@ -25,9 +25,12 @@
 package com.am.stbus.common.di
 
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.am.stbus.common.room.AppDatabase
-import com.am.stbus.data.ApiService
-import com.am.stbus.data.room.FavouriteItemDao
+import com.am.stbus.data.services.ApiService
+import com.am.stbus.data.services.room.FavouriteItemDao
+import com.am.stbus.data.services.room.TimetableDetailDataCachedDao
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -38,15 +41,34 @@ val appModule = module {
         get<Retrofit>().create(ApiService::class.java)
     }
 
+    val MIGRATION_1_2 = object : Migration(1, 2) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL(
+                "CREATE TABLE IF NOT EXISTS `TimetableDetailDataCached` (" +
+                        "`websiteTitle` TEXT NOT NULL, " +
+                        "`timetableDetailData` TEXT NOT NULL, " +
+                        "`storedAt` TEXT NOT NULL, " +
+                        "PRIMARY KEY(`websiteTitle`))"
+            )
+        }
+    }
+
     single<AppDatabase> {
         Room.databaseBuilder(
             androidContext(),
             AppDatabase::class.java, "split-bus-db"
-        ).fallbackToDestructiveMigration(true).build()
+        )
+            .addMigrations(MIGRATION_1_2)
+            .fallbackToDestructiveMigration(dropAllTables = true)
+            .build()
     }
 
     single<FavouriteItemDao> {
         get<AppDatabase>().favouriteItemDao()
+    }
+
+    single<TimetableDetailDataCachedDao> {
+        get<AppDatabase>().timetableDetailDataCachedDao()
     }
 
 

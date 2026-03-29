@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,22 +22,37 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.room
+package com.am.stbus.common.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import com.am.stbus.data.models.FavouriteItem
+import androidx.room.TypeConverter
+import com.am.stbus.data.models.timetables.TimetableDetailData
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.threeten.bp.ZonedDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
-@Dao
-interface FavouriteItemDao {
-    @Query("SELECT * FROM favouriteitem")
-    suspend fun getAll(): List<FavouriteItem>
+class Converters {
+    private val gson = Gson()
+    private val formatter = DateTimeFormatter.ISO_ZONED_DATE_TIME
 
-    @Insert
-    suspend fun insert(favouriteItem: FavouriteItem)
+    @TypeConverter
+    fun fromTimetableDetailData(value: TimetableDetailData): String {
+        return gson.toJson(value)
+    }
 
-    @Query("DELETE FROM FavouriteItem WHERE id = :id AND type = :type")
-    suspend fun delete(id: Int, type: Int)
+    @TypeConverter
+    fun toTimetableDetailData(value: String): TimetableDetailData {
+        val type = object : TypeToken<TimetableDetailData>() {}.type
+        return gson.fromJson(value, type)
+    }
 
+    @TypeConverter
+    fun fromZonedDateTime(value: ZonedDateTime): String {
+        return value.format(formatter)
+    }
+
+    @TypeConverter
+    fun toZonedDateTime(value: String): ZonedDateTime {
+        return ZonedDateTime.parse(value, formatter)
+    }
 }

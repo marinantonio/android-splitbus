@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.data.static
+package com.am.stbus.data.services.static
 
 import com.am.stbus.R
 import com.am.stbus.data.models.BusLine

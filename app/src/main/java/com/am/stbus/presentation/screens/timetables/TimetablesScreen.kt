@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.presentation.screens.timetables.list
+package com.am.stbus.presentation.screens.timetables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -46,6 +46,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight.Companion.W600
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,9 +55,9 @@ import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusLineArea
 import com.am.stbus.data.models.BusLineArea.Companion.getPagerTitle
-import com.am.stbus.data.static.CITY_BUS_LINES
-import com.am.stbus.data.static.SUBURBAN_AREA_BUS_LINES
-import com.am.stbus.data.static.URBAN_AREA_BUS_LINES
+import com.am.stbus.data.services.static.CITY_BUS_LINES
+import com.am.stbus.data.services.static.SUBURBAN_AREA_BUS_LINES
+import com.am.stbus.data.services.static.URBAN_AREA_BUS_LINES
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 import kotlinx.coroutines.launch
@@ -80,6 +81,7 @@ fun TimetablesScreen(
     ) {
         PrimaryTabRow(
             selectedTabIndex = currentPage,
+            containerColor = MaterialTheme.colorScheme.background,
             divider = {}
         ) {
             timetableAreas.forEachIndexed { index, timetableArea ->
@@ -93,7 +95,8 @@ fun TimetablesScreen(
                     },
                     text = {
                         Text(
-                            text = stringResource(timetableArea.busLineArea.getPagerTitle())
+                            text = stringResource(timetableArea.busLineArea.getPagerTitle()),
+                            fontWeight = W600
                         )
                     }
                 )
@@ -141,6 +144,7 @@ fun BusLineItemView(
             color = MaterialTheme.colorScheme.secondary,
             textAlign = TextAlign.End,
             fontSize = 18.sp,
+            fontWeight = W600
         )
         Text(
             modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),

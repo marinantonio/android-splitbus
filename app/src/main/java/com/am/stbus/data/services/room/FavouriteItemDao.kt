@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,22 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.services.room
 
-import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import com.am.stbus.data.models.roomdb.FavouriteItem
 
-val repositoryModule = module {
+@Dao
+interface FavouriteItemDao {
+    @Query("SELECT * FROM favouriteitem")
+    suspend fun getAll(): List<FavouriteItem>
 
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
-    }
+    @Insert
+    suspend fun insert(favouriteItem: FavouriteItem)
 
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
+    @Query("DELETE FROM FavouriteItem WHERE id = :id AND type = :type")
+    suspend fun delete(id: Int, type: Int)
 
 }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,12 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.presentation.screens.info
 
-import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
+import androidx.lifecycle.ViewModel
 
-val repositoryModule = module {
+class InfoScreenViewModel() : ViewModel() {
 
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
-    }
-
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
+    // Todo
 
 }

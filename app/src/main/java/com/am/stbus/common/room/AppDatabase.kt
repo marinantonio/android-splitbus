@@ -26,11 +26,16 @@ package com.am.stbus.common.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.am.stbus.common.Constants.DB_VERSION
-import com.am.stbus.data.models.FavouriteItem
-import com.am.stbus.data.room.FavouriteItemDao
+import com.am.stbus.data.models.roomdb.FavouriteItem
+import com.am.stbus.data.models.roomdb.TimetableDetailDataCached
+import com.am.stbus.data.services.room.FavouriteItemDao
+import com.am.stbus.data.services.room.TimetableDetailDataCachedDao
 
-@Database(entities = [FavouriteItem::class], version = DB_VERSION)
+@Database(entities = [FavouriteItem::class, TimetableDetailDataCached::class], version = DB_VERSION)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun favouriteItemDao(): FavouriteItemDao
+    abstract fun timetableDetailDataCachedDao(): TimetableDetailDataCachedDao
 }

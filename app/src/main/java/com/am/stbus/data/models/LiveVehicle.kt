@@ -24,13 +24,25 @@
 
 package com.am.stbus.data.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@Entity
-data class FavouriteItem(
-    @PrimaryKey(autoGenerate = true) val uid: Long = 0,
-    @ColumnInfo(name = "id") val id: Int,
-    @ColumnInfo(name = "type") val type: Int
+@Serializable
+data class LiveVehicle(
+    @SerialName("id")
+    val id: Int?,
+    @SerialName("timestamp")
+    val timestamp: String?,
+    @SerialName("garageNumber")
+    val garageNumber: String?,
+    @SerialName("registrationNumber")
+    val registrationNumber: String?,
+    @SerialName("name")
+    val name: String?,
+    @SerialName("latitude")
+    val latitude: Double?,
+    @SerialName("longitude")
+    val longitude: Double?,
+    @SerialName("vehicleStatus")
+    val vehicleStatus: Int?,
 )

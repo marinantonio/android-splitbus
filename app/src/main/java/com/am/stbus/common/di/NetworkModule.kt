@@ -2,6 +2,8 @@ package com.am.stbus.common.di
 
 import com.am.stbus.common.Constants.PROMET_API_URL
 import com.am.stbus.common.PROMET_KEY
+import com.microsoft.signalr.GsonHubProtocol
+import com.microsoft.signalr.HubConnectionBuilder
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -52,5 +54,18 @@ val networkModule = module {
             )
             .build()
     }
+
+
+    single {
+
+        val gsonProtocol = GsonHubProtocol()
+
+        HubConnectionBuilder
+            .create("https://api.promet-split.hr/Fleet/hub/spatial")
+            .withHubProtocol(gsonProtocol)
+            .shouldSkipNegotiate(false)
+            .build()
+    }
+
 
 }

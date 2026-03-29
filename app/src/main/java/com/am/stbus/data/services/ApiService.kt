@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2013 - 2025 Antonio Marin
+ * Copyright (c) 2013 - 2026 Antonio Marin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +22,22 @@
  * SOFTWARE.
  */
 
-package com.am.stbus.common.di
+package com.am.stbus.data.services
 
-import com.am.stbus.domain.repositories.PrometApiRepository
-import com.am.stbus.domain.repositories.TimetablesRepository
-import org.koin.dsl.module
+import com.am.stbus.data.models.BusStopArrival
+import com.am.stbus.data.models.LiveVehicle
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
 
-val repositoryModule = module {
+interface ApiService {
 
-    single {
-        PrometApiRepository(
-            apiService = get()
-        )
-    }
+    @GET("stop/{busStopId}/arrival-times")
+    suspend fun getBusStopArrivals(
+        @Path(value = "busStopId") busStopId: Int
+    ): Response<List<BusStopArrival>>
 
-    single {
-        TimetablesRepository(
-            timetableDetailDataCachedDao = get()
-        )
-    }
+    @GET("live/vehicles")
+    suspend fun getLiveVehicles(): Response<List<LiveVehicle>>
 
 }
