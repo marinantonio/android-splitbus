@@ -46,14 +46,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SplitBus"
-        android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m">
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <!--
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/api_key" />
+            android:value="${MAPS_API_KEY}" />
+
+        <!--
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" /> &lt;!&ndash; Fixes crash for Android 9+ users &ndash;&gt;

@@ -29,8 +29,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusStop
-import com.am.stbus.data.static.findBusLinePerId
-import com.am.stbus.data.static.findBusStopArrivalPerId
+import com.am.stbus.data.services.static.findBusLinePerId
+import com.am.stbus.data.services.static.findBusStopArrivalPerId
 import com.am.stbus.domain.usecases.FavouritesRoomDbUseCase
 import kotlinx.coroutines.launch
 

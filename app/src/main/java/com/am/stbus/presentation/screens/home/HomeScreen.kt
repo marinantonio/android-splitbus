@@ -27,8 +27,8 @@ import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.data.models.BusStop
 import com.am.stbus.presentation.screens.common.AppBarScreen
-import com.am.stbus.presentation.screens.stops.list.BusStopItemView
-import com.am.stbus.presentation.screens.timetables.list.BusLineItemView
+import com.am.stbus.presentation.screens.stops.BusStopItemView
+import com.am.stbus.presentation.screens.timetables.BusLineItemView
 import com.am.stbus.presentation.theme.SplitBusTheme
 
 @Composable
@@ -43,7 +43,7 @@ fun HomeScreen(
 
     AppBarScreen(
         title = stringResource(R.string.nav_favourites),
-        titleColour = MaterialTheme.colorScheme.primary
+        titleColour = MaterialTheme.colorScheme.onBackground
     ) {
         if (emptyScreen) {
             Column(
@@ -82,6 +82,7 @@ fun HomeScreen(
                     text = stringResource(R.string.nav_bus_stops),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.headlineSmall,
                     color = MaterialTheme.colorScheme.tertiary
                 )
                 busStopFavourites.forEach { busStop ->
@@ -100,6 +101,7 @@ fun HomeScreen(
                     text = stringResource(R.string.nav_timetables),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.headlineSmall,
                     color = MaterialTheme.colorScheme.secondary
                 )
                 busLinesFavourites.forEach {

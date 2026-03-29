@@ -43,19 +43,26 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.screens.common.ErrorScreen
@@ -63,11 +70,13 @@ import com.am.stbus.presentation.screens.common.LoadingScreen
 import com.am.stbus.presentation.theme.SplitBusTheme
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
+import timber.log.Timber
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun TimetablesDetailScreen(
     viewModel: TimetablesDetailViewModel = koinViewModel(),
+    navBarPadding: Dp,
     busLine: BusLine,
     favourite: Boolean,
     onFavouriteClicked: (BusLine) -> Unit,
@@ -82,25 +91,30 @@ fun TimetablesDetailScreen(
 
     val currentPage = pagerState.currentPage
 
-    val loading = viewModel.loading
+    val loading = viewModel.fullScreenLoading
 
     val timetableData = viewModel.timetableData
 
     val title = "${busLine.number} ${stringResource(id = busLine.title)}"
 
+    val pullToRefreshLoading = viewModel.pullToRefreshLoading
+
+    val pullToRefreshState = rememberPullToRefreshState()
+
     LaunchedEffect(Unit) {
-        viewModel.getTimetableData(busLine.websiteTitle)
+        viewModel.getLocalTimetableData(busLine.websiteTitle)
     }
 
     AppBarScreen(
         title = title,
         titleColour = MaterialTheme.colorScheme.secondary,
-        showBackButton = true,
         onBackClicked = onBackClicked,
         actions = {
-            IconButton(onClick = {
-                onFavouriteClicked(busLine)
-            }) {
+            IconButton(
+                onClick = {
+                    onFavouriteClicked(busLine)
+                }
+            ) {
                 Icon(
                     imageVector = if (favourite) {
                         Icons.Outlined.Favorite
@@ -117,15 +131,18 @@ fun TimetablesDetailScreen(
             LoadingScreen()
         } else {
             if (timetableData == null) {
+                Timber.wtf("Error screen se pojavio, loading: $loading i $timetableData")
                 ErrorScreen(title)
             } else {
                 PrimaryTabRow(
                     selectedTabIndex = currentPage,
+                    containerColor = MaterialTheme.colorScheme.background,
                     divider = {}
                 ) {
                     listOfDays.forEachIndexed { index, day ->
                         Tab(
                             selected = currentPage == index,
+                            selectedContentColor = MaterialTheme.colorScheme.secondary,
                             onClick = {
                                 scope.launch {
                                     pagerState.animateScrollToPage(index)
@@ -133,7 +150,7 @@ fun TimetablesDetailScreen(
                             },
                             text = {
                                 Text(
-                                    text = day.toString()
+                                    text = day.toStringLocalised()
                                 )
                             }
                         )
@@ -148,46 +165,67 @@ fun TimetablesDetailScreen(
                         else -> emptyList()
                     }
 
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(horizontal = 16.dp)
-                            .verticalScroll(rememberScrollState())
+                    PullToRefreshBox(
+                        isRefreshing = pullToRefreshLoading,
+                        state = pullToRefreshState,
+                        onRefresh = {
+                            viewModel.geRemoteTimetableData(
+                                websiteTitle = busLine.websiteTitle,
+                                pullToRefresh = true
+                            )
+                        },
+                        indicator = {
+                            PullToRefreshDefaults.LoadingIndicator(
+                                modifier = Modifier.align(Alignment.TopCenter),
+                                state = pullToRefreshState,
+                                isRefreshing = pullToRefreshLoading,
+                                color = MaterialTheme.colorScheme.secondary
+                            )
+                        }
                     ) {
-                        Text(
-                            modifier = Modifier.padding(top = 12.dp),
-                            text = timetableData.validFrom
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        departureTimes.forEach { timetableRow ->
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.Center
-                            ) {
-                                timetableRow.forEach { time ->
-                                    Text(
-                                        modifier = Modifier
-                                            .background(
-                                                color = MaterialTheme.colorScheme.secondaryContainer,
-                                                shape = RoundedCornerShape(6.dp)
-                                            )
-                                            .padding(horizontal = 6.dp, vertical = 4.dp),
-                                        text = time,
-                                        color = MaterialTheme.colorScheme.secondary
-                                    )
-                                    Spacer(Modifier.width(14.dp))
-                                }
-                            }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(horizontal = 16.dp)
+                                .verticalScroll(rememberScrollState())
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(top = 12.dp),
+                                text = timetableData.validFrom
+                            )
 
                             Spacer(modifier = Modifier.height(12.dp))
-                        }
 
-                        Text(
-                            modifier = Modifier.padding(top = 12.dp),
-                            text = timetableData.notes
-                        )
+                            departureTimes.forEach { timetableRow ->
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    timetableRow.forEach { time ->
+                                        Text(
+                                            modifier = Modifier
+                                                .background(
+                                                    color = MaterialTheme.colorScheme.secondaryContainer,
+                                                    shape = RoundedCornerShape(6.dp)
+                                                )
+                                                .padding(horizontal = 6.dp, vertical = 4.dp),
+                                            text = time,
+                                            color = MaterialTheme.colorScheme.secondary
+                                        )
+                                        Spacer(Modifier.width(14.dp))
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(12.dp))
+                            }
+
+                            Text(
+                                modifier = Modifier.padding(top = 12.dp),
+                                text = timetableData.notes
+                            )
+
+                            Spacer(modifier = Modifier.height(navBarPadding))
+                        }
                     }
                 }
             }
@@ -197,6 +235,16 @@ fun TimetablesDetailScreen(
 
 
 sealed class TimetableDetailScreenDay {
+
+    @Composable
+    fun toStringLocalised(): String {
+        return when (this) {
+            is Workday -> stringResource(id = R.string.timetable_detail_work_day)
+            is Saturday -> stringResource(id = R.string.timetable_detail_saturday)
+            is Sunday -> stringResource(id = R.string.timetable_detail_sunday)
+        }
+    }
+
     data object Workday : TimetableDetailScreenDay()
     data object Saturday : TimetableDetailScreenDay()
     data object Sunday : TimetableDetailScreenDay()

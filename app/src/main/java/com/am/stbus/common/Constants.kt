@@ -26,9 +26,9 @@ package com.am.stbus.common
 
 object Constants {
 
-    const val DB_VERSION = 1
+    const val DB_VERSION = 2
 
-    const val PROMET_URL = "http://www.promet-split.hr"
+    const val PROMET_URL = "https://www.promet-split.hr"
     const val PROMET_NOVOSTI_URL = "http://www.promet-split.hr/obavijesti"
     const val PROMET_API_URL = "https://api.promet-split.hr/Fleet/api/v1/"
     const val PROMET_ALL_LINES_URL = "$PROMET_URL/vozni-red/sve-linije/"

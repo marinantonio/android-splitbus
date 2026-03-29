@@ -38,7 +38,8 @@ jobs:
         id: updateSecrets
         run: |
           echo "Updating Secrets.kt"
-          echo '${{ secrets.SECRETS }}' > app/src/main/java/com/am/stbus/common/Secrets.kt  
+          echo '${{ secrets.SECRETS }}' > app/src/main/java/com/am/stbus/common/Secrets.kt
+          echo '${{ secrets.GRADLE_LOCAL_PROPERTIES }}' > local.properties      
 
       - name: Build Release AAB
         id: buildRelease

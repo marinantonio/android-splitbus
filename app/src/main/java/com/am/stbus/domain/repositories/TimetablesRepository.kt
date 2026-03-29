@@ -27,31 +27,123 @@ package com.am.stbus.domain.repositories
 import com.am.stbus.common.Constants.NETWORK_REQUEST_TIMEOUT
 import com.am.stbus.common.Constants.PROMET_ALL_LINES_URL
 import com.am.stbus.common.Constants.PROMET_ALL_LINE_ID_URL
+import com.am.stbus.data.models.roomdb.TimetableDetailDataCached
+import com.am.stbus.data.models.timetables.TimetableDetailData
+import com.am.stbus.data.services.room.TimetableDetailDataCachedDao
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import org.threeten.bp.ZonedDateTime
 
-class TimetablesRepository {
+class TimetablesRepository(
+    private val timetableDetailDataCachedDao: TimetableDetailDataCachedDao
+) {
+    suspend fun getLocalTimetableDataForId(websiteTitle: String): TimetableDetailDataCached? {
+        return timetableDetailDataCachedDao.getTimetableByWebsiteTitle(websiteTitle)
+    }
 
-    fun getTimetableId(websiteTitle: String): Int? {
+    suspend fun getRemoteTimetableDataForId(websiteTitle: String): TimetableDetailData {
 
         val timetablePath =
             Jsoup.connect(PROMET_ALL_LINES_URL).timeout(NETWORK_REQUEST_TIMEOUT).get()
-            .select(
-                ".c-vozni-red__search-select option:contains("
-                        + websiteTitle
-                        + ")"
-            )
-            .attr("value")
+                .select(
+                    ".c-vozni-red__search-select option:contains("
+                            + websiteTitle
+                            + ")"
+                )
+                .attr("value")
 
         val timetableId = timetablePath.split("/").lastOrNull()?.toIntOrNull()
+            ?: throw Exception("Missing timetableId $websiteTitle")
 
-        return timetableId
-    }
-
-    fun getTimetableForId(timetableId: Int): Document {
-        return Jsoup.connect(PROMET_ALL_LINE_ID_URL + timetableId)
+        val timetableDocument = Jsoup.connect(PROMET_ALL_LINE_ID_URL + timetableId)
             .timeout(NETWORK_REQUEST_TIMEOUT).get()
+
+        val timetableData = generateTimetableDetailDataFromDocument(timetableDocument)
+
+        timetableDetailDataCachedDao.insertTimetable(
+            TimetableDetailDataCached(
+                websiteTitle = websiteTitle,
+                timetableDetailData = timetableData,
+                storedAt = ZonedDateTime.now()
+            )
+        )
+
+        return timetableData
     }
+
+    private fun generateTimetableDetailDataFromDocument(timetableDocument: Document): TimetableDetailData {
+        val workDayList = mutableListOf<List<String>>()
+        val saturdayList = mutableListOf<List<String>>()
+        val sundayList = mutableListOf<List<String>>()
+
+        val table = timetableDocument.select("table.c-vozni-red__table")
+
+        table.select("tbody tr").forEach { row ->
+            val cells = row.select("td")
+
+            // Column 0: Weekday
+            workDayList.add(
+                cells.getOrNull(0)
+                    ?.select("span.c-vozni-red__box--new")?.map {
+                        it.text()
+                    } ?: emptyList()
+            )
+
+            // Column 1: Saturday
+            saturdayList.add(
+                cells.getOrNull(1)
+                    ?.select("span.c-vozni-red__box--new")?.map {
+                        it.text()
+                    } ?: emptyList()
+            )
+
+            // Column 2: Sunday/Holiday
+            sundayList.add(
+                cells.getOrNull(2)
+                    ?.select("span.c-vozni-red__box--new")?.map {
+                        it.text()
+                    } ?: emptyList()
+            )
+        }
+
+        return TimetableDetailData(
+            validFrom = timetableDocument.select("p.c-vozni-red__valid").text(),
+            workdayItems = workDayList.toList(),
+            saturdayItems = saturdayList.toList(),
+            sundayList = sundayList.toList(),
+            notes = timetableDocument.select("div.c-vozni-red-note__items").text()
+        )
+    }
+
+
+    /*    fun getTimetableForWebsiteTitle(timetableId: Int): TimetableDetailData {
+            // Check if there's locally stored TimetableDetailData
+            val cached = runBlocking { timetableDetailDataCachedDao.getTimetableById(timetableId) }
+            if (cached != null) {
+                // Check if it's still valid (e.g., within 24 hours)
+                if (cached.storedAt.plusHours(24).isAfter(ZonedDateTime.now())) {
+                    return cached.timetableDetailData
+                }
+            }
+
+            val timetableDocument = Jsoup.connect(PROMET_ALL_LINE_ID_URL + timetableId)
+                .timeout(NETWORK_REQUEST_TIMEOUT).get()
+
+
+            // Store to database
+            runBlocking {
+                timetableDetailDataCachedDao.insertTimetable(
+                    TimetableDetailDataCached(
+                        id = timetableId,
+                        timetableDetailData = timetableDetailData,
+                        storedAt = ZonedDateTime.now()
+                    )
+                )
+            }
+
+            return timetableDetailData
+
+        }*/
 
 
 }

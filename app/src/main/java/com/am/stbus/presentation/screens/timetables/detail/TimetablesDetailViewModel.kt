@@ -29,34 +29,67 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.am.stbus.domain.usecases.GetTimetableDetailDataUseCase
+import com.am.stbus.data.models.timetables.TimetableDetailData
+import com.am.stbus.domain.usecases.timetables.GetLocalTimetableDetailDataUseCase
+import com.am.stbus.domain.usecases.timetables.GetRemoteTimetableDetailDataUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class TimetablesDetailViewModel(
-    private val getTimetableDetailDataUseCase: GetTimetableDetailDataUseCase
+    private val getLocalTimetableDetailDataUseCase: GetLocalTimetableDetailDataUseCase,
+    private val getRemoteTimetableDetailDataUseCase: GetRemoteTimetableDetailDataUseCase
 ) : ViewModel() {
 
-    var loading by mutableStateOf(true)
+    var fullScreenLoading by mutableStateOf(true)
 
-    var timetableData: GetTimetableDetailDataUseCase.TimetableDetailData? = null
+    var pullToRefreshLoading by mutableStateOf(false)
 
-    fun getTimetableData(websiteTitle: String) {
-        loading = true
+    var timetableData: TimetableDetailData? = null
+
+    fun getLocalTimetableData(websiteTitle: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = getTimetableDetailDataUseCase.run(websiteTitle)
+            val result = getLocalTimetableDetailDataUseCase.run(websiteTitle)
 
             result.onSuccess {
-                timetableData = it
-                loading = false
+                timetableData = it.timetableDetailData
+                fullScreenLoading = false
+                if (it.needsRefresh) {
+                    geRemoteTimetableData(
+                        websiteTitle, true
+                    )
+                }
             }.onFailure {
                 Timber.wtf("onFailure $websiteTitle $it")
                 Timber.wtf(it)
-                timetableData = null
-                loading = false
+                geRemoteTimetableData(websiteTitle, false)
             }
         }
     }
 
+    fun geRemoteTimetableData(
+        websiteTitle: String,
+        pullToRefresh: Boolean
+    ) {
+        if (pullToRefresh) {
+            pullToRefreshLoading = true
+        } else {
+            fullScreenLoading = true
+        }
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = getRemoteTimetableDetailDataUseCase.run(websiteTitle)
+
+            result.onSuccess {
+                timetableData = it
+                fullScreenLoading = false
+                pullToRefreshLoading = false
+            }.onFailure {
+                Timber.wtf("onFailure $websiteTitle $it")
+                Timber.wtf(it)
+                //timetableData = null
+                fullScreenLoading = false
+                pullToRefreshLoading = false
+            }
+        }
+    }
 }

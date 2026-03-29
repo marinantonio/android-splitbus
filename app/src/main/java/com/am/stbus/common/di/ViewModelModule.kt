@@ -25,6 +25,8 @@
 package com.am.stbus.common.di
 
 import com.am.stbus.presentation.MainViewModel
+import com.am.stbus.presentation.screens.info.InfoScreenViewModel
+import com.am.stbus.presentation.screens.info.maps.GmapsScreenViewModel
 import com.am.stbus.presentation.screens.stops.detail.BusStopArrivalsDetailViewModel
 import com.am.stbus.presentation.screens.timetables.detail.TimetablesDetailViewModel
 import org.koin.core.module.dsl.viewModel
@@ -46,7 +48,19 @@ val viewModelModule = module {
 
     viewModel {
         TimetablesDetailViewModel(
-            getTimetableDetailDataUseCase = get()
+            getLocalTimetableDetailDataUseCase = get(),
+            getRemoteTimetableDetailDataUseCase = get()
         )
+    }
+
+    viewModel {
+        GmapsScreenViewModel(
+            getLiveVehiclesUseCase = get(),
+            getLiveVehiclesFromHubConnection = get()
+        )
+    }
+
+    viewModel {
+        InfoScreenViewModel()
     }
 }

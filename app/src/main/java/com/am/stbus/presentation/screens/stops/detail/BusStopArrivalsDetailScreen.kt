@@ -113,7 +113,6 @@ fun BusStopArrivalsDetailScreen(
     AppBarScreen(
         title = stringResource(title),
         titleColour = MaterialTheme.colorScheme.tertiary,
-        showBackButton = true,
         onBackClicked = onBackClicked,
         actions = {
             IconButton(onClick = {
@@ -144,7 +143,8 @@ fun BusStopArrivalsDetailScreen(
                     PullToRefreshDefaults.LoadingIndicator(
                         modifier = Modifier.align(Alignment.TopCenter),
                         state = pullToRefreshState,
-                        isRefreshing = pullToRefreshLoading
+                        isRefreshing = pullToRefreshLoading,
+                        color = MaterialTheme.colorScheme.tertiary
                     )
                 }
             ) {
@@ -172,7 +172,7 @@ fun BusStopArrivalsDetailScreen(
                             ) {
                                 Text(
                                     text = it.lineNumber,
-                                    color = MaterialTheme.colorScheme.secondary,
+                                    color = MaterialTheme.colorScheme.tertiary,
                                     fontWeight = FontWeight.SemiBold,
                                     fontSize = 18.sp,
                                 )
@@ -186,7 +186,7 @@ fun BusStopArrivalsDetailScreen(
                                 ) {
                                     Text(
                                         text = "$minutesUntil",
-                                        color = MaterialTheme.colorScheme.primary,
+                                        color = MaterialTheme.colorScheme.tertiary,
                                         fontWeight = FontWeight.Bold,
                                         fontSize = 18.sp,
                                     )

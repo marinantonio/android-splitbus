@@ -37,7 +37,9 @@ val repositoryModule = module {
     }
 
     single {
-        TimetablesRepository()
+        TimetablesRepository(
+            timetableDetailDataCachedDao = get()
+        )
     }
 
 }

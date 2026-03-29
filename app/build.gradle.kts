@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.google.services)
     alias(libs.plugins.crashlytics)
+    alias(libs.plugins.google.maps.secrets)
 }
 
 android {
@@ -16,8 +17,8 @@ android {
         applicationId = "com.am.stbus"
         minSdk = 23
         targetSdk = 36
-        versionCode = 84
-        versionName = "4.0.3"
+        versionCode = 85
+        versionName = "4.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,21 +31,26 @@ android {
         }
         release {
             isMinifyEnabled = true
-            firebaseCrashlytics {
-                mappingFileUploadEnabled = true
-            }
+            isShrinkResources = true
             proguardFiles(
+                // Default file with automatically generated optimization rules.
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            firebaseCrashlytics {
+                mappingFileUploadEnabled = true
+            }
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
     buildFeatures {
         buildConfig = true
@@ -53,11 +59,13 @@ android {
 }
 
 dependencies {
+    implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.fonts)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
@@ -74,6 +82,9 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.analytics)
+
+    implementation(libs.maps.compose)
+    implementation(libs.microsoft.signal)
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.android)
