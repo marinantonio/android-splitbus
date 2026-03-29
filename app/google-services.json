@@ -1,52 +1,88 @@
 {
   "project_info": {
-    "project_number": "1026289851354",
-    "firebase_url": "https://split-bus-android-app.firebaseio.com",
-    "project_id": "split-bus-android-app",
-    "storage_bucket": "split-bus-android-app.firebasestorage.app"
+    "project_number": "123",
+    "firebase_url": "https://android-app.firebaseio.com",
+    "project_id": "android-app",
+    "storage_bucket": "test.com,"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1026289851354:android:3725c1d82b0bec13bc3ee3",
+        "mobilesdk_app_id": "123",
         "android_client_info": {
           "package_name": "com.am.stbus"
         }
       },
-      "oauth_client": [],
-      "api_key": [
+      "oauth_client": [
         {
-          "current_key": "AIzaSyDu7x2JHOZ756IutTVnRneU-fq45YK9tJA"
+          "client_id": "123",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.am.stbus",
+            "certificate_hash": "456"
+          }
         },
         {
-          "current_key": "AIzaSyCZKjrAHwHhAPBXfvJujbuBFFxGHVt18Ro"
+          "client_id": "123.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "456"
+        },
+        {
+          "current_key": "789"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1026289851354:android:affb866b44ecbb85bc3ee3",
+        "mobilesdk_app_id": "123",
         "android_client_info": {
           "package_name": "com.am.stbus.dev"
         }
       },
-      "oauth_client": [],
-      "api_key": [
+      "oauth_client": [
         {
-          "current_key": "AIzaSyDu7x2JHOZ756IutTVnRneU-fq45YK9tJA"
+          "client_id": "123.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.am.stbus.dev",
+            "certificate_hash": "345"
+          }
         },
         {
-          "current_key": "AIzaSyCZKjrAHwHhAPBXfvJujbuBFFxGHVt18Ro"
+          "client_id": "123.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "456"
+        },
+        {
+          "current_key": "789"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12345.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

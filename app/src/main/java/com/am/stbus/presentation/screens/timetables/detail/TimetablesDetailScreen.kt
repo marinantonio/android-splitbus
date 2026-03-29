@@ -62,6 +62,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.am.stbus.R
 import com.am.stbus.data.models.BusLine
 import com.am.stbus.presentation.screens.common.AppBarScreen
 import com.am.stbus.presentation.screens.common.ErrorScreen
@@ -149,7 +150,7 @@ fun TimetablesDetailScreen(
                             },
                             text = {
                                 Text(
-                                    text = day.toString()
+                                    text = day.toStringLocalised()
                                 )
                             }
                         )
@@ -234,6 +235,16 @@ fun TimetablesDetailScreen(
 
 
 sealed class TimetableDetailScreenDay {
+
+    @Composable
+    fun toStringLocalised(): String {
+        return when (this) {
+            is Workday -> stringResource(id = R.string.timetable_detail_work_day)
+            is Saturday -> stringResource(id = R.string.timetable_detail_saturday)
+            is Sunday -> stringResource(id = R.string.timetable_detail_sunday)
+        }
+    }
+
     data object Workday : TimetableDetailScreenDay()
     data object Saturday : TimetableDetailScreenDay()
     data object Sunday : TimetableDetailScreenDay()
