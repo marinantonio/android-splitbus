@@ -17,8 +17,8 @@ android {
         applicationId = "com.am.stbus"
         minSdk = 23
         targetSdk = 36
-        versionCode = 85
-        versionName = "4.1.0"
+        versionCode = 86
+        versionName = "4.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -20,8 +20,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -32,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.am.stbus.R
@@ -61,7 +60,8 @@ class MainActivity : ComponentActivity() {
 
             SplitBusTheme {
 
-                val backStack = remember { mutableStateListOf<Any>(HomeScreenKey) }
+                // Recommended: use rememberNavBackStack for persistent state
+                val backStack = rememberNavBackStack(HomeScreenKey)
 
                 val bottomBarVisible = TOP_LEVEL_ROUTES.map { it.navKey }.contains(backStack.last())
 
@@ -88,6 +88,7 @@ class MainActivity : ComponentActivity() {
                                             selected = isSelected,
                                             onClick = {
                                                 backStack.add(topLevelRoute.navKey)
+                                                // Keep only the home screen and the current selection
                                                 if (backStack.size > 2) {
                                                     backStack.removeAt(1)
                                                 }
@@ -162,7 +163,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                     },
                                     onBackClicked = {
-                                        backStack.removeAt(backStack.lastIndex)
+                                        backStack.removeLastOrNull()
                                     }
                                 )
                             }
@@ -185,7 +186,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                     },
                                     onBackClicked = {
-                                        backStack.removeAt(backStack.lastIndex)
+                                        backStack.removeLastOrNull()
                                     }
                                 )
                             }
@@ -201,12 +202,12 @@ class MainActivity : ComponentActivity() {
                             }
                             entry<InfoGmapsScreenKey> {
                                 GmapsScreen {
-                                    backStack.removeAt(backStack.lastIndex)
+                                    backStack.removeLastOrNull()
                                 }
                             }
                             entry<InfoPrometWebScreenKey> {
                                 PrometWebScreen {
-                                    backStack.removeAt(backStack.lastIndex)
+                                    backStack.removeLastOrNull()
                                 }
                             }
 
@@ -266,11 +267,10 @@ data object TimetablesListScreenKey : NavKey
 data object InfoScreenKey : NavKey
 
 @Serializable
-data object InfoGmapsScreenKey : NavKey {
-}
+data object InfoGmapsScreenKey : NavKey
 
-data object InfoPrometWebScreenKey : NavKey {
-}
+@Serializable
+data object InfoPrometWebScreenKey : NavKey
 
 
 @Serializable

@@ -60,8 +60,6 @@ class TimetablesDetailViewModel(
                     )
                 }
             }.onFailure {
-                Timber.wtf("onFailure $websiteTitle $it")
-                Timber.wtf(it)
                 geRemoteTimetableData(websiteTitle, false)
             }
         }
@@ -86,7 +84,6 @@ class TimetablesDetailViewModel(
             }.onFailure {
                 Timber.wtf("onFailure $websiteTitle $it")
                 Timber.wtf(it)
-                //timetableData = null
                 fullScreenLoading = false
                 pullToRefreshLoading = false
             }

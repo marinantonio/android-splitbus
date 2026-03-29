@@ -33,3 +33,13 @@
 -keep public class * extends java.lang.Exception  # Optional: Keep custom exceptions.
 
 -dontwarn org.slf4j.impl.StaticLoggerBinder
+
+# Keep SignalR data models to prevent obfuscation of field names
+-keep class com.am.stbus.domain.usecases.gmaps.VehicleData { *; }
+-keep class com.am.stbus.data.models.LiveVehicle { *; }
+
+# If you use other models for API responses, keep them as well
+-keep class com.am.stbus.data.models.** { *; }
+
+# SignalR requires some reflection
+-keep class com.microsoft.signalr.** { *; }
